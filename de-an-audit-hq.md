@@ -2,7 +2,7 @@
 
 **Hệ thống hỗ trợ quản lý rủi ro và phát hiện sai phạm trong Báo cáo Quyết toán Hải quan (BCQT) và Tờ khai Xuất Nhập khẩu (TKXNK)**
 
-> **Bản dự thảo lần 3** — 2026-05-13
+> **Bản dự thảo lần 4** — 2026-05-13
 > Tài liệu sẽ trải qua nhiều vòng rà soát, tổng hợp ý kiến từ phía Hải quan. Mọi nội dung dưới đây là đề xuất sơ bộ.
 >
 > Soạn thảo: Tinsu AI × Trọng Tín
@@ -349,42 +349,56 @@ Mọi quyết định cuối cùng vẫn do cán bộ Hải quan đưa ra. AI ch
 
 ## 7. Lộ trình triển khai
 
-### 7.1 Giai đoạn 1 — Thử nghiệm và trình diễn (đề xuất 4-6 tuần)
+Toàn bộ giai đoạn xây dựng và trình diễn gói gọn trong **2 tháng** (8 tuần) tính từ khi cơ quan Hải quan phê duyệt nguyên tắc đề án.
+
+### 7.1 Tuần 1-2 — Khởi tạo và nền tảng dữ liệu
 
 | Tuần | Mục tiêu | Kết quả |
 |---|---|---|
-| 1 | Khởi tạo dự án + kiến trúc nền | Bộ khung chạy được, tái sử dụng bộ đọc và cấu hình từ BCQT-System |
-| 2 | Bộ đọc Excel (Mẫu 15/15a/16 + BCCT) + Tầng dữ liệu 0-1 | Nạp được 1 doanh nghiệp, truy vấn được |
-| 3 | Cài 8-10 kiểm tra đầu tiên (Nhóm 1, 2) | Phát hiện hiện trên màn hình, có chứng cứ truy nguồn |
-| 4 | Hoàn thành 15 kiểm tra cho trình diễn + tính điểm rủi ro | Bảng tổng quan + xếp hạng |
-| 5 | Dữ liệu giả lập 5 DN × 3-4 năm + ẩn danh | Dữ liệu trình diễn hoàn chỉnh |
-| 6 | Hoàn thiện giao diện + tổng duyệt trình diễn + đóng gói | Sẵn sàng giới thiệu |
+| 1 | Khởi tạo dự án, dựng kiến trúc nền, tái sử dụng mô-đun từ BCQT-System | Bộ khung chạy được trên môi trường nội bộ |
+| 2 | Bộ đọc Excel (Mẫu 15/15a/16 + BCCT) + Tầng dữ liệu 0-1 | Nạp được 1 doanh nghiệp, truy vấn được theo mã, theo kỳ |
 
-### 7.2 Giai đoạn 2 — Triển khai thí điểm tại Chi cục (đề xuất 3-6 tháng sau khi cơ quan Hải quan phê duyệt giai đoạn 1)
+### 7.2 Tuần 3-4 — Cài đặt 15 kiểm tra cho trình diễn
 
-- Triển khai tại **Chi Cục Hải Quan Khu vực IV**.
-- Nạp dữ liệu doanh nghiệp trong phạm vi quản lý (dữ liệu thực, không giả lập).
-- Cán bộ Hải quan dùng thực tế, phản hồi để cải tiến.
-- Cài thêm 13 kiểm tra còn lại (đang chờ).
-- Bắt đầu gom dữ liệu để so sánh giữa các doanh nghiệp (Nhóm 7) khi đã có ≥30 doanh nghiệp.
+| Tuần | Mục tiêu | Kết quả |
+|---|---|---|
+| 3 | Nhóm 1 (số lượng nhập/xuất) + Nhóm 2 (cân bằng) — 8 kiểm tra đầu | Phát hiện hiện trên màn hình, có chứng cứ truy nguồn về dòng dữ liệu gốc |
+| 4 | Nhóm 3, 4, 5, 6 — 7 kiểm tra còn lại + thuật toán tính điểm rủi ro | Đủ 15 kiểm tra cho trình diễn |
 
-### 7.3 Giai đoạn 3 — Vận hành chính thức (đề xuất 12 tháng trở lên)
+### 7.3 Tuần 5-6 — Dữ liệu trình diễn và giao diện
 
-- Mở rộng nhiều Chi cục.
-- Tích hợp trực tiếp với cơ sở dữ liệu VNACCS (không qua Excel xuất ra nữa).
-- Cổng cho doanh nghiệp nộp trực tiếp dữ liệu có cấu trúc.
-- Hoàn thiện Nhóm 7 (so sánh giữa các doanh nghiệp).
-- Bổ sung học máy hỗ trợ phát hiện (sau khi có >3 năm dữ liệu vận hành).
+| Tuần | Mục tiêu | Kết quả |
+|---|---|---|
+| 5 | Dữ liệu giả lập 5 doanh nghiệp × 3-4 năm + ẩn danh | Dữ liệu trình diễn hoàn chỉnh, mô phỏng đủ 4 kiểu sai phạm chính |
+| 6 | Bảng tổng quan + trang chi tiết doanh nghiệp + xuất Excel kiến nghị kiểm tra | Toàn bộ luồng trình diễn 5 phút chạy được |
 
-### 7.4 Vai trò các bên
+### 7.4 Tuần 7-8 — Tổng duyệt và bàn giao
 
-| Bên | Giai đoạn 1 (Thử nghiệm) | Giai đoạn 2 (Thí điểm) | Giai đoạn 3 (Chính thức) |
-|---|---|---|---|
-| Tinsu AI | Xây dựng hệ thống, dữ liệu giả lập | Bảo trì, nghiên cứu kiểm tra mới | Vận hành, mở rộng |
-| Trọng Tín | Cung cấp kinh nghiệm nghiệp vụ, dữ liệu nền đã ẩn danh | Đào tạo cán bộ, đầu mối nghiệp vụ | Tư vấn |
-| Cơ quan Hải quan | Đơn vị đặt vấn đề, phản hồi thiết kế | Cán bộ dùng thử, cung cấp dữ liệu Chi cục | Khách hàng chính thức |
+| Tuần | Mục tiêu | Kết quả |
+|---|---|---|
+| 7 | Tổng duyệt nội bộ Tinsu × Trọng Tín, sửa lỗi, hoàn thiện tài liệu hướng dẫn | Hệ thống sẵn sàng trình diễn |
+| 8 | Trình diễn cho cơ quan Hải quan + bàn giao hồ sơ kỹ thuật + tổng hợp phản hồi | Báo cáo kết quả 2 tháng, đề xuất bước tiếp theo |
 
-> **Quan trọng:** Dữ liệu của Trọng Tín chỉ dùng để **xây dựng và trình diễn công cụ**. Khi cơ quan Hải quan vận hành chính thức, hệ thống chạy trên dữ liệu của cơ quan Hải quan. Trọng Tín không chuyển dữ liệu khách hàng sang cơ quan Hải quan ngoài bối cảnh doanh nghiệp tự nộp BCQT.
+### 7.5 Vai trò các bên trong 2 tháng
+
+| Bên | Vai trò chính |
+|---|---|
+| Tinsu AI | Xây dựng hệ thống, dữ liệu giả lập, tổng duyệt kỹ thuật |
+| Trọng Tín | Cung cấp kinh nghiệm nghiệp vụ, dữ liệu nền đã ẩn danh, tổng duyệt nghiệp vụ |
+| Cơ quan Hải quan | Phê duyệt nguyên tắc, định hướng nghiệp vụ, tiếp nhận trình diễn |
+
+### 7.6 Định hướng sau 2 tháng
+
+Sau khi trình diễn và nhận phản hồi, tuỳ quyết định của cơ quan Hải quan, các bước tiếp theo có thể bao gồm:
+
+- **Triển khai thí điểm** tại Chi Cục Hải Quan Khu vực IV với dữ liệu doanh nghiệp thực tế, cài tiếp 13 kiểm tra còn lại.
+- **Gom dữ liệu so sánh giữa các doanh nghiệp** (Nhóm 7) khi đã có đủ doanh nghiệp trong danh mục.
+- **Tích hợp trực tiếp với VNACCS** thay vì nạp qua tệp Excel xuất ra.
+- **Mở rộng sang nhiều Chi cục**.
+
+Các bước này không nằm trong cam kết 2 tháng vì phụ thuộc quyết định của cơ quan Hải quan sau khi xem trình diễn.
+
+> **Quan trọng:** Dữ liệu của Trọng Tín chỉ dùng để **xây dựng và trình diễn công cụ**. Khi cơ quan Hải quan vận hành thực tế, hệ thống chạy trên dữ liệu của cơ quan Hải quan. Trọng Tín không chuyển dữ liệu khách hàng sang cơ quan Hải quan ngoài bối cảnh doanh nghiệp tự nộp BCQT.
 
 ---
 
@@ -463,7 +477,8 @@ Mọi quyết định cuối cùng vẫn do cán bộ Hải quan đưa ra. AI ch
 | Bản nháp 1 | 2026-05-13 | Tinsu AI | Bản đầu — chờ vòng phản hồi đầu tiên |
 | Bản nháp 2 | 2026-05-13 | Tinsu AI | Tổng hợp với danh sách 28 kiểm tra từ BCQT showcase; cụ thể hoá đơn vị tiếp nhận (Chi Cục Hải Quan Khu vực IV); làm rõ Excel BCQT có định dạng chuẩn; tổng quát hoá tham chiếu cơ quan Hải quan |
 | Bản nháp 3 | 2026-05-13 | Tinsu AI | Việt hoá toàn bộ thuật ngữ kỹ thuật; loại bỏ tiếng Anh trộn lẫn để phù hợp với cán bộ Hải quan |
+| Bản nháp 4 | 2026-05-13 | Tinsu AI | Bỏ tham chiếu trường hợp Johnson trong C3.3, §6.3, §9.2; xưng hô "cơ quan Hải quan" thay cho "Hải quan" trống không; nén lộ trình triển khai về **2 tháng / 8 tuần**, gộp giai đoạn 2-3 thành "Định hướng sau 2 tháng" |
 
 ---
 
-> **Đây là bản dự thảo lần 3.** Mọi nội dung là đề xuất sơ bộ và sẽ được điều chỉnh theo phản hồi của cơ quan Hải quan qua các vòng tổng hợp tiếp theo.
+> **Đây là bản dự thảo lần 4.** Mọi nội dung là đề xuất sơ bộ và sẽ được điều chỉnh theo phản hồi của cơ quan Hải quan qua các vòng tổng hợp tiếp theo.

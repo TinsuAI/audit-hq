@@ -233,15 +233,17 @@ phút</a></li>
 <li><a href="#lộ-trình-triển-khai" id="toc-lộ-trình-triển-khai">7. Lộ
 trình triển khai</a>
 <ul>
-<li><a href="#giai-đoạn-1-thử-nghiệm-và-trình-diễn-đề-xuất-4-6-tuần" id="toc-giai-đoạn-1-thử-nghiệm-và-trình-diễn-đề-xuất-4-6-tuần">7.1 Giai
-đoạn 1 — Thử nghiệm và trình diễn (đề xuất 4-6 tuần)</a></li>
-<li><a href="#giai-đoạn-2-triển-khai-thí-điểm-tại-chi-cục-đề-xuất-3-6-tháng-sau-khi-cơ-quan-hải-quan-phê-duyệt-giai-đoạn-1" id="toc-giai-đoạn-2-triển-khai-thí-điểm-tại-chi-cục-đề-xuất-3-6-tháng-sau-khi-cơ-quan-hải-quan-phê-duyệt-giai-đoạn-1">7.2
-Giai đoạn 2 — Triển khai thí điểm tại Chi cục (đề xuất 3-6 tháng sau khi
-cơ quan Hải quan phê duyệt giai đoạn 1)</a></li>
-<li><a href="#giai-đoạn-3-vận-hành-chính-thức-đề-xuất-12-tháng-trở-lên" id="toc-giai-đoạn-3-vận-hành-chính-thức-đề-xuất-12-tháng-trở-lên">7.3
-Giai đoạn 3 — Vận hành chính thức (đề xuất 12 tháng trở lên)</a></li>
-<li><a href="#vai-trò-các-bên" id="toc-vai-trò-các-bên">7.4 Vai trò các
-bên</a></li>
+<li><a href="#tuần-1-2-khởi-tạo-và-nền-tảng-dữ-liệu" id="toc-tuần-1-2-khởi-tạo-và-nền-tảng-dữ-liệu">7.1 Tuần 1-2 — Khởi tạo
+và nền tảng dữ liệu</a></li>
+<li><a href="#tuần-3-4-cài-đặt-15-kiểm-tra-cho-trình-diễn" id="toc-tuần-3-4-cài-đặt-15-kiểm-tra-cho-trình-diễn">7.2 Tuần 3-4 — Cài
+đặt 15 kiểm tra cho trình diễn</a></li>
+<li><a href="#tuần-5-6-dữ-liệu-trình-diễn-và-giao-diện" id="toc-tuần-5-6-dữ-liệu-trình-diễn-và-giao-diện">7.3 Tuần 5-6 — Dữ liệu
+trình diễn và giao diện</a></li>
+<li><a href="#tuần-7-8-tổng-duyệt-và-bàn-giao" id="toc-tuần-7-8-tổng-duyệt-và-bàn-giao">7.4 Tuần 7-8 — Tổng duyệt và
+bàn giao</a></li>
+<li><a href="#vai-trò-các-bên-trong-2-tháng" id="toc-vai-trò-các-bên-trong-2-tháng">7.5 Vai trò các bên trong 2
+tháng</a></li>
+<li><a href="#định-hướng-sau-2-tháng" id="toc-định-hướng-sau-2-tháng">7.6 Định hướng sau 2 tháng</a></li>
 </ul></li>
 <li><a href="#câu-hỏi-mở-cho-phía-hải-quan" id="toc-câu-hỏi-mở-cho-phía-hải-quan">8. Câu hỏi mở cho phía Hải
 quan</a>
@@ -267,7 +269,7 @@ Giải thích thuật ngữ</a></li>
 Báo cáo Quyết toán Hải quan (BCQT) và Tờ khai Xuất Nhập khẩu
 (TKXNK)</strong></p>
 <blockquote>
-<p><strong>Bản dự thảo lần 3</strong> — 2026-05-13 Tài liệu sẽ trải qua
+<p><strong>Bản dự thảo lần 4</strong> — 2026-05-13 Tài liệu sẽ trải qua
 nhiều vòng rà soát, tổng hợp ý kiến từ phía Hải quan. Mọi nội dung dưới
 đây là đề xuất sơ bộ.</p>
 <p>Soạn thảo: Tinsu AI × Trọng Tín <strong>Đơn vị tiếp nhận:</strong>
@@ -1273,8 +1275,11 @@ số</td>
 5:00 — Kết thúc.</code></pre>
 <hr />
 <h2 id="lộ-trình-triển-khai">7. Lộ trình triển khai</h2>
-<h3 id="giai-đoạn-1-thử-nghiệm-và-trình-diễn-đề-xuất-4-6-tuần">7.1 Giai
-đoạn 1 — Thử nghiệm và trình diễn (đề xuất 4-6 tuần)</h3>
+<p>Toàn bộ giai đoạn xây dựng và trình diễn gói gọn trong <strong>2
+tháng</strong> (8 tuần) tính từ khi cơ quan Hải quan phê duyệt nguyên
+tắc đề án.</p>
+<h3 id="tuần-1-2-khởi-tạo-và-nền-tảng-dữ-liệu">7.1 Tuần 1-2 — Khởi tạo
+và nền tảng dữ liệu</h3>
 <table>
 <colgroup>
 <col style="width: 33%" />
@@ -1291,103 +1296,158 @@ số</td>
 <tbody>
 <tr class="odd">
 <td>1</td>
-<td>Khởi tạo dự án + kiến trúc nền</td>
-<td>Bộ khung chạy được, tái sử dụng bộ đọc và cấu hình từ
+<td>Khởi tạo dự án, dựng kiến trúc nền, tái sử dụng mô-đun từ
 BCQT-System</td>
+<td>Bộ khung chạy được trên môi trường nội bộ</td>
 </tr>
 <tr class="even">
 <td>2</td>
 <td>Bộ đọc Excel (Mẫu 15/15a/16 + BCCT) + Tầng dữ liệu 0-1</td>
-<td>Nạp được 1 doanh nghiệp, truy vấn được</td>
-</tr>
-<tr class="odd">
-<td>3</td>
-<td>Cài 8-10 kiểm tra đầu tiên (Nhóm 1, 2)</td>
-<td>Phát hiện hiện trên màn hình, có chứng cứ truy nguồn</td>
-</tr>
-<tr class="even">
-<td>4</td>
-<td>Hoàn thành 15 kiểm tra cho trình diễn + tính điểm rủi ro</td>
-<td>Bảng tổng quan + xếp hạng</td>
-</tr>
-<tr class="odd">
-<td>5</td>
-<td>Dữ liệu giả lập 5 DN × 3-4 năm + ẩn danh</td>
-<td>Dữ liệu trình diễn hoàn chỉnh</td>
-</tr>
-<tr class="even">
-<td>6</td>
-<td>Hoàn thiện giao diện + tổng duyệt trình diễn + đóng gói</td>
-<td>Sẵn sàng giới thiệu</td>
+<td>Nạp được 1 doanh nghiệp, truy vấn được theo mã, theo kỳ</td>
 </tr>
 </tbody>
 </table>
-<h3 id="giai-đoạn-2-triển-khai-thí-điểm-tại-chi-cục-đề-xuất-3-6-tháng-sau-khi-cơ-quan-hải-quan-phê-duyệt-giai-đoạn-1">7.2
-Giai đoạn 2 — Triển khai thí điểm tại Chi cục (đề xuất 3-6 tháng sau khi
-cơ quan Hải quan phê duyệt giai đoạn 1)</h3>
-<ul>
-<li>Triển khai tại <strong>Chi Cục Hải Quan Khu vực IV</strong>.</li>
-<li>Nạp dữ liệu doanh nghiệp trong phạm vi quản lý (dữ liệu thực, không
-giả lập).</li>
-<li>Cán bộ Hải quan dùng thực tế, phản hồi để cải tiến.</li>
-<li>Cài thêm 13 kiểm tra còn lại (đang chờ).</li>
-<li>Bắt đầu gom dữ liệu để so sánh giữa các doanh nghiệp (Nhóm 7) khi đã
-có ≥30 doanh nghiệp.</li>
-</ul>
-<h3 id="giai-đoạn-3-vận-hành-chính-thức-đề-xuất-12-tháng-trở-lên">7.3
-Giai đoạn 3 — Vận hành chính thức (đề xuất 12 tháng trở lên)</h3>
-<ul>
-<li>Mở rộng nhiều Chi cục.</li>
-<li>Tích hợp trực tiếp với cơ sở dữ liệu VNACCS (không qua Excel xuất ra
-nữa).</li>
-<li>Cổng cho doanh nghiệp nộp trực tiếp dữ liệu có cấu trúc.</li>
-<li>Hoàn thiện Nhóm 7 (so sánh giữa các doanh nghiệp).</li>
-<li>Bổ sung học máy hỗ trợ phát hiện (sau khi có &gt;3 năm dữ liệu vận
-hành).</li>
-</ul>
-<h3 id="vai-trò-các-bên">7.4 Vai trò các bên</h3>
+<h3 id="tuần-3-4-cài-đặt-15-kiểm-tra-cho-trình-diễn">7.2 Tuần 3-4 — Cài
+đặt 15 kiểm tra cho trình diễn</h3>
 <table>
 <colgroup>
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Tuần</th>
+<th>Mục tiêu</th>
+<th>Kết quả</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>3</td>
+<td>Nhóm 1 (số lượng nhập/xuất) + Nhóm 2 (cân bằng) — 8 kiểm tra
+đầu</td>
+<td>Phát hiện hiện trên màn hình, có chứng cứ truy nguồn về dòng dữ liệu
+gốc</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>Nhóm 3, 4, 5, 6 — 7 kiểm tra còn lại + thuật toán tính điểm rủi
+ro</td>
+<td>Đủ 15 kiểm tra cho trình diễn</td>
+</tr>
+</tbody>
+</table>
+<h3 id="tuần-5-6-dữ-liệu-trình-diễn-và-giao-diện">7.3 Tuần 5-6 — Dữ liệu
+trình diễn và giao diện</h3>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Tuần</th>
+<th>Mục tiêu</th>
+<th>Kết quả</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>5</td>
+<td>Dữ liệu giả lập 5 doanh nghiệp × 3-4 năm + ẩn danh</td>
+<td>Dữ liệu trình diễn hoàn chỉnh, mô phỏng đủ 4 kiểu sai phạm
+chính</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>Bảng tổng quan + trang chi tiết doanh nghiệp + xuất Excel kiến nghị
+kiểm tra</td>
+<td>Toàn bộ luồng trình diễn 5 phút chạy được</td>
+</tr>
+</tbody>
+</table>
+<h3 id="tuần-7-8-tổng-duyệt-và-bàn-giao">7.4 Tuần 7-8 — Tổng duyệt và
+bàn giao</h3>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Tuần</th>
+<th>Mục tiêu</th>
+<th>Kết quả</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>7</td>
+<td>Tổng duyệt nội bộ Tinsu × Trọng Tín, sửa lỗi, hoàn thiện tài liệu
+hướng dẫn</td>
+<td>Hệ thống sẵn sàng trình diễn</td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>Trình diễn cho cơ quan Hải quan + bàn giao hồ sơ kỹ thuật + tổng hợp
+phản hồi</td>
+<td>Báo cáo kết quả 2 tháng, đề xuất bước tiếp theo</td>
+</tr>
+</tbody>
+</table>
+<h3 id="vai-trò-các-bên-trong-2-tháng">7.5 Vai trò các bên trong 2
+tháng</h3>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
 </colgroup>
 <thead>
 <tr class="header">
 <th>Bên</th>
-<th>Giai đoạn 1 (Thử nghiệm)</th>
-<th>Giai đoạn 2 (Thí điểm)</th>
-<th>Giai đoạn 3 (Chính thức)</th>
+<th>Vai trò chính</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td>Tinsu AI</td>
-<td>Xây dựng hệ thống, dữ liệu giả lập</td>
-<td>Bảo trì, nghiên cứu kiểm tra mới</td>
-<td>Vận hành, mở rộng</td>
+<td>Xây dựng hệ thống, dữ liệu giả lập, tổng duyệt kỹ thuật</td>
 </tr>
 <tr class="even">
 <td>Trọng Tín</td>
-<td>Cung cấp kinh nghiệm nghiệp vụ, dữ liệu nền đã ẩn danh</td>
-<td>Đào tạo cán bộ, đầu mối nghiệp vụ</td>
-<td>Tư vấn</td>
+<td>Cung cấp kinh nghiệm nghiệp vụ, dữ liệu nền đã ẩn danh, tổng duyệt
+nghiệp vụ</td>
 </tr>
 <tr class="odd">
 <td>Cơ quan Hải quan</td>
-<td>Đơn vị đặt vấn đề, phản hồi thiết kế</td>
-<td>Cán bộ dùng thử, cung cấp dữ liệu Chi cục</td>
-<td>Khách hàng chính thức</td>
+<td>Phê duyệt nguyên tắc, định hướng nghiệp vụ, tiếp nhận trình
+diễn</td>
 </tr>
 </tbody>
 </table>
+<h3 id="định-hướng-sau-2-tháng">7.6 Định hướng sau 2 tháng</h3>
+<p>Sau khi trình diễn và nhận phản hồi, tuỳ quyết định của cơ quan Hải
+quan, các bước tiếp theo có thể bao gồm:</p>
+<ul>
+<li><strong>Triển khai thí điểm</strong> tại Chi Cục Hải Quan Khu vực IV
+với dữ liệu doanh nghiệp thực tế, cài tiếp 13 kiểm tra còn lại.</li>
+<li><strong>Gom dữ liệu so sánh giữa các doanh nghiệp</strong> (Nhóm 7)
+khi đã có đủ doanh nghiệp trong danh mục.</li>
+<li><strong>Tích hợp trực tiếp với VNACCS</strong> thay vì nạp qua tệp
+Excel xuất ra.</li>
+<li><strong>Mở rộng sang nhiều Chi cục</strong>.</li>
+</ul>
+<p>Các bước này không nằm trong cam kết 2 tháng vì phụ thuộc quyết định
+của cơ quan Hải quan sau khi xem trình diễn.</p>
 <blockquote>
 <p><strong>Quan trọng:</strong> Dữ liệu của Trọng Tín chỉ dùng để
 <strong>xây dựng và trình diễn công cụ</strong>. Khi cơ quan Hải quan
-vận hành chính thức, hệ thống chạy trên dữ liệu của cơ quan Hải quan.
-Trọng Tín không chuyển dữ liệu khách hàng sang cơ quan Hải quan ngoài
-bối cảnh doanh nghiệp tự nộp BCQT.</p>
+vận hành thực tế, hệ thống chạy trên dữ liệu của cơ quan Hải quan. Trọng
+Tín không chuyển dữ liệu khách hàng sang cơ quan Hải quan ngoài bối cảnh
+doanh nghiệp tự nộp BCQT.</p>
 </blockquote>
 <hr />
 <h2 id="câu-hỏi-mở-cho-phía-hải-quan">8. Câu hỏi mở cho phía Hải
@@ -1582,11 +1642,20 @@ dạng chuẩn; tổng quát hoá tham chiếu cơ quan Hải quan</td>
 <td>Việt hoá toàn bộ thuật ngữ kỹ thuật; loại bỏ tiếng Anh trộn lẫn để
 phù hợp với cán bộ Hải quan</td>
 </tr>
+<tr class="even">
+<td>Bản nháp 4</td>
+<td>2026-05-13</td>
+<td>Tinsu AI</td>
+<td>Bỏ tham chiếu trường hợp Johnson trong C3.3, §6.3, §9.2; xưng hô “cơ
+quan Hải quan” thay cho “Hải quan” trống không; nén lộ trình triển khai
+về <strong>2 tháng / 8 tuần</strong>, gộp giai đoạn 2-3 thành “Định
+hướng sau 2 tháng”</td>
+</tr>
 </tbody>
 </table>
 <hr />
 <blockquote>
-<p><strong>Đây là bản dự thảo lần 3.</strong> Mọi nội dung là đề xuất sơ
+<p><strong>Đây là bản dự thảo lần 4.</strong> Mọi nội dung là đề xuất sơ
 bộ và sẽ được điều chỉnh theo phản hồi của cơ quan Hải quan qua các vòng
 tổng hợp tiếp theo.</p>
 </blockquote>
