@@ -176,8 +176,7 @@ phải compliance-based</a></li>
 black-box</a></li>
 <li><a href="#catalog-mở-rộng-được" id="toc-catalog-mở-rộng-được">2.3
 Catalog mở rộng được</a></li>
-<li><a href="#adapter-cho-data-heterogeneity" id="toc-adapter-cho-data-heterogeneity">2.4 Adapter cho data
-heterogeneity</a></li>
+<li><a href="#ngưỡng-có-thể-điều-chỉnh" id="toc-ngưỡng-có-thể-điều-chỉnh">2.4 Ngưỡng có thể điều chỉnh</a></li>
 <li><a href="#defensible-với-rủi-ro-pháp-lý" id="toc-defensible-với-rủi-ro-pháp-lý">2.5 Defensible với rủi ro pháp
 lý</a></li>
 </ul></li>
@@ -188,20 +187,26 @@ lý</a></li>
 <li><a href="#phạm-vi-xử-lý" id="toc-phạm-vi-xử-lý">3.3 Phạm vi xử
 lý</a></li>
 </ul></li>
-<li><a href="#catalog-phát-hiện-sai-phạm-36-categories" id="toc-catalog-phát-hiện-sai-phạm-36-categories">4. Catalog phát hiện
-sai phạm (36 categories)</a>
+<li><a href="#catalog-các-kiểm-tra" id="toc-catalog-các-kiểm-tra">4.
+Catalog các kiểm tra</a>
 <ul>
-<li><a href="#tier-a-kiểm-tra-số-học-nội-bộ-mẫu-single-year-single-dn" id="toc-tier-a-kiểm-tra-số-học-nội-bộ-mẫu-single-year-single-dn">Tier A
-— Kiểm tra số học nội bộ Mẫu (single-year, single-DN)</a></li>
-<li><a href="#tier-b-đối-chiếu-chéo-nguồn-bcct-mẫu-single-year" id="toc-tier-b-đối-chiếu-chéo-nguồn-bcct-mẫu-single-year">Tier B — Đối
-chiếu chéo nguồn (BCCT ↔︎ Mẫu), single-year</a></li>
-<li><a href="#tier-c-cross-form-mẫu-15-15a-16-single-year" id="toc-tier-c-cross-form-mẫu-15-15a-16-single-year">Tier C — Cross-form
-(Mẫu 15 ↔︎ 15a ↔︎ 16), single-year</a></li>
-<li><a href="#tier-d-anomaly-patterns-nội-tại-single-year" id="toc-tier-d-anomaly-patterns-nội-tại-single-year">Tier D — Anomaly
-patterns nội tại, single-year</a></li>
-<li><a href="#tier-e-multi-year-per-dn" id="toc-tier-e-multi-year-per-dn">Tier E — Multi-year per DN</a></li>
-<li><a href="#tier-f-cross-dn-peer-phase-2-cần-data-hq-portfolio" id="toc-tier-f-cross-dn-peer-phase-2-cần-data-hq-portfolio">Tier F —
-Cross-DN peer (Phase 2 — cần data HQ portfolio)</a></li>
+<li><a href="#loại-hình-tờ-khai-theo-loại-hình-doanh-nghiệp" id="toc-loại-hình-tờ-khai-theo-loại-hình-doanh-nghiệp">4.0 Loại hình tờ
+khai theo loại hình doanh nghiệp</a></li>
+<li><a href="#nhóm-1-số-lượng-nhậpxuất-6-checks" id="toc-nhóm-1-số-lượng-nhậpxuất-6-checks">Nhóm 1 — Số lượng nhập/xuất
+(6 checks)</a></li>
+<li><a href="#nhóm-2-cân-bằng-và-tồn-kho-5-checks" id="toc-nhóm-2-cân-bằng-và-tồn-kho-5-checks">Nhóm 2 — Cân bằng và tồn
+kho (5 checks)</a></li>
+<li><a href="#nhóm-3-phân-loại-hàng-hoá-3-checks" id="toc-nhóm-3-phân-loại-hàng-hoá-3-checks">Nhóm 3 — Phân loại hàng hoá
+(3 checks)</a></li>
+<li><a href="#nhóm-4-định-mức-m16-6-checks" id="toc-nhóm-4-định-mức-m16-6-checks">Nhóm 4 — Định mức M16 (6
+checks)</a></li>
+<li><a href="#nhóm-5-truy-nguồn-nvl-nhập-khẩu-3-checks" id="toc-nhóm-5-truy-nguồn-nvl-nhập-khẩu-3-checks">Nhóm 5 — Truy nguồn
+NVL nhập khẩu (3 checks)</a></li>
+<li><a href="#nhóm-6-kiểm-tra-liên-kỳ-5-checks" id="toc-nhóm-6-kiểm-tra-liên-kỳ-5-checks">Nhóm 6 — Kiểm tra liên kỳ (5
+checks)</a></li>
+<li><a href="#nhóm-7-cross-dn-benchmarking-phase-2-cần-dữ-liệu-hq-portfolio" id="toc-nhóm-7-cross-dn-benchmarking-phase-2-cần-dữ-liệu-hq-portfolio">Nhóm
+7 — Cross-DN benchmarking (Phase 2 — cần dữ liệu HQ portfolio)</a></li>
+<li><a href="#tổng-hợp" id="toc-tổng-hợp">4.7 Tổng hợp</a></li>
 </ul></li>
 <li><a href="#kiến-trúc-hệ-thống-sơ-bộ" id="toc-kiến-trúc-hệ-thống-sơ-bộ">5. Kiến trúc hệ thống (sơ bộ)</a>
 <ul>
@@ -227,8 +232,8 @@ trình triển khai</a>
 <ul>
 <li><a href="#phase-1-poc-demo-timeframe-đề-xuất-4-6-tuần" id="toc-phase-1-poc-demo-timeframe-đề-xuất-4-6-tuần">7.1 Phase 1 — POC
 Demo (timeframe đề xuất: 4-6 tuần)</a></li>
-<li><a href="#phase-2-pilot-tại-1-cục-timeframe-đề-xuất-3-6-tháng-sau-poc-approve" id="toc-phase-2-pilot-tại-1-cục-timeframe-đề-xuất-3-6-tháng-sau-poc-approve">7.2
-Phase 2 — Pilot tại 1 Cục (timeframe đề xuất: 3-6 tháng sau POC
+<li><a href="#phase-2-pilot-tại-chi-cục-timeframe-đề-xuất-3-6-tháng-sau-poc-approve" id="toc-phase-2-pilot-tại-chi-cục-timeframe-đề-xuất-3-6-tháng-sau-poc-approve">7.2
+Phase 2 — Pilot tại Chi cục (timeframe đề xuất: 3-6 tháng sau POC
 approve)</a></li>
 <li><a href="#phase-3-production-timeframe-đề-xuất-12-tháng" id="toc-phase-3-production-timeframe-đề-xuất-12-tháng">7.3 Phase 3 —
 Production (timeframe đề xuất: 12+ tháng)</a></li>
@@ -260,38 +265,38 @@ pháp lý &amp; ranh giới</a></li>
 Báo cáo Quyết toán Hải quan (BCQT) và Tờ khai Xuất Nhập khẩu
 (TKXNK)</strong></p>
 <blockquote>
-<p><strong>Bản DRAFT v0.1</strong> — 2026-05-13 Tài liệu này sẽ trải qua
-nhiều vòng synthesize với feedback và input từ phía Hải quan. Mọi nội
-dung dưới đây là đề xuất sơ bộ, không phải cam kết cuối cùng.</p>
-<p>Soạn bởi: Tinsu AI × Trọng Tín Đối tượng tiếp nhận: Phòng/Cục Quản lý
-Rủi ro — Tổng cục Hải quan / Cục Hải quan</p>
+<p><strong>Bản DRAFT v0.2</strong> — 2026-05-13 Tài liệu sẽ trải qua
+nhiều vòng synthesize với feedback và input từ Hải quan. Mọi nội dung
+dưới đây là đề xuất sơ bộ, không phải cam kết cuối cùng.</p>
+<p>Soạn bởi: Tinsu AI × Trọng Tín <strong>Đơn vị tiếp nhận:</strong> Chi
+Cục Hải Quan Khu vực IV</p>
 </blockquote>
 <hr />
 <h2 id="tổng-quan">1. Tổng quan</h2>
 <h3 id="bối-cảnh">1.1 Bối cảnh</h3>
-<p>Mỗi năm, các Doanh nghiệp chế xuất (DNCX) và Doanh nghiệp sản xuất
-xuất khẩu (DNSXXK) nộp lên Hải quan các bộ báo cáo quyết toán nguyên vật
-liệu — sản phẩm — định mức (Mẫu 15/BCQT-NVL, Mẫu 15a/BCQT-SP, Mẫu
-16/ĐMTT theo TT 39/2018) cùng với toàn bộ lịch sử Tờ khai Xuất Nhập khẩu
-trong kỳ. Khối lượng dữ liệu rất lớn (mỗi DN cỡ hàng chục nghìn dòng
-TKXNK/năm, trải qua nhiều năm); việc rà soát thủ công không khả thi và
-phụ thuộc kinh nghiệm cán bộ.</p>
-<p>Hiện tại phòng Quản lý Rủi ro (QLRR) lựa chọn DN để kiểm tra sau
-thông quan chủ yếu dựa trên: - Tổng quy mô kim ngạch - Loại hình hoạt
-động (DNCX, gia công) - Kinh nghiệm/cảm tính cán bộ</p>
-<p>Cách tiếp cận này bỏ sót DN có sai phạm tinh vi nhưng quy mô vừa,
-đồng thời tốn nguồn lực kiểm tra các DN tuân thủ tốt.</p>
+<p>Mỗi năm, các doanh nghiệp chế xuất (DNCX), doanh nghiệp gia công, và
+doanh nghiệp sản xuất xuất khẩu (SXXK) nộp Hải quan bộ báo cáo quyết
+toán nguyên vật liệu — sản phẩm — định mức (Mẫu 15/BCQT-NVL, Mẫu
+15a/BCQT-SP, Mẫu 16/ĐMTT theo TT 39/2018) cùng với toàn bộ lịch sử Tờ
+khai Xuất Nhập khẩu trong kỳ. Khối lượng dữ liệu rất lớn (mỗi DN cỡ hàng
+chục nghìn dòng TKXNK/năm, trải qua nhiều năm); việc rà soát thủ công
+không khả thi và phụ thuộc kinh nghiệm cán bộ.</p>
+<p>Hiện tại Hải quan lựa chọn DN để kiểm tra sau thông quan chủ yếu dựa
+trên: - Tổng quy mô kim ngạch - Loại hình hoạt động (DNCX, gia công,
+SXXK) - Kinh nghiệm/cảm tính cán bộ</p>
+<p>Cách tiếp cận này có thể bỏ sót DN có sai phạm tinh vi nhưng quy mô
+vừa, đồng thời tốn nguồn lực kiểm tra các DN tuân thủ tốt.</p>
 <h3 id="mục-tiêu">1.2 Mục tiêu</h3>
-<p>Xây dựng hệ thống Audit-HQ giúp phòng QLRR:</p>
+<p>Xây dựng hệ thống Audit-HQ giúp Hải quan:</p>
 <ol type="1">
-<li><strong>Phát hiện sai phạm có thể</strong> từ BCQT + TKXNK đã nộp,
-bằng phân tích đa chiều (số học, đối chiếu chéo nguồn, liên năm, liên
-DN).</li>
+<li><strong>Phát hiện sai phạm khả năng</strong> từ BCQT + TKXNK đã nộp,
+bằng phân tích đa chiều (số học nội bộ Mẫu, đối chiếu chéo nguồn, định
+mức M16, truy nguồn NVL, liên năm, liên DN).</li>
 <li><strong>Xếp hạng DN theo rủi ro</strong>, cung cấp evidence trail
 truy ngược về dòng dữ liệu gốc để cán bộ có cơ sở giải trình khi đề xuất
 kiểm tra.</li>
 <li><strong>Mở rộng catalog rule-based detection</strong> theo thời gian
-khi cán bộ QLRR phát hiện pattern mới.</li>
+khi cán bộ phát hiện pattern mới qua thực tế nghiệp vụ.</li>
 </ol>
 <h3 id="đối-tượng-người-dùng">1.3 Đối tượng người dùng</h3>
 <table>
@@ -309,33 +314,29 @@ khi cán bộ QLRR phát hiện pattern mới.</li>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Analyst phòng QLRR</td>
-<td>Browse top-N DN rủi ro, drill-down findings, xuất báo cáo kiến nghị
-kiểm tra</td>
+<td>Cán bộ Hải quan</td>
+<td>Browse DN trong portfolio, drill-down findings, xuất báo cáo kiến
+nghị kiểm tra</td>
 <td>Hằng tuần — hằng quý</td>
 </tr>
 <tr class="even">
-<td>Trưởng phòng QLRR</td>
+<td>Cấp quản lý</td>
 <td>Duyệt báo cáo kiến nghị, phân công</td>
 <td>Hằng tuần</td>
 </tr>
 <tr class="odd">
-<td>Cán bộ KTSTQ <em>(Phase 2)</em></td>
+<td>Cán bộ kiểm tra sau thông quan <em>(Phase 2)</em></td>
 <td>Sử dụng evidence trail audit-hq trong quá trình kiểm tra thực
 tế</td>
 <td>Theo case</td>
 </tr>
 </tbody>
 </table>
-<blockquote>
-<p><strong>Phạm vi đề án này:</strong> Analyst phòng QLRR là người dùng
-chính. Vai trò KTSTQ là roadmap Phase 2.</p>
-</blockquote>
 <h3 id="cơ-sở-pháp-lý-tham-chiếu">1.4 Cơ sở pháp lý tham chiếu</h3>
 <ul>
 <li>Luật Hải quan 2014, Điều 16-17 (Áp dụng quản lý rủi ro)</li>
-<li>TT 38/2015/TT-BTC, sửa đổi bởi TT 39/2018/TT-BTC, hiện hành tham
-chiếu TT 121/2025/TT-BTC</li>
+<li>TT 38/2015/TT-BTC, sửa đổi bởi TT 39/2018/TT-BTC, tham chiếu TT
+121/2025/TT-BTC</li>
 <li>QĐ 1357/QĐ-TCHQ ngày 18/05/2021 (Mã loại hình XNK)</li>
 <li>Luật Quản lý Thuế 2019, Điều 99 (Bí mật thông tin người nộp
 thuế)</li>
@@ -352,22 +353,20 @@ của Luật Hải quan 2014.</p>
 black-box</h3>
 <p>Mỗi finding hệ thống đưa ra phải: - Trace về dòng dữ liệu cụ thể
 trong BCCT/Mẫu (số TK, dòng hàng, mã NPL/SP) - Nêu rõ điều khoản pháp lý
-liên quan - Cho phép cán bộ defendsible khi báo cáo cấp trên hoặc đối
+liên quan - Cho phép cán bộ defensible khi báo cáo cấp trên hoặc đối
 thoại với DN</p>
 <p>Mọi rule detection đều rule-based và deterministic. AI/LLM chỉ dùng
-cho: - Khớp tên material fuzzy (translation/normalization) - Sinh giải
-thích plain Vietnamese cho finding - Đề xuất mapping mã (gợi ý, không tự
-quyết)</p>
+cho: - Chuẩn hoá tên material fuzzy (translation/normalization) - Sinh
+giải thích plain Vietnamese cho finding - Đề xuất mapping mã (gợi ý,
+không tự quyết)</p>
 <h3 id="catalog-mở-rộng-được">2.3 Catalog mở rộng được</h3>
 <p>Mỗi loại sai phạm = 1 plugin Python “CheckSpec”. Thêm rule mới = thêm
-1 file, không sửa core. Cán bộ QLRR (qua phối hợp Tinsu) có thể đề xuất
-rule mới theo case nghiệp vụ phát hiện.</p>
-<h3 id="adapter-cho-data-heterogeneity">2.4 Adapter cho data
-heterogeneity</h3>
-<p>Mỗi DN nộp Excel theo format khác nhau (có agency hỗ trợ, không có
-agency, ERP khác nhau, mức chuẩn hoá khác nhau). Hệ thống có lớp adapter
-(YAML config + Python hooks tuỳ chọn) cho mỗi DN, tách bạch với core
-logic.</p>
+1 file, không sửa core. Cán bộ Hải quan (qua phối hợp Tinsu) có thể đề
+xuất rule mới theo case nghiệp vụ phát hiện.</p>
+<h3 id="ngưỡng-có-thể-điều-chỉnh">2.4 Ngưỡng có thể điều chỉnh</h3>
+<p>Hệ thống đề xuất ngưỡng mặc định cho mỗi rule
+(Critical/Warning/Info). Hải quan có toàn quyền điều chỉnh ngưỡng theo
+thực tế nghiệp vụ, theo loại hình DN, hoặc theo ngành hàng.</p>
 <h3 id="defensible-với-rủi-ro-pháp-lý">2.5 Defensible với rủi ro pháp
 lý</h3>
 <ul>
@@ -398,412 +397,575 @@ biệt</li>
 <tbody>
 <tr class="odd">
 <td>Mẫu 15 (BCQT-NVL)</td>
-<td>Excel</td>
-<td>DN nộp HQ qua hệ thống xử lý dữ liệu điện tử</td>
+<td>Excel có format chuẩn (theo TT 39/2018)</td>
+<td>DN nộp qua hệ thống xử lý dữ liệu điện tử</td>
 <td>5 DN × 3-4 năm</td>
 </tr>
 <tr class="even">
 <td>Mẫu 15a (BCQT-SP)</td>
-<td>Excel</td>
+<td>Excel có format chuẩn</td>
 <td>DN nộp</td>
 <td>5 DN × 3-4 năm</td>
 </tr>
 <tr class="odd">
 <td>Mẫu 16 (ĐMTT)</td>
-<td>Excel</td>
+<td>Excel có format chuẩn</td>
 <td>DN nộp</td>
 <td>5 DN × 3-4 năm</td>
 </tr>
 <tr class="even">
 <td>BCCT TKXNK</td>
-<td>Excel</td>
-<td>Export VNACCS hoặc DN tự lập tổng hợp</td>
+<td>Excel export từ VNACCS (hoặc DN tổng hợp)</td>
+<td>Hệ thống Hải quan</td>
 <td>5 DN × 3-4 năm</td>
 </tr>
 </tbody>
 </table>
 <blockquote>
-<p><strong>TBD — cần Tinsu/HQ xác nhận:</strong> Format Mẫu 15/15a/16
-thực tế HQ nhận có chuẩn hoá hay từng DN có biến thể? Trong MVP đầu, giả
-định theo format quy định TT 39/2018.</p>
+<p><strong>Đầu vào BCQT là Excel có format chuẩn</strong> theo TT
+39/2018 — không phải free-form. Hệ thống parser xử lý format chuẩn được,
+đồng thời có adapter cho biến thể nhẹ giữa các DN.</p>
 </blockquote>
 <h3 id="đầu-ra">3.2 Đầu ra</h3>
-<p>Cho mỗi DN trong portfolio: - Findings list (mỗi finding có severity,
-category, evidence pointers, đề xuất hành động) - Risk score tổng hợp
-(explainable — derive từ findings, không ML) - Báo cáo Excel kiến nghị
-kiểm tra (xuất khi cán bộ duyệt)</p>
+<p>Cho mỗi DN trong portfolio: - Findings list (mỗi finding có severity
+🔴/🟡/🔵, category, evidence pointers, đề xuất hành động) - Risk score
+tổng hợp (explainable — derive từ findings, không ML) - Báo cáo Excel
+kiến nghị kiểm tra (xuất khi cán bộ duyệt)</p>
 <p>Toàn portfolio: - Dashboard ranked top-N DN theo risk score - Filter
 theo ngành, kim ngạch, loại hình</p>
 <h3 id="phạm-vi-xử-lý">3.3 Phạm vi xử lý</h3>
 <ul>
-<li><strong>Đơn vị tenant:</strong> 1 deployment phục vụ 1 phòng QLRR
-(tối đa 1 Cục)</li>
+<li><strong>Đơn vị triển khai:</strong> 1 deployment phục vụ 1 đơn vị
+Hải quan (cấp Chi cục)</li>
 <li><strong>Quy mô MVP:</strong> 5 DN × 3-4 năm dữ liệu (= 15-20 DN-năm
 instance)</li>
 <li><strong>Quy mô Pilot dự kiến:</strong> 50-200 DN, 5 năm dữ liệu</li>
-<li><strong>Quy mô Production:</strong> Tất cả DNCX/DNSXXK trong phạm vi
-Cục, 10 năm dữ liệu</li>
+<li><strong>Quy mô Production:</strong> Tất cả DNCX/Gia công/SXXK trong
+phạm vi quản lý, 10 năm dữ liệu</li>
 </ul>
 <hr />
-<h2 id="catalog-phát-hiện-sai-phạm-36-categories">4. Catalog phát hiện
-sai phạm (36 categories)</h2>
-<p>Catalog tổng hợp 36 loại sai phạm có thể phát hiện được với data
-shape BCCT + Mẫu 15/15a/16. Được phân thành 6 tier theo data
-requirement.</p>
+<h2 id="catalog-các-kiểm-tra">4. Catalog các kiểm tra</h2>
 <blockquote>
-<p><strong>MVP đánh dấu ✅ — Build &amp; demo trong giai đoạn
-POC</strong> <strong>W.I.P đánh dấu 🚧 — Có trong catalog, chưa
-implement, sẽ build trong Pilot</strong> <strong>P2 đánh dấu ⏳ — Phase
-2, cần dữ liệu HQ portfolio đa DN</strong></p>
+<p><strong>Tổng:</strong> 28 check (6 nhóm chính) + 3 check cross-DN
+(Phase 2 — cần dữ liệu HQ portfolio).</p>
+<p><strong>Trạng thái:</strong> - ✅ MVP — Build &amp; demo trong POC
+(15 check) - 🚧 W.I.P — Có trong catalog, chưa implement, sẽ build trong
+Pilot (13 check) - ⏳ P2 — Phase 2, cần dữ liệu HQ portfolio đa DN (3
+check)</p>
+<p><strong>Mức độ:</strong> 🔴 Critical · 🟡 Warning · 🔵 Info</p>
 </blockquote>
-<h3 id="tier-a-kiểm-tra-số-học-nội-bộ-mẫu-single-year-single-dn">Tier A
-— Kiểm tra số học nội bộ Mẫu (single-year, single-DN)</h3>
+<h3 id="loại-hình-tờ-khai-theo-loại-hình-doanh-nghiệp">4.0 Loại hình tờ
+khai theo loại hình doanh nghiệp</h3>
 <table>
 <colgroup>
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
 </colgroup>
 <thead>
 <tr class="header">
-<th>#</th>
-<th>Category</th>
-<th>Cơ sở pháp lý</th>
-<th>Status</th>
+<th>Loại hình DN</th>
+<th>Tờ khai nhập</th>
+<th>Tờ khai xuất</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>1</td>
-<td>Mẫu 15 balance equation broken: (5)+(6)−(7)−(8)−(9)−(10) ≠ (11)</td>
-<td>TT 39/2018 Đ60</td>
-<td>✅ MVP</td>
+<td><strong>DNCX</strong> — Doanh nghiệp chế xuất</td>
+<td>E11, E15, E13</td>
+<td>E42</td>
 </tr>
 <tr class="even">
-<td>2</td>
-<td>Mẫu 15a balance equation broken</td>
-<td>TT 39/2018</td>
-<td>🚧 W.I.P</td>
+<td><strong>Gia công</strong> — Gia công cho thương nhân nước ngoài</td>
+<td>E21, E23</td>
+<td>E52, E54</td>
 </tr>
 <tr class="odd">
-<td>3</td>
-<td>Tồn âm trong kỳ (per material per tháng)</td>
-<td>TT 38/2015</td>
-<td>🚧 W.I.P</td>
-</tr>
-<tr class="even">
-<td>4</td>
-<td>Cột 10 “xuất khác” tỷ lệ bất thường (&gt;5% lưu lượng)</td>
-<td>TT 39/2018</td>
-<td>✅ MVP</td>
-</tr>
-<tr class="odd">
-<td>5</td>
-<td>Cột 7 “xuất trả” outlier giữa các năm</td>
-<td>TT 39/2018</td>
-<td>🚧 W.I.P</td>
-</tr>
-<tr class="even">
-<td>6</td>
-<td>Cột 8 “chuyển MĐSD” outlier — khả năng chuyển nội địa không khai
-thuế</td>
-<td>TT 38/2015 Đ25</td>
-<td>🚧 W.I.P</td>
-</tr>
-<tr class="odd">
-<td>7</td>
-<td>NVL trong Mẫu nhưng 0 nhập BCCT → mua nội địa ẩn / phantom</td>
-<td>TT 39/2018</td>
-<td>🚧 W.I.P</td>
+<td><strong>SXXK</strong> — Sản xuất xuất khẩu</td>
+<td>E31, E33</td>
+<td>E62</td>
 </tr>
 </tbody>
 </table>
-<h3 id="tier-b-đối-chiếu-chéo-nguồn-bcct-mẫu-single-year">Tier B — Đối
-chiếu chéo nguồn (BCCT ↔︎ Mẫu), single-year</h3>
-<table>
-<colgroup>
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>#</th>
-<th>Category</th>
-<th>Cơ sở pháp lý</th>
-<th>Status</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>8</td>
-<td>BCCT nhập E11/E13 &gt; Mẫu 15 cột (6) → under-report import ⭐</td>
-<td>TT 39/2018</td>
-<td>✅ MVP</td>
-</tr>
-<tr class="even">
-<td>9</td>
-<td>Mẫu 15a xuất &gt; BCCT xuất E42/E62 → over-claim export</td>
-<td>TT 39/2018</td>
-<td>✅ MVP</td>
-</tr>
-<tr class="odd">
-<td>10</td>
-<td>Mã BCCT không xuất hiện trong Mẫu → hidden material</td>
-<td>TT 39/2018</td>
-<td>🚧 W.I.P</td>
-</tr>
-<tr class="even">
-<td>11</td>
-<td>NVL trong Mẫu, 0 dòng BCCT (cả nhập lẫn xuất) → phantom</td>
-<td>TT 39/2018</td>
-<td>🚧 W.I.P</td>
-</tr>
-<tr class="odd">
-<td>12</td>
-<td>UOM mismatch BCCT vs Mẫu cùng material</td>
-<td>TT 39/2018</td>
-<td>🚧 W.I.P</td>
-</tr>
-<tr class="even">
-<td>13</td>
-<td>HS chapter mismatch BCCT vs Mẫu</td>
-<td>QĐ 1357</td>
-<td>🚧 W.I.P</td>
-</tr>
-<tr class="odd">
-<td>14</td>
-<td>Tên material BCCT vs Mẫu fuzzy similarity &lt;70%</td>
-<td>TT 39/2018</td>
-<td>✅ MVP</td>
-</tr>
-</tbody>
-</table>
-<h3 id="tier-c-cross-form-mẫu-15-15a-16-single-year">Tier C — Cross-form
-(Mẫu 15 ↔︎ 15a ↔︎ 16), single-year</h3>
-<table>
-<colgroup>
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>#</th>
-<th>Category</th>
-<th>Cơ sở pháp lý</th>
-<th>Status</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>15</td>
-<td>NVL trong Mẫu 16 không có trong Mẫu 15 list</td>
-<td>TT 39/2018</td>
-<td>✅ MVP</td>
-</tr>
-<tr class="even">
-<td>16</td>
-<td>NVL trong Mẫu 15 tiêu hao nhưng không có norm Mẫu 16</td>
-<td>TT 39/2018</td>
-<td>🚧 W.I.P</td>
-</tr>
-<tr class="odd">
-<td>17</td>
-<td>TP trong Mẫu 15a sản xuất nhưng không có trong Mẫu 16</td>
-<td>TT 39/2018</td>
-<td>🚧 W.I.P</td>
-</tr>
-<tr class="even">
-<td>18</td>
-<td>Tính ngược: Σ(Mẫu 16 norm × Mẫu 15a output) ≠ Mẫu 15 cột (9) ⭐</td>
-<td>TT 39/2018</td>
-<td>✅ MVP</td>
-</tr>
-</tbody>
-</table>
-<h3 id="tier-d-anomaly-patterns-nội-tại-single-year">Tier D — Anomaly
-patterns nội tại, single-year</h3>
-<table>
-<colgroup>
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>#</th>
-<th>Category</th>
-<th>Cơ sở pháp lý</th>
-<th>Status</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>19</td>
-<td>Mẫu 16 norm outlier nội bộ DN (CV&gt;0.3 hoặc max/min&gt;2 cùng cặp
-NVL-TP)</td>
-<td>TT 39/2018</td>
-<td>✅ MVP</td>
-</tr>
-<tr class="even">
-<td>20</td>
-<td>E11 + E13 cùng material → khai trùng loại hình</td>
-<td>QĐ 1357</td>
-<td>✅ MVP</td>
-</tr>
-<tr class="odd">
-<td>21</td>
-<td>Giao dịch BCCT đơn lẻ lớn bất thường (&gt;3σ trong cùng HS)</td>
-<td>Phân tích</td>
-<td>🚧 W.I.P</td>
-</tr>
-<tr class="even">
-<td>22</td>
-<td>Số TK BCCT trùng lặp</td>
-<td>TT 39/2018</td>
-<td>🚧 W.I.P</td>
-</tr>
-<tr class="odd">
-<td>23</td>
-<td>Cluster declaration dates cuối kỳ/năm → khai gộp dồn cuối</td>
-<td>TT 38/2015 Đ4</td>
-<td>✅ MVP</td>
-</tr>
-<tr class="even">
-<td>24</td>
-<td>Roundtripping: NVL cùng mã nhập + xuất cùng kỳ → sham import</td>
-<td>TT 38/2015</td>
-<td>✅ MVP</td>
-</tr>
-</tbody>
-</table>
-<h3 id="tier-e-multi-year-per-dn">Tier E — Multi-year per DN</h3>
-<table>
-<colgroup>
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>#</th>
-<th>Category</th>
-<th>Cơ sở pháp lý</th>
-<th>Status</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>25</td>
-<td>Tồn cuối kỳ N ≠ tồn đầu N+1 (per material) ⭐</td>
-<td>TT 39/2018</td>
-<td>✅ MVP</td>
-</tr>
-<tr class="even">
-<td>26</td>
-<td>Code re-mapping: rename material year-to-year (fuzzy description
-match) ⭐⭐⭐</td>
-<td>TT 38/2015</td>
-<td>✅ MVP</td>
-</tr>
-<tr class="odd">
-<td>27</td>
-<td>HS code drift: cùng material/mô tả, HS code khác giữa các năm
-⭐⭐</td>
-<td>QĐ 1357</td>
-<td>✅ MVP</td>
-</tr>
-<tr class="even">
-<td>28</td>
-<td>Norm drift YoY: norm Mẫu 16 thay đổi &gt;X% giữa năm không
-justification</td>
-<td>TT 39/2018</td>
-<td>✅ MVP</td>
-</tr>
-<tr class="odd">
-<td>29</td>
-<td>Phantom code: xuất hiện 1 năm rồi biến mất không có closure</td>
-<td>TT 39/2018</td>
-<td>🚧 W.I.P</td>
-</tr>
-<tr class="even">
-<td>30</td>
-<td>Volume spike: HS code đột ngột nhảy bậc volume giữa năm</td>
-<td>Phân tích</td>
-<td>🚧 W.I.P</td>
-</tr>
-<tr class="odd">
-<td>31</td>
-<td>Tỷ lệ scrap (cột 10/tổng) outlier YoY</td>
-<td>TT 39/2018</td>
-<td>🚧 W.I.P</td>
-</tr>
-<tr class="even">
-<td>32</td>
-<td>Material name fuzzy similarity across “different” codes cùng
-năm</td>
-<td>Phân tích</td>
-<td>🚧 W.I.P</td>
-</tr>
-<tr class="odd">
-<td>33</td>
-<td>New material code với opening stock &gt; 0 mà năm trước không
-có</td>
-<td>TT 39/2018</td>
-<td>🚧 W.I.P</td>
-</tr>
-</tbody>
-</table>
-<h3 id="tier-f-cross-dn-peer-phase-2-cần-data-hq-portfolio">Tier F —
-Cross-DN peer (Phase 2 — cần data HQ portfolio)</h3>
-<table>
-<colgroup>
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>#</th>
-<th>Category</th>
-<th>Cơ sở pháp lý</th>
-<th>Status</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>34</td>
-<td>Peer norm outlier (same HS chapter, DN norm &gt; Xσ peer mean)</td>
-<td>TT 39/2018</td>
-<td>⏳ P2</td>
-</tr>
-<tr class="even">
-<td>35</td>
-<td>Same supplier price drift across DN — transfer pricing flag</td>
-<td>Luật Quản lý Thuế 2019</td>
-<td>⏳ P2</td>
-</tr>
-<tr class="odd">
-<td>36</td>
-<td>Same HS code volume relative outlier vs ngành</td>
-<td>Phân tích</td>
-<td>⏳ P2</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Tổng:</strong> 36 categories | MVP build: 15 | W.I.P: 18 |
-Phase 2: 3</p>
 <blockquote>
-<p><strong>Đề án mở rộng:</strong> Catalog không cố định 36. Mỗi case
-nghiệp vụ HQ phát hiện mới (Tinsu phối hợp) thêm vào catalog dạng
-plugin, không cần thay đổi core.</p>
+<p>Tái xuất: B13 áp dụng chung. Chuyển mục đích sử dụng: A42 khi chuyển
+nội địa.</p>
+</blockquote>
+<h3 id="nhóm-1-số-lượng-nhậpxuất-6-checks">Nhóm 1 — Số lượng nhập/xuất
+(6 checks)</h3>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Mã</th>
+<th>Tên</th>
+<th>Mức</th>
+<th>MVP</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>C1.1</strong></td>
+<td>Lệch số lượng nhập NVL (M15 vs HQ) — <code>nhap_trong_ky</code> ≠ Σ
+tờ khai nhập theo mã. Loại hình: DNCX E11+E15 / GC E21+E23 / SXXK
+E31+E33. Ngưỡng: &lt;5% Info · 5–20% Warning · &gt;20% Critical. Rủi ro:
+Khai thiếu/thừa nhập khẩu.</td>
+<td>🟡</td>
+<td>✅</td>
+</tr>
+<tr class="even">
+<td><strong>C1.2</strong></td>
+<td>Có TK nhập HQ nhưng không có trong M15 — Mã có trên BCCT nhưng không
+có dòng trong M15. Flag tất cả. Rủi ro: Bỏ sót NVL khỏi BCQT.</td>
+<td>🔴</td>
+<td>✅</td>
+</tr>
+<tr class="odd">
+<td><strong>C1.3</strong></td>
+<td>Có trong M15 nhưng không có TK HQ — <code>nhap_trong_ky</code> &gt;
+0 nhưng không có tờ khai tương ứng. Rủi ro: M15 không có căn cứ TK — có
+thể NVL nội địa bị đưa vào phạm vi miễn thuế.</td>
+<td>🔴</td>
+<td>✅</td>
+</tr>
+<tr class="even">
+<td><strong>C1.4</strong></td>
+<td>Lệch số lượng xuất TP (M15a vs HQ) — <code>xuat_khau</code> ≠ Σ TK
+xuất theo mã TP. Loại hình: DNCX E42 / GC E52 / SXXK E62. Ngưỡng: &lt;1%
+Info · 1–5% Warning · &gt;5% Critical.</td>
+<td>🟡</td>
+<td>✅</td>
+</tr>
+<tr class="odd">
+<td><strong>C1.5</strong></td>
+<td>Tái xuất M15 không có TK B13 — <code>xuat_tra_lai</code> &gt; 0
+trong M15 nhưng không có B13 tương ứng. Rủi ro: Ghi tái xuất để giảm tồn
+nhưng không có TK chứng minh.</td>
+<td>🟡</td>
+<td>🚧</td>
+</tr>
+<tr class="even">
+<td><strong>C1.6</strong></td>
+<td>Chuyển mục đích sử dụng không có TK A42 — <code>chuyen_mdsd</code>
+&gt; 0 nhưng không có A42. Rủi ro: Hàng miễn thuế chuyển nội địa không
+khai báo — vi phạm điều kiện miễn thuế.</td>
+<td>🔴</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
+<h3 id="nhóm-2-cân-bằng-và-tồn-kho-5-checks">Nhóm 2 — Cân bằng và tồn
+kho (5 checks)</h3>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Mã</th>
+<th>Tên</th>
+<th>Mức</th>
+<th>MVP</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>C2.1</strong></td>
+<td>Mất cân bằng phương trình M15 — <code>ton_cuoi</code> ≠
+<code>ton_dau</code> + <code>nhap</code> − <code>xuat_tra</code> −
+<code>xuat_sx</code> − <code>chuyen_mdsd</code> −
+<code>xuat_khac</code>. Ngưỡng: Delta ≠ 0 (±0.01 làm tròn). Rủi ro: Có
+cột bị chỉnh thủ công để đạt số tồn mong muốn.</td>
+<td>🔴</td>
+<td>✅</td>
+</tr>
+<tr class="even">
+<td><strong>C2.2</strong></td>
+<td>Mất cân bằng phương trình M15a — <code>ton_cuoi</code> ≠
+<code>ton_dau</code> + <code>nhap_kho</code> − <code>chuyen_mdsd</code>
+− <code>xuat_khau</code> − <code>xuat_khac</code>. Rủi ro: Sản lượng,
+xuất khẩu hoặc tồn TP bị chỉnh tay.</td>
+<td>🔴</td>
+<td>✅</td>
+</tr>
+<tr class="odd">
+<td><strong>C2.3</strong></td>
+<td>Tồn cuối âm — NVL (M15) — <code>ton_cuoi_ky</code> &lt; 0 trên bất
+kỳ mã NVL nào. Rủi ro: Xuất vượt nhập + tồn đầu — thiếu TK nhập hoặc
+nguồn NVL không khai báo.</td>
+<td>🔴</td>
+<td>✅</td>
+</tr>
+<tr class="even">
+<td><strong>C2.4</strong></td>
+<td>Tồn cuối âm — Thành phẩm (M15a) — <code>ton_cuoi_ky</code> &lt; 0
+trên bất kỳ mã TP nào. Rủi ro: Xuất khẩu nhiều hơn sản xuất + tồn
+đầu.</td>
+<td>🔴</td>
+<td>🚧</td>
+</tr>
+<tr class="odd">
+<td><strong>C2.5</strong></td>
+<td>Tồn cuối lớn hơn nhập khi tồn đầu = 0 — <code>ton_dau_ky</code> = 0
+nhưng <code>ton_cuoi_ky</code> &gt; <code>nhap_trong_ky</code>. Rủi ro:
+Tồn phồng, nguồn gốc không giải trình được.</td>
+<td>🔴</td>
+<td>🚧</td>
+</tr>
+</tbody>
+</table>
+<h3 id="nhóm-3-phân-loại-hàng-hoá-3-checks">Nhóm 3 — Phân loại hàng hoá
+(3 checks)</h3>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Mã</th>
+<th>Tên</th>
+<th>Mức</th>
+<th>MVP</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>C3.1</strong></td>
+<td>Cùng mã vật tư khai nhiều loại hình mâu thuẫn — Một mã có trên cả TK
+NVL và TK máy móc cùng kỳ. Cặp mâu thuẫn: E11+E13 · E31+E13 · E21+E13.
+Rủi ro: Phân loại sai dẫn đến sai phạm vi BCQT.</td>
+<td>🟡</td>
+<td>✅</td>
+</tr>
+<tr class="even">
+<td><strong>C3.2</strong></td>
+<td>HS code không nhất quán trong kỳ (cùng mã vật tư) — ≥2 mã HS khác
+nhau trên các TK. Ngưỡng: Khác subheading (6 số) Info · heading (4 số)
+Warning · chapter (2 số) Critical. Rủi ro: Ảnh hưởng thuế suất và chính
+sách.</td>
+<td>🟡🔴</td>
+<td>✅</td>
+</tr>
+<tr class="odd">
+<td><strong>C3.3</strong></td>
+<td>Đơn vị tính không nhất quán (cùng mã vật tư) — ≥2 đơn vị tính khác
+nhau giữa M15 và BCCT. <strong>Thực tế Johnson 2025</strong>: 3 mã sai
+đơn vị ×1.000 làm sai toàn bộ số liệu M15. Rủi ro: Sai đơn vị ×1000 →
+toàn bộ nhập/xuất/tồn sai hệ thống.</td>
+<td>🔴</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
+<h3 id="nhóm-4-định-mức-m16-6-checks">Nhóm 4 — Định mức M16 (6
+checks)</h3>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Mã</th>
+<th>Tên</th>
+<th>Mức</th>
+<th>MVP</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>C4.1</strong></td>
+<td>NVL trong M16 không có nhập khẩu trong M15 — <code>ma_nvl</code>
+trong M16 nhưng <code>nhap_trong_ky</code> = 0 hoặc không có dòng M15.
+Rủi ro: Không thể giải trình dòng vật tư từ TK đến TP xuất khẩu.</td>
+<td>🔴</td>
+<td>✅</td>
+</tr>
+<tr class="even">
+<td><strong>C4.2</strong></td>
+<td>TP trong M16 không có trong M15a — <code>ma_sp_xk</code> trong M16
+nhưng không có dòng M15a. Rủi ro: Định mức cho TP không có trong báo cáo
+xuất khẩu.</td>
+<td>🟡</td>
+<td>🚧</td>
+</tr>
+<tr class="odd">
+<td><strong>C4.3</strong></td>
+<td>Tổng tiêu hao phái sinh M16 vượt xuất SX M15 —
+Σ(<code>định_mức</code> × <code>xuat_khau_15a</code>) theo mã NVL &gt;
+<code>xuat_sx</code> trong M15. Ngưỡng: &gt;5% Warning · &gt;20%
+Critical. Rủi ro: Định mức thổi phồng để hợp thức hoá NVL nhập khẩu vượt
+mức.</td>
+<td>🟡</td>
+<td>✅</td>
+</tr>
+<tr class="even">
+<td><strong>C4.4</strong></td>
+<td>M16 phân mảnh: nhiều NVL cùng chức năng cho một TP. <strong>Ví dụ
+thực tế</strong>: 1 chiếc áo có 10 loại cúc khác nhau trong M16. Phương
+pháp: (A) ≥N mã cùng HS 4-số trong 1 TP (mặc định) · (B) NLP cluster tên
+gần giống · (C) HQ định nghĩa danh mục. Ngưỡng: ≥5 mã cùng HS/TP Warning
+· ≥10 Critical. Rủi ro: Phân mảnh NVL để che số lượng.</td>
+<td>🟡</td>
+<td>🚧</td>
+</tr>
+<tr class="odd">
+<td><strong>C4.5</strong></td>
+<td>Định mức bằng 0 hoặc âm — <code>dinh_muc_thuc_te</code> ≤ 0 trên bất
+kỳ dòng M16. Rủi ro: Lỗi dữ liệu hoặc cố tình khai 0 để che tiêu hao
+thực tế.</td>
+<td>🔴</td>
+<td>🚧</td>
+</tr>
+<tr class="even">
+<td><strong>C4.6</strong></td>
+<td>Định mức bất thường cao (outlier thống kê) — <code>dinh_muc</code>
+cặp TP-NVL vượt xa mean. Ngưỡng: mean ±3σ Warning · ±5σ Critical. Rủi
+ro: Thổi phồng định mức.</td>
+<td>🟡</td>
+<td>🚧</td>
+</tr>
+</tbody>
+</table>
+<h3 id="nhóm-5-truy-nguồn-nvl-nhập-khẩu-3-checks">Nhóm 5 — Truy nguồn
+NVL nhập khẩu (3 checks)</h3>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Mã</th>
+<th>Tên</th>
+<th>Mức</th>
+<th>MVP</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>C5.1</strong></td>
+<td>NVL có xuất SX trong M15 nhưng không có nhập HQ —
+<code>xuat_sx</code> &gt; 0 và <code>nhap_trong_ky</code> = 0 và
+<code>ton_dau_ky</code> = 0. Rủi ro: Tiêu hao từ nguồn không khai báo —
+NVL nội địa bị đưa vào phạm vi miễn thuế.</td>
+<td>🔴</td>
+<td>✅</td>
+</tr>
+<tr class="even">
+<td><strong>C5.2</strong></td>
+<td>TP xuất khẩu không có M16 (TP mồ côi) — Mã TP có
+<code>xuat_khau</code> &gt; 0 trong M15a nhưng không có dòng M16. Rủi
+ro: Không thể giải trình NVL đầu vào.</td>
+<td>🟡</td>
+<td>🚧</td>
+</tr>
+<tr class="odd">
+<td><strong>C5.3</strong></td>
+<td>Tỷ lệ traceability thấp theo mã NVL — Σ(<code>định_mức</code> ×
+<code>xuat_khau_15a</code>) / <code>xuat_sx_M15</code> &lt; ngưỡng.
+Ngưỡng: &lt;80% Warning · &lt;60% Critical. Rủi ro: Phần lớn NVL không
+truy được vào TP cụ thể.</td>
+<td>🟡</td>
+<td>🚧</td>
+</tr>
+</tbody>
+</table>
+<h3 id="nhóm-6-kiểm-tra-liên-kỳ-5-checks">Nhóm 6 — Kiểm tra liên kỳ (5
+checks)</h3>
+<p><em>Cần dữ liệu ≥2 kỳ BCQT.</em></p>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Mã</th>
+<th>Tên</th>
+<th>Mức</th>
+<th>MVP</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>C6.1</strong></td>
+<td>Tồn đầu kỳ N ≠ Tồn cuối kỳ N-1 — NVL (M15) — Theo từng mã. Rủi ro:
+Điều chỉnh tồn giữa 2 kỳ không có giải trình.</td>
+<td>🔴</td>
+<td>✅</td>
+</tr>
+<tr class="even">
+<td><strong>C6.2</strong></td>
+<td>Tồn đầu kỳ N ≠ Tồn cuối kỳ N-1 — Thành phẩm (M15a) — Tương tự C6.1
+cho TP.</td>
+<td>🔴</td>
+<td>🚧</td>
+</tr>
+<tr class="odd">
+<td><strong>C6.3</strong></td>
+<td>Định mức M16 thay đổi đột biến giữa các kỳ —
+|<code>định_mức(N)</code> − <code>định_mức(N-1)</code>| /
+<code>định_mức(N-1)</code> vượt ngưỡng. Ngưỡng: &gt;20% Warning ·
+&gt;50% Critical. Rủi ro: Thổi phồng hoặc co định mức để điều tiết NVL
+cần giải trình.</td>
+<td>🟡</td>
+<td>🚧</td>
+</tr>
+<tr class="even">
+<td><strong>C6.4</strong></td>
+<td>Nhập tăng mạnh nhưng xuất khẩu không tăng tương ứng —
+<code>nhap_trong_ky</code> tăng &gt;X% trong khi <code>xuat_khau</code>
+tăng &lt;Y%. Ngưỡng: Nhập &gt;50% nhưng xuất &lt;10% → Warning. Rủi ro:
+Tích luỹ tồn bất thường, nguy cơ chuyển nội địa không khai A42.</td>
+<td>🟡</td>
+<td>🚧</td>
+</tr>
+<tr class="odd">
+<td><strong>C6.5</strong></td>
+<td>HS code thay đổi cho cùng mã vật tư giữa các kỳ — Ngưỡng: Đổi
+heading (4 số) Warning · chapter (2 số) Critical. Rủi ro: Phân loại lại
+để chuyển sang nhóm thuế suất có lợi hơn.</td>
+<td>🟡🔴</td>
+<td>🚧</td>
+</tr>
+</tbody>
+</table>
+<h3 id="nhóm-7-cross-dn-benchmarking-phase-2-cần-dữ-liệu-hq-portfolio">Nhóm
+7 — Cross-DN benchmarking (Phase 2 — cần dữ liệu HQ portfolio)</h3>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Mã</th>
+<th>Tên</th>
+<th>Mức</th>
+<th>MVP</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>C7.1</strong></td>
+<td>Peer norm outlier — Định mức DN &gt; Xσ mean của ngành (cùng HS
+chapter / cùng loại sản phẩm). Rủi ro: Định mức bất thường vs peer cùng
+ngành.</td>
+<td>🟡</td>
+<td>⏳ P2</td>
+</tr>
+<tr class="even">
+<td><strong>C7.2</strong></td>
+<td>Same supplier price drift across DN — Giá nhập cùng NCC + cùng HS
+chênh lệch giữa các DN. Rủi ro: Chuyển giá / trốn thuế tập thể.</td>
+<td>🟡🔴</td>
+<td>⏳ P2</td>
+</tr>
+<tr class="odd">
+<td><strong>C7.3</strong></td>
+<td>Same HS code volume relative outlier vs ngành — Volume nhập/xuất 1
+HS của DN vượt xa median của ngành. Rủi ro: Quy mô bất thường cần kiểm
+tra.</td>
+<td>🟡</td>
+<td>⏳ P2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="tổng-hợp">4.7 Tổng hợp</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Nhóm</th>
+<th style="text-align: right;">Tổng</th>
+<th style="text-align: right;">MVP ✅</th>
+<th style="text-align: right;">W.I.P 🚧</th>
+<th style="text-align: right;">P2 ⏳</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1 — Số lượng nhập/xuất</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td>2 — Cân bằng &amp; tồn kho</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td>3 — Phân loại hàng hoá</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td>4 — Định mức M16</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td>5 — Truy nguồn NVL</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td>6 — Liên kỳ</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td>7 — Cross-DN</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="even">
+<td><strong>Tổng</strong></td>
+<td style="text-align: right;"><strong>31</strong></td>
+<td style="text-align: right;"><strong>15</strong></td>
+<td style="text-align: right;"><strong>13</strong></td>
+<td style="text-align: right;"><strong>3</strong></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Đề án mở rộng:</strong> Catalog không cố định. Mỗi case
+nghiệp vụ Hải quan phát hiện mới có thể thêm vào catalog dạng plugin,
+không cần thay đổi core. Ngưỡng đề xuất có thể điều chỉnh theo thực tế
+nghiệp vụ.</p>
 </blockquote>
 <hr />
 <h2 id="kiến-trúc-hệ-thống-sơ-bộ">5. Kiến trúc hệ thống (sơ bộ)</h2>
@@ -851,7 +1013,7 @@ vạn năng.</p>
 <tr class="even">
 <td>Database</td>
 <td>SQLite (MVP) → PostgreSQL (Pilot+)</td>
-<td>SQLite đủ cho 5 DN, không vận hành; Postgres khi scale</td>
+<td>SQLite đủ cho 5 DN; Postgres khi scale</td>
 </tr>
 <tr class="odd">
 <td>Excel parsing</td>
@@ -870,15 +1032,11 @@ vạn năng.</p>
 </tr>
 <tr class="even">
 <td>Deploy</td>
-<td>Docker Compose + GitHub Actions</td>
-<td>Đồng bộ pattern data-hub, barry-CO-main</td>
+<td>Docker Compose + Cloudflare Tunnel</td>
+<td>Đồng bộ pattern Tinsu hiện hành</td>
 </tr>
 </tbody>
 </table>
-<blockquote>
-<p><strong>TBD — cần Tinsu xác nhận:</strong> Auth provider (built-in
-session vs SSO HQ). MVP đề xuất built-in.</p>
-</blockquote>
 <h3 id="vai-trò-llm-trong-audit-hq">5.3 Vai trò LLM trong audit-hq</h3>
 <p>LLM <strong>không</strong> làm detection. LLM làm những việc sau:</p>
 <table>
@@ -901,7 +1059,7 @@ session vs SSO HQ). MVP đề xuất built-in.</p>
 <td>Canonical form, draft cho cán bộ confirm</td>
 </tr>
 <tr class="even">
-<td>Fuzzy code re-mapping (rule #26)</td>
+<td>Fuzzy code re-mapping</td>
 <td>Khi confidence rule-based &lt;80%</td>
 <td>Đề xuất mapping, draft</td>
 </tr>
@@ -918,8 +1076,8 @@ session vs SSO HQ). MVP đề xuất built-in.</p>
 </tbody>
 </table>
 <blockquote>
-<p><strong>Endpoint:</strong> Sử dụng LLM proxy nội bộ Tinsu (đã có sẵn
-cho data-hub, barry-CO).</p>
+<p><strong>Endpoint:</strong> Sử dụng LLM proxy nội bộ Tinsu
+(<code>codex-lb-demo.sgnai.dev</code>).</p>
 </blockquote>
 <hr />
 <h2 id="demo-plan-poc">6. Demo plan (POC)</h2>
@@ -948,28 +1106,28 @@ cho data-hub, barry-CO).</p>
 <td>Điện tử (HS 85)</td>
 <td>DNCX (E11/E42)</td>
 <td>4</td>
-<td>#1, #4, #25, #26</td>
+<td>C1.1, C2.1, C6.1, C3.2</td>
 </tr>
 <tr class="even">
 <td>DN_002</td>
 <td>Cơ khí (HS 84)</td>
 <td>DNCX (E11/E42)</td>
 <td>3</td>
-<td>#8, #14, #20, #27</td>
+<td>C1.2, C3.3, C3.1, C6.5</td>
 </tr>
 <tr class="odd">
 <td>DN_003</td>
 <td>Dệt may (HS 61)</td>
-<td>DNSXXK (E31/E62)</td>
+<td>SXXK (E31/E62)</td>
 <td>4</td>
-<td>#18, #28, #19</td>
+<td>C4.3, C4.4 (cúc áo), C5.1</td>
 </tr>
 <tr class="even">
 <td>DN_004</td>
 <td>Hoá chất (HS 39)</td>
 <td>DNCX</td>
 <td>3</td>
-<td>#9, #23, #24</td>
+<td>C1.4, C1.6, C2.3</td>
 </tr>
 <tr class="odd">
 <td>DN_005</td>
@@ -981,9 +1139,9 @@ cho data-hub, barry-CO).</p>
 </tbody>
 </table>
 <blockquote>
-<p><strong>TBD — cần Trọng Tín cung cấp:</strong> template base data từ
-5 client thực tế (đã anonymize). Phương án (P) synthetic injection trên
-base data sạch.</p>
+<p><strong>TBD — Trọng Tín cung cấp:</strong> template base data từ 5
+client thực tế (đã anonymize). Phương án synthetic injection trên base
+data sạch.</p>
 </blockquote>
 <h3 id="anonymization">6.2 Anonymization</h3>
 <table>
@@ -1030,7 +1188,7 @@ base data sạch.</p>
 <tbody>
 <tr class="odd">
 <td>HS code</td>
-<td>Cần cho finding #27 HS drift, #13 chapter mismatch</td>
+<td>Cần cho C3.2, C6.5, C7.x</td>
 </tr>
 <tr class="even">
 <td>Mã loại hình (E11/E13/E42…)</td>
@@ -1038,7 +1196,7 @@ base data sạch.</p>
 </tr>
 <tr class="odd">
 <td>Tên material</td>
-<td>Cần fuzzy match #14, #26; thay bằng generic name + variant</td>
+<td>Cần fuzzy match (C3.3, C4.4); thay bằng generic name + variant</td>
 </tr>
 <tr class="even">
 <td>Số lượng/giá trị</td>
@@ -1047,7 +1205,7 @@ base data sạch.</p>
 </tbody>
 </table>
 <h3 id="demo-flow-5-phút">6.3 Demo flow 5 phút</h3>
-<pre><code>0:00 — Đăng nhập analyst QLRR → Dashboard portfolio 5 DN
+<pre><code>0:00 — Đăng nhập Hải quan → Dashboard portfolio 5 DN
 0:30 — Top-5 ranked theo risk score:
          #1 DN_001 (risk 87) — 4 critical findings
          #2 DN_002 (risk 76) — 3 critical findings
@@ -1056,20 +1214,22 @@ base data sạch.</p>
          #5 DN_005 (risk 12) — clean
 1:00 — Click DN_001 → DN detail page
          Tabs: Findings | Multi-year view | BCCT raw | Mẫu 15/15a/16
-1:30 — Click finding &quot;Code re-mapping suspected (rule #26)&quot;
-         Panel trái: 3 mã NVL năm 2023 + mô tả
-         Panel phải: 3 mã NVL năm 2024 + mô tả tương tự (&gt;85% fuzzy)
-         Note: &quot;Khả năng cao cùng material, DN đổi mã giữa 2023 và 2024&quot;
-2:30 — Click finding &quot;Σ(norm × output) ≠ consumption (rule #18)&quot;
-         Hiển thị bảng: TP_X sản xuất 1,000 cái, norm Mẫu 16 = 5kg/cái
-                                  Expected Mẫu 15 cột (9): 5,000kg
-                                  Actual Mẫu 15 cột (9): 4,000kg
-                                  Chênh: 1,000kg NVL &quot;biến mất&quot;
-3:30 — Click &quot;Cộng đồng so sánh&quot; → &quot;Tính năng Phase 2: cần data portfolio HQ&quot;
-4:00 — Click &quot;Xuất báo cáo kiến nghị kiểm tra&quot; → Excel có:
+1:30 — Click finding &quot;C6.1 Tồn đầu kỳ N ≠ tồn cuối kỳ N-1&quot;
+         Panel trái: Tồn cuối 2023 cho 5 mã NVL
+         Panel phải: Tồn đầu 2024 cho cùng 5 mã — chênh lệch X
+         Note: &quot;Điều chỉnh tồn giữa 2 kỳ không có giải trình&quot;
+2:30 — Click finding &quot;C4.3 Tổng tiêu hao M16 vượt M15&quot;
+         Bảng: TP_X sản xuất 1,000 cái, M16 norm = 5kg/cái
+                Σ(norm × output) = 5,000kg expected NVL X
+                M15 cột xuất_sx X = 4,000kg actual
+                Chênh: 1,000kg NVL &quot;biến mất&quot;
+3:30 — Click finding &quot;C3.3 UOM mismatch&quot; 
+         BCCT khai 1,000 kg, M15 khai 1,000 cái → ×1.000 mismatch
+         Reference Johnson 2025: 3 mã cùng pattern
+4:00 — Click &quot;Xuất báo cáo kiến nghị kiểm tra&quot; → Excel với:
          + Danh sách 4 findings
          + Evidence dump (dòng BCCT cụ thể)
-         + Trích yếu pháp lý
+         + Trích yếu pháp lý (TT 39/2018, TT 38/2015)
 4:30 — Quay lại dashboard, click DN_005 (risk 12) → 0 critical findings
          &quot;Audit-hq không cứ là flag bừa — DN tốt vẫn được xếp hạng thấp&quot;
 5:00 — End.</code></pre>
@@ -1103,12 +1263,12 @@ Demo (timeframe đề xuất: 4-6 tuần)</h3>
 </tr>
 <tr class="odd">
 <td>W3</td>
-<td>Implement MVP-10 finding categories đầu</td>
+<td>Implement 8-10 finding categories đầu (Nhóm 1, 2)</td>
 <td>Findings hiển thị, evidence trail working</td>
 </tr>
 <tr class="even">
 <td>W4</td>
-<td>Implement MVP-15 đầy đủ + risk scoring</td>
+<td>Implement đủ MVP-15 + risk scoring</td>
 <td>Dashboard + ranking</td>
 </tr>
 <tr class="odd">
@@ -1123,24 +1283,23 @@ Demo (timeframe đề xuất: 4-6 tuần)</h3>
 </tr>
 </tbody>
 </table>
-<h3 id="phase-2-pilot-tại-1-cục-timeframe-đề-xuất-3-6-tháng-sau-poc-approve">7.2
-Phase 2 — Pilot tại 1 Cục (timeframe đề xuất: 3-6 tháng sau POC
+<h3 id="phase-2-pilot-tại-chi-cục-timeframe-đề-xuất-3-6-tháng-sau-poc-approve">7.2
+Phase 2 — Pilot tại Chi cục (timeframe đề xuất: 3-6 tháng sau POC
 approve)</h3>
 <ul>
-<li>Triển khai 1 Cục thực tế (TBD: Hải quan Bắc Ninh? TPHCM? Theo lựa
-chọn HQ)</li>
-<li>Ingest data DN trong Cục (real, không synthetic)</li>
-<li>Cán bộ QLRR dùng thực tế, feedback loop</li>
-<li>Implement 18 W.I.P findings còn lại</li>
-<li>Bắt đầu seed cross-DN peer benchmarking (Tier F)</li>
+<li>Triển khai tại <strong>Chi Cục Hải Quan Khu vực IV</strong></li>
+<li>Ingest data DN trong phạm vi quản lý (real, không synthetic)</li>
+<li>Cán bộ dùng thực tế, feedback loop</li>
+<li>Implement 13 W.I.P findings còn lại</li>
+<li>Bắt đầu seed cross-DN benchmarking (Nhóm 7) khi đã có ≥30 DN</li>
 </ul>
 <h3 id="phase-3-production-timeframe-đề-xuất-12-tháng">7.3 Phase 3 —
 Production (timeframe đề xuất: 12+ tháng)</h3>
 <ul>
-<li>Mở rộng nhiều Cục</li>
+<li>Mở rộng nhiều Chi cục</li>
 <li>Tích hợp trực tiếp VNACCS DB (không qua Excel export)</li>
 <li>API HQ cho DN portal nộp trực tiếp structured</li>
-<li>Implement Tier F đầy đủ (peer, supplier, volume cross-DN)</li>
+<li>Implement Nhóm 7 đầy đủ (cross-DN peer)</li>
 <li>ML-augmented detection (sau khi có &gt;3 năm operational data)</li>
 </ul>
 <h3 id="vai-trò-các-bên">7.4 Vai trò các bên</h3>
@@ -1169,63 +1328,65 @@ Production (timeframe đề xuất: 12+ tháng)</h3>
 <tr class="even">
 <td>Trọng Tín</td>
 <td>Cung cấp domain expertise, base data anonymize</td>
-<td>Liên hệ HQ, đào tạo analyst</td>
-<td>Consulting nghiệp vụ</td>
+<td>Đào tạo cán bộ, đầu mối nghiệp vụ</td>
+<td>Consulting</td>
 </tr>
 <tr class="odd">
-<td>HQ</td>
+<td>Hải quan</td>
 <td>Sponsor đề án, feedback design</td>
-<td>Cung cấp data Cục, cán bộ QLRR dùng thử</td>
+<td>Cán bộ dùng thử, cung cấp data Chi cục</td>
 <td>Customer chính thức</td>
 </tr>
 </tbody>
 </table>
 <blockquote>
-<p><strong>Lưu ý quan trọng:</strong> Data của Trọng Tín chỉ dùng để
-<strong>build và demo công cụ</strong>. Khi HQ deploy production, hệ
-thống sử dụng data của HQ. Trọng Tín không chuyển dữ liệu khách hàng
-sang HQ ngoài bối cảnh DN đó tự nộp BCQT.</p>
+<p><strong>Quan trọng:</strong> Data của Trọng Tín chỉ dùng để
+<strong>build và demo công cụ</strong>. Khi Hải quan deploy production,
+hệ thống sử dụng data của Hải quan. Trọng Tín không chuyển dữ liệu khách
+hàng sang Hải quan ngoài bối cảnh DN đó tự nộp BCQT.</p>
 </blockquote>
 <hr />
 <h2 id="câu-hỏi-mở-cho-phía-hải-quan">8. Câu hỏi mở cho phía Hải
 quan</h2>
-<p>Đây là các nội dung cần feedback HQ trước khi finalize đề án và xây
-dựng MVP.</p>
+<p>Đây là các nội dung cần feedback Hải quan trước khi finalize đề án và
+xây dựng MVP.</p>
 <h3 id="về-phạm-vi-nghiệp-vụ">8.1 Về phạm vi nghiệp vụ</h3>
 <ol type="1">
-<li>Audit-HQ phục vụ Tổng cục hay Cục cụ thể? Có Cục nào đang được chọn
-làm pilot không?</li>
-<li>Trong 36 categories đề xuất, HQ có quan tâm category nào hơn hoặc
-miss category nào quan trọng?</li>
+<li>Trong 31 checks đề xuất, có check nào Hải quan đặc biệt quan tâm
+hoặc có check nào quan trọng mà đề án bỏ sót?</li>
 <li>Output Excel kiến nghị kiểm tra có cần format theo mẫu chính thức
 nào không?</li>
-<li>Phòng QLRR hiện đang dùng tool/quy trình nào để chọn DN kiểm tra?
+<li>Hệ thống hiện đang sử dụng tool/quy trình nào để chọn DN kiểm tra?
 Audit-HQ tích hợp hay thay thế?</li>
+<li>Ngưỡng đề xuất (Critical/Warning) có phù hợp thực tế nghiệp vụ Chi
+cục không? Cần điều chỉnh gì?</li>
 </ol>
 <h3 id="về-dữ-liệu">8.2 Về dữ liệu</h3>
 <ol start="5" type="1">
-<li>HQ hiện lưu trữ Mẫu 15/15a/16 ở dạng cấu trúc nào — structured DB,
-Excel attachments, hay PDF? (Liên quan tới adapter Phase 2)</li>
-<li>TKXNK lấy từ VNACCS có thể export Excel theo cấu trúc thống nhất,
-hay từng Cục có biến thể?</li>
-<li>Quyền truy cập data đa năm của QLRR: hệ thống VCIS-VNACCS đã cho
-phép query trực tiếp, hay phải xin từng năm?</li>
+<li>Hệ thống xử lý dữ liệu điện tử của Hải quan có lưu Mẫu 15/15a/16 ở
+dạng structured database, hay chỉ là Excel attachments?</li>
+<li>TKXNK lấy từ VNACCS có thể export Excel theo cấu trúc thống nhất cho
+mọi Chi cục không?</li>
+<li>Quyền truy cập dữ liệu đa năm: hệ thống VCIS-VNACCS đã cho phép
+query trực tiếp, hay phải xin từng kỳ?</li>
 </ol>
 <h3 id="về-kỹ-thuật-vận-hành">8.3 Về kỹ thuật &amp; vận hành</h3>
 <ol start="8" type="1">
-<li>Hệ thống deploy on-premise của HQ hay cloud (Tinsu host)? Yêu cầu
-bảo mật cụ thể?</li>
-<li>HQ có yêu cầu chứng nhận an toàn thông tin (ATTT) cấp nào?</li>
+<li>Hệ thống deploy on-premise của Hải quan hay cloud (Tinsu host)? Yêu
+cầu bảo mật cụ thể?</li>
+<li>Có yêu cầu chứng nhận an toàn thông tin (ATTT) cấp nào?</li>
 <li>SLA cần cho Pilot/Production?</li>
-<li>Cán bộ QLRR có kỹ năng tin học mức nào? Cần đào tạo bao nhiêu?</li>
+<li>Cán bộ tại Chi Cục Hải Quan Khu vực IV có kỹ năng tin học mức nào?
+Cần đào tạo bao nhiêu?</li>
 </ol>
 <h3 id="về-pháp-lý-ranh-giới">8.4 Về pháp lý &amp; ranh giới</h3>
 <ol start="12" type="1">
 <li>Audit-HQ phát hiện sai phạm chỉ là <em>gợi ý</em>, không phải kết
 luận điều tra. Đồng ý cách dùng này?</li>
-<li>Trường hợp DN khiếu nại kết quả audit-hq, HQ có cần Tinsu hỗ trợ
-giải trình kỹ thuật không?</li>
-<li>Quyền sở hữu trí tuệ catalog rule: thuộc HQ, Tinsu, hay shared?</li>
+<li>Trường hợp DN khiếu nại kết quả audit-hq, Hải quan có cần Tinsu hỗ
+trợ giải trình kỹ thuật không?</li>
+<li>Quyền sở hữu trí tuệ catalog rule: thuộc Hải quan, Tinsu, hay
+shared?</li>
 </ol>
 <hr />
 <h2 id="phụ-lục">9. Phụ lục</h2>
@@ -1255,12 +1416,12 @@ giải trình kỹ thuật không?</li>
 <td>Doanh nghiệp Chế xuất</td>
 </tr>
 <tr class="odd">
-<td>DNSXXK</td>
-<td>Doanh nghiệp Sản xuất Xuất khẩu</td>
+<td>GC</td>
+<td>Gia công</td>
 </tr>
 <tr class="even">
-<td>QLRR</td>
-<td>Quản lý Rủi ro</td>
+<td>SXXK</td>
+<td>Sản xuất Xuất khẩu</td>
 </tr>
 <tr class="odd">
 <td>KTSTQ</td>
@@ -1298,6 +1459,30 @@ giải trình kỹ thuật không?</li>
 <td>HS code</td>
 <td>Mã hài hoà mô tả hàng hoá quốc tế</td>
 </tr>
+<tr class="even">
+<td>E11/E13/E15</td>
+<td>Mã loại hình nhập DNCX (NVL/máy móc/GC)</td>
+</tr>
+<tr class="odd">
+<td>E21/E23</td>
+<td>Mã loại hình nhập gia công</td>
+</tr>
+<tr class="even">
+<td>E31/E33</td>
+<td>Mã loại hình nhập SXXK</td>
+</tr>
+<tr class="odd">
+<td>E42/E52/E62</td>
+<td>Mã loại hình xuất tương ứng</td>
+</tr>
+<tr class="even">
+<td>B13</td>
+<td>Tái xuất</td>
+</tr>
+<tr class="odd">
+<td>A42</td>
+<td>Chuyển mục đích sử dụng nội địa</td>
+</tr>
 </tbody>
 </table>
 <h3 id="tham-chiếu">9.2 Tham chiếu</h3>
@@ -1306,8 +1491,10 @@ giải trình kỹ thuật không?</li>
 <li>QĐ 1357/QĐ-TCHQ ngày 18/05/2021</li>
 <li>Luật Hải quan 2014, Luật Quản lý Thuế 2019, Luật Sở hữu Trí tuệ</li>
 <li>BCQT-System (Tinsu AI) — kiến trúc, parser, adapter pattern</li>
-<li>Johnson BCQT 2025 (Tinsu AI × Trọng Tín × Johnson) — Phase 3 audit
-tests làm cơ sở rule catalog</li>
+<li>BCQT Showcase checklist — danh sách 28 checks cơ sở (v1.0,
+2026-05-13)</li>
+<li>Johnson BCQT 2025 (Tinsu AI × Trọng Tín × Johnson) — case thực tế
+UOM ×1000 (C3.3)</li>
 </ul>
 <h3 id="changelog">9.3 Changelog</h3>
 <table>
@@ -1332,11 +1519,19 @@ tests làm cơ sở rule catalog</li>
 <td>Tinsu AI</td>
 <td>Bản đầu — chờ vòng feedback đầu tiên</td>
 </tr>
+<tr class="even">
+<td>v0.2-DRAFT</td>
+<td>2026-05-13</td>
+<td>Tinsu AI</td>
+<td>Synthesize với checklist 28 checks từ BCQT showcase; chính xác hoá
+đơn vị tiếp nhận (Chi Cục Hải Quan Khu vực IV); làm rõ Excel BCQT có
+format chuẩn; tổng quát hoá tham chiếu Hải quan (không cụ thể QLRR)</td>
+</tr>
 </tbody>
 </table>
 <hr />
 <blockquote>
-<p><strong>Đây là bản DRAFT v0.1.</strong> Mọi nội dung là đề xuất sơ bộ
+<p><strong>Đây là bản DRAFT v0.2.</strong> Mọi nội dung là đề xuất sơ bộ
 và sẽ được điều chỉnh theo feedback và input từ phía Hải quan qua các
 vòng synthesize tiếp theo.</p>
 </blockquote>

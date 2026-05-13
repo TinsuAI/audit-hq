@@ -9,8 +9,7 @@ local edit MD → make html → make publish
                                                   └─ cloudflared tunnel → https://audit-hq.tinsu.ai/
 ```
 
-URL: `https://audit-hq.tinsu.ai/`
-Basic-auth: user `tinsu`, password do Tinsu admin giữ (xem `~/.tinsu-secrets` hoặc 1Password).
+URL: `https://audit-hq.tinsu.ai/` (public từ v0.2 — bỏ basic-auth)
 
 ## Cấu trúc
 
@@ -18,8 +17,7 @@ Repo:
 ```
 deploy/
 ├── docker-compose.yml      nginx:alpine container, port 127.0.0.1:8757
-├── nginx.conf              static + basic-auth + healthz
-├── htpasswd.example        template (htpasswd thật gitignored)
+├── nginx.conf              static + healthz (không auth)
 ├── scripts/
 │   └── add-ingress.py      idempotent: add audit-hq ingress qua Cloudflare API
 └── README.md               (file này)
@@ -27,7 +25,7 @@ deploy/
 
 Trên VPS (`/home/tinsu/audit-hq/`):
 ```
-docker-compose.yml + nginx.conf + htpasswd + html/index.html
+docker-compose.yml + nginx.conf + html/index.html
 ```
 
 ## One-time setup trên VPS
@@ -38,7 +36,7 @@ ssh tinsu                         # alias: 100.84.189.87 / tinsu
 
 # 2. Tạo dir + scp config files (từ máy local)
 ssh tinsu "mkdir -p /home/tinsu/audit-hq/html"
-scp deploy/docker-compose.yml deploy/nginx.conf deploy/htpasswd tinsu:/home/tinsu/audit-hq/
+scp deploy/docker-compose.yml deploy/nginx.conf tinsu:/home/tinsu/audit-hq/
 
 # 3. Start container
 ssh tinsu "cd /home/tinsu/audit-hq && docker compose up -d"
@@ -78,9 +76,8 @@ ssh tinsu "sudo cloudflared tunnel route dns tinsu-online-server audit-hq.tinsu.
 Verify từ máy local (~10s sau khi cloudflared sync):
 
 ```bash
-curl -fsS https://audit-hq.tinsu.ai/healthz                                    # → ok
-curl -u tinsu:<password> https://audit-hq.tinsu.ai/ -o /dev/null -w '%{http_code}\n'  # → 200
-curl https://audit-hq.tinsu.ai/ -o /dev/null -w '%{http_code}\n'                       # → 401
+curl -fsS https://audit-hq.tinsu.ai/healthz                                # → ok
+curl -fsS https://audit-hq.tinsu.ai/ -o /dev/null -w '%{http_code}\n'      # → 200
 ```
 
 ## Routine publish (sau khi sửa MD local)
@@ -90,18 +87,6 @@ make all     # = make html + make publish
 ```
 
 `make publish` scp HTML → `/home/tinsu/audit-hq/html/index.html`. nginx auto-serve, không restart container.
-
-## Rotate basic-auth password
-
-Local:
-```bash
-NEW_PASS=$(python3 -c "import secrets, string; print(''.join(secrets.choice(string.ascii_letters+string.digits) for _ in range(14)))")
-HASH=$(openssl passwd -apr1 "$NEW_PASS")
-echo "tinsu:$HASH" > deploy/htpasswd
-echo "New password: $NEW_PASS"
-scp deploy/htpasswd tinsu:/home/tinsu/audit-hq/htpasswd
-ssh tinsu "docker exec audit-hq nginx -s reload"
-```
 
 ## Decommission
 

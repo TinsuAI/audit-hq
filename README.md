@@ -20,7 +20,7 @@ DRAFT v0.1 (2026-05-13). Sẽ iterate qua nhiều vòng với feedback HQ. Xem [
 https://audit-hq.tinsu.ai/
 ```
 
-Host trên Tinsu VPS qua nginx. Có basic-auth bảo vệ (xem `deploy/README.md` để biết credential).
+Host trên Tinsu VPS qua Docker nginx + Cloudflare Tunnel. Public (đã bỏ basic-auth).
 
 ## Workflow iterate
 

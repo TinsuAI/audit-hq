@@ -1,20 +1,21 @@
 # STATUS — Audit-HQ
 
-> **Trạng thái hiện tại:** DRAFT v0.1 — chờ feedback vòng đầu tiên.
+> **Trạng thái hiện tại:** DRAFT v0.2 — đã synthesize lần 1 với BCQT showcase checklist.
 
 ## Tóm tắt
 
-Đề án Audit-HQ vừa hoàn thành DRAFT v0.1 ngày 2026-05-13. Đây là proposal document gửi Tổng cục Hải quan (qua Trọng Tín) để xin POC.
+Đề án Audit-HQ bump v0.2 ngày 2026-05-13. Đây là proposal document gửi **Chi Cục Hải Quan Khu vực IV** (qua Trọng Tín) để xin POC. Catalog rút gọn từ 36 (v0.1) xuống 28 + 3 Phase 2 = 31 checks, dựa trên showcase checklist v1.0 đã được Tinsu chuẩn hoá.
 
 ## Đã làm
 
 - ✅ Grill 9 vòng với owner, lock decisions chính
-- ✅ Soạn `de-an-audit-hq.md` (DRAFT v0.1) — đầy đủ 9 sections + phụ lục
-- ✅ Catalog 36 sai phạm detectable, phân tier A-F, mark MVP-15/W.I.P/Phase-2
+- ✅ Soạn `de-an-audit-hq.md` (DRAFT v0.1 → v0.2)
+- ✅ Synthesize v0.2: dùng catalog 28 checks từ Tinsu BCQT showcase + 3 Phase 2 cross-DN
+- ✅ Cụ thể hoá đơn vị tiếp nhận: Chi Cục Hải Quan Khu vực IV
 - ✅ Demo flow 5-phút, demo data composition (5 DN synthetic × 3-4 năm)
-- ✅ Render HTML qua pandoc, embed CSS
-- ✅ Setup repo (Makefile, nginx config, deploy steps)
-- ⏳ Push remote `TinsuAI/audit-hq` private + setup VPS host
+- ✅ Render HTML, deploy Docker nginx + Cloudflare Tunnel
+- ✅ Public URL: https://audit-hq.tinsu.ai/ (đã bỏ basic-auth)
+- ✅ Repo `TinsuAI/audit-hq` private, push thường xuyên
 
 ## Đang chờ
 
@@ -43,7 +44,7 @@
 
 | Version | Trigger | Khi nào |
 |---|---|---|
-| v0.1-DRAFT | Internal Tinsu review | Bây giờ |
-| v0.2-DRAFT | Sau review nội bộ Tinsu + Trọng Tín | TBD |
-| v0.3-DRAFT | Sau feedback vòng 1 HQ | TBD |
-| v1.0 | Final, sau khi HQ approve nguyên tắc POC | TBD |
+| v0.1-DRAFT | Internal Tinsu review | 2026-05-13 ✅ |
+| v0.2-DRAFT | Synthesize với BCQT showcase checklist + cụ thể hoá Chi Cục Khu vực IV | 2026-05-13 ✅ |
+| v0.3-DRAFT | Sau feedback vòng 1 Hải quan | TBD |
+| v1.0 | Final, sau khi Hải quan approve nguyên tắc POC | TBD |
