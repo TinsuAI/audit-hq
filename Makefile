@@ -2,8 +2,10 @@
 
 # Deploy target — Tinsu VPS (Tailscale host alias `tinsu` in ~/.ssh/config)
 DEPLOY_HOST  := tinsu
-DEPLOY_PATH  := /home/tinsu/audit-hq
+DEPLOY_PATH  := /home/tinsu/audit-hq/html
 PUBLIC_URL   := https://audit-hq.sgnai.dev/
+SSH          := ssh.exe -F 'C:\Users\vuong\.ssh\config'
+SCP          := scp.exe -F 'C:\Users\vuong\.ssh\config'
 
 MD  := de-an-audit-hq.md
 HTML := de-an-audit-hq.html
@@ -31,7 +33,7 @@ $(HTML): $(MD) $(CSS)
 	@echo "Rendered → $(HTML)"
 
 publish: $(HTML)
-	scp $(HTML) $(DEPLOY_HOST):$(DEPLOY_PATH)/index.html
+	$(SCP) $(HTML) $(DEPLOY_HOST):$(DEPLOY_PATH)/index.html
 	@echo "Published → $(PUBLIC_URL)"
 
 all: html publish
