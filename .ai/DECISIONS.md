@@ -107,16 +107,20 @@ Log các quyết định quan trọng + lý do. Lock trong DRAFT v0.1 sau khi gr
 
 ---
 
-## 2026-05-13 — Hosting: nginx static trên Tinsu VPS, basic-auth, sgnai.dev
+## 2026-05-13 — Hosting: Docker nginx + Cloudflare Tunnel + basic-auth
 
 **Quyết định:**
-- URL: `https://audit-hq.sgnai.dev/` (theo pattern `*.sgnai.dev` của Tinsu, đồng bộ codex-lb-demo).
-- Hosting: Tinsu VPS, `/home/tinsu/audit-hq/`, nginx serve static.
+- URL: `https://audit-hq.tinsu.ai/` (zone `tinsu.ai` vì cert tunnel chỉ có quyền zone này, không phải `sgnai.dev`).
+- Hosting: Tinsu VPS, container nginx:alpine bind `127.0.0.1:8757`, không cần sudo (user `tinsu` trong docker group).
+- Public ingress: Cloudflare Tunnel `tinsu-online-server` (remotely-managed) — config add qua Cloudflare API (script `deploy/scripts/add-ingress.py`), không phải `/etc/cloudflared/config.yml` (file này bị remote override).
 - Bảo vệ: basic-auth (htpasswd) — đề án commercially sensitive cho draft phase.
-- Workflow: manual `make publish` (scp). Auto-deploy CI/CD defer Phase 2.
+- Workflow: manual `make publish` (scp HTML vào volume mount). Auto-deploy CI/CD defer Phase 2.
 
 **Lý do:**
 - Public URL cần để gửi reviewer ngoài tổ chức (HQ).
+- Cloudflare Tunnel = TLS edge + DDoS protection miễn phí, không phải config Let's Encrypt.
+- Docker = không sudo cho container, nhẹ, đồng bộ pattern app Tinsu khác.
+- Tunnel remotely-managed (lesson learned trong session deploy): edit `/etc/cloudflared/config.yml` không có hiệu lực; phải PUT qua Cloudflare API.
 - Basic-auth đủ cho draft (không phải fortress, chỉ là barrier).
 - Manual publish nhanh hơn CI cho draft thay đổi liên tục.
 

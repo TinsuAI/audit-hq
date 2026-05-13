@@ -3,7 +3,7 @@
 # Deploy target — Tinsu VPS (Tailscale host alias `tinsu` in ~/.ssh/config)
 DEPLOY_HOST  := tinsu
 DEPLOY_PATH  := /home/tinsu/audit-hq/html
-PUBLIC_URL   := https://audit-hq.sgnai.dev/
+PUBLIC_URL   := https://audit-hq.tinsu.ai/
 SSH          := ssh.exe -F 'C:\Users\vuong\.ssh\config'
 SCP          := scp.exe -F 'C:\Users\vuong\.ssh\config'
 

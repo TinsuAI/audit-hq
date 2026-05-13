@@ -1,90 +1,86 @@
 # Deploy — Audit-HQ đề án
 
-Static HTML host trên Tinsu VPS qua **Docker nginx**, public qua **Cloudflare Tunnel**.
+Static HTML host trên Tinsu VPS qua **Docker nginx**, public qua **Cloudflare Tunnel** (`tinsu-online-server`).
 
 ```
 local edit MD → make html → make publish
                               └─ scp HTML → /home/tinsu/audit-hq/html/index.html
                                               └─ docker nginx serves on 127.0.0.1:8757
-                                                  └─ cloudflared tunnel → https://audit-hq.sgnai.dev/
+                                                  └─ cloudflared tunnel → https://audit-hq.tinsu.ai/
 ```
 
-URL: `https://audit-hq.sgnai.dev/`
-Basic-auth credentials: shared riêng (user `tinsu`, password do Tinsu admin giữ).
+URL: `https://audit-hq.tinsu.ai/`
+Basic-auth: user `tinsu`, password do Tinsu admin giữ (xem `~/.tinsu-secrets` hoặc 1Password).
 
 ## Cấu trúc
 
+Repo:
 ```
 deploy/
-├── docker-compose.yml      Single nginx:alpine container, port 127.0.0.1:8757
-├── nginx.conf              Static + basic-auth + healthz
-├── htpasswd.example        Template (htpasswd thật gitignored)
+├── docker-compose.yml      nginx:alpine container, port 127.0.0.1:8757
+├── nginx.conf              static + basic-auth + healthz
+├── htpasswd.example        template (htpasswd thật gitignored)
+├── scripts/
+│   └── add-ingress.py      idempotent: add audit-hq ingress qua Cloudflare API
 └── README.md               (file này)
 ```
 
-Trên VPS:
-
+Trên VPS (`/home/tinsu/audit-hq/`):
 ```
-/home/tinsu/audit-hq/
-├── docker-compose.yml
-├── nginx.conf
-├── htpasswd                Basic auth credentials
-└── html/
-    └── index.html          File HTML đề án (sinh từ make publish)
+docker-compose.yml + nginx.conf + htpasswd + html/index.html
 ```
 
 ## One-time setup trên VPS
 
 ```bash
-# 1. Sao chép setup files lên server
-scp deploy/docker-compose.yml deploy/nginx.conf deploy/htpasswd tinsu:/home/tinsu/audit-hq/
-ssh tinsu "mkdir -p /home/tinsu/audit-hq/html"
+# 1. SSH (ssh.exe Windows, vì WSL ssh đang lỗi)
+ssh tinsu                         # alias: 100.84.189.87 / tinsu
 
-# 2. Start container
+# 2. Tạo dir + scp config files (từ máy local)
+ssh tinsu "mkdir -p /home/tinsu/audit-hq/html"
+scp deploy/docker-compose.yml deploy/nginx.conf deploy/htpasswd tinsu:/home/tinsu/audit-hq/
+
+# 3. Start container
 ssh tinsu "cd /home/tinsu/audit-hq && docker compose up -d"
 
-# 3. Verify (local trên server)
-ssh tinsu "curl -fsS http://127.0.0.1:8757/healthz && echo OK"
-ssh tinsu "curl -fsSu tinsu:<password> http://127.0.0.1:8757/ -o /dev/null -w '%{http_code}\n'"
+# 4. Verify localhost (trên server)
+ssh tinsu "curl -fsS http://127.0.0.1:8757/healthz"
+# → ok
 
-# 4. Push HTML lần đầu
+# 5. Push HTML lần đầu
 make publish
 ```
 
-## Cloudflare Tunnel — bước duy nhất cần sudo
+## Cloudflare Tunnel — add public hostname
 
-Cloudflared tunnel `tinsu-online-server` (UUID `691a9772-3168-422e-81eb-7c26e1dec9ef`) cần thêm ingress rule cho audit-hq:
+Tunnel `tinsu-online-server` là **remotely-managed** — config lưu trên Cloudflare Zero Trust dashboard, KHÔNG phải `/etc/cloudflared/config.yml` (file này được merge với remote nhưng remote thắng).
 
-```bash
-ssh tinsu
-# Backup config
-sudo cp /etc/cloudflared/config.yml /etc/cloudflared/config.yml.bak.audit-hq
-
-# Edit /etc/cloudflared/config.yml — thêm 2 dòng TRƯỚC dòng `service: http_status:404`:
-sudo nano /etc/cloudflared/config.yml
-```
-
-Thêm khối sau (đặt trước `- service: http_status:404`):
-
-```yaml
-  - hostname: audit-hq.sgnai.dev
-    service: http://localhost:8757
-```
-
-Reload + tạo DNS:
+Để thêm ingress, dùng script API (không cần sudo, đọc token từ `~/.cloudflared/cert.pem`):
 
 ```bash
-sudo systemctl reload cloudflared
-
-# Tạo CNAME audit-hq.sgnai.dev → tunnel (auto qua Cloudflare API)
-sudo cloudflared tunnel route dns tinsu-online-server audit-hq.sgnai.dev
+scp deploy/scripts/add-ingress.py tinsu:/tmp/
+ssh tinsu "python3 /tmp/add-ingress.py && rm /tmp/add-ingress.py"
 ```
 
-Verify từ máy ngoài:
+Output thành công:
+```
+current entries: 17
+PUT success: True
+new version: 28, entries: 18
+```
+
+Tạo DNS CNAME (chỉ cần lần đầu, cần sudo):
 
 ```bash
-curl -fsSu tinsu:<password> https://audit-hq.sgnai.dev/ -o /dev/null -w '%{http_code}\n'
-# expect: 200
+ssh tinsu "sudo cloudflared tunnel route dns tinsu-online-server audit-hq.tinsu.ai"
+```
+
+Verify từ máy local (~10s sau khi cloudflared sync):
+
+```bash
+curl -fsS https://audit-hq.tinsu.ai/healthz                                    # → ok
+curl -u tinsu:<password> https://audit-hq.tinsu.ai/ -o /dev/null -w '%{http_code}\n'  # → 200
+curl https://audit-hq.tinsu.ai/ -o /dev/null -w '%{http_code}\n'                       # → 401
 ```
 
 ## Routine publish (sau khi sửa MD local)
@@ -93,29 +89,34 @@ curl -fsSu tinsu:<password> https://audit-hq.sgnai.dev/ -o /dev/null -w '%{http_
 make all     # = make html + make publish
 ```
 
-`make publish` scp HTML đến `/home/tinsu/audit-hq/html/index.html`. nginx serve trực tiếp, không cần restart container.
+`make publish` scp HTML → `/home/tinsu/audit-hq/html/index.html`. nginx auto-serve, không restart container.
 
 ## Rotate basic-auth password
 
 Local:
-
 ```bash
 NEW_PASS=$(python3 -c "import secrets, string; print(''.join(secrets.choice(string.ascii_letters+string.digits) for _ in range(14)))")
 HASH=$(openssl passwd -apr1 "$NEW_PASS")
 echo "tinsu:$HASH" > deploy/htpasswd
 echo "New password: $NEW_PASS"
 scp deploy/htpasswd tinsu:/home/tinsu/audit-hq/htpasswd
-ssh tinsu "docker exec audit-hq nginx -s reload || (cd /home/tinsu/audit-hq && docker compose restart)"
+ssh tinsu "docker exec audit-hq nginx -s reload"
 ```
 
 ## Decommission
 
 ```bash
 ssh tinsu "cd /home/tinsu/audit-hq && docker compose down && cd .. && rm -rf audit-hq"
-# Sudo: xoá ingress rule trong /etc/cloudflared/config.yml + reload cloudflared
-sudo cloudflared tunnel route dns --overwrite-dns tinsu-online-server <bỏ qua>
+# Cloudflare side: xoá ingress qua dashboard hoặc API + xoá DNS CNAME
 ```
 
 ## Auto-deploy CI/CD — Phase 2
 
-Khi nội dung đề án ổn định và muốn auto-publish trên push GitHub: thêm `.github/workflows/publish.yml` dùng self-hosted runner trên tinsu (tham khảo pattern `data-hub` + `barry-CO`). Chưa cần trong Phase 1 vì draft thay đổi nhanh, `make publish` đơn giản hơn.
+Khi nội dung đề án ổn định và muốn auto-publish khi push GitHub: thêm `.github/workflows/publish.yml` dùng self-hosted runner trên tinsu (pattern data-hub + barry-CO). Chưa cần Phase 1 vì draft thay đổi nhanh, `make publish` đơn giản hơn.
+
+## Domain notes
+
+- Sử dụng `tinsu.ai` (không phải `sgnai.dev`) vì:
+  - Cert tunnel (`~/.cloudflared/cert.pem`) chỉ có quyền cho zone `tinsu.ai`
+  - Các service khác trong tunnel cũng dùng `*.tinsu.ai` (barry, airsur, ttdatahub, barry-co, bcqt-showcase, hub, office, kiot, trongtinerp, tamnamduoc)
+- Stale DNS `audit-hq.sgnai.dev.tinsu.ai` (do thử nhầm lần đầu) là CNAME vô hại; xoá tuỳ chọn qua Cloudflare dashboard

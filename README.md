@@ -17,7 +17,7 @@ DRAFT v0.1 (2026-05-13). Sẽ iterate qua nhiều vòng với feedback HQ. Xem [
 ## URL công khai
 
 ```
-https://audit-hq.sgnai.dev/
+https://audit-hq.tinsu.ai/
 ```
 
 Host trên Tinsu VPS qua nginx. Có basic-auth bảo vệ (xem `deploy/README.md` để biết credential).
@@ -34,7 +34,7 @@ make html
 # 3. Push lên server
 make publish
 
-# 4. View tại https://audit-hq.sgnai.dev/
+# 4. View tại https://audit-hq.tinsu.ai/
 
 # 5. Commit
 git add de-an-audit-hq.md de-an-audit-hq.html
