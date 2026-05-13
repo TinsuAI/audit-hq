@@ -206,9 +206,9 @@ tra)</a></li>
 Truy nguồn nguyên vật liệu nhập khẩu (3 kiểm tra)</a></li>
 <li><a href="#nhóm-6-kiểm-tra-liên-kỳ-5-kiểm-tra" id="toc-nhóm-6-kiểm-tra-liên-kỳ-5-kiểm-tra">Nhóm 6 — Kiểm tra liên kỳ (5
 kiểm tra)</a></li>
-<li><a href="#nhóm-7-so-sánh-giữa-các-doanh-nghiệp-giai-đoạn-2-cần-dữ-liệu-hải-quan-đa-dn" id="toc-nhóm-7-so-sánh-giữa-các-doanh-nghiệp-giai-đoạn-2-cần-dữ-liệu-hải-quan-đa-dn">Nhóm
-7 — So sánh giữa các doanh nghiệp (giai đoạn 2 — cần dữ liệu Hải quan đa
-DN)</a></li>
+<li><a href="#nhóm-7-so-sánh-giữa-các-doanh-nghiệp-giai-đoạn-2-cần-dữ-liệu-cơ-quan-hải-quan-đa-dn" id="toc-nhóm-7-so-sánh-giữa-các-doanh-nghiệp-giai-đoạn-2-cần-dữ-liệu-cơ-quan-hải-quan-đa-dn">Nhóm
+7 — So sánh giữa các doanh nghiệp (giai đoạn 2 — cần dữ liệu cơ quan Hải
+quan đa DN)</a></li>
 <li><a href="#tổng-hợp" id="toc-tổng-hợp">4.7 Tổng hợp</a></li>
 </ul></li>
 <li><a href="#kiến-trúc-hệ-thống-sơ-bộ" id="toc-kiến-trúc-hệ-thống-sơ-bộ">5. Kiến trúc hệ thống (sơ bộ)</a>
@@ -235,9 +235,9 @@ trình triển khai</a>
 <ul>
 <li><a href="#giai-đoạn-1-thử-nghiệm-và-trình-diễn-đề-xuất-4-6-tuần" id="toc-giai-đoạn-1-thử-nghiệm-và-trình-diễn-đề-xuất-4-6-tuần">7.1 Giai
 đoạn 1 — Thử nghiệm và trình diễn (đề xuất 4-6 tuần)</a></li>
-<li><a href="#giai-đoạn-2-triển-khai-thí-điểm-tại-chi-cục-đề-xuất-3-6-tháng-sau-khi-hải-quan-phê-duyệt-giai-đoạn-1" id="toc-giai-đoạn-2-triển-khai-thí-điểm-tại-chi-cục-đề-xuất-3-6-tháng-sau-khi-hải-quan-phê-duyệt-giai-đoạn-1">7.2
+<li><a href="#giai-đoạn-2-triển-khai-thí-điểm-tại-chi-cục-đề-xuất-3-6-tháng-sau-khi-cơ-quan-hải-quan-phê-duyệt-giai-đoạn-1" id="toc-giai-đoạn-2-triển-khai-thí-điểm-tại-chi-cục-đề-xuất-3-6-tháng-sau-khi-cơ-quan-hải-quan-phê-duyệt-giai-đoạn-1">7.2
 Giai đoạn 2 — Triển khai thí điểm tại Chi cục (đề xuất 3-6 tháng sau khi
-Hải quan phê duyệt giai đoạn 1)</a></li>
+cơ quan Hải quan phê duyệt giai đoạn 1)</a></li>
 <li><a href="#giai-đoạn-3-vận-hành-chính-thức-đề-xuất-12-tháng-trở-lên" id="toc-giai-đoạn-3-vận-hành-chính-thức-đề-xuất-12-tháng-trở-lên">7.3
 Giai đoạn 3 — Vận hành chính thức (đề xuất 12 tháng trở lên)</a></li>
 <li><a href="#vai-trò-các-bên" id="toc-vai-trò-các-bên">7.4 Vai trò các
@@ -277,20 +277,20 @@ Chi Cục Hải Quan Khu vực IV</p>
 <h2 id="tổng-quan">1. Tổng quan</h2>
 <h3 id="bối-cảnh">1.1 Bối cảnh</h3>
 <p>Mỗi năm, các doanh nghiệp chế xuất (DNCX), doanh nghiệp gia công, và
-doanh nghiệp sản xuất xuất khẩu (SXXK) nộp Hải quan bộ báo cáo quyết
-toán nguyên vật liệu — sản phẩm — định mức (Mẫu 15/BCQT-NVL, Mẫu
+doanh nghiệp sản xuất xuất khẩu (SXXK) nộp cơ quan Hải quan bộ báo cáo
+quyết toán nguyên vật liệu — sản phẩm — định mức (Mẫu 15/BCQT-NVL, Mẫu
 15a/BCQT-SP, Mẫu 16/ĐMTT theo TT 39/2018) cùng toàn bộ lịch sử Tờ khai
 Xuất Nhập khẩu trong kỳ. Khối lượng dữ liệu rất lớn (mỗi doanh nghiệp cỡ
 hàng chục nghìn dòng tờ khai mỗi năm, qua nhiều năm); việc rà soát thủ
 công không khả thi và phụ thuộc kinh nghiệm cán bộ.</p>
-<p>Hiện tại Hải quan lựa chọn doanh nghiệp để kiểm tra sau thông quan
-chủ yếu dựa trên: - Tổng quy mô kim ngạch - Loại hình hoạt động (DNCX,
-gia công, SXXK) - Kinh nghiệm và đánh giá của cán bộ</p>
+<p>Hiện tại cơ quan Hải quan lựa chọn doanh nghiệp để kiểm tra sau thông
+quan chủ yếu dựa trên: - Tổng quy mô kim ngạch - Loại hình hoạt động
+(DNCX, gia công, SXXK) - Kinh nghiệm và đánh giá của cán bộ</p>
 <p>Cách tiếp cận này có thể bỏ sót doanh nghiệp có sai phạm tinh vi
 nhưng quy mô vừa, đồng thời tốn nguồn lực kiểm tra các doanh nghiệp tuân
 thủ tốt.</p>
 <h3 id="mục-tiêu">1.2 Mục tiêu</h3>
-<p>Xây dựng hệ thống Audit-HQ giúp Hải quan:</p>
+<p>Xây dựng hệ thống Audit-HQ giúp cơ quan Hải quan:</p>
 <ol type="1">
 <li><strong>Phát hiện sai phạm khả năng</strong> từ BCQT và TKXNK đã
 nộp, bằng phân tích đa chiều (số học nội bộ Mẫu, đối chiếu chéo các
@@ -372,8 +372,8 @@ phối hợp với Tinsu) có thể đề xuất quy tắc mới theo nghiệp v
 phát hiện.</p>
 <h3 id="ngưỡng-có-thể-điều-chỉnh">2.4 Ngưỡng có thể điều chỉnh</h3>
 <p>Hệ thống có ngưỡng mặc định cho mỗi kiểm tra (Nghiêm trọng / Cảnh báo
-/ Thông tin). Hải quan có toàn quyền điều chỉnh ngưỡng theo thực tế
-nghiệp vụ, theo loại hình doanh nghiệp, hoặc theo ngành hàng.</p>
+/ Thông tin). Cơ quan Hải quan có toàn quyền điều chỉnh ngưỡng theo thực
+tế nghiệp vụ, theo loại hình doanh nghiệp, hoặc theo ngành hàng.</p>
 <h3 id="an-toàn-pháp-lý">2.5 An toàn pháp lý</h3>
 <ul>
 <li>Lớp ẩn danh cho dữ liệu trình diễn (bảo vệ bí mật doanh nghiệp trong
@@ -455,12 +455,12 @@ công/SXXK trong phạm vi quản lý, 10 năm dữ liệu.</li>
 <h2 id="danh-mục-các-kiểm-tra">4. Danh mục các kiểm tra</h2>
 <blockquote>
 <p><strong>Tổng:</strong> 28 kiểm tra (6 nhóm chính) + 3 kiểm tra so
-sánh giữa các doanh nghiệp (giai đoạn 2, cần dữ liệu Hải quan toàn
-ngành).</p>
+sánh giữa các doanh nghiệp (giai đoạn 2, cần dữ liệu cơ quan Hải quan
+toàn ngành).</p>
 <p><strong>Trạng thái:</strong> - ✅ Xây dựng và trình diễn ngay (15
 kiểm tra) - 🚧 Có trong danh mục, sẽ xây dựng giai đoạn thí điểm (13
-kiểm tra) - ⏳ Giai đoạn 2 (3 kiểm tra) — cần dữ liệu Hải quan đa doanh
-nghiệp</p>
+kiểm tra) - ⏳ Giai đoạn 2 (3 kiểm tra) — cần dữ liệu cơ quan Hải quan
+đa doanh nghiệp</p>
 <p><strong>Mức độ:</strong> 🔴 Nghiêm trọng · 🟡 Cảnh báo · 🔵 Thông
 tin</p>
 </blockquote>
@@ -676,9 +676,8 @@ suất và chính sách — khác chương là rủi ro pháp lý lớn nhất.<
 <tr class="odd">
 <td><strong>C3.3</strong></td>
 <td>Đơn vị tính không nhất quán (cùng mã vật tư) — ≥2 đơn vị khác nhau
-giữa M15 và BCCT. <strong>Thực tế Johnson 2025</strong>: 3 mã sai đơn vị
-×1.000 làm sai toàn bộ số liệu M15. Rủi ro: Sai đơn vị tính ×1000 khiến
-toàn bộ nhập/xuất/tồn sai hệ thống.</td>
+giữa M15 và BCCT. Rủi ro: Sai đơn vị tính ×1000 khiến toàn bộ
+nhập/xuất/tồn sai hệ thống.</td>
 <td>🔴</td>
 <td>✅</td>
 </tr>
@@ -735,9 +734,9 @@ hoá nguyên vật liệu nhập khẩu vượt mức.</td>
 phẩm. <strong>Ví dụ thực tế</strong>: 1 chiếc áo có 10 loại cúc khác
 nhau trong M16. Cách phát hiện: (A) ≥N mã có cùng HS 4 số trong 1 thành
 phẩm (mặc định) · (B) gom nhóm tên gần giống (xử lý ngôn ngữ tự nhiên) ·
-(C) Hải quan định nghĩa danh mục nhóm vật tư. Ngưỡng: ≥5 mã cùng HS /
-thành phẩm Cảnh báo · ≥10 Nghiêm trọng. Rủi ro: Phân mảnh nguyên vật
-liệu để che số lượng, hợp thức hoá nhập khẩu dư.</td>
+(C) cơ quan Hải quan định nghĩa danh mục nhóm vật tư. Ngưỡng: ≥5 mã cùng
+HS / thành phẩm Cảnh báo · ≥10 Nghiêm trọng. Rủi ro: Phân mảnh nguyên
+vật liệu để che số lượng, hợp thức hoá nhập khẩu dư.</td>
 <td>🟡</td>
 <td>🚧</td>
 </tr>
@@ -872,9 +871,9 @@ chuyển sang nhóm thuế suất hoặc chính sách có lợi hơn.</td>
 </tr>
 </tbody>
 </table>
-<h3 id="nhóm-7-so-sánh-giữa-các-doanh-nghiệp-giai-đoạn-2-cần-dữ-liệu-hải-quan-đa-dn">Nhóm
-7 — So sánh giữa các doanh nghiệp (giai đoạn 2 — cần dữ liệu Hải quan đa
-DN)</h3>
+<h3 id="nhóm-7-so-sánh-giữa-các-doanh-nghiệp-giai-đoạn-2-cần-dữ-liệu-cơ-quan-hải-quan-đa-dn">Nhóm
+7 — So sánh giữa các doanh nghiệp (giai đoạn 2 — cần dữ liệu cơ quan Hải
+quan đa DN)</h3>
 <table>
 <colgroup>
 <col style="width: 25%" />
@@ -990,9 +989,9 @@ tra.</td>
 </table>
 <blockquote>
 <p><strong>Danh mục mở rộng được:</strong> Catalog không cố định ở con
-số 31. Mỗi nghiệp vụ Hải quan phát hiện mới có thể bổ sung vào danh mục
-như một mô-đun độc lập, không cần thay đổi phần lõi. Ngưỡng đề xuất có
-thể điều chỉnh theo thực tế.</p>
+số 31. Mỗi nghiệp vụ cơ quan Hải quan phát hiện mới có thể bổ sung vào
+danh mục như một mô-đun độc lập, không cần thay đổi phần lõi. Ngưỡng đề
+xuất có thể điều chỉnh theo thực tế.</p>
 </blockquote>
 <hr />
 <h2 id="kiến-trúc-hệ-thống-sơ-bộ">5. Kiến trúc hệ thống (sơ bộ)</h2>
@@ -1265,7 +1264,6 @@ số</td>
                 Chênh lệch: 1.000 kg nguyên vật liệu &quot;biến mất&quot;
 3:30 — Chọn phát hiện &quot;C3.3 Đơn vị tính không nhất quán&quot;
          BCCT khai 1.000 kg, M15 khai 1.000 cái → lệch 1.000 lần
-         Tham chiếu Johnson 2025: 3 mã cùng kiểu sai phạm
 4:00 — Chọn &quot;Xuất báo cáo kiến nghị kiểm tra&quot; → file Excel kèm:
          + Danh sách 4 phát hiện
          + Trích xuất chứng cứ (dòng BCCT cụ thể)
@@ -1324,9 +1322,9 @@ BCQT-System</td>
 </tr>
 </tbody>
 </table>
-<h3 id="giai-đoạn-2-triển-khai-thí-điểm-tại-chi-cục-đề-xuất-3-6-tháng-sau-khi-hải-quan-phê-duyệt-giai-đoạn-1">7.2
+<h3 id="giai-đoạn-2-triển-khai-thí-điểm-tại-chi-cục-đề-xuất-3-6-tháng-sau-khi-cơ-quan-hải-quan-phê-duyệt-giai-đoạn-1">7.2
 Giai đoạn 2 — Triển khai thí điểm tại Chi cục (đề xuất 3-6 tháng sau khi
-Hải quan phê duyệt giai đoạn 1)</h3>
+cơ quan Hải quan phê duyệt giai đoạn 1)</h3>
 <ul>
 <li>Triển khai tại <strong>Chi Cục Hải Quan Khu vực IV</strong>.</li>
 <li>Nạp dữ liệu doanh nghiệp trong phạm vi quản lý (dữ liệu thực, không
@@ -1377,7 +1375,7 @@ hành).</li>
 <td>Tư vấn</td>
 </tr>
 <tr class="odd">
-<td>Hải quan</td>
+<td>Cơ quan Hải quan</td>
 <td>Đơn vị đặt vấn đề, phản hồi thiết kế</td>
 <td>Cán bộ dùng thử, cung cấp dữ liệu Chi cục</td>
 <td>Khách hàng chính thức</td>
@@ -1386,20 +1384,20 @@ hành).</li>
 </table>
 <blockquote>
 <p><strong>Quan trọng:</strong> Dữ liệu của Trọng Tín chỉ dùng để
-<strong>xây dựng và trình diễn công cụ</strong>. Khi Hải quan vận hành
-chính thức, hệ thống chạy trên dữ liệu của Hải quan. Trọng Tín không
-chuyển dữ liệu khách hàng sang Hải quan ngoài bối cảnh doanh nghiệp tự
-nộp BCQT.</p>
+<strong>xây dựng và trình diễn công cụ</strong>. Khi cơ quan Hải quan
+vận hành chính thức, hệ thống chạy trên dữ liệu của cơ quan Hải quan.
+Trọng Tín không chuyển dữ liệu khách hàng sang cơ quan Hải quan ngoài
+bối cảnh doanh nghiệp tự nộp BCQT.</p>
 </blockquote>
 <hr />
 <h2 id="câu-hỏi-mở-cho-phía-hải-quan">8. Câu hỏi mở cho phía Hải
 quan</h2>
-<p>Đây là các nội dung cần phản hồi từ Hải quan trước khi hoàn thiện đề
-án và bắt đầu xây dựng.</p>
+<p>Đây là các nội dung cần phản hồi từ cơ quan Hải quan trước khi hoàn
+thiện đề án và bắt đầu xây dựng.</p>
 <h3 id="về-phạm-vi-nghiệp-vụ">8.1 Về phạm vi nghiệp vụ</h3>
 <ol type="1">
-<li>Trong 31 kiểm tra đề xuất, có kiểm tra nào Hải quan đặc biệt quan
-tâm, hoặc có kiểm tra nào quan trọng mà đề án bỏ sót?</li>
+<li>Trong 31 kiểm tra đề xuất, có kiểm tra nào cơ quan Hải quan đặc biệt
+quan tâm, hoặc có kiểm tra nào quan trọng mà đề án bỏ sót?</li>
 <li>Báo cáo Excel kiến nghị kiểm tra có cần theo mẫu chính thức nào
 không?</li>
 <li>Hiện tại Chi cục đang dùng công cụ hoặc quy trình nào để chọn doanh
@@ -1409,8 +1407,8 @@ tế nghiệp vụ không? Cần điều chỉnh gì?</li>
 </ol>
 <h3 id="về-dữ-liệu">8.2 Về dữ liệu</h3>
 <ol start="5" type="1">
-<li>Hệ thống xử lý dữ liệu điện tử của Hải quan có lưu Mẫu 15/15a/16
-dưới dạng có cấu trúc, hay chỉ là tệp Excel đính kèm?</li>
+<li>Hệ thống xử lý dữ liệu điện tử của cơ quan Hải quan có lưu Mẫu
+15/15a/16 dưới dạng có cấu trúc, hay chỉ là tệp Excel đính kèm?</li>
 <li>Dữ liệu TKXNK xuất từ VNACCS có cấu trúc thống nhất cho mọi Chi cục
 không?</li>
 <li>Quyền truy cập dữ liệu nhiều năm: hệ thống VCIS-VNACCS đã cho phép
@@ -1418,8 +1416,8 @@ truy vấn trực tiếp, hay phải xin từng kỳ?</li>
 </ol>
 <h3 id="về-kỹ-thuật-và-vận-hành">8.3 Về kỹ thuật và vận hành</h3>
 <ol start="8" type="1">
-<li>Hệ thống đặt tại trụ sở Hải quan hay đặt trên máy chủ của Tinsu? Yêu
-cầu bảo mật cụ thể?</li>
+<li>Hệ thống đặt tại trụ sở cơ quan Hải quan hay đặt trên máy chủ của
+Tinsu? Yêu cầu bảo mật cụ thể?</li>
 <li>Có yêu cầu chứng nhận an toàn thông tin cấp nào?</li>
 <li>Cam kết chất lượng dịch vụ (SLA) cần đáp ứng cho giai đoạn thí điểm
 / vận hành chính thức?</li>
@@ -1430,10 +1428,10 @@ mức kỹ thuật nào? Cần đào tạo bao nhiêu?</li>
 <ol start="12" type="1">
 <li>Audit-HQ chỉ đưa ra <strong>gợi ý</strong>, không phải kết luận điều
 tra. Đồng ý cách dùng này?</li>
-<li>Trường hợp doanh nghiệp khiếu nại kết quả phát hiện của hệ thống,
-Hải quan có cần Tinsu hỗ trợ giải trình kỹ thuật không?</li>
-<li>Quyền sở hữu trí tuệ đối với danh mục kiểm tra: thuộc Hải quan,
-Tinsu, hay chia sẻ chung?</li>
+<li>Trường hợp doanh nghiệp khiếu nại kết quả phát hiện của hệ thống, cơ
+quan Hải quan có cần Tinsu hỗ trợ giải trình kỹ thuật không?</li>
+<li>Quyền sở hữu trí tuệ đối với danh mục kiểm tra: thuộc cơ quan Hải
+quan, Tinsu, hay chia sẻ chung?</li>
 </ol>
 <hr />
 <h2 id="phụ-lục">9. Phụ lục</h2>
@@ -1545,8 +1543,6 @@ Tinsu, hay chia sẻ chung?</li>
 biến thể</li>
 <li>Danh sách kiểm tra BCQT (Tinsu AI, phiên bản 1.0 ngày 13/05/2026) —
 28 kiểm tra cơ sở</li>
-<li>Dự án Johnson BCQT 2025 (Tinsu AI × Trọng Tín × Johnson) — trường
-hợp thực tế đơn vị tính sai ×1.000 (C3.3)</li>
 </ul>
 <h3 id="lịch-sử-bản">9.3 Lịch sử bản</h3>
 <table>
@@ -1577,7 +1573,7 @@ hợp thực tế đơn vị tính sai ×1.000 (C3.3)</li>
 <td>Tinsu AI</td>
 <td>Tổng hợp với danh sách 28 kiểm tra từ BCQT showcase; cụ thể hoá đơn
 vị tiếp nhận (Chi Cục Hải Quan Khu vực IV); làm rõ Excel BCQT có định
-dạng chuẩn; tổng quát hoá tham chiếu Hải quan</td>
+dạng chuẩn; tổng quát hoá tham chiếu cơ quan Hải quan</td>
 </tr>
 <tr class="odd">
 <td>Bản nháp 3</td>
@@ -1591,8 +1587,8 @@ phù hợp với cán bộ Hải quan</td>
 <hr />
 <blockquote>
 <p><strong>Đây là bản dự thảo lần 3.</strong> Mọi nội dung là đề xuất sơ
-bộ và sẽ được điều chỉnh theo phản hồi của Hải quan qua các vòng tổng
-hợp tiếp theo.</p>
+bộ và sẽ được điều chỉnh theo phản hồi của cơ quan Hải quan qua các vòng
+tổng hợp tiếp theo.</p>
 </blockquote>
 </body>
 </html>

@@ -14,9 +14,9 @@
 
 ### 1.1 Bối cảnh
 
-Mỗi năm, các doanh nghiệp chế xuất (DNCX), doanh nghiệp gia công, và doanh nghiệp sản xuất xuất khẩu (SXXK) nộp Hải quan bộ báo cáo quyết toán nguyên vật liệu — sản phẩm — định mức (Mẫu 15/BCQT-NVL, Mẫu 15a/BCQT-SP, Mẫu 16/ĐMTT theo TT 39/2018) cùng toàn bộ lịch sử Tờ khai Xuất Nhập khẩu trong kỳ. Khối lượng dữ liệu rất lớn (mỗi doanh nghiệp cỡ hàng chục nghìn dòng tờ khai mỗi năm, qua nhiều năm); việc rà soát thủ công không khả thi và phụ thuộc kinh nghiệm cán bộ.
+Mỗi năm, các doanh nghiệp chế xuất (DNCX), doanh nghiệp gia công, và doanh nghiệp sản xuất xuất khẩu (SXXK) nộp cơ quan Hải quan bộ báo cáo quyết toán nguyên vật liệu — sản phẩm — định mức (Mẫu 15/BCQT-NVL, Mẫu 15a/BCQT-SP, Mẫu 16/ĐMTT theo TT 39/2018) cùng toàn bộ lịch sử Tờ khai Xuất Nhập khẩu trong kỳ. Khối lượng dữ liệu rất lớn (mỗi doanh nghiệp cỡ hàng chục nghìn dòng tờ khai mỗi năm, qua nhiều năm); việc rà soát thủ công không khả thi và phụ thuộc kinh nghiệm cán bộ.
 
-Hiện tại Hải quan lựa chọn doanh nghiệp để kiểm tra sau thông quan chủ yếu dựa trên:
+Hiện tại cơ quan Hải quan lựa chọn doanh nghiệp để kiểm tra sau thông quan chủ yếu dựa trên:
 - Tổng quy mô kim ngạch
 - Loại hình hoạt động (DNCX, gia công, SXXK)
 - Kinh nghiệm và đánh giá của cán bộ
@@ -25,7 +25,7 @@ Cách tiếp cận này có thể bỏ sót doanh nghiệp có sai phạm tinh v
 
 ### 1.2 Mục tiêu
 
-Xây dựng hệ thống Audit-HQ giúp Hải quan:
+Xây dựng hệ thống Audit-HQ giúp cơ quan Hải quan:
 
 1. **Phát hiện sai phạm khả năng** từ BCQT và TKXNK đã nộp, bằng phân tích đa chiều (số học nội bộ Mẫu, đối chiếu chéo các nguồn, kiểm tra định mức M16, truy nguồn nguyên vật liệu, so sánh liên kỳ, so sánh giữa các doanh nghiệp).
 2. **Xếp hạng doanh nghiệp theo mức độ rủi ro**, kèm chứng cứ truy ngược về dòng dữ liệu gốc, để cán bộ có cơ sở giải trình khi đề xuất kiểm tra.
@@ -73,7 +73,7 @@ Mỗi loại kiểm tra là một **mô-đun độc lập**. Thêm kiểm tra m�
 
 ### 2.4 Ngưỡng có thể điều chỉnh
 
-Hệ thống có ngưỡng mặc định cho mỗi kiểm tra (Nghiêm trọng / Cảnh báo / Thông tin). Hải quan có toàn quyền điều chỉnh ngưỡng theo thực tế nghiệp vụ, theo loại hình doanh nghiệp, hoặc theo ngành hàng.
+Hệ thống có ngưỡng mặc định cho mỗi kiểm tra (Nghiêm trọng / Cảnh báo / Thông tin). Cơ quan Hải quan có toàn quyền điều chỉnh ngưỡng theo thực tế nghiệp vụ, theo loại hình doanh nghiệp, hoặc theo ngành hàng.
 
 ### 2.5 An toàn pháp lý
 
@@ -118,12 +118,12 @@ Cho toàn bộ danh sách doanh nghiệp:
 
 ## 4. Danh mục các kiểm tra
 
-> **Tổng:** 28 kiểm tra (6 nhóm chính) + 3 kiểm tra so sánh giữa các doanh nghiệp (giai đoạn 2, cần dữ liệu Hải quan toàn ngành).
+> **Tổng:** 28 kiểm tra (6 nhóm chính) + 3 kiểm tra so sánh giữa các doanh nghiệp (giai đoạn 2, cần dữ liệu cơ quan Hải quan toàn ngành).
 >
 > **Trạng thái:**
 > - ✅ Xây dựng và trình diễn ngay (15 kiểm tra)
 > - 🚧 Có trong danh mục, sẽ xây dựng giai đoạn thí điểm (13 kiểm tra)
-> - ⏳ Giai đoạn 2 (3 kiểm tra) — cần dữ liệu Hải quan đa doanh nghiệp
+> - ⏳ Giai đoạn 2 (3 kiểm tra) — cần dữ liệu cơ quan Hải quan đa doanh nghiệp
 >
 > **Mức độ:** 🔴 Nghiêm trọng · 🟡 Cảnh báo · 🔵 Thông tin
 
@@ -164,7 +164,7 @@ Cho toàn bộ danh sách doanh nghiệp:
 |---|---|---|---|
 | **C3.1** | Cùng mã vật tư khai nhiều loại hình mâu thuẫn — một mã có trên cả tờ khai nguyên vật liệu và tờ khai máy móc thiết bị trong cùng kỳ. Cặp mâu thuẫn: E11+E13 · E31+E13 · E21+E13. Rủi ro: Phân loại sai dẫn đến sai phạm vi BCQT. | 🟡 | ✅ |
 | **C3.2** | Mã HS không nhất quán trong kỳ (cùng mã vật tư) — ≥2 mã HS khác nhau trên các tờ khai. Ngưỡng: Khác phân nhóm (6 số) Thông tin · khác nhóm (4 số) Cảnh báo · khác chương (2 số) Nghiêm trọng. Rủi ro: Ảnh hưởng thuế suất và chính sách — khác chương là rủi ro pháp lý lớn nhất. | 🟡🔴 | ✅ |
-| **C3.3** | Đơn vị tính không nhất quán (cùng mã vật tư) — ≥2 đơn vị khác nhau giữa M15 và BCCT. **Thực tế Johnson 2025**: 3 mã sai đơn vị ×1.000 làm sai toàn bộ số liệu M15. Rủi ro: Sai đơn vị tính ×1000 khiến toàn bộ nhập/xuất/tồn sai hệ thống. | 🔴 | ✅ |
+| **C3.3** | Đơn vị tính không nhất quán (cùng mã vật tư) — ≥2 đơn vị khác nhau giữa M15 và BCCT. Rủi ro: Sai đơn vị tính ×1000 khiến toàn bộ nhập/xuất/tồn sai hệ thống. | 🔴 | ✅ |
 
 ### Nhóm 4 — Định mức M16 (6 kiểm tra)
 
@@ -173,7 +173,7 @@ Cho toàn bộ danh sách doanh nghiệp:
 | **C4.1** | Nguyên vật liệu trong M16 không có nhập khẩu trong M15 — `mã_NVL` trong M16 nhưng `nhập_trong_kỳ` = 0 hoặc không có dòng trong M15. Rủi ro: Không thể giải trình dòng vật tư từ tờ khai đến thành phẩm xuất khẩu. | 🔴 | ✅ |
 | **C4.2** | Thành phẩm trong M16 không có trong M15a — `mã_SP_xuất_khẩu` trong M16 nhưng không có dòng trong M15a. Rủi ro: Định mức cho thành phẩm không có trong báo cáo xuất khẩu. | 🟡 | 🚧 |
 | **C4.3** | Tổng tiêu hao tính theo M16 vượt xuất sản xuất M15 — Σ(`định_mức` × `xuất_khẩu_M15a`) theo mã nguyên vật liệu > `xuất_sản_xuất` trong M15. Ngưỡng: vượt >5% Cảnh báo · >20% Nghiêm trọng. Rủi ro: Định mức thổi phồng để hợp thức hoá nguyên vật liệu nhập khẩu vượt mức. | 🟡 | ✅ |
-| **C4.4** | M16 phân mảnh: nhiều nguyên vật liệu cùng chức năng cho một thành phẩm. **Ví dụ thực tế**: 1 chiếc áo có 10 loại cúc khác nhau trong M16. Cách phát hiện: (A) ≥N mã có cùng HS 4 số trong 1 thành phẩm (mặc định) · (B) gom nhóm tên gần giống (xử lý ngôn ngữ tự nhiên) · (C) Hải quan định nghĩa danh mục nhóm vật tư. Ngưỡng: ≥5 mã cùng HS / thành phẩm Cảnh báo · ≥10 Nghiêm trọng. Rủi ro: Phân mảnh nguyên vật liệu để che số lượng, hợp thức hoá nhập khẩu dư. | 🟡 | 🚧 |
+| **C4.4** | M16 phân mảnh: nhiều nguyên vật liệu cùng chức năng cho một thành phẩm. **Ví dụ thực tế**: 1 chiếc áo có 10 loại cúc khác nhau trong M16. Cách phát hiện: (A) ≥N mã có cùng HS 4 số trong 1 thành phẩm (mặc định) · (B) gom nhóm tên gần giống (xử lý ngôn ngữ tự nhiên) · (C) cơ quan Hải quan định nghĩa danh mục nhóm vật tư. Ngưỡng: ≥5 mã cùng HS / thành phẩm Cảnh báo · ≥10 Nghiêm trọng. Rủi ro: Phân mảnh nguyên vật liệu để che số lượng, hợp thức hoá nhập khẩu dư. | 🟡 | 🚧 |
 | **C4.5** | Định mức bằng 0 hoặc âm — `định_mức_thực_tế` ≤ 0 trên bất kỳ dòng M16 nào. Rủi ro: Lỗi dữ liệu hoặc cố tình khai 0 để che tiêu hao thực tế. | 🔴 | 🚧 |
 | **C4.6** | Định mức bất thường cao (giá trị ngoại lai thống kê) — `định_mức` cặp thành phẩm-nguyên vật liệu vượt xa giá trị trung bình toàn dữ liệu. Ngưỡng: vượt trung bình ±3 độ lệch chuẩn Cảnh báo · ±5 độ lệch chuẩn Nghiêm trọng. Rủi ro: Thổi phồng định mức để hợp thức hoá nguyên vật liệu nhập khẩu vượt mức. | 🟡 | 🚧 |
 
@@ -197,7 +197,7 @@ Cho toàn bộ danh sách doanh nghiệp:
 | **C6.4** | Nhập tăng mạnh nhưng xuất khẩu không tăng tương ứng — `nhập_trong_kỳ` tăng >X% trong khi `xuất_khẩu` tăng <Y%. Ngưỡng: nhập tăng >50% trong khi xuất tăng <10% Cảnh báo. Rủi ro: Tích luỹ tồn nguyên vật liệu bất thường, nguy cơ chuyển nội địa không khai báo A42. | 🟡 | 🚧 |
 | **C6.5** | Mã HS thay đổi cho cùng mã vật tư giữa các kỳ — Ngưỡng: đổi nhóm (4 số) Cảnh báo · đổi chương (2 số) Nghiêm trọng. Rủi ro: Phân loại lại để chuyển sang nhóm thuế suất hoặc chính sách có lợi hơn. | 🟡🔴 | 🚧 |
 
-### Nhóm 7 — So sánh giữa các doanh nghiệp (giai đoạn 2 — cần dữ liệu Hải quan đa DN)
+### Nhóm 7 — So sánh giữa các doanh nghiệp (giai đoạn 2 — cần dữ liệu cơ quan Hải quan đa DN)
 
 | Mã | Tên | Mức | Trạng thái |
 |---|---|---|---|
@@ -218,7 +218,7 @@ Cho toàn bộ danh sách doanh nghiệp:
 | 7 — So sánh giữa các DN | 3 | 0 | 0 | 3 |
 | **Tổng** | **31** | **15** | **13** | **3** |
 
-> **Danh mục mở rộng được:** Catalog không cố định ở con số 31. Mỗi nghiệp vụ Hải quan phát hiện mới có thể bổ sung vào danh mục như một mô-đun độc lập, không cần thay đổi phần lõi. Ngưỡng đề xuất có thể điều chỉnh theo thực tế.
+> **Danh mục mở rộng được:** Catalog không cố định ở con số 31. Mỗi nghiệp vụ cơ quan Hải quan phát hiện mới có thể bổ sung vào danh mục như một mô-đun độc lập, không cần thay đổi phần lõi. Ngưỡng đề xuất có thể điều chỉnh theo thực tế.
 
 ---
 
@@ -336,7 +336,6 @@ Mọi quyết định cuối cùng vẫn do cán bộ Hải quan đưa ra. AI ch
                 Chênh lệch: 1.000 kg nguyên vật liệu "biến mất"
 3:30 — Chọn phát hiện "C3.3 Đơn vị tính không nhất quán"
          BCCT khai 1.000 kg, M15 khai 1.000 cái → lệch 1.000 lần
-         Tham chiếu Johnson 2025: 3 mã cùng kiểu sai phạm
 4:00 — Chọn "Xuất báo cáo kiến nghị kiểm tra" → file Excel kèm:
          + Danh sách 4 phát hiện
          + Trích xuất chứng cứ (dòng BCCT cụ thể)
@@ -361,7 +360,7 @@ Mọi quyết định cuối cùng vẫn do cán bộ Hải quan đưa ra. AI ch
 | 5 | Dữ liệu giả lập 5 DN × 3-4 năm + ẩn danh | Dữ liệu trình diễn hoàn chỉnh |
 | 6 | Hoàn thiện giao diện + tổng duyệt trình diễn + đóng gói | Sẵn sàng giới thiệu |
 
-### 7.2 Giai đoạn 2 — Triển khai thí điểm tại Chi cục (đề xuất 3-6 tháng sau khi Hải quan phê duyệt giai đoạn 1)
+### 7.2 Giai đoạn 2 — Triển khai thí điểm tại Chi cục (đề xuất 3-6 tháng sau khi cơ quan Hải quan phê duyệt giai đoạn 1)
 
 - Triển khai tại **Chi Cục Hải Quan Khu vực IV**.
 - Nạp dữ liệu doanh nghiệp trong phạm vi quản lý (dữ liệu thực, không giả lập).
@@ -383,32 +382,32 @@ Mọi quyết định cuối cùng vẫn do cán bộ Hải quan đưa ra. AI ch
 |---|---|---|---|
 | Tinsu AI | Xây dựng hệ thống, dữ liệu giả lập | Bảo trì, nghiên cứu kiểm tra mới | Vận hành, mở rộng |
 | Trọng Tín | Cung cấp kinh nghiệm nghiệp vụ, dữ liệu nền đã ẩn danh | Đào tạo cán bộ, đầu mối nghiệp vụ | Tư vấn |
-| Hải quan | Đơn vị đặt vấn đề, phản hồi thiết kế | Cán bộ dùng thử, cung cấp dữ liệu Chi cục | Khách hàng chính thức |
+| Cơ quan Hải quan | Đơn vị đặt vấn đề, phản hồi thiết kế | Cán bộ dùng thử, cung cấp dữ liệu Chi cục | Khách hàng chính thức |
 
-> **Quan trọng:** Dữ liệu của Trọng Tín chỉ dùng để **xây dựng và trình diễn công cụ**. Khi Hải quan vận hành chính thức, hệ thống chạy trên dữ liệu của Hải quan. Trọng Tín không chuyển dữ liệu khách hàng sang Hải quan ngoài bối cảnh doanh nghiệp tự nộp BCQT.
+> **Quan trọng:** Dữ liệu của Trọng Tín chỉ dùng để **xây dựng và trình diễn công cụ**. Khi cơ quan Hải quan vận hành chính thức, hệ thống chạy trên dữ liệu của cơ quan Hải quan. Trọng Tín không chuyển dữ liệu khách hàng sang cơ quan Hải quan ngoài bối cảnh doanh nghiệp tự nộp BCQT.
 
 ---
 
 ## 8. Câu hỏi mở cho phía Hải quan
 
-Đây là các nội dung cần phản hồi từ Hải quan trước khi hoàn thiện đề án và bắt đầu xây dựng.
+Đây là các nội dung cần phản hồi từ cơ quan Hải quan trước khi hoàn thiện đề án và bắt đầu xây dựng.
 
 ### 8.1 Về phạm vi nghiệp vụ
 
-1. Trong 31 kiểm tra đề xuất, có kiểm tra nào Hải quan đặc biệt quan tâm, hoặc có kiểm tra nào quan trọng mà đề án bỏ sót?
+1. Trong 31 kiểm tra đề xuất, có kiểm tra nào cơ quan Hải quan đặc biệt quan tâm, hoặc có kiểm tra nào quan trọng mà đề án bỏ sót?
 2. Báo cáo Excel kiến nghị kiểm tra có cần theo mẫu chính thức nào không?
 3. Hiện tại Chi cục đang dùng công cụ hoặc quy trình nào để chọn doanh nghiệp kiểm tra? Audit-HQ tích hợp hay thay thế?
 4. Ngưỡng đề xuất (Nghiêm trọng / Cảnh báo / Thông tin) có phù hợp thực tế nghiệp vụ không? Cần điều chỉnh gì?
 
 ### 8.2 Về dữ liệu
 
-5. Hệ thống xử lý dữ liệu điện tử của Hải quan có lưu Mẫu 15/15a/16 dưới dạng có cấu trúc, hay chỉ là tệp Excel đính kèm?
+5. Hệ thống xử lý dữ liệu điện tử của cơ quan Hải quan có lưu Mẫu 15/15a/16 dưới dạng có cấu trúc, hay chỉ là tệp Excel đính kèm?
 6. Dữ liệu TKXNK xuất từ VNACCS có cấu trúc thống nhất cho mọi Chi cục không?
 7. Quyền truy cập dữ liệu nhiều năm: hệ thống VCIS-VNACCS đã cho phép truy vấn trực tiếp, hay phải xin từng kỳ?
 
 ### 8.3 Về kỹ thuật và vận hành
 
-8. Hệ thống đặt tại trụ sở Hải quan hay đặt trên máy chủ của Tinsu? Yêu cầu bảo mật cụ thể?
+8. Hệ thống đặt tại trụ sở cơ quan Hải quan hay đặt trên máy chủ của Tinsu? Yêu cầu bảo mật cụ thể?
 9. Có yêu cầu chứng nhận an toàn thông tin cấp nào?
 10. Cam kết chất lượng dịch vụ (SLA) cần đáp ứng cho giai đoạn thí điểm / vận hành chính thức?
 11. Cán bộ tại Chi Cục Hải Quan Khu vực IV có thể tiếp nhận hệ thống ở mức kỹ thuật nào? Cần đào tạo bao nhiêu?
@@ -416,8 +415,8 @@ Mọi quyết định cuối cùng vẫn do cán bộ Hải quan đưa ra. AI ch
 ### 8.4 Về pháp lý và ranh giới
 
 12. Audit-HQ chỉ đưa ra **gợi ý**, không phải kết luận điều tra. Đồng ý cách dùng này?
-13. Trường hợp doanh nghiệp khiếu nại kết quả phát hiện của hệ thống, Hải quan có cần Tinsu hỗ trợ giải trình kỹ thuật không?
-14. Quyền sở hữu trí tuệ đối với danh mục kiểm tra: thuộc Hải quan, Tinsu, hay chia sẻ chung?
+13. Trường hợp doanh nghiệp khiếu nại kết quả phát hiện của hệ thống, cơ quan Hải quan có cần Tinsu hỗ trợ giải trình kỹ thuật không?
+14. Quyền sở hữu trí tuệ đối với danh mục kiểm tra: thuộc cơ quan Hải quan, Tinsu, hay chia sẻ chung?
 
 ---
 
@@ -456,16 +455,15 @@ Mọi quyết định cuối cùng vẫn do cán bộ Hải quan đưa ra. AI ch
 - Luật Hải quan 2014, Luật Quản lý Thuế 2019, Luật Sở hữu Trí tuệ
 - Hệ thống BCQT-System (Tinsu AI) — kiến trúc, bộ đọc, lớp tiếp nhận biến thể
 - Danh sách kiểm tra BCQT (Tinsu AI, phiên bản 1.0 ngày 13/05/2026) — 28 kiểm tra cơ sở
-- Dự án Johnson BCQT 2025 (Tinsu AI × Trọng Tín × Johnson) — trường hợp thực tế đơn vị tính sai ×1.000 (C3.3)
 
 ### 9.3 Lịch sử bản
 
 | Phiên bản | Ngày | Tác giả | Thay đổi |
 |---|---|---|---|
 | Bản nháp 1 | 2026-05-13 | Tinsu AI | Bản đầu — chờ vòng phản hồi đầu tiên |
-| Bản nháp 2 | 2026-05-13 | Tinsu AI | Tổng hợp với danh sách 28 kiểm tra từ BCQT showcase; cụ thể hoá đơn vị tiếp nhận (Chi Cục Hải Quan Khu vực IV); làm rõ Excel BCQT có định dạng chuẩn; tổng quát hoá tham chiếu Hải quan |
+| Bản nháp 2 | 2026-05-13 | Tinsu AI | Tổng hợp với danh sách 28 kiểm tra từ BCQT showcase; cụ thể hoá đơn vị tiếp nhận (Chi Cục Hải Quan Khu vực IV); làm rõ Excel BCQT có định dạng chuẩn; tổng quát hoá tham chiếu cơ quan Hải quan |
 | Bản nháp 3 | 2026-05-13 | Tinsu AI | Việt hoá toàn bộ thuật ngữ kỹ thuật; loại bỏ tiếng Anh trộn lẫn để phù hợp với cán bộ Hải quan |
 
 ---
 
-> **Đây là bản dự thảo lần 3.** Mọi nội dung là đề xuất sơ bộ và sẽ được điều chỉnh theo phản hồi của Hải quan qua các vòng tổng hợp tiếp theo.
+> **Đây là bản dự thảo lần 3.** Mọi nội dung là đề xuất sơ bộ và sẽ được điều chỉnh theo phản hồi của cơ quan Hải quan qua các vòng tổng hợp tiếp theo.
