@@ -2,7 +2,7 @@
 
 **Hệ thống hỗ trợ quản lý rủi ro và phát hiện sai phạm trong Báo cáo Quyết toán Hải quan (BCQT) và Tờ khai Xuất Nhập khẩu (TKXNK)**
 
-> **Bản dự thảo lần 6** — 2026-05-14
+> **Bản dự thảo lần 7** — 2026-05-14
 > Tài liệu sẽ trải qua nhiều vòng rà soát, tổng hợp ý kiến từ phía Hải quan. Mọi nội dung dưới đây là đề xuất sơ bộ.
 >
 > Soạn thảo: Tinsu AI × Trọng Tín
@@ -141,12 +141,12 @@ Cho toàn bộ danh sách doanh nghiệp:
 
 | Giai đoạn | Dữ liệu | Nhóm | Tổng |
 |---|---|---|---|
-| **Đầu** (§4.1) | TKXNK + BCQT đã nộp | 1, 2, 3, 4, 5, 6, 7 | 32 kiểm tra |
+| **Đầu** (§4.1) | TKXNK + BCQT đã nộp | 1, 2, 3, 4, 5, 6, 7 | 31 kiểm tra |
 | **Sau** (§4.2) | Cần dữ liệu bổ sung từ doanh nghiệp | 8, 9, 10, 11 | 12 kiểm tra |
 
 **Trạng thái** trong giai đoạn đầu:
 - ✅ Xây dựng và trình diễn trong 2 tháng (15 kiểm tra)
-- 🚧 Bổ sung trong giai đoạn thí điểm (14 kiểm tra)
+- 🚧 Bổ sung trong giai đoạn thí điểm (13 kiểm tra)
 - ⏳ Kích hoạt khi đã có đủ doanh nghiệp trong danh mục (3 kiểm tra Nhóm 7)
 
 **Mức độ:** 🔴 Nghiêm trọng · 🟡 Cảnh báo · 🔵 Thông tin
@@ -178,15 +178,14 @@ Cho toàn bộ danh sách doanh nghiệp:
 | **C1.5** | Tái xuất M15 không có tờ khai B13 — `xuất_trả_lại` > 0 trong M15 nhưng không có B13 tương ứng. | Ghi tái xuất để giảm tồn nhưng không có tờ khai chứng minh. | 🟡 | 🚧 |
 | **C1.6** | Chuyển mục đích sử dụng không có tờ khai A42 — `chuyển_mục_đích_sử_dụng` > 0 nhưng không có A42. | Hàng miễn thuế chuyển nội địa không khai báo — vi phạm điều kiện miễn thuế. | 🔴 | ✅ |
 
-### Nhóm 2 — Cân bằng và tồn kho (5 kiểm tra)
+### Nhóm 2 — Cân bằng và tồn kho (4 kiểm tra)
 
 | Mã | Vấn đề | Rủi ro | Mức | Trạng thái |
 |---|---|---|---|---|
-| **C2.1** | Mất cân bằng phương trình M15 — `tồn_cuối` khác `tồn_đầu` + `nhập` − `xuất_trả` − `xuất_sản_xuất` − `chuyển_mục_đích_sử_dụng` − `xuất_khác`. Ngưỡng: chênh lệch khác 0 (cho phép ±0,01 làm tròn). | Báo cáo không đáng tin cậy về mặt số học; có thể do lỗi nhập liệu, không khớp giữa các nguồn dữ liệu nội bộ doanh nghiệp, hoặc dữ liệu bị ghép từ nhiều bộ phận không đồng nhất. Phải làm rõ từng cột thành phần trước khi đánh giá các kiểm tra khác trên cùng kỳ. | 🔴 | ✅ |
+| **C2.1** | Mất cân bằng phương trình M15 — `tồn_cuối` khác `tồn_đầu` + `nhập` − `xuất_trả` − `xuất_sản_xuất` − `chuyển_mục_đích_sử_dụng` − `xuất_khác`. Ngưỡng: chênh lệch khác 0 (cho phép ±0,01 làm tròn). Trường hợp đặc biệt: `tồn_đầu` = 0 nhưng `tồn_cuối` > `nhập_trong_kỳ` (tồn ảo, không thể có) — phương trình tự động không cân, đưa vào diễn giải. | Báo cáo không đáng tin cậy về mặt số học; có thể do lỗi nhập liệu, không khớp giữa các nguồn dữ liệu nội bộ doanh nghiệp, hoặc dữ liệu bị ghép từ nhiều bộ phận không đồng nhất. Trường hợp tồn ảo (tồn đầu = 0, tồn cuối > nhập): khả năng "tồn kho ảo" để treo nợ thuế — doanh nghiệp thực tế đã tiêu thụ hàng nhưng trên báo cáo vẫn thể hiện tồn để không phải nộp thuế nhập khẩu. Phải làm rõ từng cột thành phần trước khi đánh giá các kiểm tra khác. | 🔴 | ✅ |
 | **C2.2** | Mất cân bằng phương trình M15a — `tồn_cuối` khác `tồn_đầu` + `nhập_kho` − `chuyển_mục_đích_sử_dụng` − `xuất_khẩu` − `xuất_khác`. | Báo cáo cân đối thành phẩm không đáng tin cậy về mặt số học; có thể do lỗi nhập liệu hoặc số liệu sản xuất/xuất khẩu/tồn không khớp giữa các nguồn nội bộ. Phải làm rõ từng cột trước khi đánh giá các kiểm tra khác. | 🔴 | ✅ |
 | **C2.3** | Tồn cuối âm — nguyên vật liệu (M15) — `tồn_cuối_kỳ` < 0 trên bất kỳ mã nào. | Khả năng bỏ sót tờ khai nhập khẩu, sử dụng nguyên vật liệu không khai báo, hoặc điều chỉnh số liệu tồn kho không đúng thực tế. | 🔴 | ✅ |
 | **C2.4** | Tồn cuối âm — thành phẩm (M15a) — `tồn_cuối_kỳ` < 0 trên bất kỳ mã nào. | Tương tự C2.3 cho thành phẩm — bỏ sót tờ khai, sử dụng hàng không khai báo, hoặc điều chỉnh số liệu tồn kho sai thực tế. | 🔴 | 🚧 |
-| **C2.5** | Tồn cuối lớn hơn nhập khi tồn đầu bằng 0 — `tồn_đầu_kỳ` = 0 nhưng `tồn_cuối_kỳ` > `nhập_trong_kỳ`. | "Tồn kho ảo" để treo nợ thuế — doanh nghiệp thực tế đã tiêu thụ hàng nhưng trên báo cáo vẫn thể hiện tồn kho lớn để không phải nộp thuế nhập khẩu. | 🔴 | 🚧 |
 
 ### Nhóm 3 — Phân loại hàng hoá (3 kiểm tra)
 
@@ -200,12 +199,12 @@ Cho toàn bộ danh sách doanh nghiệp:
 
 | Mã | Vấn đề | Rủi ro | Mức | Trạng thái |
 |---|---|---|---|---|
-| **C4.1** | Nguyên vật liệu trong M16 không có nhập khẩu trong M15 — `mã_NVL` trong M16 nhưng `nhập_trong_kỳ` = 0 hoặc không có dòng trong M15. | Không thể giải trình dòng vật tư từ tờ khai đến thành phẩm xuất khẩu. | 🔴 | ✅ |
+| **C4.1** | Nguyên vật liệu trong M16 không có nhập khẩu và không có tồn đầu kỳ — `mã_NVL` trong M16 nhưng (không có dòng trong M15) HOẶC (cả `nhập_trong_kỳ` = 0 VÀ `tồn_đầu_kỳ` = 0). Loại trừ trường hợp NVL còn tồn từ kỳ trước. | Nguyên vật liệu xuất hiện trong định mức nhưng không có nguồn nhập khẩu lẫn tồn đầu — không thể giải trình dòng vật tư từ tờ khai đến thành phẩm xuất khẩu. | 🔴 | ✅ |
 | **C4.2** | Thành phẩm trong M16 không có trong M15a — `mã_SP_xuất_khẩu` trong M16 nhưng không có dòng trong M15a. | Định mức cho thành phẩm không có trong báo cáo xuất khẩu. | 🟡 | 🚧 |
 | **C4.3** | Tổng tiêu hao tính theo M16 vượt xuất sản xuất M15 — Σ(`định_mức` × `xuất_khẩu_M15a`) theo mã nguyên vật liệu > `xuất_sản_xuất` trong M15. Ngưỡng: vượt >5% Cảnh báo · >20% Nghiêm trọng. | Đây là cách phổ biến nhất để lấy nguyên vật liệu miễn thuế ra bán nội địa — xây dựng định mức ảo bao gồm cả những thành phần không có thực trong sản phẩm, thổi phồng tiêu hao để hợp thức hoá nguyên vật liệu nhập khẩu dư. | 🟡🔴 | ✅ |
 | **C4.4** | M16 phân mảnh: nhiều nguyên vật liệu cùng chức năng cho một thành phẩm. **Ví dụ thực tế**: 1 chiếc áo có 10 loại cúc khác nhau trong M16. Cách phát hiện: (A) ≥N mã có cùng HS 4 số trong 1 thành phẩm (mặc định) · (B) gom nhóm tên gần giống (xử lý ngôn ngữ tự nhiên) · (C) cơ quan Hải quan định nghĩa danh mục nhóm vật tư. Ngưỡng: ≥5 mã cùng HS / thành phẩm Cảnh báo · ≥10 Nghiêm trọng. | Phân mảnh nguyên vật liệu để che số lượng, hợp thức hoá nhập khẩu dư. | 🟡 | 🚧 |
 | **C4.5** | Định mức bằng 0 hoặc âm — `định_mức_thực_tế` ≤ 0 trên bất kỳ dòng M16 nào. | Lỗi dữ liệu hoặc cố tình khai 0 để che tiêu hao thực tế. | 🔴 | 🚧 |
-| **C4.6** | Định mức bất thường cao (giá trị ngoại lai thống kê) — `định_mức` cặp thành phẩm-nguyên vật liệu vượt xa giá trị trung bình toàn dữ liệu. Ngưỡng: vượt trung bình ±3 độ lệch chuẩn Cảnh báo · ±5 độ lệch chuẩn Nghiêm trọng. | Thổi phồng định mức để hợp thức hoá nguyên vật liệu nhập khẩu vượt mức. | 🟡 | 🚧 |
+| **C4.6** | Định mức bất thường cao (giá trị ngoại lai thống kê) — `định_mức` cặp thành phẩm-nguyên vật liệu trong kỳ N vượt xa trung bình của chính cặp đó qua các kỳ trước của cùng doanh nghiệp. Ngưỡng: vượt trung bình ±3 độ lệch chuẩn Cảnh báo · ±5 độ lệch chuẩn Nghiêm trọng. Yêu cầu: doanh nghiệp có ≥3 kỳ BCQT để có cơ sở thống kê. | Thổi phồng định mức để hợp thức hoá nguyên vật liệu nhập khẩu vượt mức. | 🟡 | 🚧 |
 | **C4.7** | Phân bổ định mức bất thường (mở rộng từ C4.4) — phát hiện: (a) cùng cặp thành phẩm-NVL có nhiều định mức khác nhau trong cùng kỳ; (b) một nguyên vật liệu được dùng cho quá nhiều thành phẩm không liên quan; (c) một thành phẩm có số lượng dòng nguyên vật liệu vượt ngưỡng hợp lý của ngành. | phân mảnh định mức để hợp thức hoá nhiều mã NVL nhập khẩu, gây khó truy nguồn và che giấu lượng NVL dư / thất thoát · điều chỉnh định mức tuỳ ý để cân đối tồn kho · khai báo định mức quá rộng để hợp thức hoá NVL nhập khẩu miễn thuế cho thành phẩm không phù hợp thực tế sản xuất · có dấu hiệu tính toán / nguỵ tạo định mức nhân tạo để chế số liệu quyết toán thay vì phản ánh tiêu hao sản xuất thực tế. | 🟡🔴 | 🚧 |
 
 ### Nhóm 5 — Truy nguồn nguyên vật liệu nhập khẩu (3 kiểm tra)
@@ -214,7 +213,7 @@ Cho toàn bộ danh sách doanh nghiệp:
 |---|---|---|---|---|
 | **C5.1** | NVL có xuất sản xuất trong M15 nhưng không có nhập khẩu — `xuất_sản_xuất` > 0 và `nhập_trong_kỳ` = 0 và `tồn_đầu_kỳ` = 0. | Tiêu hao từ nguồn không khai báo — nguyên vật liệu nội địa bị đưa vào phạm vi miễn thuế. | 🔴 | ✅ |
 | **C5.2** | Thành phẩm xuất khẩu không có trong M16 (thành phẩm "mồ côi") — mã thành phẩm có `xuất_khẩu` > 0 trong M15a nhưng không có dòng M16. | Không thể giải trình nguyên vật liệu đầu vào cho thành phẩm đã xuất khẩu; doanh nghiệp có thể dùng nguyên liệu không rõ nguồn gốc (kể cả hàng lậu) để sản xuất xuất khẩu. | 🟡 | 🚧 |
-| **C5.3** | Tỷ lệ truy nguồn thấp theo mã nguyên vật liệu — Σ(`định_mức` × `xuất_khẩu_M15a`) / `xuất_sản_xuất_M15` thấp dưới ngưỡng. Ngưỡng: <80% Cảnh báo · <60% Nghiêm trọng. | Phần lớn nguyên vật liệu nhập khẩu không truy được vào thành phẩm xuất khẩu cụ thể. | 🟡 | 🚧 |
+| **C5.3** | Tỷ lệ truy nguồn thấp theo mã nguyên vật liệu — Σ(`định_mức` × `xuất_khẩu_M15a`) / (`xuất_sản_xuất_M15` − NVL còn ở dạng BTP và TP tồn kho cuối kỳ) thấp dưới ngưỡng. Ngưỡng: <80% Cảnh báo · <60% Nghiêm trọng. Lưu ý: phải trừ NVL còn nằm trong BTP và TP chưa xuất khẩu (sẽ xuất khẩu kỳ sau) — chỉ tính phần đáng lẽ đã ra thành phẩm xuất khẩu trong kỳ. Không áp dụng cho doanh nghiệp có TP bán nội địa lớn hoặc có nhiều tầng BTP tự sản xuất (đề nghị dùng kiểm tra Nhóm 9 bổ sung). | Phần lớn nguyên vật liệu nhập khẩu không truy được vào thành phẩm xuất khẩu cụ thể. | 🟡 | 🚧 |
 
 ### Nhóm 6 — Kiểm tra liên kỳ (5 kiểm tra)
 
@@ -252,7 +251,7 @@ Cho toàn bộ danh sách doanh nghiệp:
 
 | Mã | Vấn đề | Rủi ro | Mức | Trạng thái |
 |---|---|---|---|---|
-| **C8.1** | Tỷ lệ phế liệu / phế phẩm thực tế vượt ngưỡng ngành — cặp NVL-thành phẩm có tỷ lệ phế thải cao bất thường so với mặt bằng ngành. | Khai phế liệu cao để giảm lượng NVL cần giải trình hoặc che tiêu thụ nội địa. | 🟡 | ⏳ |
+| **C8.1** | Tỷ lệ phế liệu / phế phẩm thực tế vượt ngưỡng ngành — cặp NVL-thành phẩm có tỷ lệ phế thải vượt mức trung bình ngành. Nguồn ngưỡng: cơ quan Hải quan định nghĩa danh mục ngưỡng theo loại ngành sản xuất (kim loại, dệt may, điện tử, hoá chất…). Mỗi ngành có dải hợp lý riêng. | Khai phế liệu cao để giảm lượng NVL cần giải trình hoặc che tiêu thụ nội địa. | 🟡 | ⏳ |
 | **C8.2** | Phế liệu bán nội địa không có tờ khai chuyển mục đích sử dụng (A42) — doanh nghiệp ghi nhận bán phế liệu trong sổ sách nhưng không có A42 tương ứng. | Vi phạm điều kiện miễn thuế — phế liệu phát sinh từ NVL miễn thuế, bán nội địa phải khai A42 và nộp thuế. | 🔴 | ⏳ |
 | **C8.3** | Tỷ lệ phế liệu thay đổi đột biến giữa các kỳ — tỷ lệ phế thải kỳ N cao bất thường so với kỳ N-1 (cùng dây chuyền sản xuất). | Điều tiết phế liệu để cân đối số liệu tồn kho qua các kỳ. | 🟡 | ⏳ |
 
@@ -264,9 +263,9 @@ Cho toàn bộ danh sách doanh nghiệp:
 
 | Mã | Vấn đề | Rủi ro | Mức | Trạng thái |
 |---|---|---|---|---|
-| **C9.1** | BTP đa tầng không truy nguồn được về NVL gốc — BTP cấp 1, 2, 3... không có liên kết về nguyên vật liệu ban đầu. | Làm mờ truy nguồn — NVL đã nhập khẩu "nằm" trong BTP nhiều tầng, đối chiếu với thành phẩm xuất khẩu không còn tuyến tính. | 🟡 | ⏳ |
+| **C9.1** | BTP đa tầng không truy nguồn được về NVL gốc — BTP cấp 1, 2, 3... không có định mức chi tiết cho từng tầng hoặc thiếu liên kết về nguyên vật liệu ban đầu. Yêu cầu doanh nghiệp cung cấp định mức từng tầng BTP và sơ đồ công đoạn. Đặc tả chi tiết phối hợp với cơ quan Hải quan định nghĩa khi triển khai. | Làm mờ truy nguồn — NVL đã nhập khẩu "nằm" trong BTP nhiều tầng, đối chiếu với thành phẩm xuất khẩu không còn tuyến tính. | 🟡 | ⏳ |
 | **C9.2** | Tồn BTP cuối kỳ N khác tồn BTP đầu kỳ N+1 — biến động không có giải trình. | BTP bị "đẩy qua lại" giữa các kỳ để điều chỉnh tồn kho mà không thay đổi dòng thực tế. | 🟡 | ⏳ |
-| **C9.3** | Tồn BTP lớn không tương xứng với năng lực sản xuất khai báo — số lượng BTP tồn vượt xa năng lực dây chuyền. | Che giấu tiêu thụ nội địa — NVL đã đưa vào BTP nhưng thực tế bị tiêu thụ / bán nội địa, khó phát hiện vì chưa "ra thành phẩm". | 🟡 | ⏳ |
+| **C9.3** | Tồn BTP lớn không tương xứng với năng lực sản xuất khai báo — `tồn_BTP_cuối_kỳ` × thời gian gia công trung bình > năng lực dây chuyền × số ngày sản xuất trong kỳ. Yêu cầu doanh nghiệp cung cấp báo cáo cơ sở sản xuất (năng lực dây chuyền, thời gian gia công chuẩn cho mỗi BTP). | Che giấu tiêu thụ nội địa — NVL đã đưa vào BTP nhưng thực tế bị tiêu thụ / bán nội địa, khó phát hiện vì chưa "ra thành phẩm". | 🟡 | ⏳ |
 | **C9.4** | Cấu thành NVL của BTP không khớp giữa định mức khai báo và sổ kho thực tế — định mức tầng BTP tính ra khác lượng NVL đã xuất kho cho BTP đó. | Tách nhỏ một quy trình sản xuất thành nhiều tầng BTP để làm loãng sai lệch định mức, tạo vùng xám dễ lợi dụng. | 🔴 | ⏳ |
 
 ### Nhóm 10 — Đối chiếu sổ sách kế toán (3 kiểm tra)
@@ -276,8 +275,8 @@ Cho toàn bộ danh sách doanh nghiệp:
 | Mã | Vấn đề | Rủi ro | Mức | Trạng thái |
 |---|---|---|---|---|
 | **C10.1** | Tồn kho đầu/cuối kỳ BCQT khác số dư các tài khoản 152, 155, 156 trên Bảng cân đối phát sinh. | Số liệu BCQT không khớp sổ sách kế toán — hai nguồn số liệu mâu thuẫn cần làm rõ. | 🔴 | ⏳ |
-| **C10.2** | Doanh thu xuất khẩu sổ sách kế toán khác trị giá xuất khẩu BCCT. | Khai sai một trong hai phía, ảnh hưởng nghĩa vụ thuế. | 🟡🔴 | ⏳ |
-| **C10.3** | Giá trị nhập khẩu sổ sách kế toán khác trị giá nhập khẩu BCCT. | Khai sai một trong hai phía hoặc có nguồn nhập không khai báo. | 🟡🔴 | ⏳ |
+| **C10.2** | Doanh thu xuất khẩu sổ sách kế toán khác trị giá xuất khẩu BCCT — đối chiếu trên cùng kỳ. Ngưỡng dung sai: <2% Thông tin · 2–5% Cảnh báo · >5% Nghiêm trọng. Lưu ý: doanh thu kế toán ghi theo giá thanh toán (thường CIF/FOB DN ghi sổ), trị giá BCCT theo giá hải quan (FOB), chênh lệch nhẹ là hợp lệ. | Khai sai một trong hai phía, ảnh hưởng nghĩa vụ thuế thu nhập doanh nghiệp hoặc thuế xuất khẩu. | 🟡🔴 | ⏳ |
+| **C10.3** | Giá trị nhập khẩu sổ sách kế toán khác trị giá nhập khẩu BCCT — đối chiếu trên cùng kỳ. Ngưỡng dung sai: <2% Thông tin · 2–5% Cảnh báo · >5% Nghiêm trọng. Chênh lệch nhẹ có thể hợp lệ do tỷ giá ghi sổ kế toán khác tỷ giá hải quan. | Khai sai một trong hai phía hoặc có nguồn nhập không khai báo. | 🟡🔴 | ⏳ |
 
 ### Nhóm 11 — Tài sản cố định và máy móc thiết bị (2 kiểm tra)
 
@@ -286,7 +285,7 @@ Cho toàn bộ danh sách doanh nghiệp:
 | Mã | Vấn đề | Rủi ro | Mức | Trạng thái |
 |---|---|---|---|---|
 | **C11.1** | Máy móc thiết bị miễn thuế nhập khẩu (E13) không khớp danh mục thiết bị trong báo cáo cơ sở sản xuất. | Máy móc miễn thuế đã bán nội địa, chuyển nhượng, hoặc đưa ra khỏi cơ sở mà không khai báo. | 🔴 | ⏳ |
-| **C11.2** | Công suất máy móc khai báo không khớp sản lượng thực tế trong BCQT — sản lượng vượt hoặc thấp xa năng lực thiết bị khai báo. | Khai báo công suất không trung thực để được miễn thuế / để hợp thức hoá lượng xuất khẩu. | 🟡 | ⏳ |
+| **C11.2** | Công suất máy móc khai báo không khớp sản lượng thực tế trong BCQT — tổng `nhập_kho_M15a` (sản lượng TP sản xuất ra trong kỳ) chia cho công suất danh nghĩa của máy móc khai báo trong báo cáo cơ sở sản xuất, vượt xa hoặc thấp xa số ngày sản xuất hợp lý của kỳ. Ngưỡng: <50% hoặc >150% so với năng lực kỳ vọng → Cảnh báo. Trường hợp >200% → Nghiêm trọng (sản lượng vượt năng lực = nhập từ nguồn khác). | Khai báo công suất không trung thực để được miễn thuế (khai cao hơn thực tế khi nhập) hoặc để hợp thức hoá lượng xuất khẩu vượt năng lực (sản phẩm gia công thuê ngoài hoặc nhập lậu). | 🟡 | ⏳ |
 
 ---
 
@@ -295,19 +294,19 @@ Cho toàn bộ danh sách doanh nghiệp:
 | Giai đoạn | Nhóm | Tổng | ✅ MVP 2 tháng | 🚧 Bổ sung thí điểm | ⏳ Cần thêm điều kiện |
 |---|---|---:|---:|---:|---:|
 | **Đầu** (TKXNK + BCQT) | 1 — Số lượng nhập/xuất | 6 | 5 | 1 | 0 |
-| | 2 — Cân bằng và tồn kho | 5 | 3 | 2 | 0 |
+| | 2 — Cân bằng và tồn kho | 4 | 3 | 1 | 0 |
 | | 3 — Phân loại hàng hoá | 3 | 3 | 0 | 0 |
 | | 4 — Định mức M16 | 7 | 2 | 5 | 0 |
 | | 5 — Truy nguồn NVL | 3 | 1 | 2 | 0 |
 | | 6 — Liên kỳ | 5 | 1 | 4 | 0 |
 | | 7 — So sánh giữa các DN | 3 | 0 | 0 | 3 |
-| | **Cộng giai đoạn đầu** | **32** | **15** | **14** | **3** |
+| | **Cộng giai đoạn đầu** | **31** | **15** | **13** | **3** |
 | **Sau** (cần dữ liệu bổ sung) | 8 — Phế liệu / phế phẩm | 3 | 0 | 0 | 3 |
 | | 9 — Sản phẩm dở dang (BTP) | 4 | 0 | 0 | 4 |
 | | 10 — Đối chiếu sổ sách kế toán | 3 | 0 | 0 | 3 |
 | | 11 — Tài sản cố định và máy móc | 2 | 0 | 0 | 2 |
 | | **Cộng giai đoạn sau** | **12** | **0** | **0** | **12** |
-| | **TỔNG TOÀN BỘ** | **44** | **15** | **14** | **15** |
+| | **TỔNG TOÀN BỘ** | **43** | **15** | **13** | **15** |
 
 > **Danh mục mở rộng được:** danh mục không cố định ở con số 44. Mỗi nghiệp vụ cơ quan Hải quan phát hiện mới có thể bổ sung vào danh mục như một mô-đun độc lập, không cần thay đổi phần lõi. Ngưỡng đề xuất có thể điều chỉnh theo thực tế.
 
@@ -480,7 +479,7 @@ Toàn bộ giai đoạn xây dựng và trình diễn gói gọn trong **2 thán
 
 Sau khi trình diễn và nhận phản hồi, tuỳ quyết định của cơ quan Hải quan, các bước tiếp theo có thể bao gồm:
 
-- **Triển khai thí điểm tại Chi Cục Hải Quan Khu vực IV** với dữ liệu doanh nghiệp thực tế; cài tiếp 14 kiểm tra còn lại của giai đoạn đầu (§4.1).
+- **Triển khai thí điểm tại Chi Cục Hải Quan Khu vực IV** với dữ liệu doanh nghiệp thực tế; cài tiếp 13 kiểm tra còn lại của giai đoạn đầu (§4.1).
 - **Kích hoạt Nhóm 7 so sánh giữa các doanh nghiệp** khi đã có đủ doanh nghiệp trong danh mục.
 - **Mở rộng sang giai đoạn sau (§4.2)** — Nhóm 8-11 kiểm tra phế liệu, bán thành phẩm, sổ sách kế toán, tài sản cố định. Cần phối hợp với cơ quan Hải quan để yêu cầu doanh nghiệp cung cấp các dữ liệu bổ sung tương ứng.
 - **Tích hợp trực tiếp với VNACCS** thay vì nạp qua tệp Excel xuất ra.
@@ -498,7 +497,7 @@ Các bước này không nằm trong cam kết 2 tháng vì phụ thuộc quyế
 
 ### 8.1 Về phạm vi nghiệp vụ
 
-1. Trong 44 kiểm tra đề xuất (32 giai đoạn đầu + 12 giai đoạn sau), có kiểm tra nào cơ quan Hải quan đặc biệt quan tâm, hoặc có kiểm tra nào quan trọng mà đề án bỏ sót?
+1. Trong 43 kiểm tra đề xuất (31 giai đoạn đầu + 12 giai đoạn sau), có kiểm tra nào cơ quan Hải quan đặc biệt quan tâm, hoặc có kiểm tra nào quan trọng mà đề án bỏ sót?
 2. Trong số 15 kiểm tra MVP cho trình diễn 2 tháng, có kiểm tra nào cơ quan Hải quan muốn ưu tiên hơn?
 3. Báo cáo Excel kiến nghị kiểm tra có cần theo mẫu chính thức nào không?
 4. Hiện tại Chi cục đang dùng công cụ hoặc quy trình nào để chọn doanh nghiệp kiểm tra? Audit-HQ tích hợp hay thay thế?
@@ -580,7 +579,8 @@ Các bước này không nằm trong cam kết 2 tháng vì phụ thuộc quyế
 | Bản nháp 4 | 2026-05-13 | Tinsu AI | Bỏ tham chiếu trường hợp cụ thể; xưng hô "cơ quan Hải quan" thay cho "Hải quan" trống không; nén lộ trình triển khai về 2 tháng / 8 tuần |
 | Bản nháp 5 | 2026-05-14 | Tinsu AI | Tách danh mục kiểm tra thành 2 giai đoạn (đầu = TKXNK + BCQT; sau = cần dữ liệu bổ sung); thêm "Bộ ba tử huyệt" và §2.6 cộng dồn rủi ro; cập nhật rủi ro 8 kiểm tra; thêm C4.7 phân bổ định mức bất thường; thêm Nhóm 8-11 (phế liệu, BTP, sổ sách kế toán, tài sản cố định / máy móc) — 12 kiểm tra giai đoạn sau; giản lược §5 hạ tầng kỹ thuật |
 | Bản nháp 6 | 2026-05-14 | Tinsu AI | Tách các bảng kiểm tra thành 5 cột (Mã / Vấn đề / Rủi ro / Mức / Trạng thái) cho dễ theo dõi; viết lại rủi ro C2.1 và C2.2 (cũ tối nghĩa); bổ sung rủi ro C1.4 (đang thiếu); chỉnh §2.1, §2.2, §2.5; rút quy mô vận hành chính thức từ 10 năm xuống 5 năm dữ liệu; tăng khoảng cách hiển thị danh sách trong giao diện |
+| Bản nháp 7 | 2026-05-14 | Tinsu AI | Domain-expert review toàn bộ 44 kiểm tra. Sửa: C4.1 thêm điều kiện `tồn_đầu = 0` (tránh báo nhầm khi NVL còn từ kỳ trước); C2.5 gộp vào C2.1 (toán học là một dạng cụ thể của mất cân bằng). Làm rõ: C4.6 chốt dataset là cùng DN qua các kỳ; C5.3 loại trừ TP nội địa và NVL còn trong BTP/TP tồn kho; C10.2, C10.3 thêm ngưỡng dung sai 2-5%; C8.1 chốt nguồn ngưỡng là cơ quan Hải quan định nghĩa danh mục theo ngành; C9.1, C9.3, C11.2 chốt phép tính cụ thể. Tổng kiểm tra: 44 → 43 (merge C2.5). |
 
 ---
 
-> **Đây là bản dự thảo lần 6.** Mọi nội dung là đề xuất sơ bộ và sẽ được điều chỉnh theo phản hồi của cơ quan Hải quan qua các vòng tổng hợp tiếp theo.
+> **Đây là bản dự thảo lần 7.** Mọi nội dung là đề xuất sơ bộ và sẽ được điều chỉnh theo phản hồi của cơ quan Hải quan qua các vòng tổng hợp tiếp theo.
