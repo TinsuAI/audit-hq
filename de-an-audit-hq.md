@@ -390,16 +390,19 @@ Tầng 3 — Tổng hợp rủi ro:
 
 ### 5.3 Vai trò trí tuệ nhân tạo (AI)
 
-AI **không** trực tiếp đưa ra phát hiện sai phạm. AI chỉ làm các việc hỗ trợ sau:
+Hệ thống chia rõ công việc giữa **quy tắc xác định** và **trí tuệ nhân tạo (AI)**:
 
-| Công việc | Khi nào dùng | Kết quả |
+- Phần **phát hiện sai phạm** chạy theo quy tắc xác định — vì mỗi phát hiện phải truy nguồn được về dòng dữ liệu cụ thể, có cơ sở pháp lý, và bảo vệ được trước cấp trên cũng như khi doanh nghiệp khiếu nại. Đây là phần không thể giao cho AI nếu muốn defensible.
+- Phần **xử lý dữ liệu thực tế lộn xộn** giao cho AI — đó là việc con người không thể làm thủ công ở quy mô hàng chục nghìn dòng tờ khai một năm. Quy tắc cứng không bao quát được vì dữ liệu doanh nghiệp khai có vô số biến thể về tên hàng, đơn vị, mã hàng.
+
+| Công việc AI đảm nhiệm | Khi nào dùng | Kết quả |
 |---|---|---|
-| Chuẩn hoá tên hàng hoá | Khi gặp mô tả không chuẩn trong BCCT/Mẫu | Tên chuẩn (cán bộ xác nhận) |
-| Đối chiếu mã hàng gần giống | Khi quy tắc cứng có độ chính xác thấp | Đề xuất ánh xạ (cán bộ xác nhận) |
-| Sinh giải thích tiếng Việt cho phát hiện | Khi cán bộ chọn xem một phát hiện | Diễn giải dễ đọc kèm dẫn chứng |
+| Chuẩn hoá tên hàng hoá có nhiều biến thể | Khi gặp mô tả không chuẩn trong BCCT/Mẫu | Tên chuẩn (cán bộ xác nhận lần đầu, hệ thống ghi nhớ) |
+| Đối chiếu mã hàng tương đồng giữa BCCT và Mẫu | Khi quy tắc cứng không đủ độ chính xác | Đề xuất ánh xạ (cán bộ xác nhận) |
+| Sinh giải thích tiếng Việt cho từng phát hiện | Khi cán bộ chọn xem một phát hiện | Diễn giải dễ đọc kèm dẫn chứng pháp lý |
 | Cảnh báo mã loại hình không hợp lệ | Khi tờ khai có mã không có trong QĐ 1357 | Cảnh báo và gợi ý tra cứu |
 
-Mọi quyết định cuối cùng vẫn do cán bộ Hải quan đưa ra. AI chỉ là công cụ hỗ trợ.
+Mọi quyết định cuối cùng vẫn thuộc thẩm quyền cán bộ Hải quan.
 
 ---
 

@@ -1656,8 +1656,18 @@ máy chủ Tinsu tuỳ yêu cầu.</li>
 </ul>
 <h3 id="vai-trò-trí-tuệ-nhân-tạo-ai">5.3 Vai trò trí tuệ nhân tạo
 (AI)</h3>
-<p>AI <strong>không</strong> trực tiếp đưa ra phát hiện sai phạm. AI chỉ
-làm các việc hỗ trợ sau:</p>
+<p>Hệ thống chia rõ công việc giữa <strong>quy tắc xác định</strong> và
+<strong>trí tuệ nhân tạo (AI)</strong>:</p>
+<ul>
+<li>Phần <strong>phát hiện sai phạm</strong> chạy theo quy tắc xác định
+— vì mỗi phát hiện phải truy nguồn được về dòng dữ liệu cụ thể, có cơ sở
+pháp lý, và bảo vệ được trước cấp trên cũng như khi doanh nghiệp khiếu
+nại. Đây là phần không thể giao cho AI nếu muốn defensible.</li>
+<li>Phần <strong>xử lý dữ liệu thực tế lộn xộn</strong> giao cho AI — đó
+là việc con người không thể làm thủ công ở quy mô hàng chục nghìn dòng
+tờ khai một năm. Quy tắc cứng không bao quát được vì dữ liệu doanh
+nghiệp khai có vô số biến thể về tên hàng, đơn vị, mã hàng.</li>
+</ul>
 <table>
 <colgroup>
 <col style="width: 33%" />
@@ -1666,26 +1676,26 @@ làm các việc hỗ trợ sau:</p>
 </colgroup>
 <thead>
 <tr class="header">
-<th>Công việc</th>
+<th>Công việc AI đảm nhiệm</th>
 <th>Khi nào dùng</th>
 <th>Kết quả</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Chuẩn hoá tên hàng hoá</td>
+<td>Chuẩn hoá tên hàng hoá có nhiều biến thể</td>
 <td>Khi gặp mô tả không chuẩn trong BCCT/Mẫu</td>
-<td>Tên chuẩn (cán bộ xác nhận)</td>
+<td>Tên chuẩn (cán bộ xác nhận lần đầu, hệ thống ghi nhớ)</td>
 </tr>
 <tr class="even">
-<td>Đối chiếu mã hàng gần giống</td>
-<td>Khi quy tắc cứng có độ chính xác thấp</td>
+<td>Đối chiếu mã hàng tương đồng giữa BCCT và Mẫu</td>
+<td>Khi quy tắc cứng không đủ độ chính xác</td>
 <td>Đề xuất ánh xạ (cán bộ xác nhận)</td>
 </tr>
 <tr class="odd">
-<td>Sinh giải thích tiếng Việt cho phát hiện</td>
+<td>Sinh giải thích tiếng Việt cho từng phát hiện</td>
 <td>Khi cán bộ chọn xem một phát hiện</td>
-<td>Diễn giải dễ đọc kèm dẫn chứng</td>
+<td>Diễn giải dễ đọc kèm dẫn chứng pháp lý</td>
 </tr>
 <tr class="even">
 <td>Cảnh báo mã loại hình không hợp lệ</td>
@@ -1694,8 +1704,7 @@ làm các việc hỗ trợ sau:</p>
 </tr>
 </tbody>
 </table>
-<p>Mọi quyết định cuối cùng vẫn do cán bộ Hải quan đưa ra. AI chỉ là
-công cụ hỗ trợ.</p>
+<p>Mọi quyết định cuối cùng vẫn thuộc thẩm quyền cán bộ Hải quan.</p>
 <hr />
 <h2 id="kế-hoạch-demo-thử-nghiệm-ban-đầu">6. Kế hoạch demo (thử nghiệm
 ban đầu)</h2>
