@@ -135,8 +135,11 @@ color: #78350f;
 border-radius: 0 6px 6px 0;
 }
 blockquote strong { color: #92400e; }
-ul, ol { padding-left: 24px; }
-li { margin: 4px 0; }
+ul, ol { padding-left: 24px; margin: 12px 0; }
+li { margin: 8px 0; line-height: 1.6; }
+li > ul, li > ol { margin: 6px 0; }
+tbody td ul, tbody td ol { padding-left: 18px; margin: 4px 0; }
+tbody td li { margin: 3px 0; }
 a { color: #2563eb; }
 a:hover { color: #1d4ed8; }
 @media (max-width: 900px) {
@@ -289,7 +292,7 @@ Giải thích thuật ngữ</a></li>
 Báo cáo Quyết toán Hải quan (BCQT) và Tờ khai Xuất Nhập khẩu
 (TKXNK)</strong></p>
 <blockquote>
-<p><strong>Bản dự thảo lần 5</strong> — 2026-05-14 Tài liệu sẽ trải qua
+<p><strong>Bản dự thảo lần 6</strong> — 2026-05-14 Tài liệu sẽ trải qua
 nhiều vòng rà soát, tổng hợp ý kiến từ phía Hải quan. Mọi nội dung dưới
 đây là đề xuất sơ bộ.</p>
 <p>Soạn thảo: Tinsu AI × Trọng Tín <strong>Đơn vị tiếp nhận:</strong>
@@ -373,8 +376,7 @@ thuế)</li>
 <h3 id="định-hướng-theo-rủi-ro-không-kiểm-tra-đại-trà">2.1 Định hướng
 theo rủi ro, không kiểm tra đại trà</h3>
 <p>Hệ thống không kiểm tra toàn bộ doanh nghiệp — chỉ xếp hạng theo mức
-rủi ro để cán bộ phân bổ nguồn lực kiểm tra đúng chỗ. Phù hợp tinh thần
-quản lý rủi ro của Luật Hải quan 2014.</p>
+rủi ro để cán bộ phân bổ nguồn lực kiểm tra đúng chỗ.</p>
 <h3 id="có-chứng-cứ-truy-nguồn-không-hộp-đen">2.2 Có chứng cứ truy
 nguồn, không “hộp đen”</h3>
 <p>Mỗi phát hiện hệ thống đưa ra phải: - Trỏ về dòng dữ liệu cụ thể
@@ -382,10 +384,10 @@ trong BCCT hoặc Mẫu (số tờ khai, dòng hàng, mã NVL/sản phẩm) - N�
 điều khoản pháp lý liên quan - Cho phép cán bộ giải trình khi báo cáo
 cấp trên hoặc đối thoại với doanh nghiệp</p>
 <p>Mọi kiểm tra đều theo <strong>quy tắc xác định</strong> (cho cùng dữ
-liệu thì cho cùng kết quả). Trí tuệ nhân tạo (AI) chỉ dùng vào các việc
-hỗ trợ: - Chuẩn hoá tên hàng hoá (đối chiếu tên gần giống) - Sinh giải
-thích tiếng Việt dễ đọc cho phát hiện - Gợi ý ánh xạ mã hàng (chỉ là gợi
-ý, cán bộ quyết định)</p>
+liệu thì cho cùng kết quả). Trí tuệ nhân tạo (AI) dùng vào việc hỗ trợ:
+- Chuẩn hoá tên hàng hoá (đối chiếu tên gần giống) - Sinh giải thích
+tiếng Việt dễ đọc cho phát hiện - Gợi ý ánh xạ mã hàng (chỉ là gợi ý,
+cán bộ quyết định)</p>
 <h3 id="danh-mục-kiểm-tra-mở-rộng-được">2.3 Danh mục kiểm tra mở rộng
 được</h3>
 <p>Mỗi loại kiểm tra là một mô-đun độc lập. Thêm kiểm tra mới = thêm một
@@ -399,7 +401,7 @@ tế nghiệp vụ, theo loại hình doanh nghiệp, hoặc theo ngành hàng.<
 <ul>
 <li>Lớp ẩn danh cho dữ liệu trình diễn (bảo vệ bí mật doanh nghiệp trong
 giai đoạn thử nghiệm).</li>
-<li>Nhật ký thao tác đầy đủ cho mọi hành động của cán bộ.</li>
+<li>Nhật ký thao tác đầy đủ cho mọi thao tác thay đổi dữ liệu.</li>
 <li>Không thay đổi dữ liệu gốc — mọi đánh dấu và phát hiện là lớp phủ
 riêng biệt.</li>
 </ul>
@@ -488,7 +490,7 @@ nghiệp theo điểm rủi ro. - Bộ lọc theo ngành, kim ngạch, loại h�
 <li><strong>Quy mô triển khai thí điểm dự kiến:</strong> 50-200 doanh
 nghiệp, 5 năm dữ liệu.</li>
 <li><strong>Quy mô vận hành chính thức:</strong> Tất cả DNCX/Gia
-công/SXXK trong phạm vi quản lý, 10 năm dữ liệu.</li>
+công/SXXK trong phạm vi quản lý, 5 năm dữ liệu.</li>
 </ul>
 <hr />
 <h2 id="danh-mục-các-kiểm-tra">4. Danh mục các kiểm tra</h2>
@@ -591,15 +593,17 @@ cầu doanh nghiệp cung cấp thêm dữ liệu nào.</p>
 xuất (6 kiểm tra)</h3>
 <table>
 <colgroup>
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
 </colgroup>
 <thead>
 <tr class="header">
 <th>Mã</th>
-<th>Tên</th>
+<th>Vấn đề</th>
+<th>Rủi ro</th>
 <th>Mức</th>
 <th>Trạng thái</th>
 </tr>
@@ -610,26 +614,26 @@ xuất (6 kiểm tra)</h3>
 <td>Lệch số lượng nhập nguyên vật liệu (M15 so với tờ khai) —
 <code>nhập_trong_kỳ</code> (M15) khác Σ tờ khai nhập theo mã. Loại hình:
 DNCX E11+E15 / Gia công E21+E23 / SXXK E31+E33. Ngưỡng: &lt;5% Thông tin
-· 5–20% Cảnh báo · &gt;20% Nghiêm trọng. Rủi ro: Khai thiếu hoặc khai
-thừa nhập khẩu.</td>
+· 5–20% Cảnh báo · &gt;20% Nghiêm trọng.</td>
+<td>Khai thiếu hoặc khai thừa nhập khẩu.</td>
 <td>🟡</td>
 <td>✅</td>
 </tr>
 <tr class="even">
 <td><strong>C1.2</strong></td>
 <td>Có tờ khai nhập nhưng không có trong M15 — mã có trên BCCT nhưng
-không có dòng trong M15. Đánh dấu mọi trường hợp. Rủi ro: Bỏ sót nguyên
-vật liệu nhập khẩu khỏi BCQT.</td>
+không có dòng trong M15. Đánh dấu mọi trường hợp.</td>
+<td>Bỏ sót nguyên vật liệu nhập khẩu khỏi BCQT.</td>
 <td>🔴</td>
 <td>✅</td>
 </tr>
 <tr class="odd">
 <td><strong>C1.3</strong></td>
 <td>Có trong M15 nhưng không có tờ khai — <code>nhập_trong_kỳ</code>
-&gt; 0 mà không có tờ khai tương ứng. Rủi ro: M15 không có căn cứ tờ
-khai; doanh nghiệp có thể “mượn” mã nguyên vật liệu nhập khẩu để hợp
-thức hoá hàng mua nội địa không hoá đơn hoặc hàng nhập khẩu không khai
-báo, đưa vào phạm vi miễn thuế.</td>
+&gt; 0 mà không có tờ khai tương ứng.</td>
+<td>M15 không có căn cứ tờ khai; doanh nghiệp có thể “mượn” mã nguyên
+vật liệu nhập khẩu để hợp thức hoá hàng mua nội địa không hoá đơn hoặc
+hàng nhập khẩu không khai báo, đưa vào phạm vi miễn thuế.</td>
 <td>🔴</td>
 <td>✅</td>
 </tr>
@@ -639,23 +643,26 @@ báo, đưa vào phạm vi miễn thuế.</td>
 <code>xuất_khẩu</code> khác Σ tờ khai xuất theo mã thành phẩm. Loại
 hình: DNCX E42 / Gia công E52 / SXXK E62. Ngưỡng: &lt;1% Thông tin ·
 1–5% Cảnh báo · &gt;5% Nghiêm trọng.</td>
+<td>Khai sai sản lượng xuất khẩu — có thể khai khống xuất khẩu để giảm
+lượng nguyên vật liệu miễn thuế phải giải trình, hoặc khai thiếu xuất
+khẩu để giấu nguồn thu.</td>
 <td>🟡</td>
 <td>✅</td>
 </tr>
 <tr class="odd">
 <td><strong>C1.5</strong></td>
 <td>Tái xuất M15 không có tờ khai B13 — <code>xuất_trả_lại</code> &gt; 0
-trong M15 nhưng không có B13 tương ứng. Rủi ro: Ghi tái xuất để giảm tồn
-nhưng không có tờ khai chứng minh.</td>
+trong M15 nhưng không có B13 tương ứng.</td>
+<td>Ghi tái xuất để giảm tồn nhưng không có tờ khai chứng minh.</td>
 <td>🟡</td>
 <td>🚧</td>
 </tr>
 <tr class="even">
 <td><strong>C1.6</strong></td>
 <td>Chuyển mục đích sử dụng không có tờ khai A42 —
-<code>chuyển_mục_đích_sử_dụng</code> &gt; 0 nhưng không có A42. Rủi ro:
-Hàng miễn thuế chuyển nội địa không khai báo — vi phạm điều kiện miễn
-thuế.</td>
+<code>chuyển_mục_đích_sử_dụng</code> &gt; 0 nhưng không có A42.</td>
+<td>Hàng miễn thuế chuyển nội địa không khai báo — vi phạm điều kiện
+miễn thuế.</td>
 <td>🔴</td>
 <td>✅</td>
 </tr>
@@ -665,15 +672,17 @@ thuế.</td>
 kho (5 kiểm tra)</h3>
 <table>
 <colgroup>
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
 </colgroup>
 <thead>
 <tr class="header">
 <th>Mã</th>
-<th>Tên</th>
+<th>Vấn đề</th>
+<th>Rủi ro</th>
 <th>Mức</th>
 <th>Trạng thái</th>
 </tr>
@@ -685,7 +694,11 @@ kho (5 kiểm tra)</h3>
 <code>tồn_đầu</code> + <code>nhập</code> − <code>xuất_trả</code> −
 <code>xuất_sản_xuất</code> − <code>chuyển_mục_đích_sử_dụng</code> −
 <code>xuất_khác</code>. Ngưỡng: chênh lệch khác 0 (cho phép ±0,01 làm
-tròn). Rủi ro: Có cột bị chỉnh thủ công để đạt số tồn mong muốn.</td>
+tròn).</td>
+<td>Báo cáo không đáng tin cậy về mặt số học; có thể do lỗi nhập liệu,
+không khớp giữa các nguồn dữ liệu nội bộ doanh nghiệp, hoặc dữ liệu bị
+ghép từ nhiều bộ phận không đồng nhất. Phải làm rõ từng cột thành phần
+trước khi đánh giá các kiểm tra khác trên cùng kỳ.</td>
 <td>🔴</td>
 <td>✅</td>
 </tr>
@@ -694,34 +707,37 @@ tròn). Rủi ro: Có cột bị chỉnh thủ công để đạt số tồn mon
 <td>Mất cân bằng phương trình M15a — <code>tồn_cuối</code> khác
 <code>tồn_đầu</code> + <code>nhập_kho</code> −
 <code>chuyển_mục_đích_sử_dụng</code> − <code>xuất_khẩu</code> −
-<code>xuất_khác</code>. Rủi ro: Sản lượng, xuất khẩu hoặc tồn thành phẩm
-bị chỉnh tay.</td>
+<code>xuất_khác</code>.</td>
+<td>Báo cáo cân đối thành phẩm không đáng tin cậy về mặt số học; có thể
+do lỗi nhập liệu hoặc số liệu sản xuất/xuất khẩu/tồn không khớp giữa các
+nguồn nội bộ. Phải làm rõ từng cột trước khi đánh giá các kiểm tra
+khác.</td>
 <td>🔴</td>
 <td>✅</td>
 </tr>
 <tr class="odd">
 <td><strong>C2.3</strong></td>
 <td>Tồn cuối âm — nguyên vật liệu (M15) — <code>tồn_cuối_kỳ</code> &lt;
-0 trên bất kỳ mã nào. Rủi ro: Khả năng bỏ sót tờ khai nhập khẩu, sử dụng
-nguyên vật liệu không khai báo, hoặc điều chỉnh số liệu tồn kho không
-đúng thực tế.</td>
+0 trên bất kỳ mã nào.</td>
+<td>Khả năng bỏ sót tờ khai nhập khẩu, sử dụng nguyên vật liệu không
+khai báo, hoặc điều chỉnh số liệu tồn kho không đúng thực tế.</td>
 <td>🔴</td>
 <td>✅</td>
 </tr>
 <tr class="even">
 <td><strong>C2.4</strong></td>
 <td>Tồn cuối âm — thành phẩm (M15a) — <code>tồn_cuối_kỳ</code> &lt; 0
-trên bất kỳ mã nào. Rủi ro: Tương tự C2.3 cho thành phẩm — bỏ sót tờ
-khai, sử dụng hàng không khai báo, hoặc điều chỉnh số liệu tồn kho sai
-thực tế.</td>
+trên bất kỳ mã nào.</td>
+<td>Tương tự C2.3 cho thành phẩm — bỏ sót tờ khai, sử dụng hàng không
+khai báo, hoặc điều chỉnh số liệu tồn kho sai thực tế.</td>
 <td>🔴</td>
 <td>🚧</td>
 </tr>
 <tr class="odd">
 <td><strong>C2.5</strong></td>
 <td>Tồn cuối lớn hơn nhập khi tồn đầu bằng 0 — <code>tồn_đầu_kỳ</code> =
-0 nhưng <code>tồn_cuối_kỳ</code> &gt; <code>nhập_trong_kỳ</code>. Rủi
-ro: “Tồn kho ảo” để treo nợ thuế — doanh nghiệp thực tế đã tiêu thụ hàng
+0 nhưng <code>tồn_cuối_kỳ</code> &gt; <code>nhập_trong_kỳ</code>.</td>
+<td>“Tồn kho ảo” để treo nợ thuế — doanh nghiệp thực tế đã tiêu thụ hàng
 nhưng trên báo cáo vẫn thể hiện tồn kho lớn để không phải nộp thuế nhập
 khẩu.</td>
 <td>🔴</td>
@@ -733,15 +749,17 @@ khẩu.</td>
 hoá (3 kiểm tra)</h3>
 <table>
 <colgroup>
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
 </colgroup>
 <thead>
 <tr class="header">
 <th>Mã</th>
-<th>Tên</th>
+<th>Vấn đề</th>
+<th>Rủi ro</th>
 <th>Mức</th>
 <th>Trạng thái</th>
 </tr>
@@ -751,8 +769,8 @@ hoá (3 kiểm tra)</h3>
 <td><strong>C3.1</strong></td>
 <td>Cùng mã vật tư khai nhiều loại hình mâu thuẫn — một mã có trên cả tờ
 khai nguyên vật liệu và tờ khai máy móc thiết bị trong cùng kỳ. Cặp mâu
-thuẫn: E11+E13 · E31+E13 · E21+E13. Rủi ro: Phân loại sai dẫn đến sai
-phạm vi BCQT.</td>
+thuẫn: E11+E13 · E31+E13 · E21+E13.</td>
+<td>Phân loại sai dẫn đến sai phạm vi BCQT.</td>
 <td>🟡</td>
 <td>✅</td>
 </tr>
@@ -760,17 +778,18 @@ phạm vi BCQT.</td>
 <td><strong>C3.2</strong></td>
 <td>Mã HS không nhất quán trong kỳ (cùng mã vật tư) — ≥2 mã HS khác nhau
 trên các tờ khai. Ngưỡng: Khác phân nhóm (6 số) Thông tin · khác nhóm (4
-số) Cảnh báo · khác chương (2 số) Nghiêm trọng. Rủi ro: Cố ý thay đổi mã
-HS để né các chính sách quản lý chuyên ngành (kiểm tra chất lượng, kiểm
-dịch) hoặc để hưởng thuế suất ưu đãi đặc biệt bất hợp pháp.</td>
+số) Cảnh báo · khác chương (2 số) Nghiêm trọng.</td>
+<td>Cố ý thay đổi mã HS để né các chính sách quản lý chuyên ngành (kiểm
+tra chất lượng, kiểm dịch) hoặc để hưởng thuế suất ưu đãi đặc biệt bất
+hợp pháp.</td>
 <td>🟡🔴</td>
 <td>✅</td>
 </tr>
 <tr class="odd">
 <td><strong>C3.3</strong></td>
 <td>Đơn vị tính không nhất quán (cùng mã vật tư) — ≥2 đơn vị khác nhau
-giữa M15 và BCCT. Rủi ro: Sai đơn vị tính ×1000 khiến toàn bộ
-nhập/xuất/tồn sai hệ thống.</td>
+giữa M15 và BCCT.</td>
+<td>Sai đơn vị tính ×1000 khiến toàn bộ nhập/xuất/tồn sai hệ thống.</td>
 <td>🔴</td>
 <td>✅</td>
 </tr>
@@ -780,15 +799,17 @@ nhập/xuất/tồn sai hệ thống.</td>
 tra)</h3>
 <table>
 <colgroup>
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
 </colgroup>
 <thead>
 <tr class="header">
 <th>Mã</th>
-<th>Tên</th>
+<th>Vấn đề</th>
+<th>Rủi ro</th>
 <th>Mức</th>
 <th>Trạng thái</th>
 </tr>
@@ -798,16 +819,18 @@ tra)</h3>
 <td><strong>C4.1</strong></td>
 <td>Nguyên vật liệu trong M16 không có nhập khẩu trong M15 —
 <code>mã_NVL</code> trong M16 nhưng <code>nhập_trong_kỳ</code> = 0 hoặc
-không có dòng trong M15. Rủi ro: Không thể giải trình dòng vật tư từ tờ
-khai đến thành phẩm xuất khẩu.</td>
+không có dòng trong M15.</td>
+<td>Không thể giải trình dòng vật tư từ tờ khai đến thành phẩm xuất
+khẩu.</td>
 <td>🔴</td>
 <td>✅</td>
 </tr>
 <tr class="even">
 <td><strong>C4.2</strong></td>
 <td>Thành phẩm trong M16 không có trong M15a —
-<code>mã_SP_xuất_khẩu</code> trong M16 nhưng không có dòng trong M15a.
-Rủi ro: Định mức cho thành phẩm không có trong báo cáo xuất khẩu.</td>
+<code>mã_SP_xuất_khẩu</code> trong M16 nhưng không có dòng trong
+M15a.</td>
+<td>Định mức cho thành phẩm không có trong báo cáo xuất khẩu.</td>
 <td>🟡</td>
 <td>🚧</td>
 </tr>
@@ -816,10 +839,11 @@ Rủi ro: Định mức cho thành phẩm không có trong báo cáo xuất kh�
 <td>Tổng tiêu hao tính theo M16 vượt xuất sản xuất M15 —
 Σ(<code>định_mức</code> × <code>xuất_khẩu_M15a</code>) theo mã nguyên
 vật liệu &gt; <code>xuất_sản_xuất</code> trong M15. Ngưỡng: vượt &gt;5%
-Cảnh báo · &gt;20% Nghiêm trọng. Rủi ro: Đây là cách phổ biến nhất để
-lấy nguyên vật liệu miễn thuế ra bán nội địa — xây dựng định mức ảo bao
-gồm cả những thành phần không có thực trong sản phẩm, thổi phồng tiêu
-hao để hợp thức hoá nguyên vật liệu nhập khẩu dư.</td>
+Cảnh báo · &gt;20% Nghiêm trọng.</td>
+<td>Đây là cách phổ biến nhất để lấy nguyên vật liệu miễn thuế ra bán
+nội địa — xây dựng định mức ảo bao gồm cả những thành phần không có thực
+trong sản phẩm, thổi phồng tiêu hao để hợp thức hoá nguyên vật liệu nhập
+khẩu dư.</td>
 <td>🟡🔴</td>
 <td>✅</td>
 </tr>
@@ -830,16 +854,17 @@ phẩm. <strong>Ví dụ thực tế</strong>: 1 chiếc áo có 10 loại cúc 
 nhau trong M16. Cách phát hiện: (A) ≥N mã có cùng HS 4 số trong 1 thành
 phẩm (mặc định) · (B) gom nhóm tên gần giống (xử lý ngôn ngữ tự nhiên) ·
 (C) cơ quan Hải quan định nghĩa danh mục nhóm vật tư. Ngưỡng: ≥5 mã cùng
-HS / thành phẩm Cảnh báo · ≥10 Nghiêm trọng. Rủi ro: Phân mảnh nguyên
-vật liệu để che số lượng, hợp thức hoá nhập khẩu dư.</td>
+HS / thành phẩm Cảnh báo · ≥10 Nghiêm trọng.</td>
+<td>Phân mảnh nguyên vật liệu để che số lượng, hợp thức hoá nhập khẩu
+dư.</td>
 <td>🟡</td>
 <td>🚧</td>
 </tr>
 <tr class="odd">
 <td><strong>C4.5</strong></td>
 <td>Định mức bằng 0 hoặc âm — <code>định_mức_thực_tế</code> ≤ 0 trên bất
-kỳ dòng M16 nào. Rủi ro: Lỗi dữ liệu hoặc cố tình khai 0 để che tiêu hao
-thực tế.</td>
+kỳ dòng M16 nào.</td>
+<td>Lỗi dữ liệu hoặc cố tình khai 0 để che tiêu hao thực tế.</td>
 <td>🔴</td>
 <td>🚧</td>
 </tr>
@@ -848,8 +873,9 @@ thực tế.</td>
 <td>Định mức bất thường cao (giá trị ngoại lai thống kê) —
 <code>định_mức</code> cặp thành phẩm-nguyên vật liệu vượt xa giá trị
 trung bình toàn dữ liệu. Ngưỡng: vượt trung bình ±3 độ lệch chuẩn Cảnh
-báo · ±5 độ lệch chuẩn Nghiêm trọng. Rủi ro: Thổi phồng định mức để hợp
-thức hoá nguyên vật liệu nhập khẩu vượt mức.</td>
+báo · ±5 độ lệch chuẩn Nghiêm trọng.</td>
+<td>Thổi phồng định mức để hợp thức hoá nguyên vật liệu nhập khẩu vượt
+mức.</td>
 <td>🟡</td>
 <td>🚧</td>
 </tr>
@@ -859,12 +885,13 @@ thức hoá nguyên vật liệu nhập khẩu vượt mức.</td>
 cặp thành phẩm-NVL có nhiều định mức khác nhau trong cùng kỳ; (b) một
 nguyên vật liệu được dùng cho quá nhiều thành phẩm không liên quan; (c)
 một thành phẩm có số lượng dòng nguyên vật liệu vượt ngưỡng hợp lý của
-ngành. Rủi ro: phân mảnh định mức để hợp thức hoá nhiều mã NVL nhập
-khẩu, gây khó truy nguồn và che giấu lượng NVL dư / thất thoát · điều
-chỉnh định mức tuỳ ý để cân đối tồn kho · khai báo định mức quá rộng để
-hợp thức hoá NVL nhập khẩu miễn thuế cho thành phẩm không phù hợp thực
-tế sản xuất · có dấu hiệu tính toán / nguỵ tạo định mức nhân tạo để chế
-số liệu quyết toán thay vì phản ánh tiêu hao sản xuất thực tế.</td>
+ngành.</td>
+<td>phân mảnh định mức để hợp thức hoá nhiều mã NVL nhập khẩu, gây khó
+truy nguồn và che giấu lượng NVL dư / thất thoát · điều chỉnh định mức
+tuỳ ý để cân đối tồn kho · khai báo định mức quá rộng để hợp thức hoá
+NVL nhập khẩu miễn thuế cho thành phẩm không phù hợp thực tế sản xuất ·
+có dấu hiệu tính toán / nguỵ tạo định mức nhân tạo để chế số liệu quyết
+toán thay vì phản ánh tiêu hao sản xuất thực tế.</td>
 <td>🟡🔴</td>
 <td>🚧</td>
 </tr>
@@ -874,15 +901,17 @@ số liệu quyết toán thay vì phản ánh tiêu hao sản xuất thực t�
 Truy nguồn nguyên vật liệu nhập khẩu (3 kiểm tra)</h3>
 <table>
 <colgroup>
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
 </colgroup>
 <thead>
 <tr class="header">
 <th>Mã</th>
-<th>Tên</th>
+<th>Vấn đề</th>
+<th>Rủi ro</th>
 <th>Mức</th>
 <th>Trạng thái</th>
 </tr>
@@ -892,8 +921,9 @@ Truy nguồn nguyên vật liệu nhập khẩu (3 kiểm tra)</h3>
 <td><strong>C5.1</strong></td>
 <td>NVL có xuất sản xuất trong M15 nhưng không có nhập khẩu —
 <code>xuất_sản_xuất</code> &gt; 0 và <code>nhập_trong_kỳ</code> = 0 và
-<code>tồn_đầu_kỳ</code> = 0. Rủi ro: Tiêu hao từ nguồn không khai báo —
-nguyên vật liệu nội địa bị đưa vào phạm vi miễn thuế.</td>
+<code>tồn_đầu_kỳ</code> = 0.</td>
+<td>Tiêu hao từ nguồn không khai báo — nguyên vật liệu nội địa bị đưa
+vào phạm vi miễn thuế.</td>
 <td>🔴</td>
 <td>✅</td>
 </tr>
@@ -901,9 +931,10 @@ nguyên vật liệu nội địa bị đưa vào phạm vi miễn thuế.</td>
 <td><strong>C5.2</strong></td>
 <td>Thành phẩm xuất khẩu không có trong M16 (thành phẩm “mồ côi”) — mã
 thành phẩm có <code>xuất_khẩu</code> &gt; 0 trong M15a nhưng không có
-dòng M16. Rủi ro: Không thể giải trình nguyên vật liệu đầu vào cho thành
-phẩm đã xuất khẩu; doanh nghiệp có thể dùng nguyên liệu không rõ nguồn
-gốc (kể cả hàng lậu) để sản xuất xuất khẩu.</td>
+dòng M16.</td>
+<td>Không thể giải trình nguyên vật liệu đầu vào cho thành phẩm đã xuất
+khẩu; doanh nghiệp có thể dùng nguyên liệu không rõ nguồn gốc (kể cả
+hàng lậu) để sản xuất xuất khẩu.</td>
 <td>🟡</td>
 <td>🚧</td>
 </tr>
@@ -912,8 +943,9 @@ gốc (kể cả hàng lậu) để sản xuất xuất khẩu.</td>
 <td>Tỷ lệ truy nguồn thấp theo mã nguyên vật liệu —
 Σ(<code>định_mức</code> × <code>xuất_khẩu_M15a</code>) /
 <code>xuất_sản_xuất_M15</code> thấp dưới ngưỡng. Ngưỡng: &lt;80% Cảnh
-báo · &lt;60% Nghiêm trọng. Rủi ro: Phần lớn nguyên vật liệu nhập khẩu
-không truy được vào thành phẩm xuất khẩu cụ thể.</td>
+báo · &lt;60% Nghiêm trọng.</td>
+<td>Phần lớn nguyên vật liệu nhập khẩu không truy được vào thành phẩm
+xuất khẩu cụ thể.</td>
 <td>🟡</td>
 <td>🚧</td>
 </tr>
@@ -924,15 +956,17 @@ kiểm tra)</h3>
 <p><em>Cần dữ liệu ≥2 kỳ BCQT.</em></p>
 <table>
 <colgroup>
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
 </colgroup>
 <thead>
 <tr class="header">
 <th>Mã</th>
-<th>Tên</th>
+<th>Vấn đề</th>
+<th>Rủi ro</th>
 <th>Mức</th>
 <th>Trạng thái</th>
 </tr>
@@ -941,7 +975,8 @@ kiểm tra)</h3>
 <tr class="odd">
 <td><strong>C6.1</strong></td>
 <td>Tồn đầu kỳ N khác tồn cuối kỳ N-1 — nguyên vật liệu (M15) — theo
-từng mã. Rủi ro: Điều chỉnh tồn giữa 2 kỳ không có giải trình.</td>
+từng mã.</td>
+<td>Điều chỉnh tồn giữa 2 kỳ không có giải trình.</td>
 <td>🔴</td>
 <td>✅</td>
 </tr>
@@ -949,6 +984,7 @@ từng mã. Rủi ro: Điều chỉnh tồn giữa 2 kỳ không có giải trì
 <td><strong>C6.2</strong></td>
 <td>Tồn đầu kỳ N khác tồn cuối kỳ N-1 — thành phẩm (M15a) — tương tự
 C6.1 cho thành phẩm.</td>
+<td>—</td>
 <td>🔴</td>
 <td>🚧</td>
 </tr>
@@ -956,9 +992,9 @@ C6.1 cho thành phẩm.</td>
 <td><strong>C6.3</strong></td>
 <td>Định mức M16 thay đổi đột biến giữa các kỳ — chênh lệch tỷ lệ giữa
 định mức kỳ N và kỳ N-1 vượt ngưỡng (cùng cặp thành phẩm-nguyên vật
-liệu). Ngưỡng: &gt;20% Cảnh báo · &gt;50% Nghiêm trọng. Rủi ro: Thổi
-phồng hoặc co định mức để điều tiết lượng nguyên vật liệu cần giải
-trình.</td>
+liệu). Ngưỡng: &gt;20% Cảnh báo · &gt;50% Nghiêm trọng.</td>
+<td>Thổi phồng hoặc co định mức để điều tiết lượng nguyên vật liệu cần
+giải trình.</td>
 <td>🟡</td>
 <td>🚧</td>
 </tr>
@@ -967,18 +1003,20 @@ trình.</td>
 <td>Nhập tăng mạnh nhưng xuất khẩu không tăng tương ứng —
 <code>nhập_trong_kỳ</code> tăng &gt;X% trong khi <code>xuất_khẩu</code>
 tăng &lt;Y%. Ngưỡng: nhập tăng &gt;50% trong khi xuất tăng &lt;10% Cảnh
-báo. Rủi ro: Tích luỹ tồn nguyên vật liệu bất thường, nguy cơ chuyển nội
-địa không khai báo A42. <strong>Cảnh báo đặc biệt:</strong> doanh nghiệp
-sắp giải thể, bỏ trốn — tranh thủ nhập lượng lớn hàng miễn thuế rồi tẩu
-tán ra thị trường trước khi đóng mã số thuế.</td>
+báo.</td>
+<td>Tích luỹ tồn nguyên vật liệu bất thường, nguy cơ chuyển nội địa
+không khai báo A42. <strong>Cảnh báo đặc biệt:</strong> doanh nghiệp sắp
+giải thể, bỏ trốn — tranh thủ nhập lượng lớn hàng miễn thuế rồi tẩu tán
+ra thị trường trước khi đóng mã số thuế.</td>
 <td>🟡</td>
 <td>🚧</td>
 </tr>
 <tr class="odd">
 <td><strong>C6.5</strong></td>
 <td>Mã HS thay đổi cho cùng mã vật tư giữa các kỳ — Ngưỡng: đổi nhóm (4
-số) Cảnh báo · đổi chương (2 số) Nghiêm trọng. Rủi ro: Phân loại lại để
-chuyển sang nhóm thuế suất hoặc chính sách có lợi hơn.</td>
+số) Cảnh báo · đổi chương (2 số) Nghiêm trọng.</td>
+<td>Phân loại lại để chuyển sang nhóm thuế suất hoặc chính sách có lợi
+hơn.</td>
 <td>🟡🔴</td>
 <td>🚧</td>
 </tr>
@@ -990,15 +1028,17 @@ sánh giữa các doanh nghiệp (3 kiểm tra)</h3>
 mục (≥30 doanh nghiệp cùng ngành).</em></p>
 <table>
 <colgroup>
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
 </colgroup>
 <thead>
 <tr class="header">
 <th>Mã</th>
-<th>Tên</th>
+<th>Vấn đề</th>
+<th>Rủi ro</th>
 <th>Mức</th>
 <th>Trạng thái</th>
 </tr>
@@ -1009,22 +1049,23 @@ mục (≥30 doanh nghiệp cùng ngành).</em></p>
 <td>Định mức bất thường so với cùng ngành — định mức doanh nghiệp vượt
 mức trung bình ngành (cùng chương HS hoặc cùng loại sản phẩm) một khoảng
 lớn.</td>
+<td>—</td>
 <td>🟡</td>
 <td>⏳</td>
 </tr>
 <tr class="even">
 <td><strong>C7.2</strong></td>
 <td>Giá nhập từ cùng nhà cung cấp chênh lệch giữa các doanh nghiệp —
-cùng nhà cung cấp, cùng mã HS, giá khác nhau lớn. Rủi ro: Chuyển giá
-hoặc trốn thuế có hệ thống.</td>
+cùng nhà cung cấp, cùng mã HS, giá khác nhau lớn.</td>
+<td>Chuyển giá hoặc trốn thuế có hệ thống.</td>
 <td>🟡🔴</td>
 <td>⏳</td>
 </tr>
 <tr class="odd">
 <td><strong>C7.3</strong></td>
 <td>Lượng nhập / xuất cùng mã HS bất thường so với mức chung ngành —
-vượt xa giá trị trung vị của ngành. Rủi ro: Quy mô bất thường cần kiểm
-tra.</td>
+vượt xa giá trị trung vị của ngành.</td>
+<td>Quy mô bất thường cần kiểm tra.</td>
 <td>🟡</td>
 <td>⏳</td>
 </tr>
@@ -1050,15 +1091,17 @@ liệu.</p>
 </blockquote>
 <table>
 <colgroup>
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
 </colgroup>
 <thead>
 <tr class="header">
 <th>Mã</th>
-<th>Tên</th>
+<th>Vấn đề</th>
+<th>Rủi ro</th>
 <th>Mức</th>
 <th>Trạng thái</th>
 </tr>
@@ -1067,9 +1110,9 @@ liệu.</p>
 <tr class="odd">
 <td><strong>C8.1</strong></td>
 <td>Tỷ lệ phế liệu / phế phẩm thực tế vượt ngưỡng ngành — cặp NVL-thành
-phẩm có tỷ lệ phế thải cao bất thường so với mặt bằng ngành. Rủi ro:
-Khai phế liệu cao để giảm lượng NVL cần giải trình hoặc che tiêu thụ nội
-địa.</td>
+phẩm có tỷ lệ phế thải cao bất thường so với mặt bằng ngành.</td>
+<td>Khai phế liệu cao để giảm lượng NVL cần giải trình hoặc che tiêu thụ
+nội địa.</td>
 <td>🟡</td>
 <td>⏳</td>
 </tr>
@@ -1077,16 +1120,17 @@ Khai phế liệu cao để giảm lượng NVL cần giải trình hoặc che t
 <td><strong>C8.2</strong></td>
 <td>Phế liệu bán nội địa không có tờ khai chuyển mục đích sử dụng (A42)
 — doanh nghiệp ghi nhận bán phế liệu trong sổ sách nhưng không có A42
-tương ứng. Rủi ro: Vi phạm điều kiện miễn thuế — phế liệu phát sinh từ
-NVL miễn thuế, bán nội địa phải khai A42 và nộp thuế.</td>
+tương ứng.</td>
+<td>Vi phạm điều kiện miễn thuế — phế liệu phát sinh từ NVL miễn thuế,
+bán nội địa phải khai A42 và nộp thuế.</td>
 <td>🔴</td>
 <td>⏳</td>
 </tr>
 <tr class="odd">
 <td><strong>C8.3</strong></td>
 <td>Tỷ lệ phế liệu thay đổi đột biến giữa các kỳ — tỷ lệ phế thải kỳ N
-cao bất thường so với kỳ N-1 (cùng dây chuyền sản xuất). Rủi ro: Điều
-tiết phế liệu để cân đối số liệu tồn kho qua các kỳ.</td>
+cao bất thường so với kỳ N-1 (cùng dây chuyền sản xuất).</td>
+<td>Điều tiết phế liệu để cân đối số liệu tồn kho qua các kỳ.</td>
 <td>🟡</td>
 <td>⏳</td>
 </tr>
@@ -1106,15 +1150,17 @@ khác nhau, dễ phát sinh nhiều tầng (cấp 1, cấp 2, tái chế, gia c�
 </blockquote>
 <table>
 <colgroup>
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
 </colgroup>
 <thead>
 <tr class="header">
 <th>Mã</th>
-<th>Tên</th>
+<th>Vấn đề</th>
+<th>Rủi ro</th>
 <th>Mức</th>
 <th>Trạng thái</th>
 </tr>
@@ -1123,26 +1169,27 @@ khác nhau, dễ phát sinh nhiều tầng (cấp 1, cấp 2, tái chế, gia c�
 <tr class="odd">
 <td><strong>C9.1</strong></td>
 <td>BTP đa tầng không truy nguồn được về NVL gốc — BTP cấp 1, 2, 3…
-không có liên kết về nguyên vật liệu ban đầu. Rủi ro: Làm mờ truy nguồn
-— NVL đã nhập khẩu “nằm” trong BTP nhiều tầng, đối chiếu với thành phẩm
-xuất khẩu không còn tuyến tính.</td>
+không có liên kết về nguyên vật liệu ban đầu.</td>
+<td>Làm mờ truy nguồn — NVL đã nhập khẩu “nằm” trong BTP nhiều tầng, đối
+chiếu với thành phẩm xuất khẩu không còn tuyến tính.</td>
 <td>🟡</td>
 <td>⏳</td>
 </tr>
 <tr class="even">
 <td><strong>C9.2</strong></td>
 <td>Tồn BTP cuối kỳ N khác tồn BTP đầu kỳ N+1 — biến động không có giải
-trình. Rủi ro: BTP bị “đẩy qua lại” giữa các kỳ để điều chỉnh tồn kho mà
-không thay đổi dòng thực tế.</td>
+trình.</td>
+<td>BTP bị “đẩy qua lại” giữa các kỳ để điều chỉnh tồn kho mà không thay
+đổi dòng thực tế.</td>
 <td>🟡</td>
 <td>⏳</td>
 </tr>
 <tr class="odd">
 <td><strong>C9.3</strong></td>
 <td>Tồn BTP lớn không tương xứng với năng lực sản xuất khai báo — số
-lượng BTP tồn vượt xa năng lực dây chuyền. Rủi ro: Che giấu tiêu thụ nội
-địa — NVL đã đưa vào BTP nhưng thực tế bị tiêu thụ / bán nội địa, khó
-phát hiện vì chưa “ra thành phẩm”.</td>
+lượng BTP tồn vượt xa năng lực dây chuyền.</td>
+<td>Che giấu tiêu thụ nội địa — NVL đã đưa vào BTP nhưng thực tế bị tiêu
+thụ / bán nội địa, khó phát hiện vì chưa “ra thành phẩm”.</td>
 <td>🟡</td>
 <td>⏳</td>
 </tr>
@@ -1150,8 +1197,9 @@ phát hiện vì chưa “ra thành phẩm”.</td>
 <td><strong>C9.4</strong></td>
 <td>Cấu thành NVL của BTP không khớp giữa định mức khai báo và sổ kho
 thực tế — định mức tầng BTP tính ra khác lượng NVL đã xuất kho cho BTP
-đó. Rủi ro: Tách nhỏ một quy trình sản xuất thành nhiều tầng BTP để làm
-loãng sai lệch định mức, tạo vùng xám dễ lợi dụng.</td>
+đó.</td>
+<td>Tách nhỏ một quy trình sản xuất thành nhiều tầng BTP để làm loãng
+sai lệch định mức, tạo vùng xám dễ lợi dụng.</td>
 <td>🔴</td>
 <td>⏳</td>
 </tr>
@@ -1166,15 +1214,17 @@ phát sinh, sổ chi tiết các tài khoản 152 (NVL), 155 (Thành phẩm), 15
 </blockquote>
 <table>
 <colgroup>
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
 </colgroup>
 <thead>
 <tr class="header">
 <th>Mã</th>
-<th>Tên</th>
+<th>Vấn đề</th>
+<th>Rủi ro</th>
 <th>Mức</th>
 <th>Trạng thái</th>
 </tr>
@@ -1183,22 +1233,24 @@ phát sinh, sổ chi tiết các tài khoản 152 (NVL), 155 (Thành phẩm), 15
 <tr class="odd">
 <td><strong>C10.1</strong></td>
 <td>Tồn kho đầu/cuối kỳ BCQT khác số dư các tài khoản 152, 155, 156 trên
-Bảng cân đối phát sinh. Rủi ro: Số liệu BCQT không khớp sổ sách kế toán
-— hai nguồn số liệu mâu thuẫn cần làm rõ.</td>
+Bảng cân đối phát sinh.</td>
+<td>Số liệu BCQT không khớp sổ sách kế toán — hai nguồn số liệu mâu
+thuẫn cần làm rõ.</td>
 <td>🔴</td>
 <td>⏳</td>
 </tr>
 <tr class="even">
 <td><strong>C10.2</strong></td>
-<td>Doanh thu xuất khẩu sổ sách kế toán khác trị giá xuất khẩu BCCT. Rủi
-ro: Khai sai một trong hai phía, ảnh hưởng nghĩa vụ thuế.</td>
+<td>Doanh thu xuất khẩu sổ sách kế toán khác trị giá xuất khẩu
+BCCT.</td>
+<td>Khai sai một trong hai phía, ảnh hưởng nghĩa vụ thuế.</td>
 <td>🟡🔴</td>
 <td>⏳</td>
 </tr>
 <tr class="odd">
 <td><strong>C10.3</strong></td>
-<td>Giá trị nhập khẩu sổ sách kế toán khác trị giá nhập khẩu BCCT. Rủi
-ro: Khai sai một trong hai phía hoặc có nguồn nhập không khai báo.</td>
+<td>Giá trị nhập khẩu sổ sách kế toán khác trị giá nhập khẩu BCCT.</td>
+<td>Khai sai một trong hai phía hoặc có nguồn nhập không khai báo.</td>
 <td>🟡🔴</td>
 <td>⏳</td>
 </tr>
@@ -1213,15 +1265,17 @@ miễn thuế.</p>
 </blockquote>
 <table>
 <colgroup>
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
 </colgroup>
 <thead>
 <tr class="header">
 <th>Mã</th>
-<th>Tên</th>
+<th>Vấn đề</th>
+<th>Rủi ro</th>
 <th>Mức</th>
 <th>Trạng thái</th>
 </tr>
@@ -1230,17 +1284,18 @@ miễn thuế.</p>
 <tr class="odd">
 <td><strong>C11.1</strong></td>
 <td>Máy móc thiết bị miễn thuế nhập khẩu (E13) không khớp danh mục thiết
-bị trong báo cáo cơ sở sản xuất. Rủi ro: Máy móc miễn thuế đã bán nội
-địa, chuyển nhượng, hoặc đưa ra khỏi cơ sở mà không khai báo.</td>
+bị trong báo cáo cơ sở sản xuất.</td>
+<td>Máy móc miễn thuế đã bán nội địa, chuyển nhượng, hoặc đưa ra khỏi cơ
+sở mà không khai báo.</td>
 <td>🔴</td>
 <td>⏳</td>
 </tr>
 <tr class="even">
 <td><strong>C11.2</strong></td>
 <td>Công suất máy móc khai báo không khớp sản lượng thực tế trong BCQT —
-sản lượng vượt hoặc thấp xa năng lực thiết bị khai báo. Rủi ro: Khai báo
-công suất không trung thực để được miễn thuế / để hợp thức hoá lượng
-xuất khẩu.</td>
+sản lượng vượt hoặc thấp xa năng lực thiết bị khai báo.</td>
+<td>Khai báo công suất không trung thực để được miễn thuế / để hợp thức
+hoá lượng xuất khẩu.</td>
 <td>🟡</td>
 <td>⏳</td>
 </tr>
@@ -2054,11 +2109,21 @@ nhật rủi ro 8 kiểm tra; thêm C4.7 phân bổ định mức bất thườn
 8-11 (phế liệu, BTP, sổ sách kế toán, tài sản cố định / máy móc) — 12
 kiểm tra giai đoạn sau; giản lược §5 hạ tầng kỹ thuật</td>
 </tr>
+<tr class="even">
+<td>Bản nháp 6</td>
+<td>2026-05-14</td>
+<td>Tinsu AI</td>
+<td>Tách các bảng kiểm tra thành 5 cột (Mã / Vấn đề / Rủi ro / Mức /
+Trạng thái) cho dễ theo dõi; viết lại rủi ro C2.1 và C2.2 (cũ tối
+nghĩa); bổ sung rủi ro C1.4 (đang thiếu); chỉnh §2.1, §2.2, §2.5; rút
+quy mô vận hành chính thức từ 10 năm xuống 5 năm dữ liệu; tăng khoảng
+cách hiển thị danh sách trong giao diện</td>
+</tr>
 </tbody>
 </table>
 <hr />
 <blockquote>
-<p><strong>Đây là bản dự thảo lần 5.</strong> Mọi nội dung là đề xuất sơ
+<p><strong>Đây là bản dự thảo lần 6.</strong> Mọi nội dung là đề xuất sơ
 bộ và sẽ được điều chỉnh theo phản hồi của cơ quan Hải quan qua các vòng
 tổng hợp tiếp theo.</p>
 </blockquote>

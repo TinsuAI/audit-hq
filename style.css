@@ -112,8 +112,11 @@ blockquote {
   border-radius: 0 6px 6px 0;
 }
 blockquote strong { color: #92400e; }
-ul, ol { padding-left: 24px; }
-li { margin: 4px 0; }
+ul, ol { padding-left: 24px; margin: 12px 0; }
+li { margin: 8px 0; line-height: 1.6; }
+li > ul, li > ol { margin: 6px 0; }
+tbody td ul, tbody td ol { padding-left: 18px; margin: 4px 0; }
+tbody td li { margin: 3px 0; }
 a { color: #2563eb; }
 a:hover { color: #1d4ed8; }
 
