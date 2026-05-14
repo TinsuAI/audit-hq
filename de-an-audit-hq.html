@@ -223,8 +223,6 @@ Truy nguồn nguyên vật liệu nhập khẩu (3 kiểm tra)</a></li>
 kiểm tra)</a></li>
 <li><a href="#nhóm-7-so-sánh-giữa-các-doanh-nghiệp-3-kiểm-tra" id="toc-nhóm-7-so-sánh-giữa-các-doanh-nghiệp-3-kiểm-tra">Nhóm 7 — So
 sánh giữa các doanh nghiệp (3 kiểm tra)</a></li>
-<li><a href="#nhóm-12-nhà-cung-cấp-3-kiểm-tra" id="toc-nhóm-12-nhà-cung-cấp-3-kiểm-tra">Nhóm 12 — Nhà cung cấp (3 kiểm
-tra)</a></li>
 </ul></li>
 <li><a href="#giai-đoạn-ii-kiểm-tra-mở-rộng-cần-dữ-liệu-bổ-sung" id="toc-giai-đoạn-ii-kiểm-tra-mở-rộng-cần-dữ-liệu-bổ-sung">4.2 Giai đoạn
 II — Kiểm tra mở rộng, cần dữ liệu bổ sung</a>
@@ -237,6 +235,8 @@ phẩm dở dang (bán thành phẩm) (4 kiểm tra)</a></li>
 chiếu sổ sách kế toán (3 kiểm tra)</a></li>
 <li><a href="#nhóm-11-tài-sản-cố-định-máy-móc-thiết-bị-và-năng-lực-vận-hành-3-kiểm-tra" id="toc-nhóm-11-tài-sản-cố-định-máy-móc-thiết-bị-và-năng-lực-vận-hành-3-kiểm-tra">Nhóm
 11 — Tài sản cố định, máy móc thiết bị và năng lực vận hành (3 kiểm
+tra)</a></li>
+<li><a href="#nhóm-12-nhà-cung-cấp-3-kiểm-tra" id="toc-nhóm-12-nhà-cung-cấp-3-kiểm-tra">Nhóm 12 — Nhà cung cấp (3 kiểm
 tra)</a></li>
 <li><a href="#tổng-hợp" id="toc-tổng-hợp">4.3 Tổng hợp</a></li>
 </ul></li>
@@ -563,21 +563,21 @@ theo dữ liệu cần dùng:</p>
 <tr class="odd">
 <td><strong>Giai đoạn I</strong> (§4.1)</td>
 <td>TKXNK + BCQT đã nộp</td>
-<td>1, 2, 3, 4, 5, 6, 7, 12</td>
-<td>35 kiểm tra</td>
+<td>1, 2, 3, 4, 5, 6, 7</td>
+<td>32 kiểm tra</td>
 </tr>
 <tr class="even">
 <td><strong>Giai đoạn II</strong> (§4.2)</td>
-<td>Cần dữ liệu bổ sung từ doanh nghiệp</td>
-<td>8, 9, 10, 11</td>
-<td>13 kiểm tra</td>
+<td>Cần dữ liệu / điều kiện bổ sung</td>
+<td>8, 9, 10, 11, 12</td>
+<td>16 kiểm tra</td>
 </tr>
 </tbody>
 </table>
 <p><strong>Trạng thái</strong> trong Giai đoạn I: - ✅ Xây dựng và demo
-trong 2 tháng (16 kiểm tra) - 🚧 Bổ sung trong giai đoạn thí điểm (15
-kiểm tra) - ⏳ Kích hoạt khi đã có đủ doanh nghiệp / danh sách bổ sung
-(4 kiểm tra: Nhóm 7 và C12.3)</p>
+trong 2 tháng (16 kiểm tra) - 🚧 Bổ sung trong giai đoạn thí điểm (13
+kiểm tra) - ⏳ Kích hoạt khi đã có đủ doanh nghiệp trong danh mục (3
+kiểm tra Nhóm 7)</p>
 <p><strong>Mức độ:</strong> 🔴 Nghiêm trọng · 🟡 Cảnh báo · 🔵 Thông
 tin</p>
 <h3 id="tiền-đề-kỹ-thuật-cho-mọi-kiểm-tra">Tiền đề kỹ thuật cho mọi kiểm
@@ -1133,62 +1133,6 @@ vượt xa giá trị trung vị của ngành.</td>
 </tr>
 </tbody>
 </table>
-<h3 id="nhóm-12-nhà-cung-cấp-3-kiểm-tra">Nhóm 12 — Nhà cung cấp (3 kiểm
-tra)</h3>
-<p><em>Yêu cầu dữ liệu bổ sung: trường nhà cung cấp trong BCCT đã được
-chuẩn hoá (cùng một nhà cung cấp khai cùng dạng tên); bảng tham chiếu
-định dạng mã số thuế các quốc gia xuất xứ; danh sách nhà cung cấp rủi ro
-do cơ quan Hải quan cung cấp.</em></p>
-<table>
-<colgroup>
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Mã</th>
-<th>Vấn đề</th>
-<th>Rủi ro</th>
-<th>Mức</th>
-<th>Trạng thái</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>C12.1</strong></td>
-<td>Nhà cung cấp mới xuất hiện đột ngột chiếm tỷ trọng lớn — nhà cung
-cấp chưa từng xuất hiện trong các kỳ trước nhưng kỳ này chiếm &gt;30%
-kim ngạch nhập của doanh nghiệp.</td>
-<td>Nhà cung cấp giả lập (công ty ma), hoặc thay đổi nhà cung cấp để né
-kiểm soát chuyển giá / kiểm soát xuất xứ.</td>
-<td>🟡</td>
-<td>🚧</td>
-</tr>
-<tr class="even">
-<td><strong>C12.2</strong></td>
-<td>Mã số thuế / thông tin nhận diện nhà cung cấp không hợp lệ — định
-dạng MST sai, nhà cung cấp trên tờ khai không khớp dạng định danh quốc
-tế của nước xuất xứ.</td>
-<td>Nhà cung cấp không có thật, hoặc khai mượn danh nhà cung cấp
-khác.</td>
-<td>🔴</td>
-<td>🚧</td>
-</tr>
-<tr class="odd">
-<td><strong>C12.3</strong></td>
-<td>Nhà cung cấp nằm trong danh sách rủi ro của cơ quan Hải quan — đối
-chiếu với danh sách nhà cung cấp nghi vấn (chuyển giá, gian lận xuất xứ,
-đã bị xử phạt trước đây).</td>
-<td>Doanh nghiệp tiếp tục giao dịch với nhà cung cấp đã được cơ quan Hải
-quan đánh dấu rủi ro.</td>
-<td>🟡🔴</td>
-<td>⏳</td>
-</tr>
-</tbody>
-</table>
 <hr />
 <h2 id="giai-đoạn-ii-kiểm-tra-mở-rộng-cần-dữ-liệu-bổ-sung">4.2 Giai đoạn
 II — Kiểm tra mở rộng, cần dữ liệu bổ sung</h2>
@@ -1456,6 +1400,64 @@ tránh đối chiếu tồn thực tế.</td>
 </tbody>
 </table>
 <hr />
+<h3 id="nhóm-12-nhà-cung-cấp-3-kiểm-tra">Nhóm 12 — Nhà cung cấp (3 kiểm
+tra)</h3>
+<blockquote>
+<p><strong>Điều kiện kích hoạt:</strong> trường nhà cung cấp trong BCCT
+đã được chuẩn hoá (cùng một nhà cung cấp khai cùng dạng tên); bảng tham
+chiếu định dạng mã số thuế các quốc gia xuất xứ; danh sách nhà cung cấp
+rủi ro do cơ quan Hải quan cung cấp.</p>
+</blockquote>
+<table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Mã</th>
+<th>Vấn đề</th>
+<th>Rủi ro</th>
+<th>Mức</th>
+<th>Trạng thái</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>C12.1</strong></td>
+<td>Nhà cung cấp mới xuất hiện đột ngột chiếm tỷ trọng lớn — nhà cung
+cấp chưa từng xuất hiện trong các kỳ trước nhưng kỳ này chiếm &gt;30%
+kim ngạch nhập của doanh nghiệp.</td>
+<td>Nhà cung cấp giả lập (công ty ma), hoặc thay đổi nhà cung cấp để né
+kiểm soát chuyển giá / kiểm soát xuất xứ.</td>
+<td>🟡</td>
+<td>⏳</td>
+</tr>
+<tr class="even">
+<td><strong>C12.2</strong></td>
+<td>Mã số thuế / thông tin nhận diện nhà cung cấp không hợp lệ — định
+dạng MST sai, nhà cung cấp trên tờ khai không khớp dạng định danh quốc
+tế của nước xuất xứ.</td>
+<td>Nhà cung cấp không có thật, hoặc khai mượn danh nhà cung cấp
+khác.</td>
+<td>🔴</td>
+<td>⏳</td>
+</tr>
+<tr class="odd">
+<td><strong>C12.3</strong></td>
+<td>Nhà cung cấp nằm trong danh sách rủi ro của cơ quan Hải quan — đối
+chiếu với danh sách nhà cung cấp nghi vấn (chuyển giá, gian lận xuất xứ,
+đã bị xử phạt trước đây).</td>
+<td>Doanh nghiệp tiếp tục giao dịch với nhà cung cấp đã được cơ quan Hải
+quan đánh dấu rủi ro.</td>
+<td>🟡🔴</td>
+<td>⏳</td>
+</tr>
+</tbody>
+</table>
 <h3 id="tổng-hợp">4.3 Tổng hợp</h3>
 <table>
 <colgroup>
@@ -1535,21 +1537,13 @@ tránh đối chiếu tồn thực tế.</td>
 </tr>
 <tr class="even">
 <td></td>
-<td>12 — Nhà cung cấp</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">1</td>
+<td><strong>Cộng Giai đoạn I</strong></td>
+<td style="text-align: right;"><strong>32</strong></td>
+<td style="text-align: right;"><strong>16</strong></td>
+<td style="text-align: right;"><strong>13</strong></td>
+<td style="text-align: right;"><strong>3</strong></td>
 </tr>
 <tr class="odd">
-<td></td>
-<td><strong>Cộng Giai đoạn I</strong></td>
-<td style="text-align: right;"><strong>35</strong></td>
-<td style="text-align: right;"><strong>16</strong></td>
-<td style="text-align: right;"><strong>15</strong></td>
-<td style="text-align: right;"><strong>4</strong></td>
-</tr>
-<tr class="even">
 <td><strong>Giai đoạn II</strong> (cần dữ liệu bổ sung)</td>
 <td>8 — Phế liệu / phế phẩm</td>
 <td style="text-align: right;">3</td>
@@ -1557,7 +1551,7 @@ tránh đối chiếu tồn thực tế.</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">3</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td>9 — Sản phẩm dở dang (BTP)</td>
 <td style="text-align: right;">4</td>
@@ -1565,7 +1559,7 @@ tránh đối chiếu tồn thực tế.</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">4</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td>10 — Đối chiếu sổ sách kế toán</td>
 <td style="text-align: right;">3</td>
@@ -1573,9 +1567,17 @@ tránh đối chiếu tồn thực tế.</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">3</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td>11 — TSCĐ, máy móc và năng lực vận hành</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>12 — Nhà cung cấp</td>
 <td style="text-align: right;">3</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -1584,18 +1586,18 @@ tránh đối chiếu tồn thực tế.</td>
 <tr class="even">
 <td></td>
 <td><strong>Cộng Giai đoạn II</strong></td>
-<td style="text-align: right;"><strong>13</strong></td>
+<td style="text-align: right;"><strong>16</strong></td>
 <td style="text-align: right;"><strong>0</strong></td>
 <td style="text-align: right;"><strong>0</strong></td>
-<td style="text-align: right;"><strong>13</strong></td>
+<td style="text-align: right;"><strong>16</strong></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><strong>TỔNG TOÀN BỘ</strong></td>
 <td style="text-align: right;"><strong>48</strong></td>
 <td style="text-align: right;"><strong>16</strong></td>
-<td style="text-align: right;"><strong>15</strong></td>
-<td style="text-align: right;"><strong>17</strong></td>
+<td style="text-align: right;"><strong>13</strong></td>
+<td style="text-align: right;"><strong>19</strong></td>
 </tr>
 </tbody>
 </table>
@@ -2037,7 +2039,7 @@ tuần</h3>
 các bước tiếp theo có thể bao gồm:</p>
 <ul>
 <li><strong>Triển khai thí điểm tại Chi Cục Hải Quan Khu vực IV</strong>
-với dữ liệu doanh nghiệp thực tế; cài tiếp 15 kiểm tra còn lại của Giai
+với dữ liệu doanh nghiệp thực tế; cài tiếp 13 kiểm tra còn lại của Giai
 đoạn I (§4.1).</li>
 <li><strong>Kích hoạt Nhóm 7 so sánh giữa các doanh nghiệp</strong> khi
 đã có đủ doanh nghiệp trong danh mục.</li>
@@ -2063,7 +2065,7 @@ quan</h2>
 thiện đề án và bắt đầu xây dựng.</p>
 <h3 id="về-phạm-vi-nghiệp-vụ">8.1 Về phạm vi nghiệp vụ</h3>
 <ol type="1">
-<li>Trong 48 kiểm tra đề xuất (35 Giai đoạn I + 13 Giai đoạn II), có
+<li>Trong 48 kiểm tra đề xuất (32 Giai đoạn I + 16 Giai đoạn II), có
 kiểm tra nào cơ quan Hải quan đặc biệt quan tâm, hoặc có kiểm tra nào
 quan trọng mà đề án bỏ sót?</li>
 <li>Trong số 15 kiểm tra MVP cho demo 2 tháng, có kiểm tra nào cơ quan

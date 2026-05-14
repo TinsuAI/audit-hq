@@ -156,13 +156,13 @@ Cho toàn bộ danh sách doanh nghiệp:
 
 | Giai đoạn | Dữ liệu | Nhóm | Tổng |
 |---|---|---|---|
-| **Giai đoạn I** (§4.1) | TKXNK + BCQT đã nộp | 1, 2, 3, 4, 5, 6, 7, 12 | 35 kiểm tra |
-| **Giai đoạn II** (§4.2) | Cần dữ liệu bổ sung từ doanh nghiệp | 8, 9, 10, 11 | 13 kiểm tra |
+| **Giai đoạn I** (§4.1) | TKXNK + BCQT đã nộp | 1, 2, 3, 4, 5, 6, 7 | 32 kiểm tra |
+| **Giai đoạn II** (§4.2) | Cần dữ liệu / điều kiện bổ sung | 8, 9, 10, 11, 12 | 16 kiểm tra |
 
 **Trạng thái** trong Giai đoạn I:
 - ✅ Xây dựng và demo trong 2 tháng (16 kiểm tra)
-- 🚧 Bổ sung trong giai đoạn thí điểm (15 kiểm tra)
-- ⏳ Kích hoạt khi đã có đủ doanh nghiệp / danh sách bổ sung (4 kiểm tra: Nhóm 7 và C12.3)
+- 🚧 Bổ sung trong giai đoạn thí điểm (13 kiểm tra)
+- ⏳ Kích hoạt khi đã có đủ doanh nghiệp trong danh mục (3 kiểm tra Nhóm 7)
 
 **Mức độ:** 🔴 Nghiêm trọng · 🟡 Cảnh báo · 🔵 Thông tin
 
@@ -260,17 +260,6 @@ Trước khi áp dụng các kiểm tra dưới đây, hệ thống tự xử l�
 | **C7.2** | Giá nhập từ cùng nhà cung cấp chênh lệch giữa các doanh nghiệp — cùng nhà cung cấp, cùng mã HS, giá khác nhau lớn. | Chuyển giá hoặc trốn thuế có hệ thống. | 🟡🔴 | ⏳ |
 | **C7.3** | Lượng nhập / xuất cùng mã HS bất thường so với mức chung ngành — vượt xa giá trị trung vị của ngành. | Quy mô bất thường cần kiểm tra. | 🟡 | ⏳ |
 
-### Nhóm 12 — Nhà cung cấp (3 kiểm tra)
-
-*Yêu cầu dữ liệu bổ sung: trường nhà cung cấp trong BCCT đã được chuẩn hoá (cùng một nhà cung cấp khai cùng dạng tên); bảng tham chiếu định dạng mã số thuế các quốc gia xuất xứ; danh sách nhà cung cấp rủi ro do cơ quan Hải quan cung cấp.*
-
-| Mã | Vấn đề | Rủi ro | Mức | Trạng thái |
-|---|---|---|---|---|
-| **C12.1** | Nhà cung cấp mới xuất hiện đột ngột chiếm tỷ trọng lớn — nhà cung cấp chưa từng xuất hiện trong các kỳ trước nhưng kỳ này chiếm >30% kim ngạch nhập của doanh nghiệp. | Nhà cung cấp giả lập (công ty ma), hoặc thay đổi nhà cung cấp để né kiểm soát chuyển giá / kiểm soát xuất xứ. | 🟡 | 🚧 |
-| **C12.2** | Mã số thuế / thông tin nhận diện nhà cung cấp không hợp lệ — định dạng MST sai, nhà cung cấp trên tờ khai không khớp dạng định danh quốc tế của nước xuất xứ. | Nhà cung cấp không có thật, hoặc khai mượn danh nhà cung cấp khác. | 🔴 | 🚧 |
-| **C12.3** | Nhà cung cấp nằm trong danh sách rủi ro của cơ quan Hải quan — đối chiếu với danh sách nhà cung cấp nghi vấn (chuyển giá, gian lận xuất xứ, đã bị xử phạt trước đây). | Doanh nghiệp tiếp tục giao dịch với nhà cung cấp đã được cơ quan Hải quan đánh dấu rủi ro. | 🟡🔴 | ⏳ |
-
-
 ---
 
 ## 4.2 Giai đoạn II — Kiểm tra mở rộng, cần dữ liệu bổ sung
@@ -324,6 +313,16 @@ Trước khi áp dụng các kiểm tra dưới đây, hệ thống tự xử l�
 
 ---
 
+### Nhóm 12 — Nhà cung cấp (3 kiểm tra)
+
+> **Điều kiện kích hoạt:** trường nhà cung cấp trong BCCT đã được chuẩn hoá (cùng một nhà cung cấp khai cùng dạng tên); bảng tham chiếu định dạng mã số thuế các quốc gia xuất xứ; danh sách nhà cung cấp rủi ro do cơ quan Hải quan cung cấp.
+
+| Mã | Vấn đề | Rủi ro | Mức | Trạng thái |
+|---|---|---|---|---|
+| **C12.1** | Nhà cung cấp mới xuất hiện đột ngột chiếm tỷ trọng lớn — nhà cung cấp chưa từng xuất hiện trong các kỳ trước nhưng kỳ này chiếm >30% kim ngạch nhập của doanh nghiệp. | Nhà cung cấp giả lập (công ty ma), hoặc thay đổi nhà cung cấp để né kiểm soát chuyển giá / kiểm soát xuất xứ. | 🟡 | ⏳ |
+| **C12.2** | Mã số thuế / thông tin nhận diện nhà cung cấp không hợp lệ — định dạng MST sai, nhà cung cấp trên tờ khai không khớp dạng định danh quốc tế của nước xuất xứ. | Nhà cung cấp không có thật, hoặc khai mượn danh nhà cung cấp khác. | 🔴 | ⏳ |
+| **C12.3** | Nhà cung cấp nằm trong danh sách rủi ro của cơ quan Hải quan — đối chiếu với danh sách nhà cung cấp nghi vấn (chuyển giá, gian lận xuất xứ, đã bị xử phạt trước đây). | Doanh nghiệp tiếp tục giao dịch với nhà cung cấp đã được cơ quan Hải quan đánh dấu rủi ro. | 🟡🔴 | ⏳ |
+
 ### 4.3 Tổng hợp
 
 | Giai đoạn | Nhóm | Tổng | ✅ MVP 2 tháng | 🚧 Bổ sung thí điểm | ⏳ Cần thêm điều kiện |
@@ -335,14 +334,14 @@ Trước khi áp dụng các kiểm tra dưới đây, hệ thống tự xử l�
 | | 5 — Truy nguồn NVL | 3 | 1 | 2 | 0 |
 | | 6 — Liên kỳ | 5 | 1 | 4 | 0 |
 | | 7 — So sánh giữa các DN | 3 | 0 | 0 | 3 |
-| | 12 — Nhà cung cấp | 3 | 0 | 2 | 1 |
-| | **Cộng Giai đoạn I** | **35** | **16** | **15** | **4** |
+| | **Cộng Giai đoạn I** | **32** | **16** | **13** | **3** |
 | **Giai đoạn II** (cần dữ liệu bổ sung) | 8 — Phế liệu / phế phẩm | 3 | 0 | 0 | 3 |
 | | 9 — Sản phẩm dở dang (BTP) | 4 | 0 | 0 | 4 |
 | | 10 — Đối chiếu sổ sách kế toán | 3 | 0 | 0 | 3 |
 | | 11 — TSCĐ, máy móc và năng lực vận hành | 3 | 0 | 0 | 3 |
-| | **Cộng Giai đoạn II** | **13** | **0** | **0** | **13** |
-| | **TỔNG TOÀN BỘ** | **48** | **16** | **15** | **17** |
+| | 12 — Nhà cung cấp | 3 | 0 | 0 | 3 |
+| | **Cộng Giai đoạn II** | **16** | **0** | **0** | **16** |
+| | **TỔNG TOÀN BỘ** | **48** | **16** | **13** | **19** |
 
 > **Danh mục mở rộng được:** danh mục không cố định ở con số 44. Mỗi nghiệp vụ cơ quan Hải quan phát hiện mới có thể bổ sung vào danh mục như một mô-đun độc lập, không cần thay đổi phần lõi. Ngưỡng đề xuất có thể điều chỉnh theo thực tế.
 
@@ -522,7 +521,7 @@ Toàn bộ giai đoạn xây dựng và demo gói gọn trong **10 tuần** tín
 
 Sau khi demo và nhận phản hồi, tuỳ quyết định của cơ quan Hải quan, các bước tiếp theo có thể bao gồm:
 
-- **Triển khai thí điểm tại Chi Cục Hải Quan Khu vực IV** với dữ liệu doanh nghiệp thực tế; cài tiếp 15 kiểm tra còn lại của Giai đoạn I (§4.1).
+- **Triển khai thí điểm tại Chi Cục Hải Quan Khu vực IV** với dữ liệu doanh nghiệp thực tế; cài tiếp 13 kiểm tra còn lại của Giai đoạn I (§4.1).
 - **Kích hoạt Nhóm 7 so sánh giữa các doanh nghiệp** khi đã có đủ doanh nghiệp trong danh mục.
 - **Mở rộng sang Giai đoạn II (§4.2)** — Nhóm 8-11 kiểm tra phế liệu, bán thành phẩm, sổ sách kế toán, tài sản cố định. Cần phối hợp với cơ quan Hải quan để yêu cầu doanh nghiệp cung cấp các dữ liệu bổ sung tương ứng.
 - **Tích hợp trực tiếp với VNACCS** thay vì nạp qua tệp Excel xuất ra.
@@ -540,7 +539,7 @@ Các bước này không nằm trong cam kết 10 tuần vì phụ thuộc quy�
 
 ### 8.1 Về phạm vi nghiệp vụ
 
-1. Trong 48 kiểm tra đề xuất (35 Giai đoạn I + 13 Giai đoạn II), có kiểm tra nào cơ quan Hải quan đặc biệt quan tâm, hoặc có kiểm tra nào quan trọng mà đề án bỏ sót?
+1. Trong 48 kiểm tra đề xuất (32 Giai đoạn I + 16 Giai đoạn II), có kiểm tra nào cơ quan Hải quan đặc biệt quan tâm, hoặc có kiểm tra nào quan trọng mà đề án bỏ sót?
 2. Trong số 15 kiểm tra MVP cho demo 2 tháng, có kiểm tra nào cơ quan Hải quan muốn ưu tiên hơn?
 3. Báo cáo Excel kiến nghị kiểm tra có cần theo mẫu chính thức nào không?
 4. Hiện tại Chi cục đang dùng công cụ hoặc quy trình nào để chọn doanh nghiệp kiểm tra? Audit-HQ tích hợp hay thay thế?
