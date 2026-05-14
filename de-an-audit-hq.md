@@ -566,7 +566,6 @@ Các bước này không nằm trong cam kết 10 tuần vì phụ thuộc quy�
 13. Hệ thống đặt tại trụ sở cơ quan Hải quan hay đặt trên máy chủ của Tinsu? Yêu cầu bảo mật cụ thể?
 14. Có yêu cầu chứng nhận an toàn thông tin cấp nào?
 15. Cam kết chất lượng dịch vụ (SLA) cần đáp ứng cho giai đoạn thí điểm / vận hành chính thức?
-16. Cán bộ tại Chi Cục Hải Quan Khu vực IV có thể tiếp nhận hệ thống ở mức nào? Cần đào tạo bao nhiêu?
 
 
 ---
