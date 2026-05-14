@@ -103,8 +103,6 @@ Cơ quan Hải quan có thể yêu cầu hệ thống định nghĩa thêm các 
 
 Audit-HQ là **công cụ hỗ trợ phát hiện sơ bộ** — không phải kết luận điều tra. Mọi kết luận về sai phạm thuộc thẩm quyền cán bộ Hải quan sau quá trình kiểm tra thực tế. Hệ thống không thay thế quy trình kiểm tra sau thông quan.
 
-Tinsu cam kết chỉ giải trình **cách thuật toán đã chạy** khi có yêu cầu của cơ quan Hải quan. Tinsu không tham gia bất kỳ thủ tục hành chính hoặc tố tụng nào giữa cơ quan Hải quan và doanh nghiệp được kiểm tra.
-
 ---
 
 ## 3. Phạm vi thử nghiệm ban đầu
@@ -173,8 +171,6 @@ Cho toàn bộ danh sách doanh nghiệp:
 Trước khi áp dụng các kiểm tra dưới đây, hệ thống tự xử lý các bước tiền đề:
 
 - **Định nghĩa "kỳ":** kỳ mặc định là năm BCQT theo TT 39/2018 (từ 01/01 đến 31/12 năm tài chính). Hệ thống có thể cấu hình kỳ khác (quý / 6 tháng) khi cơ quan Hải quan yêu cầu.
-- **Lọc tờ khai bị huỷ:** chỉ tính tờ khai trạng thái "thông quan", loại trừ tờ khai bị huỷ và tờ khai chỉ là phiên bản sửa đổi (kế thừa số tờ khai gốc) khỏi đối chiếu với Mẫu 15/15a/16.
-- **Ánh xạ mã hàng:** mã NVL/sản phẩm nội bộ doanh nghiệp có thể khác mã trên tờ khai BCCT. Hệ thống dùng quy tắc cứng kết hợp AI gợi ý để ánh xạ; cán bộ Hải quan xác nhận lần đầu, sau đó hệ thống lưu lại để dùng cho các kỳ tiếp theo.
 - **Đơn vị tiền tệ:** trị giá BCCT có thể bằng USD; khi đối chiếu với sổ sách kế toán (Nhóm 10) hệ thống quy đổi theo tỷ giá hải quan của ngày thông quan.
 
 ### 4.0 Loại hình tờ khai theo loại hình doanh nghiệp
