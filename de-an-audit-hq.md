@@ -2,7 +2,8 @@
 
 **Hệ thống hỗ trợ quản lý rủi ro và phát hiện sai phạm trong Báo cáo Quyết toán Hải quan (BCQT) và Tờ khai Xuất Nhập khẩu (TKXNK)**
 
-> **Bản dự thảo lần 10** — 2026-05-14
+<!-- internal-version: 10 -->
+> **Bản dự thảo** — 2026-05-14
 > Tài liệu sẽ trải qua nhiều vòng rà soát, tổng hợp ý kiến từ phía Hải quan. Mọi nội dung dưới đây là đề xuất sơ bộ.
 >
 > Soạn thảo: Tinsu AI × Trọng Tín
@@ -611,4 +612,4 @@ Các bước này không nằm trong cam kết 10 tuần vì phụ thuộc quy�
 
 ---
 
-> **Đây là bản dự thảo lần 10.** Mọi nội dung là đề xuất sơ bộ và sẽ được điều chỉnh theo phản hồi của cơ quan Hải quan qua các vòng tổng hợp tiếp theo.
+> **Đây là bản dự thảo.** Mọi nội dung là đề xuất sơ bộ và sẽ được điều chỉnh theo phản hồi của cơ quan Hải quan qua các vòng tổng hợp tiếp theo.
