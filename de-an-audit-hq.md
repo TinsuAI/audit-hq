@@ -2,7 +2,7 @@
 
 **Hệ thống hỗ trợ quản lý rủi ro và phát hiện sai phạm trong Báo cáo Quyết toán Hải quan (BCQT) và Tờ khai Xuất Nhập khẩu (TKXNK)**
 
-> **Bản dự thảo lần 8** — 2026-05-14
+> **Bản dự thảo lần 9** — 2026-05-14
 > Tài liệu sẽ trải qua nhiều vòng rà soát, tổng hợp ý kiến từ phía Hải quan. Mọi nội dung dưới đây là đề xuất sơ bộ.
 >
 > Soạn thảo: Tinsu AI × Trọng Tín
@@ -105,7 +105,7 @@ Cơ quan Hải quan có thể yêu cầu hệ thống định nghĩa thêm các 
 
 ### 3.1 Dữ liệu đầu vào — chỉ dùng TKXNK và BCQT đã nộp
 
-Giai đoạn đầu của Audit-HQ làm việc trên đúng dữ liệu cơ quan Hải quan đã có trong tay — không yêu cầu doanh nghiệp cung cấp gì thêm:
+Giai đoạn I của Audit-HQ làm việc trên đúng dữ liệu cơ quan Hải quan đã có trong tay — không yêu cầu doanh nghiệp cung cấp gì thêm:
 
 | Loại dữ liệu | Định dạng | Nguồn | Phạm vi thử nghiệm |
 |---|---|---|---|
@@ -116,7 +116,7 @@ Giai đoạn đầu của Audit-HQ làm việc trên đúng dữ liệu cơ quan
 
 > **Dữ liệu BCQT là Excel có định dạng chuẩn** theo TT 39/2018, không phải tự do. Hệ thống có sẵn bộ đọc xử lý định dạng chuẩn, đồng thời có lớp tiếp nhận biến thể nhỏ giữa các doanh nghiệp.
 
-Giai đoạn sau (mở rộng) có thể yêu cầu doanh nghiệp cung cấp thêm sổ sách kế toán, sổ kho bán thành phẩm, danh mục tài sản cố định, sổ phế liệu — chi tiết tại §4.2.
+Giai đoạn II (mở rộng) có thể yêu cầu doanh nghiệp cung cấp thêm sổ sách kế toán, sổ kho bán thành phẩm, danh mục tài sản cố định, sổ phế liệu — chi tiết tại §4.2.
 
 ### 3.2 Kết quả đầu ra
 
@@ -152,10 +152,10 @@ Cho toàn bộ danh sách doanh nghiệp:
 
 | Giai đoạn | Dữ liệu | Nhóm | Tổng |
 |---|---|---|---|
-| **Đầu** (§4.1) | TKXNK + BCQT đã nộp | 1, 2, 3, 4, 5, 6, 7, 12 | 35 kiểm tra |
-| **Sau** (§4.2) | Cần dữ liệu bổ sung từ doanh nghiệp | 8, 9, 10, 11 | 12 kiểm tra |
+| **Giai đoạn I** (§4.1) | TKXNK + BCQT đã nộp | 1, 2, 3, 4, 5, 6, 7, 12 | 35 kiểm tra |
+| **Giai đoạn II** (§4.2) | Cần dữ liệu bổ sung từ doanh nghiệp | 8, 9, 10, 11 | 12 kiểm tra |
 
-**Trạng thái** trong giai đoạn đầu:
+**Trạng thái** trong Giai đoạn I:
 - ✅ Xây dựng và trình diễn trong 2 tháng (17 kiểm tra)
 - 🚧 Bổ sung trong giai đoạn thí điểm (14 kiểm tra)
 - ⏳ Kích hoạt khi đã có đủ doanh nghiệp / danh sách bổ sung (4 kiểm tra: Nhóm 7 và C12.3)
@@ -183,7 +183,7 @@ Trước khi áp dụng các kiểm tra dưới đây, hệ thống tự xử l�
 
 ---
 
-## 4.1 Giai đoạn đầu — Kiểm tra trên TKXNK và BCQT
+## 4.1 Giai đoạn I — Kiểm tra trên TKXNK và BCQT
 
 > Các kiểm tra dưới đây thực hiện trên đúng dữ liệu cơ quan Hải quan đã có sẵn (TKXNK từ VNACCS + Mẫu 15/15a/16 doanh nghiệp đã nộp). Không yêu cầu doanh nghiệp cung cấp thêm dữ liệu nào.
 
@@ -269,9 +269,9 @@ Trước khi áp dụng các kiểm tra dưới đây, hệ thống tự xử l�
 
 ---
 
-## 4.2 Giai đoạn sau — Kiểm tra mở rộng, cần dữ liệu bổ sung
+## 4.2 Giai đoạn II — Kiểm tra mở rộng, cần dữ liệu bổ sung
 
-> Các nhóm kiểm tra dưới đây yêu cầu **dữ liệu ngoài TKXNK và BCQT**. Doanh nghiệp sẽ cung cấp thêm theo yêu cầu của cơ quan Hải quan. Đây là giai đoạn mở rộng, triển khai sau khi giai đoạn đầu đã ổn định.
+> Các nhóm kiểm tra dưới đây yêu cầu **dữ liệu ngoài TKXNK và BCQT**. Doanh nghiệp sẽ cung cấp thêm theo yêu cầu của cơ quan Hải quan. Đây là giai đoạn mở rộng, triển khai sau khi Giai đoạn I đã ổn định.
 >
 > Đây là khu vực **bộ ba "tử huyệt"** — định mức, bán thành phẩm, phế liệu — nơi xảy ra phần lớn các vụ truy thu thuế lớn.
 
@@ -323,7 +323,7 @@ Trước khi áp dụng các kiểm tra dưới đây, hệ thống tự xử l�
 
 | Giai đoạn | Nhóm | Tổng | ✅ MVP 2 tháng | 🚧 Bổ sung thí điểm | ⏳ Cần thêm điều kiện |
 |---|---|---:|---:|---:|---:|
-| **Đầu** (TKXNK + BCQT) | 1 — Số lượng nhập/xuất | 7 | 6 | 1 | 0 |
+| **Giai đoạn I** (TKXNK + BCQT) | 1 — Số lượng nhập/xuất | 7 | 6 | 1 | 0 |
 | | 2 — Cân bằng và tồn kho | 4 | 3 | 1 | 0 |
 | | 3 — Phân loại hàng hoá | 3 | 3 | 0 | 0 |
 | | 4 — Định mức M16 | 7 | 2 | 5 | 0 |
@@ -331,12 +331,12 @@ Trước khi áp dụng các kiểm tra dưới đây, hệ thống tự xử l�
 | | 6 — Liên kỳ | 5 | 1 | 4 | 0 |
 | | 7 — So sánh giữa các DN | 3 | 0 | 0 | 3 |
 | | 12 — Nhà cung cấp | 3 | 1 | 1 | 1 |
-| | **Cộng giai đoạn đầu** | **35** | **17** | **14** | **4** |
-| **Sau** (cần dữ liệu bổ sung) | 8 — Phế liệu / phế phẩm | 3 | 0 | 0 | 3 |
+| | **Cộng Giai đoạn I** | **35** | **17** | **14** | **4** |
+| **Giai đoạn II** (cần dữ liệu bổ sung) | 8 — Phế liệu / phế phẩm | 3 | 0 | 0 | 3 |
 | | 9 — Sản phẩm dở dang (BTP) | 4 | 0 | 0 | 4 |
 | | 10 — Đối chiếu sổ sách kế toán | 3 | 0 | 0 | 3 |
 | | 11 — Tài sản cố định và máy móc | 2 | 0 | 0 | 2 |
-| | **Cộng giai đoạn sau** | **12** | **0** | **0** | **12** |
+| | **Cộng Giai đoạn II** | **12** | **0** | **0** | **12** |
 | | **TỔNG TOÀN BỘ** | **47** | **17** | **14** | **16** |
 
 > **Danh mục mở rộng được:** danh mục không cố định ở con số 44. Mỗi nghiệp vụ cơ quan Hải quan phát hiện mới có thể bổ sung vào danh mục như một mô-đun độc lập, không cần thay đổi phần lõi. Ngưỡng đề xuất có thể điều chỉnh theo thực tế.
@@ -468,7 +468,7 @@ Mọi quyết định cuối cùng vẫn do cán bộ Hải quan đưa ra. AI ch
 
 ## 7. Lộ trình triển khai
 
-Toàn bộ giai đoạn xây dựng và trình diễn gói gọn trong **2 tháng** (8 tuần) tính từ khi cơ quan Hải quan phê duyệt nguyên tắc đề án. Lộ trình này tập trung vào **giai đoạn đầu** của danh mục kiểm tra (§4.1) — các kiểm tra thực hiện trên dữ liệu TKXNK và BCQT đã nộp.
+Toàn bộ giai đoạn xây dựng và trình diễn gói gọn trong **2 tháng** (8 tuần) tính từ khi cơ quan Hải quan phê duyệt nguyên tắc đề án. Lộ trình này tập trung vào **Giai đoạn I** của danh mục kiểm tra (§4.1) — các kiểm tra thực hiện trên dữ liệu TKXNK và BCQT đã nộp.
 
 ### 7.1 Tuần 1-2 — Khởi tạo và nền tảng dữ liệu
 
@@ -510,9 +510,9 @@ Toàn bộ giai đoạn xây dựng và trình diễn gói gọn trong **2 thán
 
 Sau khi trình diễn và nhận phản hồi, tuỳ quyết định của cơ quan Hải quan, các bước tiếp theo có thể bao gồm:
 
-- **Triển khai thí điểm tại Chi Cục Hải Quan Khu vực IV** với dữ liệu doanh nghiệp thực tế; cài tiếp 14 kiểm tra còn lại của giai đoạn đầu (§4.1).
+- **Triển khai thí điểm tại Chi Cục Hải Quan Khu vực IV** với dữ liệu doanh nghiệp thực tế; cài tiếp 14 kiểm tra còn lại của Giai đoạn I (§4.1).
 - **Kích hoạt Nhóm 7 so sánh giữa các doanh nghiệp** khi đã có đủ doanh nghiệp trong danh mục.
-- **Mở rộng sang giai đoạn sau (§4.2)** — Nhóm 8-11 kiểm tra phế liệu, bán thành phẩm, sổ sách kế toán, tài sản cố định. Cần phối hợp với cơ quan Hải quan để yêu cầu doanh nghiệp cung cấp các dữ liệu bổ sung tương ứng.
+- **Mở rộng sang Giai đoạn II (§4.2)** — Nhóm 8-11 kiểm tra phế liệu, bán thành phẩm, sổ sách kế toán, tài sản cố định. Cần phối hợp với cơ quan Hải quan để yêu cầu doanh nghiệp cung cấp các dữ liệu bổ sung tương ứng.
 - **Tích hợp trực tiếp với VNACCS** thay vì nạp qua tệp Excel xuất ra.
 - **Mở rộng sang nhiều Chi cục**.
 
@@ -528,20 +528,20 @@ Các bước này không nằm trong cam kết 2 tháng vì phụ thuộc quyế
 
 ### 8.1 Về phạm vi nghiệp vụ
 
-1. Trong 47 kiểm tra đề xuất (35 giai đoạn đầu + 12 giai đoạn sau), có kiểm tra nào cơ quan Hải quan đặc biệt quan tâm, hoặc có kiểm tra nào quan trọng mà đề án bỏ sót?
+1. Trong 47 kiểm tra đề xuất (35 Giai đoạn I + 12 Giai đoạn II), có kiểm tra nào cơ quan Hải quan đặc biệt quan tâm, hoặc có kiểm tra nào quan trọng mà đề án bỏ sót?
 2. Trong số 15 kiểm tra MVP cho trình diễn 2 tháng, có kiểm tra nào cơ quan Hải quan muốn ưu tiên hơn?
 3. Báo cáo Excel kiến nghị kiểm tra có cần theo mẫu chính thức nào không?
 4. Hiện tại Chi cục đang dùng công cụ hoặc quy trình nào để chọn doanh nghiệp kiểm tra? Audit-HQ tích hợp hay thay thế?
 5. Ngưỡng đề xuất (Nghiêm trọng / Cảnh báo / Thông tin) có phù hợp thực tế nghiệp vụ không? Cần điều chỉnh gì?
 6. Cơ chế cộng dồn rủi ro (§2.6) có phù hợp cách đánh giá hiện hành của cơ quan Hải quan không?
 
-### 8.2 Về dữ liệu giai đoạn đầu (TKXNK + BCQT)
+### 8.2 Về dữ liệu Giai đoạn I (TKXNK + BCQT)
 
 7. Hệ thống xử lý dữ liệu điện tử của cơ quan Hải quan có lưu Mẫu 15/15a/16 dưới dạng có cấu trúc, hay chỉ là tệp Excel đính kèm?
 8. Dữ liệu TKXNK xuất từ VNACCS có cấu trúc thống nhất cho mọi Chi cục không?
 9. Quyền truy cập dữ liệu nhiều năm: hệ thống VCIS-VNACCS đã cho phép truy vấn trực tiếp, hay phải xin từng kỳ?
 
-### 8.3 Về dữ liệu giai đoạn sau (mở rộng)
+### 8.3 Về dữ liệu Giai đoạn II (mở rộng)
 
 10. Cơ quan Hải quan có cơ chế yêu cầu doanh nghiệp cung cấp Bảng cân đối phát sinh, sổ tài khoản 152/155/156 không? Tần suất nào hợp lý?
 11. Quy định hiện hành về sổ kho bán thành phẩm và danh mục tài sản cố định — doanh nghiệp đã phải lưu trữ chưa? Cơ quan Hải quan có quyền yêu cầu xuất khi cần kiểm tra không?
@@ -603,4 +603,4 @@ Các bước này không nằm trong cam kết 2 tháng vì phụ thuộc quyế
 
 ---
 
-> **Đây là bản dự thảo lần 8.** Mọi nội dung là đề xuất sơ bộ và sẽ được điều chỉnh theo phản hồi của cơ quan Hải quan qua các vòng tổng hợp tiếp theo.
+> **Đây là bản dự thảo lần 9.** Mọi nội dung là đề xuất sơ bộ và sẽ được điều chỉnh theo phản hồi của cơ quan Hải quan qua các vòng tổng hợp tiếp theo.
