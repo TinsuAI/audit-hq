@@ -215,7 +215,7 @@ xuất (7 kiểm tra)</a></li>
 kho (4 kiểm tra)</a></li>
 <li><a href="#nhóm-3-phân-loại-hàng-hoá-3-kiểm-tra" id="toc-nhóm-3-phân-loại-hàng-hoá-3-kiểm-tra">Nhóm 3 — Phân loại hàng
 hoá (3 kiểm tra)</a></li>
-<li><a href="#nhóm-4-định-mức-m16-7-kiểm-tra" id="toc-nhóm-4-định-mức-m16-7-kiểm-tra">Nhóm 4 — Định mức M16 (7 kiểm
+<li><a href="#nhóm-4-định-mức-m16-8-kiểm-tra" id="toc-nhóm-4-định-mức-m16-8-kiểm-tra">Nhóm 4 — Định mức M16 (8 kiểm
 tra)</a></li>
 <li><a href="#nhóm-5-truy-nguồn-nguyên-vật-liệu-nhập-khẩu-3-kiểm-tra" id="toc-nhóm-5-truy-nguồn-nguyên-vật-liệu-nhập-khẩu-3-kiểm-tra">Nhóm 5 —
 Truy nguồn nguyên vật liệu nhập khẩu (3 kiểm tra)</a></li>
@@ -565,7 +565,7 @@ theo dữ liệu cần dùng:</p>
 <td><strong>Giai đoạn I</strong> (§4.1)</td>
 <td>TKXNK + BCQT đã nộp</td>
 <td>1, 2, 3, 4, 5, 6, 7</td>
-<td>32 kiểm tra</td>
+<td>33 kiểm tra</td>
 </tr>
 <tr class="even">
 <td><strong>Giai đoạn II</strong> (§4.2)</td>
@@ -576,7 +576,7 @@ theo dữ liệu cần dùng:</p>
 </tbody>
 </table>
 <p><strong>Trạng thái</strong> trong Giai đoạn I: - ✅ Xây dựng và demo
-trong 2 tháng (16 kiểm tra) - 🚧 Bổ sung trong giai đoạn thí điểm (13
+trong 2 tháng (16 kiểm tra) - 🚧 Bổ sung trong giai đoạn thí điểm (14
 kiểm tra) - ⏳ Kích hoạt khi đã có đủ doanh nghiệp trong danh mục (3
 kiểm tra Nhóm 7)</p>
 <p><strong>Mức độ:</strong> 🔴 Nghiêm trọng · 🟡 Cảnh báo · 🔵 Thông
@@ -850,7 +850,7 @@ giữa M15 và BCCT.</td>
 </tr>
 </tbody>
 </table>
-<h3 id="nhóm-4-định-mức-m16-7-kiểm-tra">Nhóm 4 — Định mức M16 (7 kiểm
+<h3 id="nhóm-4-định-mức-m16-8-kiểm-tra">Nhóm 4 — Định mức M16 (8 kiểm
 tra)</h3>
 <table>
 <colgroup>
@@ -952,6 +952,21 @@ NVL nhập khẩu miễn thuế cho thành phẩm không phù hợp thực tế 
 có dấu hiệu tính toán / nguỵ tạo định mức nhân tạo để chế số liệu quyết
 toán thay vì phản ánh tiêu hao sản xuất thực tế.</td>
 <td>🟡🔴</td>
+<td>🚧</td>
+</tr>
+<tr class="even">
+<td><strong>C4.8</strong></td>
+<td>Tồn nguyên vật liệu âm tại một thời điểm trong kỳ — tính cộng dồn
+theo thời gian:
+<code>tồn_đầu_kỳ + Σ(nhập NVL đến thời điểm t) − Σ(định mức × thành phẩm xuất khẩu đến thời điểm t)</code>
+ở từng tháng (hoặc quý) trong kỳ. Nếu giá trị này âm tại bất kỳ thời
+điểm nào → cảnh báo. Yêu cầu: phân tích cộng dồn theo thời gian từ BCCT
+(dữ liệu đã có sẵn).</td>
+<td>Định mức M16 khai cao bất thường (lý do chính), hoặc khai thừa thành
+phẩm xuất khẩu, hoặc khai thiếu nhập nguyên vật liệu. Doanh nghiệp “sản
+xuất nhiều hơn nguyên liệu thực có” trên giấy tờ — không thể giải trình
+nguồn cung.</td>
+<td>🔴</td>
 <td>🚧</td>
 </tr>
 </tbody>
@@ -1507,9 +1522,9 @@ quan đánh dấu rủi ro.</td>
 <tr class="even">
 <td></td>
 <td>4 — Định mức M16</td>
-<td style="text-align: right;">7</td>
+<td style="text-align: right;">8</td>
 <td style="text-align: right;">2</td>
-<td style="text-align: right;">5</td>
+<td style="text-align: right;">6</td>
 <td style="text-align: right;">0</td>
 </tr>
 <tr class="odd">
@@ -1539,9 +1554,9 @@ quan đánh dấu rủi ro.</td>
 <tr class="even">
 <td></td>
 <td><strong>Cộng Giai đoạn I</strong></td>
-<td style="text-align: right;"><strong>32</strong></td>
+<td style="text-align: right;"><strong>33</strong></td>
 <td style="text-align: right;"><strong>16</strong></td>
-<td style="text-align: right;"><strong>13</strong></td>
+<td style="text-align: right;"><strong>14</strong></td>
 <td style="text-align: right;"><strong>3</strong></td>
 </tr>
 <tr class="odd">
@@ -1595,9 +1610,9 @@ quan đánh dấu rủi ro.</td>
 <tr class="odd">
 <td></td>
 <td><strong>TỔNG TOÀN BỘ</strong></td>
-<td style="text-align: right;"><strong>48</strong></td>
+<td style="text-align: right;"><strong>49</strong></td>
 <td style="text-align: right;"><strong>16</strong></td>
-<td style="text-align: right;"><strong>13</strong></td>
+<td style="text-align: right;"><strong>14</strong></td>
 <td style="text-align: right;"><strong>19</strong></td>
 </tr>
 </tbody>
@@ -2049,7 +2064,7 @@ tuần</h3>
 các bước tiếp theo có thể bao gồm:</p>
 <ul>
 <li><strong>Triển khai thí điểm tại Chi Cục Hải Quan Khu vực IV</strong>
-với dữ liệu doanh nghiệp thực tế; cài tiếp 13 kiểm tra còn lại của Giai
+với dữ liệu doanh nghiệp thực tế; cài tiếp 14 kiểm tra còn lại của Giai
 đoạn I (§4.1).</li>
 <li><strong>Kích hoạt Nhóm 7 so sánh giữa các doanh nghiệp</strong> khi
 đã có đủ doanh nghiệp trong danh mục.</li>
@@ -2075,7 +2090,7 @@ quan</h2>
 thiện đề án và bắt đầu xây dựng.</p>
 <h3 id="về-phạm-vi-nghiệp-vụ">8.1 Về phạm vi nghiệp vụ</h3>
 <ol type="1">
-<li>Trong 48 kiểm tra đề xuất (32 Giai đoạn I + 16 Giai đoạn II), có
+<li>Trong 49 kiểm tra đề xuất (33 Giai đoạn I + 16 Giai đoạn II), có
 kiểm tra nào cơ quan Hải quan đặc biệt quan tâm, hoặc có kiểm tra nào
 quan trọng mà đề án bỏ sót?</li>
 <li>Trong số 15 kiểm tra MVP cho demo 2 tháng, có kiểm tra nào cơ quan

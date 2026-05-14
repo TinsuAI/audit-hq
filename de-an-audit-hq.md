@@ -157,12 +157,12 @@ Cho toàn bộ danh sách doanh nghiệp:
 
 | Giai đoạn | Dữ liệu | Nhóm | Tổng |
 |---|---|---|---|
-| **Giai đoạn I** (§4.1) | TKXNK + BCQT đã nộp | 1, 2, 3, 4, 5, 6, 7 | 32 kiểm tra |
+| **Giai đoạn I** (§4.1) | TKXNK + BCQT đã nộp | 1, 2, 3, 4, 5, 6, 7 | 33 kiểm tra |
 | **Giai đoạn II** (§4.2) | Cần dữ liệu / điều kiện bổ sung | 8, 9, 10, 11, 12 | 16 kiểm tra |
 
 **Trạng thái** trong Giai đoạn I:
 - ✅ Xây dựng và demo trong 2 tháng (16 kiểm tra)
-- 🚧 Bổ sung trong giai đoạn thí điểm (13 kiểm tra)
+- 🚧 Bổ sung trong giai đoạn thí điểm (14 kiểm tra)
 - ⏳ Kích hoạt khi đã có đủ doanh nghiệp trong danh mục (3 kiểm tra Nhóm 7)
 
 **Mức độ:** 🔴 Nghiêm trọng · 🟡 Cảnh báo · 🔵 Thông tin
@@ -219,7 +219,7 @@ Trước khi áp dụng các kiểm tra dưới đây, hệ thống tự xử l�
 | **C3.2** | Mã HS không nhất quán trong kỳ (cùng mã vật tư) — ≥2 mã HS khác nhau trên các tờ khai. Ngưỡng: Khác phân nhóm (6 số) Thông tin · khác nhóm (4 số) Cảnh báo · khác chương (2 số) Nghiêm trọng. | Cố ý thay đổi mã HS để né các chính sách quản lý chuyên ngành (kiểm tra chất lượng, kiểm dịch) hoặc để hưởng thuế suất ưu đãi đặc biệt bất hợp pháp. | 🟡🔴 | ✅ |
 | **C3.3** | Đơn vị tính không nhất quán (cùng mã vật tư) — ≥2 đơn vị khác nhau giữa M15 và BCCT. | Sai đơn vị tính ×1000 khiến toàn bộ nhập/xuất/tồn sai hệ thống. | 🔴 | ✅ |
 
-### Nhóm 4 — Định mức M16 (7 kiểm tra)
+### Nhóm 4 — Định mức M16 (8 kiểm tra)
 
 | Mã | Vấn đề | Rủi ro | Mức | Trạng thái |
 |---|---|---|---|---|
@@ -230,6 +230,7 @@ Trước khi áp dụng các kiểm tra dưới đây, hệ thống tự xử l�
 | **C4.5** | Định mức bằng 0 hoặc âm — `định_mức_thực_tế` ≤ 0 trên bất kỳ dòng M16 nào. | Lỗi dữ liệu hoặc cố tình khai 0 để che tiêu hao thực tế. | 🔴 | 🚧 |
 | **C4.6** | Định mức bất thường cao (giá trị ngoại lai thống kê) — `định_mức` cặp thành phẩm-nguyên vật liệu trong kỳ N vượt xa trung bình của chính cặp đó qua các kỳ trước của cùng doanh nghiệp. Ngưỡng: vượt trung bình ±3 độ lệch chuẩn Cảnh báo · ±5 độ lệch chuẩn Nghiêm trọng. Yêu cầu: doanh nghiệp có ≥3 kỳ BCQT để có cơ sở thống kê. | Thổi phồng định mức để hợp thức hoá nguyên vật liệu nhập khẩu vượt mức. | 🟡 | 🚧 |
 | **C4.7** | Phân bổ định mức bất thường (mở rộng từ C4.4) — phát hiện: (a) cùng cặp thành phẩm-NVL có nhiều định mức khác nhau trong cùng kỳ; (b) một nguyên vật liệu được dùng cho quá nhiều thành phẩm không liên quan; (c) một thành phẩm có số lượng dòng nguyên vật liệu vượt ngưỡng hợp lý của ngành. | phân mảnh định mức để hợp thức hoá nhiều mã NVL nhập khẩu, gây khó truy nguồn và che giấu lượng NVL dư / thất thoát · điều chỉnh định mức tuỳ ý để cân đối tồn kho · khai báo định mức quá rộng để hợp thức hoá NVL nhập khẩu miễn thuế cho thành phẩm không phù hợp thực tế sản xuất · có dấu hiệu tính toán / nguỵ tạo định mức nhân tạo để chế số liệu quyết toán thay vì phản ánh tiêu hao sản xuất thực tế. | 🟡🔴 | 🚧 |
+| **C4.8** | Tồn nguyên vật liệu âm tại một thời điểm trong kỳ — tính cộng dồn theo thời gian: `tồn_đầu_kỳ + Σ(nhập NVL đến thời điểm t) − Σ(định mức × thành phẩm xuất khẩu đến thời điểm t)` ở từng tháng (hoặc quý) trong kỳ. Nếu giá trị này âm tại bất kỳ thời điểm nào → cảnh báo. Yêu cầu: phân tích cộng dồn theo thời gian từ BCCT (dữ liệu đã có sẵn). | Định mức M16 khai cao bất thường (lý do chính), hoặc khai thừa thành phẩm xuất khẩu, hoặc khai thiếu nhập nguyên vật liệu. Doanh nghiệp "sản xuất nhiều hơn nguyên liệu thực có" trên giấy tờ — không thể giải trình nguồn cung. | 🔴 | 🚧 |
 
 ### Nhóm 5 — Truy nguồn nguyên vật liệu nhập khẩu (3 kiểm tra)
 
@@ -331,18 +332,18 @@ Trước khi áp dụng các kiểm tra dưới đây, hệ thống tự xử l�
 | **Giai đoạn I** (TKXNK + BCQT) | 1 — Số lượng nhập/xuất | 7 | 6 | 1 | 0 |
 | | 2 — Cân bằng và tồn kho | 4 | 3 | 1 | 0 |
 | | 3 — Phân loại hàng hoá | 3 | 3 | 0 | 0 |
-| | 4 — Định mức M16 | 7 | 2 | 5 | 0 |
+| | 4 — Định mức M16 | 8 | 2 | 6 | 0 |
 | | 5 — Truy nguồn NVL | 3 | 1 | 2 | 0 |
 | | 6 — Liên kỳ | 5 | 1 | 4 | 0 |
 | | 7 — So sánh giữa các DN | 3 | 0 | 0 | 3 |
-| | **Cộng Giai đoạn I** | **32** | **16** | **13** | **3** |
+| | **Cộng Giai đoạn I** | **33** | **16** | **14** | **3** |
 | **Giai đoạn II** (cần dữ liệu bổ sung) | 8 — Phế liệu / phế phẩm | 3 | 0 | 0 | 3 |
 | | 9 — Sản phẩm dở dang (BTP) | 4 | 0 | 0 | 4 |
 | | 10 — Đối chiếu sổ sách kế toán | 3 | 0 | 0 | 3 |
 | | 11 — TSCĐ, máy móc và năng lực vận hành | 3 | 0 | 0 | 3 |
 | | 12 — Nhà cung cấp | 3 | 0 | 0 | 3 |
 | | **Cộng Giai đoạn II** | **16** | **0** | **0** | **16** |
-| | **TỔNG TOÀN BỘ** | **48** | **16** | **13** | **19** |
+| | **TỔNG TOÀN BỘ** | **49** | **16** | **14** | **19** |
 
 > **Danh mục mở rộng được:** danh mục không cố định ở con số 44. Mỗi nghiệp vụ cơ quan Hải quan phát hiện mới có thể bổ sung vào danh mục như một mô-đun độc lập, không cần thay đổi phần lõi. Ngưỡng đề xuất có thể điều chỉnh theo thực tế.
 
@@ -525,7 +526,7 @@ Toàn bộ giai đoạn xây dựng và demo gói gọn trong **10 tuần** tín
 
 Sau khi demo và nhận phản hồi, tuỳ quyết định của cơ quan Hải quan, các bước tiếp theo có thể bao gồm:
 
-- **Triển khai thí điểm tại Chi Cục Hải Quan Khu vực IV** với dữ liệu doanh nghiệp thực tế; cài tiếp 13 kiểm tra còn lại của Giai đoạn I (§4.1).
+- **Triển khai thí điểm tại Chi Cục Hải Quan Khu vực IV** với dữ liệu doanh nghiệp thực tế; cài tiếp 14 kiểm tra còn lại của Giai đoạn I (§4.1).
 - **Kích hoạt Nhóm 7 so sánh giữa các doanh nghiệp** khi đã có đủ doanh nghiệp trong danh mục.
 - **Mở rộng sang Giai đoạn II (§4.2)** — Nhóm 8-11 kiểm tra phế liệu, bán thành phẩm, sổ sách kế toán, tài sản cố định. Cần phối hợp với cơ quan Hải quan để yêu cầu doanh nghiệp cung cấp các dữ liệu bổ sung tương ứng.
 - **Tích hợp trực tiếp với VNACCS** thay vì nạp qua tệp Excel xuất ra.
@@ -543,7 +544,7 @@ Các bước này không nằm trong cam kết 10 tuần vì phụ thuộc quy�
 
 ### 8.1 Về phạm vi nghiệp vụ
 
-1. Trong 48 kiểm tra đề xuất (32 Giai đoạn I + 16 Giai đoạn II), có kiểm tra nào cơ quan Hải quan đặc biệt quan tâm, hoặc có kiểm tra nào quan trọng mà đề án bỏ sót?
+1. Trong 49 kiểm tra đề xuất (33 Giai đoạn I + 16 Giai đoạn II), có kiểm tra nào cơ quan Hải quan đặc biệt quan tâm, hoặc có kiểm tra nào quan trọng mà đề án bỏ sót?
 2. Trong số 15 kiểm tra MVP cho demo 2 tháng, có kiểm tra nào cơ quan Hải quan muốn ưu tiên hơn?
 3. Báo cáo Excel kiến nghị kiểm tra có cần theo mẫu chính thức nào không?
 4. Hiện tại Chi cục đang dùng công cụ hoặc quy trình nào để chọn doanh nghiệp kiểm tra? Audit-HQ tích hợp hay thay thế?
