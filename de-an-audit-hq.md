@@ -2,7 +2,7 @@
 
 **Hệ thống hỗ trợ quản lý rủi ro và phát hiện sai phạm trong Báo cáo Quyết toán Hải quan (BCQT) và Tờ khai Xuất Nhập khẩu (TKXNK)**
 
-> **Bản dự thảo lần 9** — 2026-05-14
+> **Bản dự thảo lần 10** — 2026-05-14
 > Tài liệu sẽ trải qua nhiều vòng rà soát, tổng hợp ý kiến từ phía Hải quan. Mọi nội dung dưới đây là đề xuất sơ bộ.
 >
 > Soạn thảo: Tinsu AI × Trọng Tín
@@ -77,7 +77,7 @@ Hệ thống có ngưỡng mặc định cho mỗi kiểm tra (Nghiêm trọng /
 
 ### 2.5 An toàn pháp lý
 
-- Lớp ẩn danh cho dữ liệu trình diễn (bảo vệ bí mật doanh nghiệp trong giai đoạn thử nghiệm).
+- Lớp ẩn danh cho dữ liệu demo (bảo vệ bí mật doanh nghiệp trong giai đoạn thử nghiệm).
 - Nhật ký thao tác đầy đủ cho mọi thao tác thay đổi dữ liệu.
 - Không thay đổi dữ liệu gốc — mọi đánh dấu và phát hiện là lớp phủ riêng biệt.
 
@@ -98,6 +98,12 @@ Ngoài cộng dồn điểm rủi ro, hệ thống phát hiện các **mẫu k�
 - **Bộ ba "tẩu tán trước giải thể":** C6.4 (nhập tăng mạnh xuất không tăng) + C2.3 (tồn cuối âm) + C11.1 (máy móc miễn thuế không khớp danh mục) — pattern doanh nghiệp tranh thủ nhập miễn thuế rồi tẩu tán trước khi đóng MST.
 
 Cơ quan Hải quan có thể yêu cầu hệ thống định nghĩa thêm các bộ ba khác theo kinh nghiệm nghiệp vụ. Khi một bộ ba cùng kích hoạt, hệ thống nâng mức cảnh báo tổng và đánh dấu đặc biệt trên bảng tổng quan.
+
+### 2.8 Ranh giới sử dụng
+
+Audit-HQ là **công cụ hỗ trợ phát hiện sơ bộ** — không phải kết luận điều tra. Mọi kết luận về sai phạm thuộc thẩm quyền cán bộ Hải quan sau quá trình kiểm tra thực tế. Hệ thống không thay thế quy trình kiểm tra sau thông quan.
+
+Tinsu cam kết chỉ giải trình **cách thuật toán đã chạy** khi có yêu cầu của cơ quan Hải quan. Tinsu không tham gia bất kỳ thủ tục hành chính hoặc tố tụng nào giữa cơ quan Hải quan và doanh nghiệp được kiểm tra.
 
 ---
 
@@ -153,10 +159,10 @@ Cho toàn bộ danh sách doanh nghiệp:
 | Giai đoạn | Dữ liệu | Nhóm | Tổng |
 |---|---|---|---|
 | **Giai đoạn I** (§4.1) | TKXNK + BCQT đã nộp | 1, 2, 3, 4, 5, 6, 7, 12 | 35 kiểm tra |
-| **Giai đoạn II** (§4.2) | Cần dữ liệu bổ sung từ doanh nghiệp | 8, 9, 10, 11 | 12 kiểm tra |
+| **Giai đoạn II** (§4.2) | Cần dữ liệu bổ sung từ doanh nghiệp | 8, 9, 10, 11 | 13 kiểm tra |
 
 **Trạng thái** trong Giai đoạn I:
-- ✅ Xây dựng và trình diễn trong 2 tháng (17 kiểm tra)
+- ✅ Xây dựng và demo trong 2 tháng (17 kiểm tra)
 - 🚧 Bổ sung trong giai đoạn thí điểm (14 kiểm tra)
 - ⏳ Kích hoạt khi đã có đủ doanh nghiệp / danh sách bổ sung (4 kiểm tra: Nhóm 7 và C12.3)
 
@@ -308,7 +314,7 @@ Trước khi áp dụng các kiểm tra dưới đây, hệ thống tự xử l�
 | **C10.2** | Doanh thu xuất khẩu sổ sách kế toán khác trị giá xuất khẩu BCCT — đối chiếu trên cùng kỳ. Ngưỡng dung sai: <2% Thông tin · 2–5% Cảnh báo · >5% Nghiêm trọng. Lưu ý: doanh thu kế toán ghi theo giá thanh toán (thường CIF/FOB DN ghi sổ), trị giá BCCT theo giá hải quan (FOB), chênh lệch nhẹ là hợp lệ. | Khai sai một trong hai phía, ảnh hưởng nghĩa vụ thuế thu nhập doanh nghiệp hoặc thuế xuất khẩu. | 🟡🔴 | ⏳ |
 | **C10.3** | Giá trị nhập khẩu sổ sách kế toán khác trị giá nhập khẩu BCCT — đối chiếu trên cùng kỳ. Ngưỡng dung sai: <2% Thông tin · 2–5% Cảnh báo · >5% Nghiêm trọng. Chênh lệch nhẹ có thể hợp lệ do tỷ giá ghi sổ kế toán khác tỷ giá hải quan. | Khai sai một trong hai phía hoặc có nguồn nhập không khai báo. | 🟡🔴 | ⏳ |
 
-### Nhóm 11 — Tài sản cố định và máy móc thiết bị (2 kiểm tra)
+### Nhóm 11 — Tài sản cố định, máy móc thiết bị và năng lực vận hành (3 kiểm tra)
 
 > **Dữ liệu doanh nghiệp cần cung cấp thêm:** danh mục tài sản cố định (sổ TSCĐ), báo cáo cơ sở sản xuất, hồ sơ máy móc nhập khẩu miễn thuế.
 
@@ -316,6 +322,7 @@ Trước khi áp dụng các kiểm tra dưới đây, hệ thống tự xử l�
 |---|---|---|---|---|
 | **C11.1** | Máy móc thiết bị miễn thuế nhập khẩu (E13) không khớp danh mục thiết bị trong báo cáo cơ sở sản xuất. | Máy móc miễn thuế đã bán nội địa, chuyển nhượng, hoặc đưa ra khỏi cơ sở mà không khai báo. | 🔴 | ⏳ |
 | **C11.2** | Công suất máy móc khai báo không khớp sản lượng thực tế trong BCQT — tổng `nhập_kho_M15a` (sản lượng TP sản xuất ra trong kỳ) chia cho công suất danh nghĩa của máy móc khai báo trong báo cáo cơ sở sản xuất, vượt xa hoặc thấp xa số ngày sản xuất hợp lý của kỳ. Ngưỡng: <50% hoặc >150% so với năng lực kỳ vọng → Cảnh báo. Trường hợp >200% → Nghiêm trọng (sản lượng vượt năng lực = nhập từ nguồn khác). | Khai báo công suất không trung thực để được miễn thuế (khai cao hơn thực tế khi nhập) hoặc để hợp thức hoá lượng xuất khẩu vượt năng lực (sản phẩm gia công thuê ngoài hoặc nhập lậu). | 🟡 | ⏳ |
+| **C11.3** | Tồn kho cuối kỳ bất thường so với năng lực vận hành — giá trị tồn kho NVL/TP cuối kỳ vượt sức chứa kho khai báo (báo cáo cơ sở sản xuất) hoặc vượt vốn lưu động bình quân trên báo cáo tài chính cùng kỳ. Ngưỡng: vượt 50% Cảnh báo · vượt 100% Nghiêm trọng. Yêu cầu dữ liệu bổ sung: báo cáo cơ sở sản xuất + báo cáo tài chính. | Tồn kho ảo — hàng đã thực tế tiêu thụ hoặc bán nội địa nhưng vẫn duy trì số tồn trên báo cáo để treo nợ thuế nhập khẩu. Pattern điển hình của gian lận trong doanh nghiệp chế xuất khi sắp giải thể hoặc khi muốn tránh đối chiếu tồn thực tế. | 🔴 | ⏳ |
 
 ---
 
@@ -335,9 +342,9 @@ Trước khi áp dụng các kiểm tra dưới đây, hệ thống tự xử l�
 | **Giai đoạn II** (cần dữ liệu bổ sung) | 8 — Phế liệu / phế phẩm | 3 | 0 | 0 | 3 |
 | | 9 — Sản phẩm dở dang (BTP) | 4 | 0 | 0 | 4 |
 | | 10 — Đối chiếu sổ sách kế toán | 3 | 0 | 0 | 3 |
-| | 11 — Tài sản cố định và máy móc | 2 | 0 | 0 | 2 |
-| | **Cộng Giai đoạn II** | **12** | **0** | **0** | **12** |
-| | **TỔNG TOÀN BỘ** | **47** | **17** | **14** | **16** |
+| | 11 — TSCĐ, máy móc và năng lực vận hành | 3 | 0 | 0 | 3 |
+| | **Cộng Giai đoạn II** | **13** | **0** | **0** | **13** |
+| | **TỔNG TOÀN BỘ** | **48** | **17** | **14** | **17** |
 
 > **Danh mục mở rộng được:** danh mục không cố định ở con số 44. Mỗi nghiệp vụ cơ quan Hải quan phát hiện mới có thể bổ sung vào danh mục như một mô-đun độc lập, không cần thay đổi phần lõi. Ngưỡng đề xuất có thể điều chỉnh theo thực tế.
 
@@ -399,9 +406,9 @@ Mọi quyết định cuối cùng vẫn do cán bộ Hải quan đưa ra. AI ch
 
 ---
 
-## 6. Kế hoạch trình diễn (thử nghiệm ban đầu)
+## 6. Kế hoạch demo (thử nghiệm ban đầu)
 
-### 6.1 Dữ liệu trình diễn
+### 6.1 Dữ liệu demo
 
 5 doanh nghiệp giả lập, mỗi doanh nghiệp 3-4 năm:
 
@@ -413,7 +420,7 @@ Mọi quyết định cuối cùng vẫn do cán bộ Hải quan đưa ra. AI ch
 | DN_004 | Hoá chất (HS 39) | DNCX | 3 | C1.4, C1.6, C2.3 |
 | DN_005 | Cơ khí (HS 84) | DNCX | 3 | (sạch — minh chứng hệ thống không phát hiện bừa) |
 
-> **Chờ Trọng Tín cung cấp:** dữ liệu nền từ 5 khách hàng thực tế (đã ẩn danh). Phương án mô phỏng sai phạm trên dữ liệu nền sạch.
+> **Lưu ý về dữ liệu demo:** dữ liệu giả lập, được tạo từ dữ liệu thực đã xoá danh tính (mã doanh nghiệp, MST, tên nhà cung cấp), phục vụ mục đích demo. Không phản ánh doanh nghiệp cụ thể nào.
 
 ### 6.2 Ẩn danh dữ liệu
 
@@ -432,7 +439,7 @@ Mọi quyết định cuối cùng vẫn do cán bộ Hải quan đưa ra. AI ch
 | Tên vật tư | Cần để minh hoạ đối chiếu gần giống (C3.3, C4.4); thay bằng tên chung kèm biến thể |
 | Số lượng / giá trị | Cần để minh hoạ phát hiện giá trị bất thường; có thể nhân với hằng số |
 
-### 6.3 Kịch bản trình diễn 5 phút
+### 6.3 Kịch bản demo 5 phút
 
 ```
 0:00 — Đăng nhập cán bộ Hải quan → Bảng tổng quan 5 doanh nghiệp
@@ -468,7 +475,7 @@ Mọi quyết định cuối cùng vẫn do cán bộ Hải quan đưa ra. AI ch
 
 ## 7. Lộ trình triển khai
 
-Toàn bộ giai đoạn xây dựng và trình diễn gói gọn trong **2 tháng** (8 tuần) tính từ khi cơ quan Hải quan phê duyệt nguyên tắc đề án. Lộ trình này tập trung vào **Giai đoạn I** của danh mục kiểm tra (§4.1) — các kiểm tra thực hiện trên dữ liệu TKXNK và BCQT đã nộp.
+Toàn bộ giai đoạn xây dựng và demo gói gọn trong **10 tuần** tính từ khi cơ quan Hải quan phê duyệt nguyên tắc đề án. Lộ trình này tập trung vào **Giai đoạn I** của danh mục kiểm tra (§4.1) — các kiểm tra thực hiện trên dữ liệu TKXNK và BCQT đã nộp.
 
 ### 7.1 Tuần 1-2 — Khởi tạo và nền tảng dữ liệu
 
@@ -477,38 +484,45 @@ Toàn bộ giai đoạn xây dựng và trình diễn gói gọn trong **2 thán
 | 1 | Khởi tạo dự án, dựng kiến trúc nền, tái sử dụng mô-đun từ các hệ thống Tinsu đã vận hành | Bộ khung chạy được trên môi trường nội bộ |
 | 2 | Bộ đọc Excel (Mẫu 15/15a/16 + BCCT) + Tầng dữ liệu 0-1 | Nạp được 1 doanh nghiệp, truy vấn được theo mã, theo kỳ |
 
-### 7.2 Tuần 3-4 — Cài đặt 17 kiểm tra cho trình diễn
+### 7.2 Tuần 3-4 — Cài đặt Nhóm 1 và Nhóm 2 (9 kiểm tra)
 
 | Tuần | Mục tiêu | Kết quả |
 |---|---|---|
-| 3 | Nhóm 1 (số lượng nhập/xuất) + Nhóm 2 (cân bằng) — 9 kiểm tra đầu | Phát hiện hiện trên màn hình, có chứng cứ truy nguồn về dòng dữ liệu gốc |
-| 4 | Nhóm 3, 4, 5, 6, 12 — 8 kiểm tra còn lại + thuật toán cộng dồn điểm rủi ro | Đủ 17 kiểm tra cho trình diễn |
+| 3 | Nhóm 1 — Số lượng nhập / xuất (6 kiểm tra trong giai đoạn này) | Phát hiện hiện trên màn hình, có chứng cứ truy nguồn |
+| 4 | Nhóm 2 — Cân bằng và tồn kho (3 kiểm tra) + cơ chế đánh dấu thao tác | 9 kiểm tra đầu hoàn chỉnh |
 
-### 7.3 Tuần 5-6 — Dữ liệu trình diễn và giao diện
-
-| Tuần | Mục tiêu | Kết quả |
-|---|---|---|
-| 5 | Dữ liệu giả lập 5 doanh nghiệp × 3-4 năm + ẩn danh | Dữ liệu trình diễn hoàn chỉnh, mô phỏng đủ 4 kiểu sai phạm chính |
-| 6 | Bảng tổng quan + trang chi tiết doanh nghiệp + xuất Excel kiến nghị kiểm tra | Toàn bộ luồng trình diễn 5 phút chạy được |
-
-### 7.4 Tuần 7-8 — Tổng duyệt và bàn giao
+### 7.3 Tuần 5-6 — Cài đặt Nhóm 3, 4, 5, 6, 12 (8 kiểm tra còn lại) và tính điểm rủi ro
 
 | Tuần | Mục tiêu | Kết quả |
 |---|---|---|
-| 7 | Tổng duyệt nội bộ Tinsu × Trọng Tín, sửa lỗi, hoàn thiện tài liệu hướng dẫn | Hệ thống sẵn sàng trình diễn |
-| 8 | Trình diễn cho cơ quan Hải quan + bàn giao hồ sơ kỹ thuật + tổng hợp phản hồi | Báo cáo kết quả 2 tháng, đề xuất bước tiếp theo |
+| 5 | Nhóm 3 (phân loại) + Nhóm 4 (định mức MVP) + Nhóm 5 (truy nguồn MVP) + Nhóm 6 (liên kỳ MVP) | 6 kiểm tra cài đặt xong |
+| 6 | Nhóm 12 (nhà cung cấp MVP) + thuật toán cộng dồn điểm rủi ro + phát hiện kết hợp | Đủ 17 kiểm tra MVP cho demo |
 
-### 7.5 Vai trò các bên trong 2 tháng
+### 7.4 Tuần 7-8 — Dữ liệu demo
+
+| Tuần | Mục tiêu | Kết quả |
+|---|---|---|
+| 7 | Tạo dữ liệu giả lập 5 doanh nghiệp × 3-4 năm + xoá danh tính | Dữ liệu nền sạch, đã ẩn danh |
+| 8 | Mô phỏng các kiểu sai phạm trên dữ liệu nền (cho từng doanh nghiệp demo) | Dữ liệu demo hoàn chỉnh, kiểm tra cân bằng số học |
+
+### 7.5 Tuần 9-10 — Giao diện, tổng duyệt và bàn giao
+
+| Tuần | Mục tiêu | Kết quả |
+|---|---|---|
+| 9 | Bảng tổng quan + trang chi tiết doanh nghiệp + xuất Excel kiến nghị kiểm tra + tổng duyệt nội bộ | Toàn bộ luồng demo 5 phút chạy được |
+| 10 | Demo cho cơ quan Hải quan + bàn giao hồ sơ kỹ thuật + tổng hợp phản hồi | Báo cáo kết quả, đề xuất bước tiếp theo |
+
+### 7.6 Vai trò các bên trong 10 tuần
 
 | Bên | Vai trò chính |
 |---|---|
 | Tinsu AI | Xây dựng hệ thống, dữ liệu giả lập, tổng duyệt kỹ thuật |
-| Trọng Tín | Cung cấp kinh nghiệm nghiệp vụ, dữ liệu nền đã ẩn danh, tổng duyệt nghiệp vụ |
-| Cơ quan Hải quan | Phê duyệt nguyên tắc, định hướng nghiệp vụ, tiếp nhận trình diễn |
+| Trọng Tín | Cung cấp kinh nghiệm nghiệp vụ, tổng duyệt nghiệp vụ |
+| Cơ quan Hải quan | Phê duyệt nguyên tắc, định hướng nghiệp vụ, tiếp nhận demo |
 
-### 7.6 Định hướng sau 2 tháng
+### 7.7 Định hướng sau 10 tuần
 
-Sau khi trình diễn và nhận phản hồi, tuỳ quyết định của cơ quan Hải quan, các bước tiếp theo có thể bao gồm:
+Sau khi demo và nhận phản hồi, tuỳ quyết định của cơ quan Hải quan, các bước tiếp theo có thể bao gồm:
 
 - **Triển khai thí điểm tại Chi Cục Hải Quan Khu vực IV** với dữ liệu doanh nghiệp thực tế; cài tiếp 14 kiểm tra còn lại của Giai đoạn I (§4.1).
 - **Kích hoạt Nhóm 7 so sánh giữa các doanh nghiệp** khi đã có đủ doanh nghiệp trong danh mục.
@@ -516,9 +530,9 @@ Sau khi trình diễn và nhận phản hồi, tuỳ quyết định của cơ q
 - **Tích hợp trực tiếp với VNACCS** thay vì nạp qua tệp Excel xuất ra.
 - **Mở rộng sang nhiều Chi cục**.
 
-Các bước này không nằm trong cam kết 2 tháng vì phụ thuộc quyết định của cơ quan Hải quan sau khi xem trình diễn.
+Các bước này không nằm trong cam kết 10 tuần vì phụ thuộc quyết định của cơ quan Hải quan sau khi xem demo.
 
-> **Quan trọng:** Dữ liệu của Trọng Tín chỉ dùng để **xây dựng và trình diễn công cụ**. Khi cơ quan Hải quan vận hành thực tế, hệ thống chạy trên dữ liệu của cơ quan Hải quan. Trọng Tín không chuyển dữ liệu khách hàng sang cơ quan Hải quan ngoài bối cảnh doanh nghiệp tự nộp BCQT.
+> **Quan trọng:** Dữ liệu giả lập chỉ phục vụ mục đích demo. Khi cơ quan Hải quan vận hành thực tế, hệ thống chạy hoàn toàn trên dữ liệu của cơ quan Hải quan.
 
 ---
 
@@ -528,8 +542,8 @@ Các bước này không nằm trong cam kết 2 tháng vì phụ thuộc quyế
 
 ### 8.1 Về phạm vi nghiệp vụ
 
-1. Trong 47 kiểm tra đề xuất (35 Giai đoạn I + 12 Giai đoạn II), có kiểm tra nào cơ quan Hải quan đặc biệt quan tâm, hoặc có kiểm tra nào quan trọng mà đề án bỏ sót?
-2. Trong số 15 kiểm tra MVP cho trình diễn 2 tháng, có kiểm tra nào cơ quan Hải quan muốn ưu tiên hơn?
+1. Trong 48 kiểm tra đề xuất (35 Giai đoạn I + 13 Giai đoạn II), có kiểm tra nào cơ quan Hải quan đặc biệt quan tâm, hoặc có kiểm tra nào quan trọng mà đề án bỏ sót?
+2. Trong số 15 kiểm tra MVP cho demo 2 tháng, có kiểm tra nào cơ quan Hải quan muốn ưu tiên hơn?
 3. Báo cáo Excel kiến nghị kiểm tra có cần theo mẫu chính thức nào không?
 4. Hiện tại Chi cục đang dùng công cụ hoặc quy trình nào để chọn doanh nghiệp kiểm tra? Audit-HQ tích hợp hay thay thế?
 5. Ngưỡng đề xuất (Nghiêm trọng / Cảnh báo / Thông tin) có phù hợp thực tế nghiệp vụ không? Cần điều chỉnh gì?
@@ -554,11 +568,6 @@ Các bước này không nằm trong cam kết 2 tháng vì phụ thuộc quyế
 15. Cam kết chất lượng dịch vụ (SLA) cần đáp ứng cho giai đoạn thí điểm / vận hành chính thức?
 16. Cán bộ tại Chi Cục Hải Quan Khu vực IV có thể tiếp nhận hệ thống ở mức nào? Cần đào tạo bao nhiêu?
 
-### 8.5 Về pháp lý và ranh giới
-
-17. Audit-HQ chỉ đưa ra **gợi ý**, không phải kết luận điều tra. Đồng ý cách dùng này?
-18. Trường hợp doanh nghiệp khiếu nại kết quả phát hiện của hệ thống, cơ quan Hải quan có cần Tinsu hỗ trợ giải trình kỹ thuật không?
-19. Quyền sở hữu trí tuệ đối với danh mục kiểm tra: thuộc cơ quan Hải quan, Tinsu, hay chia sẻ chung?
 
 ---
 
@@ -603,4 +612,4 @@ Các bước này không nằm trong cam kết 2 tháng vì phụ thuộc quyế
 
 ---
 
-> **Đây là bản dự thảo lần 9.** Mọi nội dung là đề xuất sơ bộ và sẽ được điều chỉnh theo phản hồi của cơ quan Hải quan qua các vòng tổng hợp tiếp theo.
+> **Đây là bản dự thảo lần 10.** Mọi nội dung là đề xuất sơ bộ và sẽ được điều chỉnh theo phản hồi của cơ quan Hải quan qua các vòng tổng hợp tiếp theo.
