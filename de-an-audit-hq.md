@@ -2,7 +2,7 @@
 
 **Hệ thống hỗ trợ quản lý rủi ro và phát hiện sai phạm trong Báo cáo Quyết toán Hải quan (BCQT) và Tờ khai Xuất Nhập khẩu (TKXNK)**
 
-> **Bản dự thảo lần 7** — 2026-05-14
+> **Bản dự thảo lần 8** — 2026-05-14
 > Tài liệu sẽ trải qua nhiều vòng rà soát, tổng hợp ý kiến từ phía Hải quan. Mọi nội dung dưới đây là đề xuất sơ bộ.
 >
 > Soạn thảo: Tinsu AI × Trọng Tín
@@ -88,6 +88,17 @@ Hệ thống không chỉ xếp hạng doanh nghiệp theo phát hiện Nghiêm 
 - **Điểm tổng** (cộng dồn) — xếp hạng tổng thể của doanh nghiệp
 - **Phát hiện Nghiêm trọng riêng lẻ** — sự kiện cần xử lý ngay không phụ thuộc tổng điểm
 
+
+### 2.7 Phát hiện kết hợp (combination signatures)
+
+Ngoài cộng dồn điểm rủi ro, hệ thống phát hiện các **mẫu kết hợp** — nhiều kiểm tra cùng kích hoạt theo một bộ ba điển hình của một kiểu sai phạm. Ví dụ:
+
+- **Bộ ba "nhập nội địa ẩn":** C1.3 (M15 có nhưng không có tờ khai) + C5.1 (xuất sản xuất không có nhập) + C8.2 (phế liệu bán không có A42) — pattern doanh nghiệp đưa nguyên vật liệu nội địa vào phạm vi miễn thuế.
+- **Bộ ba "định mức ảo":** C4.3 (Σ tiêu hao M16 vượt M15) + C4.7 (phân bổ định mức bất thường) + C5.3 (tỷ lệ truy nguồn thấp) — pattern thổi phồng định mức để hợp thức hoá nguyên vật liệu dư.
+- **Bộ ba "tẩu tán trước giải thể":** C6.4 (nhập tăng mạnh xuất không tăng) + C2.3 (tồn cuối âm) + C11.1 (máy móc miễn thuế không khớp danh mục) — pattern doanh nghiệp tranh thủ nhập miễn thuế rồi tẩu tán trước khi đóng MST.
+
+Cơ quan Hải quan có thể yêu cầu hệ thống định nghĩa thêm các bộ ba khác theo kinh nghiệm nghiệp vụ. Khi một bộ ba cùng kích hoạt, hệ thống nâng mức cảnh báo tổng và đánh dấu đặc biệt trên bảng tổng quan.
+
 ---
 
 ## 3. Phạm vi thử nghiệm ban đầu
@@ -141,15 +152,24 @@ Cho toàn bộ danh sách doanh nghiệp:
 
 | Giai đoạn | Dữ liệu | Nhóm | Tổng |
 |---|---|---|---|
-| **Đầu** (§4.1) | TKXNK + BCQT đã nộp | 1, 2, 3, 4, 5, 6, 7 | 31 kiểm tra |
+| **Đầu** (§4.1) | TKXNK + BCQT đã nộp | 1, 2, 3, 4, 5, 6, 7, 12 | 35 kiểm tra |
 | **Sau** (§4.2) | Cần dữ liệu bổ sung từ doanh nghiệp | 8, 9, 10, 11 | 12 kiểm tra |
 
 **Trạng thái** trong giai đoạn đầu:
-- ✅ Xây dựng và trình diễn trong 2 tháng (15 kiểm tra)
-- 🚧 Bổ sung trong giai đoạn thí điểm (13 kiểm tra)
-- ⏳ Kích hoạt khi đã có đủ doanh nghiệp trong danh mục (3 kiểm tra Nhóm 7)
+- ✅ Xây dựng và trình diễn trong 2 tháng (17 kiểm tra)
+- 🚧 Bổ sung trong giai đoạn thí điểm (14 kiểm tra)
+- ⏳ Kích hoạt khi đã có đủ doanh nghiệp / danh sách bổ sung (4 kiểm tra: Nhóm 7 và C12.3)
 
 **Mức độ:** 🔴 Nghiêm trọng · 🟡 Cảnh báo · 🔵 Thông tin
+
+### Tiền đề kỹ thuật cho mọi kiểm tra
+
+Trước khi áp dụng các kiểm tra dưới đây, hệ thống tự xử lý các bước tiền đề:
+
+- **Định nghĩa "kỳ":** kỳ mặc định là năm BCQT theo TT 39/2018 (từ 01/01 đến 31/12 năm tài chính). Hệ thống có thể cấu hình kỳ khác (quý / 6 tháng) khi cơ quan Hải quan yêu cầu.
+- **Lọc tờ khai bị huỷ:** chỉ tính tờ khai trạng thái "thông quan", loại trừ tờ khai bị huỷ và tờ khai chỉ là phiên bản sửa đổi (kế thừa số tờ khai gốc) khỏi đối chiếu với Mẫu 15/15a/16.
+- **Ánh xạ mã hàng:** mã NVL/sản phẩm nội bộ doanh nghiệp có thể khác mã trên tờ khai BCCT. Hệ thống dùng quy tắc cứng kết hợp AI gợi ý để ánh xạ; cán bộ Hải quan xác nhận lần đầu, sau đó hệ thống lưu lại để dùng cho các kỳ tiếp theo.
+- **Đơn vị tiền tệ:** trị giá BCCT có thể bằng USD; khi đối chiếu với sổ sách kế toán (Nhóm 10) hệ thống quy đổi theo tỷ giá hải quan của ngày thông quan.
 
 ### 4.0 Loại hình tờ khai theo loại hình doanh nghiệp
 
@@ -167,7 +187,7 @@ Cho toàn bộ danh sách doanh nghiệp:
 
 > Các kiểm tra dưới đây thực hiện trên đúng dữ liệu cơ quan Hải quan đã có sẵn (TKXNK từ VNACCS + Mẫu 15/15a/16 doanh nghiệp đã nộp). Không yêu cầu doanh nghiệp cung cấp thêm dữ liệu nào.
 
-### Nhóm 1 — Số lượng nhập / xuất (6 kiểm tra)
+### Nhóm 1 — Số lượng nhập / xuất (7 kiểm tra)
 
 | Mã | Vấn đề | Rủi ro | Mức | Trạng thái |
 |---|---|---|---|---|
@@ -177,6 +197,7 @@ Cho toàn bộ danh sách doanh nghiệp:
 | **C1.4** | Lệch số lượng xuất thành phẩm (M15a so với tờ khai) — `xuất_khẩu` khác Σ tờ khai xuất theo mã thành phẩm. Loại hình: DNCX E42 / Gia công E52 / SXXK E62. Ngưỡng: <1% Thông tin · 1–5% Cảnh báo · >5% Nghiêm trọng. | Khai sai sản lượng xuất khẩu — có thể khai khống xuất khẩu để giảm lượng nguyên vật liệu miễn thuế phải giải trình, hoặc khai thiếu xuất khẩu để giấu nguồn thu. | 🟡 | ✅ |
 | **C1.5** | Tái xuất M15 không có tờ khai B13 — `xuất_trả_lại` > 0 trong M15 nhưng không có B13 tương ứng. | Ghi tái xuất để giảm tồn nhưng không có tờ khai chứng minh. | 🟡 | 🚧 |
 | **C1.6** | Chuyển mục đích sử dụng không có tờ khai A42 — `chuyển_mục_đích_sử_dụng` > 0 nhưng không có A42. | Hàng miễn thuế chuyển nội địa không khai báo — vi phạm điều kiện miễn thuế. | 🔴 | ✅ |
+| **C1.7** | Tỷ lệ chuyển mục đích sử dụng trên tổng nhập trong kỳ vượt ngưỡng — `chuyển_mục_đích_sử_dụng` / `nhập_trong_kỳ` cao bất thường. Ngưỡng: >10% Cảnh báo · >25% Nghiêm trọng. | Doanh nghiệp lợi dụng kẽ hở miễn thuế — nhập nguyên vật liệu miễn thuế rồi chuyển nội địa với tỷ lệ cao, biến đặc quyền miễn thuế thành kênh nhập hàng tiêu thụ nội địa. | 🟡🔴 | ✅ |
 
 ### Nhóm 2 — Cân bằng và tồn kho (4 kiểm tra)
 
@@ -237,6 +258,15 @@ Cho toàn bộ danh sách doanh nghiệp:
 | **C7.2** | Giá nhập từ cùng nhà cung cấp chênh lệch giữa các doanh nghiệp — cùng nhà cung cấp, cùng mã HS, giá khác nhau lớn. | Chuyển giá hoặc trốn thuế có hệ thống. | 🟡🔴 | ⏳ |
 | **C7.3** | Lượng nhập / xuất cùng mã HS bất thường so với mức chung ngành — vượt xa giá trị trung vị của ngành. | Quy mô bất thường cần kiểm tra. | 🟡 | ⏳ |
 
+### Nhóm 12 — Nhà cung cấp (3 kiểm tra)
+
+| Mã | Vấn đề | Rủi ro | Mức | Trạng thái |
+|---|---|---|---|---|
+| **C12.1** | Nhà cung cấp mới xuất hiện đột ngột chiếm tỷ trọng lớn — nhà cung cấp chưa từng xuất hiện trong các kỳ trước nhưng kỳ này chiếm >30% kim ngạch nhập của doanh nghiệp. | Nhà cung cấp giả lập (công ty ma), hoặc thay đổi nhà cung cấp để né kiểm soát chuyển giá / kiểm soát xuất xứ. | 🟡 | 🚧 |
+| **C12.2** | Mã số thuế / thông tin nhận diện nhà cung cấp không hợp lệ — định dạng MST sai, nhà cung cấp trên tờ khai không khớp dạng định danh quốc tế của nước xuất xứ. | Nhà cung cấp không có thật, hoặc khai mượn danh nhà cung cấp khác. | 🔴 | ✅ |
+| **C12.3** | Nhà cung cấp nằm trong danh sách rủi ro của cơ quan Hải quan — đối chiếu với danh sách nhà cung cấp nghi vấn (chuyển giá, gian lận xuất xứ, đã bị xử phạt trước đây). | Doanh nghiệp tiếp tục giao dịch với nhà cung cấp đã được cơ quan Hải quan đánh dấu rủi ro. | 🟡🔴 | ⏳ |
+
+
 ---
 
 ## 4.2 Giai đoạn sau — Kiểm tra mở rộng, cần dữ liệu bổ sung
@@ -293,20 +323,21 @@ Cho toàn bộ danh sách doanh nghiệp:
 
 | Giai đoạn | Nhóm | Tổng | ✅ MVP 2 tháng | 🚧 Bổ sung thí điểm | ⏳ Cần thêm điều kiện |
 |---|---|---:|---:|---:|---:|
-| **Đầu** (TKXNK + BCQT) | 1 — Số lượng nhập/xuất | 6 | 5 | 1 | 0 |
+| **Đầu** (TKXNK + BCQT) | 1 — Số lượng nhập/xuất | 7 | 6 | 1 | 0 |
 | | 2 — Cân bằng và tồn kho | 4 | 3 | 1 | 0 |
 | | 3 — Phân loại hàng hoá | 3 | 3 | 0 | 0 |
 | | 4 — Định mức M16 | 7 | 2 | 5 | 0 |
 | | 5 — Truy nguồn NVL | 3 | 1 | 2 | 0 |
 | | 6 — Liên kỳ | 5 | 1 | 4 | 0 |
 | | 7 — So sánh giữa các DN | 3 | 0 | 0 | 3 |
-| | **Cộng giai đoạn đầu** | **31** | **15** | **13** | **3** |
+| | 12 — Nhà cung cấp | 3 | 1 | 1 | 1 |
+| | **Cộng giai đoạn đầu** | **35** | **17** | **14** | **4** |
 | **Sau** (cần dữ liệu bổ sung) | 8 — Phế liệu / phế phẩm | 3 | 0 | 0 | 3 |
 | | 9 — Sản phẩm dở dang (BTP) | 4 | 0 | 0 | 4 |
 | | 10 — Đối chiếu sổ sách kế toán | 3 | 0 | 0 | 3 |
 | | 11 — Tài sản cố định và máy móc | 2 | 0 | 0 | 2 |
 | | **Cộng giai đoạn sau** | **12** | **0** | **0** | **12** |
-| | **TỔNG TOÀN BỘ** | **43** | **15** | **13** | **15** |
+| | **TỔNG TOÀN BỘ** | **47** | **17** | **14** | **16** |
 
 > **Danh mục mở rộng được:** danh mục không cố định ở con số 44. Mỗi nghiệp vụ cơ quan Hải quan phát hiện mới có thể bổ sung vào danh mục như một mô-đun độc lập, không cần thay đổi phần lõi. Ngưỡng đề xuất có thể điều chỉnh theo thực tế.
 
@@ -446,12 +477,12 @@ Toàn bộ giai đoạn xây dựng và trình diễn gói gọn trong **2 thán
 | 1 | Khởi tạo dự án, dựng kiến trúc nền, tái sử dụng mô-đun từ các hệ thống Tinsu đã vận hành | Bộ khung chạy được trên môi trường nội bộ |
 | 2 | Bộ đọc Excel (Mẫu 15/15a/16 + BCCT) + Tầng dữ liệu 0-1 | Nạp được 1 doanh nghiệp, truy vấn được theo mã, theo kỳ |
 
-### 7.2 Tuần 3-4 — Cài đặt 15 kiểm tra cho trình diễn
+### 7.2 Tuần 3-4 — Cài đặt 17 kiểm tra cho trình diễn
 
 | Tuần | Mục tiêu | Kết quả |
 |---|---|---|
-| 3 | Nhóm 1 (số lượng nhập/xuất) + Nhóm 2 (cân bằng) — 8 kiểm tra đầu | Phát hiện hiện trên màn hình, có chứng cứ truy nguồn về dòng dữ liệu gốc |
-| 4 | Nhóm 3, 4, 5, 6 — 7 kiểm tra còn lại + thuật toán cộng dồn điểm rủi ro | Đủ 15 kiểm tra cho trình diễn |
+| 3 | Nhóm 1 (số lượng nhập/xuất) + Nhóm 2 (cân bằng) — 9 kiểm tra đầu | Phát hiện hiện trên màn hình, có chứng cứ truy nguồn về dòng dữ liệu gốc |
+| 4 | Nhóm 3, 4, 5, 6, 12 — 8 kiểm tra còn lại + thuật toán cộng dồn điểm rủi ro | Đủ 17 kiểm tra cho trình diễn |
 
 ### 7.3 Tuần 5-6 — Dữ liệu trình diễn và giao diện
 
@@ -479,7 +510,7 @@ Toàn bộ giai đoạn xây dựng và trình diễn gói gọn trong **2 thán
 
 Sau khi trình diễn và nhận phản hồi, tuỳ quyết định của cơ quan Hải quan, các bước tiếp theo có thể bao gồm:
 
-- **Triển khai thí điểm tại Chi Cục Hải Quan Khu vực IV** với dữ liệu doanh nghiệp thực tế; cài tiếp 13 kiểm tra còn lại của giai đoạn đầu (§4.1).
+- **Triển khai thí điểm tại Chi Cục Hải Quan Khu vực IV** với dữ liệu doanh nghiệp thực tế; cài tiếp 14 kiểm tra còn lại của giai đoạn đầu (§4.1).
 - **Kích hoạt Nhóm 7 so sánh giữa các doanh nghiệp** khi đã có đủ doanh nghiệp trong danh mục.
 - **Mở rộng sang giai đoạn sau (§4.2)** — Nhóm 8-11 kiểm tra phế liệu, bán thành phẩm, sổ sách kế toán, tài sản cố định. Cần phối hợp với cơ quan Hải quan để yêu cầu doanh nghiệp cung cấp các dữ liệu bổ sung tương ứng.
 - **Tích hợp trực tiếp với VNACCS** thay vì nạp qua tệp Excel xuất ra.
@@ -497,7 +528,7 @@ Các bước này không nằm trong cam kết 2 tháng vì phụ thuộc quyế
 
 ### 8.1 Về phạm vi nghiệp vụ
 
-1. Trong 43 kiểm tra đề xuất (31 giai đoạn đầu + 12 giai đoạn sau), có kiểm tra nào cơ quan Hải quan đặc biệt quan tâm, hoặc có kiểm tra nào quan trọng mà đề án bỏ sót?
+1. Trong 47 kiểm tra đề xuất (35 giai đoạn đầu + 12 giai đoạn sau), có kiểm tra nào cơ quan Hải quan đặc biệt quan tâm, hoặc có kiểm tra nào quan trọng mà đề án bỏ sót?
 2. Trong số 15 kiểm tra MVP cho trình diễn 2 tháng, có kiểm tra nào cơ quan Hải quan muốn ưu tiên hơn?
 3. Báo cáo Excel kiến nghị kiểm tra có cần theo mẫu chính thức nào không?
 4. Hiện tại Chi cục đang dùng công cụ hoặc quy trình nào để chọn doanh nghiệp kiểm tra? Audit-HQ tích hợp hay thay thế?
@@ -569,18 +600,7 @@ Các bước này không nằm trong cam kết 2 tháng vì phụ thuộc quyế
 - QĐ 1357/QĐ-TCHQ ngày 18/05/2021
 - Luật Hải quan 2014, Luật Quản lý Thuế 2019, Luật Sở hữu Trí tuệ
 
-### 9.3 Lịch sử bản
-
-| Phiên bản | Ngày | Tác giả | Thay đổi |
-|---|---|---|---|
-| Bản nháp 1 | 2026-05-13 | Tinsu AI | Bản đầu — chờ vòng phản hồi đầu tiên |
-| Bản nháp 2 | 2026-05-13 | Tinsu AI | Tổng hợp với danh sách 28 kiểm tra; cụ thể hoá đơn vị tiếp nhận (Chi Cục Hải Quan Khu vực IV); làm rõ Excel BCQT có định dạng chuẩn |
-| Bản nháp 3 | 2026-05-13 | Tinsu AI | Việt hoá toàn bộ thuật ngữ kỹ thuật; loại bỏ tiếng Anh trộn lẫn để phù hợp với cán bộ Hải quan |
-| Bản nháp 4 | 2026-05-13 | Tinsu AI | Bỏ tham chiếu trường hợp cụ thể; xưng hô "cơ quan Hải quan" thay cho "Hải quan" trống không; nén lộ trình triển khai về 2 tháng / 8 tuần |
-| Bản nháp 5 | 2026-05-14 | Tinsu AI | Tách danh mục kiểm tra thành 2 giai đoạn (đầu = TKXNK + BCQT; sau = cần dữ liệu bổ sung); thêm "Bộ ba tử huyệt" và §2.6 cộng dồn rủi ro; cập nhật rủi ro 8 kiểm tra; thêm C4.7 phân bổ định mức bất thường; thêm Nhóm 8-11 (phế liệu, BTP, sổ sách kế toán, tài sản cố định / máy móc) — 12 kiểm tra giai đoạn sau; giản lược §5 hạ tầng kỹ thuật |
-| Bản nháp 6 | 2026-05-14 | Tinsu AI | Tách các bảng kiểm tra thành 5 cột (Mã / Vấn đề / Rủi ro / Mức / Trạng thái) cho dễ theo dõi; viết lại rủi ro C2.1 và C2.2 (cũ tối nghĩa); bổ sung rủi ro C1.4 (đang thiếu); chỉnh §2.1, §2.2, §2.5; rút quy mô vận hành chính thức từ 10 năm xuống 5 năm dữ liệu; tăng khoảng cách hiển thị danh sách trong giao diện |
-| Bản nháp 7 | 2026-05-14 | Tinsu AI | Domain-expert review toàn bộ 44 kiểm tra. Sửa: C4.1 thêm điều kiện `tồn_đầu = 0` (tránh báo nhầm khi NVL còn từ kỳ trước); C2.5 gộp vào C2.1 (toán học là một dạng cụ thể của mất cân bằng). Làm rõ: C4.6 chốt dataset là cùng DN qua các kỳ; C5.3 loại trừ TP nội địa và NVL còn trong BTP/TP tồn kho; C10.2, C10.3 thêm ngưỡng dung sai 2-5%; C8.1 chốt nguồn ngưỡng là cơ quan Hải quan định nghĩa danh mục theo ngành; C9.1, C9.3, C11.2 chốt phép tính cụ thể. Tổng kiểm tra: 44 → 43 (merge C2.5). |
 
 ---
 
-> **Đây là bản dự thảo lần 7.** Mọi nội dung là đề xuất sơ bộ và sẽ được điều chỉnh theo phản hồi của cơ quan Hải quan qua các vòng tổng hợp tiếp theo.
+> **Đây là bản dự thảo lần 8.** Mọi nội dung là đề xuất sơ bộ và sẽ được điều chỉnh theo phản hồi của cơ quan Hải quan qua các vòng tổng hợp tiếp theo.

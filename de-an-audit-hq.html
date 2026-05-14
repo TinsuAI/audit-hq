@@ -184,6 +184,8 @@ nguồn, không “hộp đen”</a></li>
 lý</a></li>
 <li><a href="#cộng-dồn-rủi-ro" id="toc-cộng-dồn-rủi-ro">2.6 Cộng dồn rủi
 ro</a></li>
+<li><a href="#phát-hiện-kết-hợp-combination-signatures" id="toc-phát-hiện-kết-hợp-combination-signatures">2.7 Phát hiện kết hợp
+(combination signatures)</a></li>
 </ul></li>
 <li><a href="#phạm-vi-thử-nghiệm-ban-đầu" id="toc-phạm-vi-thử-nghiệm-ban-đầu">3. Phạm vi thử nghiệm ban đầu</a>
 <ul>
@@ -197,14 +199,16 @@ lý</a></li>
 <li><a href="#danh-mục-các-kiểm-tra" id="toc-danh-mục-các-kiểm-tra">4.
 Danh mục các kiểm tra</a>
 <ul>
+<li><a href="#tiền-đề-kỹ-thuật-cho-mọi-kiểm-tra" id="toc-tiền-đề-kỹ-thuật-cho-mọi-kiểm-tra">Tiền đề kỹ thuật cho mọi kiểm
+tra</a></li>
 <li><a href="#loại-hình-tờ-khai-theo-loại-hình-doanh-nghiệp" id="toc-loại-hình-tờ-khai-theo-loại-hình-doanh-nghiệp">4.0 Loại hình tờ
 khai theo loại hình doanh nghiệp</a></li>
 </ul></li>
 <li><a href="#giai-đoạn-đầu-kiểm-tra-trên-tkxnk-và-bcqt" id="toc-giai-đoạn-đầu-kiểm-tra-trên-tkxnk-và-bcqt">4.1 Giai đoạn đầu —
 Kiểm tra trên TKXNK và BCQT</a>
 <ul>
-<li><a href="#nhóm-1-số-lượng-nhập-xuất-6-kiểm-tra" id="toc-nhóm-1-số-lượng-nhập-xuất-6-kiểm-tra">Nhóm 1 — Số lượng nhập /
-xuất (6 kiểm tra)</a></li>
+<li><a href="#nhóm-1-số-lượng-nhập-xuất-7-kiểm-tra" id="toc-nhóm-1-số-lượng-nhập-xuất-7-kiểm-tra">Nhóm 1 — Số lượng nhập /
+xuất (7 kiểm tra)</a></li>
 <li><a href="#nhóm-2-cân-bằng-và-tồn-kho-4-kiểm-tra" id="toc-nhóm-2-cân-bằng-và-tồn-kho-4-kiểm-tra">Nhóm 2 — Cân bằng và tồn
 kho (4 kiểm tra)</a></li>
 <li><a href="#nhóm-3-phân-loại-hàng-hoá-3-kiểm-tra" id="toc-nhóm-3-phân-loại-hàng-hoá-3-kiểm-tra">Nhóm 3 — Phân loại hàng
@@ -217,6 +221,8 @@ Truy nguồn nguyên vật liệu nhập khẩu (3 kiểm tra)</a></li>
 kiểm tra)</a></li>
 <li><a href="#nhóm-7-so-sánh-giữa-các-doanh-nghiệp-3-kiểm-tra" id="toc-nhóm-7-so-sánh-giữa-các-doanh-nghiệp-3-kiểm-tra">Nhóm 7 — So
 sánh giữa các doanh nghiệp (3 kiểm tra)</a></li>
+<li><a href="#nhóm-12-nhà-cung-cấp-3-kiểm-tra" id="toc-nhóm-12-nhà-cung-cấp-3-kiểm-tra">Nhóm 12 — Nhà cung cấp (3 kiểm
+tra)</a></li>
 </ul></li>
 <li><a href="#giai-đoạn-sau-kiểm-tra-mở-rộng-cần-dữ-liệu-bổ-sung" id="toc-giai-đoạn-sau-kiểm-tra-mở-rộng-cần-dữ-liệu-bổ-sung">4.2 Giai
 đoạn sau — Kiểm tra mở rộng, cần dữ liệu bổ sung</a>
@@ -255,8 +261,8 @@ trình triển khai</a>
 <ul>
 <li><a href="#tuần-1-2-khởi-tạo-và-nền-tảng-dữ-liệu" id="toc-tuần-1-2-khởi-tạo-và-nền-tảng-dữ-liệu">7.1 Tuần 1-2 — Khởi tạo
 và nền tảng dữ liệu</a></li>
-<li><a href="#tuần-3-4-cài-đặt-15-kiểm-tra-cho-trình-diễn" id="toc-tuần-3-4-cài-đặt-15-kiểm-tra-cho-trình-diễn">7.2 Tuần 3-4 — Cài
-đặt 15 kiểm tra cho trình diễn</a></li>
+<li><a href="#tuần-3-4-cài-đặt-17-kiểm-tra-cho-trình-diễn" id="toc-tuần-3-4-cài-đặt-17-kiểm-tra-cho-trình-diễn">7.2 Tuần 3-4 — Cài
+đặt 17 kiểm tra cho trình diễn</a></li>
 <li><a href="#tuần-5-6-dữ-liệu-trình-diễn-và-giao-diện" id="toc-tuần-5-6-dữ-liệu-trình-diễn-và-giao-diện">7.3 Tuần 5-6 — Dữ liệu
 trình diễn và giao diện</a></li>
 <li><a href="#tuần-7-8-tổng-duyệt-và-bàn-giao" id="toc-tuần-7-8-tổng-duyệt-và-bàn-giao">7.4 Tuần 7-8 — Tổng duyệt và
@@ -282,7 +288,6 @@ phạm vi nghiệp vụ</a></li>
 <li><a href="#giải-thích-thuật-ngữ" id="toc-giải-thích-thuật-ngữ">9.1
 Giải thích thuật ngữ</a></li>
 <li><a href="#tham-chiếu" id="toc-tham-chiếu">9.2 Tham chiếu</a></li>
-<li><a href="#lịch-sử-bản" id="toc-lịch-sử-bản">9.3 Lịch sử bản</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -292,7 +297,7 @@ Giải thích thuật ngữ</a></li>
 Báo cáo Quyết toán Hải quan (BCQT) và Tờ khai Xuất Nhập khẩu
 (TKXNK)</strong></p>
 <blockquote>
-<p><strong>Bản dự thảo lần 7</strong> — 2026-05-14 Tài liệu sẽ trải qua
+<p><strong>Bản dự thảo lần 8</strong> — 2026-05-14 Tài liệu sẽ trải qua
 nhiều vòng rà soát, tổng hợp ý kiến từ phía Hải quan. Mọi nội dung dưới
 đây là đề xuất sơ bộ.</p>
 <p>Soạn thảo: Tinsu AI × Trọng Tín <strong>Đơn vị tiếp nhận:</strong>
@@ -417,6 +422,27 @@ nghiệp</li>
 <li><strong>Phát hiện Nghiêm trọng riêng lẻ</strong> — sự kiện cần xử lý
 ngay không phụ thuộc tổng điểm</li>
 </ul>
+<h3 id="phát-hiện-kết-hợp-combination-signatures">2.7 Phát hiện kết hợp
+(combination signatures)</h3>
+<p>Ngoài cộng dồn điểm rủi ro, hệ thống phát hiện các <strong>mẫu kết
+hợp</strong> — nhiều kiểm tra cùng kích hoạt theo một bộ ba điển hình
+của một kiểu sai phạm. Ví dụ:</p>
+<ul>
+<li><strong>Bộ ba “nhập nội địa ẩn”:</strong> C1.3 (M15 có nhưng không
+có tờ khai) + C5.1 (xuất sản xuất không có nhập) + C8.2 (phế liệu bán
+không có A42) — pattern doanh nghiệp đưa nguyên vật liệu nội địa vào
+phạm vi miễn thuế.</li>
+<li><strong>Bộ ba “định mức ảo”:</strong> C4.3 (Σ tiêu hao M16 vượt M15)
++ C4.7 (phân bổ định mức bất thường) + C5.3 (tỷ lệ truy nguồn thấp) —
+pattern thổi phồng định mức để hợp thức hoá nguyên vật liệu dư.</li>
+<li><strong>Bộ ba “tẩu tán trước giải thể”:</strong> C6.4 (nhập tăng
+mạnh xuất không tăng) + C2.3 (tồn cuối âm) + C11.1 (máy móc miễn thuế
+không khớp danh mục) — pattern doanh nghiệp tranh thủ nhập miễn thuế rồi
+tẩu tán trước khi đóng MST.</li>
+</ul>
+<p>Cơ quan Hải quan có thể yêu cầu hệ thống định nghĩa thêm các bộ ba
+khác theo kinh nghiệm nghiệp vụ. Khi một bộ ba cùng kích hoạt, hệ thống
+nâng mức cảnh báo tổng và đánh dấu đặc biệt trên bảng tổng quan.</p>
 <hr />
 <h2 id="phạm-vi-thử-nghiệm-ban-đầu">3. Phạm vi thử nghiệm ban đầu</h2>
 <h3 id="dữ-liệu-đầu-vào-chỉ-dùng-tkxnk-và-bcqt-đã-nộp">3.1 Dữ liệu đầu
@@ -527,8 +553,8 @@ theo dữ liệu cần dùng:</p>
 <tr class="odd">
 <td><strong>Đầu</strong> (§4.1)</td>
 <td>TKXNK + BCQT đã nộp</td>
-<td>1, 2, 3, 4, 5, 6, 7</td>
-<td>31 kiểm tra</td>
+<td>1, 2, 3, 4, 5, 6, 7, 12</td>
+<td>35 kiểm tra</td>
 </tr>
 <tr class="even">
 <td><strong>Sau</strong> (§4.2)</td>
@@ -539,11 +565,30 @@ theo dữ liệu cần dùng:</p>
 </tbody>
 </table>
 <p><strong>Trạng thái</strong> trong giai đoạn đầu: - ✅ Xây dựng và
-trình diễn trong 2 tháng (15 kiểm tra) - 🚧 Bổ sung trong giai đoạn thí
-điểm (13 kiểm tra) - ⏳ Kích hoạt khi đã có đủ doanh nghiệp trong danh
-mục (3 kiểm tra Nhóm 7)</p>
+trình diễn trong 2 tháng (17 kiểm tra) - 🚧 Bổ sung trong giai đoạn thí
+điểm (14 kiểm tra) - ⏳ Kích hoạt khi đã có đủ doanh nghiệp / danh sách
+bổ sung (4 kiểm tra: Nhóm 7 và C12.3)</p>
 <p><strong>Mức độ:</strong> 🔴 Nghiêm trọng · 🟡 Cảnh báo · 🔵 Thông
 tin</p>
+<h3 id="tiền-đề-kỹ-thuật-cho-mọi-kiểm-tra">Tiền đề kỹ thuật cho mọi kiểm
+tra</h3>
+<p>Trước khi áp dụng các kiểm tra dưới đây, hệ thống tự xử lý các bước
+tiền đề:</p>
+<ul>
+<li><strong>Định nghĩa “kỳ”:</strong> kỳ mặc định là năm BCQT theo TT
+39/2018 (từ 01/01 đến 31/12 năm tài chính). Hệ thống có thể cấu hình kỳ
+khác (quý / 6 tháng) khi cơ quan Hải quan yêu cầu.</li>
+<li><strong>Lọc tờ khai bị huỷ:</strong> chỉ tính tờ khai trạng thái
+“thông quan”, loại trừ tờ khai bị huỷ và tờ khai chỉ là phiên bản sửa
+đổi (kế thừa số tờ khai gốc) khỏi đối chiếu với Mẫu 15/15a/16.</li>
+<li><strong>Ánh xạ mã hàng:</strong> mã NVL/sản phẩm nội bộ doanh nghiệp
+có thể khác mã trên tờ khai BCCT. Hệ thống dùng quy tắc cứng kết hợp AI
+gợi ý để ánh xạ; cán bộ Hải quan xác nhận lần đầu, sau đó hệ thống lưu
+lại để dùng cho các kỳ tiếp theo.</li>
+<li><strong>Đơn vị tiền tệ:</strong> trị giá BCCT có thể bằng USD; khi
+đối chiếu với sổ sách kế toán (Nhóm 10) hệ thống quy đổi theo tỷ giá hải
+quan của ngày thông quan.</li>
+</ul>
 <h3 id="loại-hình-tờ-khai-theo-loại-hình-doanh-nghiệp">4.0 Loại hình tờ
 khai theo loại hình doanh nghiệp</h3>
 <table>
@@ -589,8 +634,8 @@ Kiểm tra trên TKXNK và BCQT</h2>
 có sẵn (TKXNK từ VNACCS + Mẫu 15/15a/16 doanh nghiệp đã nộp). Không yêu
 cầu doanh nghiệp cung cấp thêm dữ liệu nào.</p>
 </blockquote>
-<h3 id="nhóm-1-số-lượng-nhập-xuất-6-kiểm-tra">Nhóm 1 — Số lượng nhập /
-xuất (6 kiểm tra)</h3>
+<h3 id="nhóm-1-số-lượng-nhập-xuất-7-kiểm-tra">Nhóm 1 — Số lượng nhập /
+xuất (7 kiểm tra)</h3>
 <table>
 <colgroup>
 <col style="width: 20%" />
@@ -664,6 +709,17 @@ trong M15 nhưng không có B13 tương ứng.</td>
 <td>Hàng miễn thuế chuyển nội địa không khai báo — vi phạm điều kiện
 miễn thuế.</td>
 <td>🔴</td>
+<td>✅</td>
+</tr>
+<tr class="odd">
+<td><strong>C1.7</strong></td>
+<td>Tỷ lệ chuyển mục đích sử dụng trên tổng nhập trong kỳ vượt ngưỡng —
+<code>chuyển_mục_đích_sử_dụng</code> / <code>nhập_trong_kỳ</code> cao
+bất thường. Ngưỡng: &gt;10% Cảnh báo · &gt;25% Nghiêm trọng.</td>
+<td>Doanh nghiệp lợi dụng kẽ hở miễn thuế — nhập nguyên vật liệu miễn
+thuế rồi chuyển nội địa với tỷ lệ cao, biến đặc quyền miễn thuế thành
+kênh nhập hàng tiêu thụ nội địa.</td>
+<td>🟡🔴</td>
 <td>✅</td>
 </tr>
 </tbody>
@@ -1074,6 +1130,58 @@ vượt xa giá trị trung vị của ngành.</td>
 </tr>
 </tbody>
 </table>
+<h3 id="nhóm-12-nhà-cung-cấp-3-kiểm-tra">Nhóm 12 — Nhà cung cấp (3 kiểm
+tra)</h3>
+<table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Mã</th>
+<th>Vấn đề</th>
+<th>Rủi ro</th>
+<th>Mức</th>
+<th>Trạng thái</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>C12.1</strong></td>
+<td>Nhà cung cấp mới xuất hiện đột ngột chiếm tỷ trọng lớn — nhà cung
+cấp chưa từng xuất hiện trong các kỳ trước nhưng kỳ này chiếm &gt;30%
+kim ngạch nhập của doanh nghiệp.</td>
+<td>Nhà cung cấp giả lập (công ty ma), hoặc thay đổi nhà cung cấp để né
+kiểm soát chuyển giá / kiểm soát xuất xứ.</td>
+<td>🟡</td>
+<td>🚧</td>
+</tr>
+<tr class="even">
+<td><strong>C12.2</strong></td>
+<td>Mã số thuế / thông tin nhận diện nhà cung cấp không hợp lệ — định
+dạng MST sai, nhà cung cấp trên tờ khai không khớp dạng định danh quốc
+tế của nước xuất xứ.</td>
+<td>Nhà cung cấp không có thật, hoặc khai mượn danh nhà cung cấp
+khác.</td>
+<td>🔴</td>
+<td>✅</td>
+</tr>
+<tr class="odd">
+<td><strong>C12.3</strong></td>
+<td>Nhà cung cấp nằm trong danh sách rủi ro của cơ quan Hải quan — đối
+chiếu với danh sách nhà cung cấp nghi vấn (chuyển giá, gian lận xuất xứ,
+đã bị xử phạt trước đây).</td>
+<td>Doanh nghiệp tiếp tục giao dịch với nhà cung cấp đã được cơ quan Hải
+quan đánh dấu rủi ro.</td>
+<td>🟡🔴</td>
+<td>⏳</td>
+</tr>
+</tbody>
+</table>
 <hr />
 <h2 id="giai-đoạn-sau-kiểm-tra-mở-rộng-cần-dữ-liệu-bổ-sung">4.2 Giai
 đoạn sau — Kiểm tra mở rộng, cần dữ liệu bổ sung</h2>
@@ -1350,8 +1458,8 @@ thực tế khi nhập) hoặc để hợp thức hoá lượng xuất khẩu v�
 <tr class="odd">
 <td><strong>Đầu</strong> (TKXNK + BCQT)</td>
 <td>1 — Số lượng nhập/xuất</td>
+<td style="text-align: right;">7</td>
 <td style="text-align: right;">6</td>
-<td style="text-align: right;">5</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">0</td>
 </tr>
@@ -1405,13 +1513,21 @@ thực tế khi nhập) hoặc để hợp thức hoá lượng xuất khẩu v�
 </tr>
 <tr class="even">
 <td></td>
-<td><strong>Cộng giai đoạn đầu</strong></td>
-<td style="text-align: right;"><strong>31</strong></td>
-<td style="text-align: right;"><strong>15</strong></td>
-<td style="text-align: right;"><strong>13</strong></td>
-<td style="text-align: right;"><strong>3</strong></td>
+<td>12 — Nhà cung cấp</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
 </tr>
 <tr class="odd">
+<td></td>
+<td><strong>Cộng giai đoạn đầu</strong></td>
+<td style="text-align: right;"><strong>35</strong></td>
+<td style="text-align: right;"><strong>17</strong></td>
+<td style="text-align: right;"><strong>14</strong></td>
+<td style="text-align: right;"><strong>4</strong></td>
+</tr>
+<tr class="even">
 <td><strong>Sau</strong> (cần dữ liệu bổ sung)</td>
 <td>8 — Phế liệu / phế phẩm</td>
 <td style="text-align: right;">3</td>
@@ -1419,7 +1535,7 @@ thực tế khi nhập) hoặc để hợp thức hoá lượng xuất khẩu v�
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">3</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td>9 — Sản phẩm dở dang (BTP)</td>
 <td style="text-align: right;">4</td>
@@ -1427,7 +1543,7 @@ thực tế khi nhập) hoặc để hợp thức hoá lượng xuất khẩu v�
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">4</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td>10 — Đối chiếu sổ sách kế toán</td>
 <td style="text-align: right;">3</td>
@@ -1435,7 +1551,7 @@ thực tế khi nhập) hoặc để hợp thức hoá lượng xuất khẩu v�
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">3</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td>11 — Tài sản cố định và máy móc</td>
 <td style="text-align: right;">2</td>
@@ -1443,7 +1559,7 @@ thực tế khi nhập) hoặc để hợp thức hoá lượng xuất khẩu v�
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">2</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><strong>Cộng giai đoạn sau</strong></td>
 <td style="text-align: right;"><strong>12</strong></td>
@@ -1451,13 +1567,13 @@ thực tế khi nhập) hoặc để hợp thức hoá lượng xuất khẩu v�
 <td style="text-align: right;"><strong>0</strong></td>
 <td style="text-align: right;"><strong>12</strong></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><strong>TỔNG TOÀN BỘ</strong></td>
-<td style="text-align: right;"><strong>43</strong></td>
-<td style="text-align: right;"><strong>15</strong></td>
-<td style="text-align: right;"><strong>13</strong></td>
-<td style="text-align: right;"><strong>15</strong></td>
+<td style="text-align: right;"><strong>47</strong></td>
+<td style="text-align: right;"><strong>17</strong></td>
+<td style="text-align: right;"><strong>14</strong></td>
+<td style="text-align: right;"><strong>16</strong></td>
 </tr>
 </tbody>
 </table>
@@ -1748,8 +1864,8 @@ thống Tinsu đã vận hành</td>
 </tr>
 </tbody>
 </table>
-<h3 id="tuần-3-4-cài-đặt-15-kiểm-tra-cho-trình-diễn">7.2 Tuần 3-4 — Cài
-đặt 15 kiểm tra cho trình diễn</h3>
+<h3 id="tuần-3-4-cài-đặt-17-kiểm-tra-cho-trình-diễn">7.2 Tuần 3-4 — Cài
+đặt 17 kiểm tra cho trình diễn</h3>
 <table>
 <colgroup>
 <col style="width: 33%" />
@@ -1766,16 +1882,16 @@ thống Tinsu đã vận hành</td>
 <tbody>
 <tr class="odd">
 <td>3</td>
-<td>Nhóm 1 (số lượng nhập/xuất) + Nhóm 2 (cân bằng) — 8 kiểm tra
+<td>Nhóm 1 (số lượng nhập/xuất) + Nhóm 2 (cân bằng) — 9 kiểm tra
 đầu</td>
 <td>Phát hiện hiện trên màn hình, có chứng cứ truy nguồn về dòng dữ liệu
 gốc</td>
 </tr>
 <tr class="even">
 <td>4</td>
-<td>Nhóm 3, 4, 5, 6 — 7 kiểm tra còn lại + thuật toán cộng dồn điểm rủi
-ro</td>
-<td>Đủ 15 kiểm tra cho trình diễn</td>
+<td>Nhóm 3, 4, 5, 6, 12 — 8 kiểm tra còn lại + thuật toán cộng dồn điểm
+rủi ro</td>
+<td>Đủ 17 kiểm tra cho trình diễn</td>
 </tr>
 </tbody>
 </table>
@@ -1874,7 +1990,7 @@ diễn</td>
 quan, các bước tiếp theo có thể bao gồm:</p>
 <ul>
 <li><strong>Triển khai thí điểm tại Chi Cục Hải Quan Khu vực IV</strong>
-với dữ liệu doanh nghiệp thực tế; cài tiếp 13 kiểm tra còn lại của giai
+với dữ liệu doanh nghiệp thực tế; cài tiếp 14 kiểm tra còn lại của giai
 đoạn đầu (§4.1).</li>
 <li><strong>Kích hoạt Nhóm 7 so sánh giữa các doanh nghiệp</strong> khi
 đã có đủ doanh nghiệp trong danh mục.</li>
@@ -1902,7 +2018,7 @@ quan</h2>
 thiện đề án và bắt đầu xây dựng.</p>
 <h3 id="về-phạm-vi-nghiệp-vụ">8.1 Về phạm vi nghiệp vụ</h3>
 <ol type="1">
-<li>Trong 43 kiểm tra đề xuất (31 giai đoạn đầu + 12 giai đoạn sau), có
+<li>Trong 47 kiểm tra đề xuất (35 giai đoạn đầu + 12 giai đoạn sau), có
 kiểm tra nào cơ quan Hải quan đặc biệt quan tâm, hoặc có kiểm tra nào
 quan trọng mà đề án bỏ sót?</li>
 <li>Trong số 15 kiểm tra MVP cho trình diễn 2 tháng, có kiểm tra nào cơ
@@ -2079,88 +2195,9 @@ quan, Tinsu, hay chia sẻ chung?</li>
 <li>QĐ 1357/QĐ-TCHQ ngày 18/05/2021</li>
 <li>Luật Hải quan 2014, Luật Quản lý Thuế 2019, Luật Sở hữu Trí tuệ</li>
 </ul>
-<h3 id="lịch-sử-bản">9.3 Lịch sử bản</h3>
-<table>
-<colgroup>
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Phiên bản</th>
-<th>Ngày</th>
-<th>Tác giả</th>
-<th>Thay đổi</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Bản nháp 1</td>
-<td>2026-05-13</td>
-<td>Tinsu AI</td>
-<td>Bản đầu — chờ vòng phản hồi đầu tiên</td>
-</tr>
-<tr class="even">
-<td>Bản nháp 2</td>
-<td>2026-05-13</td>
-<td>Tinsu AI</td>
-<td>Tổng hợp với danh sách 28 kiểm tra; cụ thể hoá đơn vị tiếp nhận (Chi
-Cục Hải Quan Khu vực IV); làm rõ Excel BCQT có định dạng chuẩn</td>
-</tr>
-<tr class="odd">
-<td>Bản nháp 3</td>
-<td>2026-05-13</td>
-<td>Tinsu AI</td>
-<td>Việt hoá toàn bộ thuật ngữ kỹ thuật; loại bỏ tiếng Anh trộn lẫn để
-phù hợp với cán bộ Hải quan</td>
-</tr>
-<tr class="even">
-<td>Bản nháp 4</td>
-<td>2026-05-13</td>
-<td>Tinsu AI</td>
-<td>Bỏ tham chiếu trường hợp cụ thể; xưng hô “cơ quan Hải quan” thay cho
-“Hải quan” trống không; nén lộ trình triển khai về 2 tháng / 8 tuần</td>
-</tr>
-<tr class="odd">
-<td>Bản nháp 5</td>
-<td>2026-05-14</td>
-<td>Tinsu AI</td>
-<td>Tách danh mục kiểm tra thành 2 giai đoạn (đầu = TKXNK + BCQT; sau =
-cần dữ liệu bổ sung); thêm “Bộ ba tử huyệt” và §2.6 cộng dồn rủi ro; cập
-nhật rủi ro 8 kiểm tra; thêm C4.7 phân bổ định mức bất thường; thêm Nhóm
-8-11 (phế liệu, BTP, sổ sách kế toán, tài sản cố định / máy móc) — 12
-kiểm tra giai đoạn sau; giản lược §5 hạ tầng kỹ thuật</td>
-</tr>
-<tr class="even">
-<td>Bản nháp 6</td>
-<td>2026-05-14</td>
-<td>Tinsu AI</td>
-<td>Tách các bảng kiểm tra thành 5 cột (Mã / Vấn đề / Rủi ro / Mức /
-Trạng thái) cho dễ theo dõi; viết lại rủi ro C2.1 và C2.2 (cũ tối
-nghĩa); bổ sung rủi ro C1.4 (đang thiếu); chỉnh §2.1, §2.2, §2.5; rút
-quy mô vận hành chính thức từ 10 năm xuống 5 năm dữ liệu; tăng khoảng
-cách hiển thị danh sách trong giao diện</td>
-</tr>
-<tr class="odd">
-<td>Bản nháp 7</td>
-<td>2026-05-14</td>
-<td>Tinsu AI</td>
-<td>Domain-expert review toàn bộ 44 kiểm tra. Sửa: C4.1 thêm điều kiện
-<code>tồn_đầu = 0</code> (tránh báo nhầm khi NVL còn từ kỳ trước); C2.5
-gộp vào C2.1 (toán học là một dạng cụ thể của mất cân bằng). Làm rõ:
-C4.6 chốt dataset là cùng DN qua các kỳ; C5.3 loại trừ TP nội địa và NVL
-còn trong BTP/TP tồn kho; C10.2, C10.3 thêm ngưỡng dung sai 2-5%; C8.1
-chốt nguồn ngưỡng là cơ quan Hải quan định nghĩa danh mục theo ngành;
-C9.1, C9.3, C11.2 chốt phép tính cụ thể. Tổng kiểm tra: 44 → 43 (merge
-C2.5).</td>
-</tr>
-</tbody>
-</table>
 <hr />
 <blockquote>
-<p><strong>Đây là bản dự thảo lần 7.</strong> Mọi nội dung là đề xuất sơ
+<p><strong>Đây là bản dự thảo lần 8.</strong> Mọi nội dung là đề xuất sơ
 bộ và sẽ được điều chỉnh theo phản hồi của cơ quan Hải quan qua các vòng
 tổng hợp tiếp theo.</p>
 </blockquote>
