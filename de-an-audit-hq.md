@@ -392,7 +392,7 @@ Tầng 3 — Tổng hợp rủi ro:
 
 Hệ thống chia rõ công việc giữa **quy tắc xác định** và **trí tuệ nhân tạo (AI)**:
 
-- Phần **phát hiện sai phạm** chạy theo quy tắc xác định — vì mỗi phát hiện phải truy nguồn được về dòng dữ liệu cụ thể, có cơ sở pháp lý, và bảo vệ được trước cấp trên cũng như khi doanh nghiệp khiếu nại. Đây là phần không thể giao cho AI nếu muốn defensible.
+- Phần **phát hiện sai phạm** chạy theo quy tắc xác định — vì mỗi phát hiện phải truy nguồn được về dòng dữ liệu cụ thể, có cơ sở pháp lý, và bảo vệ được trước cấp trên cũng như khi doanh nghiệp khiếu nại.
 - Phần **xử lý dữ liệu thực tế lộn xộn** giao cho AI — đó là việc con người không thể làm thủ công ở quy mô hàng chục nghìn dòng tờ khai một năm. Quy tắc cứng không bao quát được vì dữ liệu doanh nghiệp khai có vô số biến thể về tên hàng, đơn vị, mã hàng.
 
 | Công việc AI đảm nhiệm | Khi nào dùng | Kết quả |
