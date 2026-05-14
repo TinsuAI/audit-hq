@@ -160,8 +160,8 @@ Cho toàn bộ danh sách doanh nghiệp:
 | **Giai đoạn II** (§4.2) | Cần dữ liệu bổ sung từ doanh nghiệp | 8, 9, 10, 11 | 13 kiểm tra |
 
 **Trạng thái** trong Giai đoạn I:
-- ✅ Xây dựng và demo trong 2 tháng (17 kiểm tra)
-- 🚧 Bổ sung trong giai đoạn thí điểm (14 kiểm tra)
+- ✅ Xây dựng và demo trong 2 tháng (16 kiểm tra)
+- 🚧 Bổ sung trong giai đoạn thí điểm (15 kiểm tra)
 - ⏳ Kích hoạt khi đã có đủ doanh nghiệp / danh sách bổ sung (4 kiểm tra: Nhóm 7 và C12.3)
 
 **Mức độ:** 🔴 Nghiêm trọng · 🟡 Cảnh báo · 🔵 Thông tin
@@ -262,10 +262,12 @@ Trước khi áp dụng các kiểm tra dưới đây, hệ thống tự xử l�
 
 ### Nhóm 12 — Nhà cung cấp (3 kiểm tra)
 
+*Yêu cầu dữ liệu bổ sung: trường nhà cung cấp trong BCCT đã được chuẩn hoá (cùng một nhà cung cấp khai cùng dạng tên); bảng tham chiếu định dạng mã số thuế các quốc gia xuất xứ; danh sách nhà cung cấp rủi ro do cơ quan Hải quan cung cấp.*
+
 | Mã | Vấn đề | Rủi ro | Mức | Trạng thái |
 |---|---|---|---|---|
 | **C12.1** | Nhà cung cấp mới xuất hiện đột ngột chiếm tỷ trọng lớn — nhà cung cấp chưa từng xuất hiện trong các kỳ trước nhưng kỳ này chiếm >30% kim ngạch nhập của doanh nghiệp. | Nhà cung cấp giả lập (công ty ma), hoặc thay đổi nhà cung cấp để né kiểm soát chuyển giá / kiểm soát xuất xứ. | 🟡 | 🚧 |
-| **C12.2** | Mã số thuế / thông tin nhận diện nhà cung cấp không hợp lệ — định dạng MST sai, nhà cung cấp trên tờ khai không khớp dạng định danh quốc tế của nước xuất xứ. | Nhà cung cấp không có thật, hoặc khai mượn danh nhà cung cấp khác. | 🔴 | ✅ |
+| **C12.2** | Mã số thuế / thông tin nhận diện nhà cung cấp không hợp lệ — định dạng MST sai, nhà cung cấp trên tờ khai không khớp dạng định danh quốc tế của nước xuất xứ. | Nhà cung cấp không có thật, hoặc khai mượn danh nhà cung cấp khác. | 🔴 | 🚧 |
 | **C12.3** | Nhà cung cấp nằm trong danh sách rủi ro của cơ quan Hải quan — đối chiếu với danh sách nhà cung cấp nghi vấn (chuyển giá, gian lận xuất xứ, đã bị xử phạt trước đây). | Doanh nghiệp tiếp tục giao dịch với nhà cung cấp đã được cơ quan Hải quan đánh dấu rủi ro. | 🟡🔴 | ⏳ |
 
 
@@ -333,14 +335,14 @@ Trước khi áp dụng các kiểm tra dưới đây, hệ thống tự xử l�
 | | 5 — Truy nguồn NVL | 3 | 1 | 2 | 0 |
 | | 6 — Liên kỳ | 5 | 1 | 4 | 0 |
 | | 7 — So sánh giữa các DN | 3 | 0 | 0 | 3 |
-| | 12 — Nhà cung cấp | 3 | 1 | 1 | 1 |
-| | **Cộng Giai đoạn I** | **35** | **17** | **14** | **4** |
+| | 12 — Nhà cung cấp | 3 | 0 | 2 | 1 |
+| | **Cộng Giai đoạn I** | **35** | **16** | **15** | **4** |
 | **Giai đoạn II** (cần dữ liệu bổ sung) | 8 — Phế liệu / phế phẩm | 3 | 0 | 0 | 3 |
 | | 9 — Sản phẩm dở dang (BTP) | 4 | 0 | 0 | 4 |
 | | 10 — Đối chiếu sổ sách kế toán | 3 | 0 | 0 | 3 |
 | | 11 — TSCĐ, máy móc và năng lực vận hành | 3 | 0 | 0 | 3 |
 | | **Cộng Giai đoạn II** | **13** | **0** | **0** | **13** |
-| | **TỔNG TOÀN BỘ** | **48** | **17** | **14** | **17** |
+| | **TỔNG TOÀN BỘ** | **48** | **16** | **15** | **17** |
 
 > **Danh mục mở rộng được:** danh mục không cố định ở con số 44. Mỗi nghiệp vụ cơ quan Hải quan phát hiện mới có thể bổ sung vào danh mục như một mô-đun độc lập, không cần thay đổi phần lõi. Ngưỡng đề xuất có thể điều chỉnh theo thực tế.
 
@@ -487,12 +489,12 @@ Toàn bộ giai đoạn xây dựng và demo gói gọn trong **10 tuần** tín
 | 3 | Nhóm 1 — Số lượng nhập / xuất (6 kiểm tra trong giai đoạn này) | Phát hiện hiện trên màn hình, có chứng cứ truy nguồn |
 | 4 | Nhóm 2 — Cân bằng và tồn kho (3 kiểm tra) + cơ chế đánh dấu thao tác | 9 kiểm tra đầu hoàn chỉnh |
 
-### 7.3 Tuần 5-6 — Cài đặt Nhóm 3, 4, 5, 6, 12 (8 kiểm tra còn lại) và tính điểm rủi ro
+### 7.3 Tuần 5-6 — Cài đặt Nhóm 3, 4, 5, 6 (7 kiểm tra còn lại) và tính điểm rủi ro
 
 | Tuần | Mục tiêu | Kết quả |
 |---|---|---|
 | 5 | Nhóm 3 (phân loại) + Nhóm 4 (định mức MVP) + Nhóm 5 (truy nguồn MVP) + Nhóm 6 (liên kỳ MVP) | 6 kiểm tra cài đặt xong |
-| 6 | Nhóm 12 (nhà cung cấp MVP) + thuật toán cộng dồn điểm rủi ro + phát hiện kết hợp | Đủ 17 kiểm tra MVP cho demo |
+| 6 | Thuật toán cộng dồn điểm rủi ro + phát hiện kết hợp + dọn dẹp các kiểm tra | Đủ 16 kiểm tra MVP cho demo |
 
 ### 7.4 Tuần 7-8 — Dữ liệu demo
 
@@ -520,7 +522,7 @@ Toàn bộ giai đoạn xây dựng và demo gói gọn trong **10 tuần** tín
 
 Sau khi demo và nhận phản hồi, tuỳ quyết định của cơ quan Hải quan, các bước tiếp theo có thể bao gồm:
 
-- **Triển khai thí điểm tại Chi Cục Hải Quan Khu vực IV** với dữ liệu doanh nghiệp thực tế; cài tiếp 14 kiểm tra còn lại của Giai đoạn I (§4.1).
+- **Triển khai thí điểm tại Chi Cục Hải Quan Khu vực IV** với dữ liệu doanh nghiệp thực tế; cài tiếp 15 kiểm tra còn lại của Giai đoạn I (§4.1).
 - **Kích hoạt Nhóm 7 so sánh giữa các doanh nghiệp** khi đã có đủ doanh nghiệp trong danh mục.
 - **Mở rộng sang Giai đoạn II (§4.2)** — Nhóm 8-11 kiểm tra phế liệu, bán thành phẩm, sổ sách kế toán, tài sản cố định. Cần phối hợp với cơ quan Hải quan để yêu cầu doanh nghiệp cung cấp các dữ liệu bổ sung tương ứng.
 - **Tích hợp trực tiếp với VNACCS** thay vì nạp qua tệp Excel xuất ra.
