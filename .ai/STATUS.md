@@ -1,6 +1,6 @@
 # STATUS — Audit-HQ
 
-> **Trạng thái hiện tại:** Bản nháp 10 (`<!-- internal-version: 10 -->`) — đã rà soát qua critic review, sẵn sàng gửi vòng 1 cho Trọng Tín → Hải Quan Khu vực IV. Identity commit đã được fix sang `Vương <thephams.sg@gmail.com>`.
+> **Trạng thái hiện tại:** HQ ĐÃ DUYỆT NGUYÊN TẮC ĐỀ ÁN (2026-05-20). Trọng Tín gửi dữ liệu nền (622 file, 6 DN thực, 2015-2025). Phương án demo đã draft, sẵn sàng khởi tạo repo MVP riêng (`audit-hq-mvp`). Đề án v10 vẫn là source of truth cho catalog 49 kiểm tra.
 
 ## Current State
 
@@ -16,15 +16,17 @@ Lộ trình triển khai 10 tuần, đã chốt (§7).
 
 ## Recent Changes
 
+- **2026-05-21** — HQ duyệt nguyên tắc đề án. Trọng Tín gửi dữ liệu nền (`TONG HOP BCQT-20260520T161442Z-3-001.zip`, 622 file, 497MB, 6 DN). Đã sắp xếp vào `data/raw/<DN>/<năm>/<loại>/` (gitignored). Đã viết `data/README.md`, mapping dữ liệu ↔ catalog (`.ai/sessions/2026-05-21-data-mapping.md`), và phương án demo MVP (`.ai/sessions/2026-05-21-demo-plan.md`).
 - **2026-05-20** — Fix git commit identity: rewrite toàn bộ 22 commits từ `dennis.anh@gmail.com` (anh trai Vương) → `thephams.sg@gmail.com`. Force-push remote `TinsuAI/audit-hq` (HEAD → `c4f1b1e`). Đặt global git config + lưu memory để session sau không nhầm lại.
 - **2026-05-13 → 14** — Build đề án từ scratch đến bản nháp 10 (10 vòng iterate). Chi tiết xem `.ai/sessions/2026-05-14-audit-hq-proposal-build.md`.
 
 ## Next Steps
 
-1. **Trọng Tín review nội bộ** bản v10 → nếu OK gửi Chi Cục Hải Quan Khu vực IV qua kênh chính thức.
-2. **Vòng feedback đầu từ Hải Quan** → bump v11 với điều chỉnh thực tế nghiệp vụ.
-3. **Khi HQ approve nguyên tắc POC**: bắt đầu Tuần 1-2 lộ trình §7 (khởi tạo dự án + bộ đọc Excel). Sẽ làm trong repo riêng (`audit-hq` này chỉ là repo đề án).
-4. **Trọng Tín chuẩn bị dữ liệu nền** (giả lập 5 DN × 3-4 năm, xoá danh tính từ dữ liệu thực) — chưa có lịch cụ thể.
+1. **User duyệt phương án demo** (`.ai/sessions/2026-05-21-demo-plan.md` mục 6 — open questions).
+2. **Tạo repo `TinsuAI/audit-hq-mvp`** (private, sgnjfk có access).
+3. **Tuần 1 lộ trình §7**: khởi tạo repo, setup FastAPI + SQLite + Docker compose, reuse base từ `BCQT-System`.
+4. **Tuần 2**: viết adapters đọc M15/M15a/M16/BCCT trên DN HONG_AN 2024 (dữ liệu phong phú nhất).
+5. **Phản hồi từ HQ về câu hỏi mở** (§8 đề án) — nếu HQ trả lời thêm trước khi MVP xong, bump v11.
 
 ## Notes for Next AI Session
 
@@ -67,7 +69,13 @@ Lộ trình triển khai 10 tuần, đã chốt (§7).
 
 ## Blockers
 
-Không có blocker hard nào ở phía Tinsu/dev. Chờ:
-- Phản hồi Trọng Tín về v10
-- Trọng Tín đặt lịch gửi Chi Cục Hải Quan Khu vực IV
-- Sponsor HQ cụ thể (cá nhân nào ở Chi Cục) — vẫn chưa xác định
+Không có blocker hard. Chờ:
+- User duyệt phương án demo + chốt tên repo MVP.
+- HQ trả lời câu hỏi mở §8 đề án (nếu có) — không chặn MVP, chỉ ảnh hưởng nội dung catalog.
+
+## Dữ liệu nền
+
+- Vị trí: `data/raw/` (gitignored), 622 file / 497MB.
+- 6 DN: HONG_AN (8 năm 2018-2025), HIEP_QUANG (11 năm 2015-2025), DO_THANH (2023-2025), HONG_PHUC (2024-2025), GROWATT (2023-2025), KIM_LONG (2024-2025).
+- HONG_AN và HIEP_QUANG là 2 DN có dữ liệu đầy đủ nhất (BCQT + tờ khai chi tiết + chứng từ sửa). Chọn HONG_AN làm DN test chính cho tuần 2-6.
+- Mapping với 49 kiểm tra: xem `.ai/sessions/2026-05-21-data-mapping.md`. Tất cả 30 kiểm tra Giai đoạn I (16 MVP + 14 W.I.P) chạy được. Giai đoạn II chưa có dữ liệu (đúng kế hoạch).
