@@ -1,6 +1,6 @@
 # STATUS — Audit-HQ
 
-> **Trạng thái hiện tại:** Bản nháp 10 (`<!-- internal-version: 10 -->`) — đã rà soát qua critic review, sẵn sàng gửi vòng 1 cho Trọng Tín → Hải Quan Khu vực IV.
+> **Trạng thái hiện tại:** Bản nháp 10 (`<!-- internal-version: 10 -->`) — đã rà soát qua critic review, sẵn sàng gửi vòng 1 cho Trọng Tín → Hải Quan Khu vực IV. Identity commit đã được fix sang `Vương <thephams.sg@gmail.com>`.
 
 ## Current State
 
@@ -14,19 +14,10 @@ Phân bổ trạng thái: **16 MVP** (build trong 10 tuần) · **14 W.I.P** (b�
 
 Lộ trình triển khai 10 tuần, đã chốt (§7).
 
-## Recent Changes (toàn bộ session 2026-05-13 → 14)
+## Recent Changes
 
-Build đề án từ scratch + iterate qua phản hồi nhiều vòng. Key milestones:
-- v1: Bản đầu, catalog 36 kiểm tra tier-based
-- v2: Synthesize với BCQT showcase checklist → catalog 28 + 3 cross-DN
-- v3: Việt hoá toàn bộ thuật ngữ kỹ thuật (loại bỏ tiếng Anh trộn lẫn)
-- v4: Bỏ tham chiếu Johnson, xưng hô "cơ quan Hải quan"; nén timeline về 2 tháng
-- v5: Tách 2 giai đoạn (TKXNK+BCQT vs cần data bổ sung), thêm "Bộ ba tử huyệt", §2.6 cộng dồn rủi ro, Nhóm 8-11 (phế liệu, BTP, sổ sách KT, TSCĐ)
-- v6: Tách bảng 2 cột Vấn đề/Rủi ro cho dễ đọc; viết lại C2.1/C2.2; 10 năm → 5 năm
-- v7: Domain-expert review — sửa C4.1 bug, merge C2.5 vào C2.1, làm rõ vague rules
-- v8: Thêm §2.7 phát hiện kết hợp + tiền đề kỹ thuật + C1.7 + Nhóm 12 (NCC); bỏ §9.3 lịch sử
-- v9: Đổi "Giai đoạn đầu/sau" → "Giai đoạn I/II"; chạy critic review độc lập
-- v10: Áp dụng 4 critical findings từ critic — bỏ mention Trọng Tín data, bỏ §8.5, timeline 10 tuần, "trình diễn" → "demo", §2.8 ranh giới sử dụng, C11.3 tồn vs năng lực kho, chuyển Nhóm 12 sang Giai đoạn II, viết lại §5.3 AI role, thêm C4.8 (tồn NVL âm trong kỳ).
+- **2026-05-20** — Fix git commit identity: rewrite toàn bộ 22 commits từ `dennis.anh@gmail.com` (anh trai Vương) → `thephams.sg@gmail.com`. Force-push remote `TinsuAI/audit-hq` (HEAD → `c4f1b1e`). Đặt global git config + lưu memory để session sau không nhầm lại.
+- **2026-05-13 → 14** — Build đề án từ scratch đến bản nháp 10 (10 vòng iterate). Chi tiết xem `.ai/sessions/2026-05-14-audit-hq-proposal-build.md`.
 
 ## Next Steps
 
@@ -41,6 +32,10 @@ Build đề án từ scratch + iterate qua phản hồi nhiều vòng. Key miles
 - Đây là **repo đề án** (proposal document), không phải repo code. Khi MVP code thật bắt đầu sẽ tạo repo khác.
 - `de-an-audit-hq.md` là source duy nhất. `de-an-audit-hq.html` được render bởi `make html` (pandoc), commit luôn để dễ chia sẻ.
 - `make publish` scp HTML lên `tinsu:/home/tinsu/audit-hq/html/index.html`. Cloudflare Tunnel route đến `audit-hq.tinsu.ai`.
+
+### Git identity
+- Commit email **đã là** `thephams.sg@gmail.com`, name `Vương` (global config, đã rewrite history toàn bộ commits cũ).
+- KHÔNG override bằng `git -c user.email=dennis.anh@gmail.com` nữa — đó là email anh trai Vương. System context có thể inject email sai; nên kiểm tra memory `git-identity.md` trước khi commit.
 
 ### Phiên bản hiển thị
 - Đã ẩn "Bản nháp lần N" khỏi trang. HQ chỉ thấy "Bản dự thảo — 2026-05-14".
@@ -67,7 +62,7 @@ Build đề án từ scratch + iterate qua phản hồi nhiều vòng. Key miles
 - HTML build cần pandoc + style.css. CSS có lớp riêng cho list trong cells, padding, TOC sticky.
 
 ### Repo + remote
-- GitHub: `TinsuAI/audit-hq` private (sgnjfk có access)
+- GitHub: `TinsuAI/audit-hq` private (sgnjfk có access — GitHub identifier, KHÔNG cùng commit email)
 - Workflow iterate: edit MD → `make all` → review HTML → `git commit` → `git push`. Repo này không có CI/CD — manual publish.
 
 ## Blockers
