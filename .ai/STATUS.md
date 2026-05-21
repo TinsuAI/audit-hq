@@ -16,17 +16,22 @@ Lộ trình triển khai 10 tuần, đã chốt (§7).
 
 ## Recent Changes
 
-- **2026-05-21** — HQ duyệt nguyên tắc đề án. Trọng Tín gửi dữ liệu nền (`TONG HOP BCQT-20260520T161442Z-3-001.zip`, 622 file, 497MB, 6 DN). Đã sắp xếp vào `data/raw/<DN>/<năm>/<loại>/` (gitignored). Đã viết `data/README.md`, mapping dữ liệu ↔ catalog (`.ai/sessions/2026-05-21-data-mapping.md`), và phương án demo MVP (`.ai/sessions/2026-05-21-demo-plan.md`).
+- **2026-05-21 (cuối)** — MVP build xong toàn bộ 10 tuần + UOM admin trong 1 session marathon. Demo public tại **https://audit-hq-demo.tinsu.ai** (admin/admin, basic-auth). Repo MVP `TinsuAI/audit-hq-mvp` (build `fd263f6`). Chi tiết session log: `audit-hq-mvp/.ai/sessions/2026-05-21-mvp-build-deploy.md` (15 commits, 113 tests pass, ranking demo DN_003=7896 → DN_005=3 đúng tinh thần §6.3).
+- **2026-05-21 (sáng)** — HQ duyệt nguyên tắc đề án. Trọng Tín gửi dữ liệu nền (`TONG HOP BCQT-20260520T161442Z-3-001.zip`, 622 file, 497MB, 6 DN). Đã sắp xếp vào `data/raw/<DN>/<năm>/<loại>/` (gitignored). Đã viết `data/README.md`, mapping dữ liệu ↔ catalog (`.ai/sessions/2026-05-21-data-mapping.md`), và phương án demo MVP (`.ai/sessions/2026-05-21-demo-plan.md`).
 - **2026-05-20** — Fix git commit identity: rewrite toàn bộ 22 commits từ `dennis.anh@gmail.com` (anh trai Vương) → `thephams.sg@gmail.com`. Force-push remote `TinsuAI/audit-hq` (HEAD → `c4f1b1e`). Đặt global git config + lưu memory để session sau không nhầm lại.
 - **2026-05-13 → 14** — Build đề án từ scratch đến bản nháp 10 (10 vòng iterate). Chi tiết xem `.ai/sessions/2026-05-14-audit-hq-proposal-build.md`.
 
 ## Next Steps
 
-1. **User duyệt phương án demo** (`.ai/sessions/2026-05-21-demo-plan.md` mục 6 — open questions).
-2. **Tạo repo `TinsuAI/audit-hq-mvp`** (private, sgnjfk có access).
-3. **Tuần 1 lộ trình §7**: khởi tạo repo, setup FastAPI + SQLite + Docker compose, reuse base từ `BCQT-System`.
-4. **Tuần 2**: viết adapters đọc M15/M15a/M16/BCCT trên DN HONG_AN 2024 (dữ liệu phong phú nhất).
-5. **Phản hồi từ HQ về câu hỏi mở** (§8 đề án) — nếu HQ trả lời thêm trước khi MVP xong, bump v11.
+1. **Tổng duyệt nội bộ Trọng Tín + Tinsu** trên live demo `audit-hq-demo.tinsu.ai`. Chạy kịch bản 5 phút §6.3 đầu cuối.
+2. **Demo cho HQ** sau khi pass internal review.
+3. **Phản hồi từ HQ về câu hỏi mở** (§8 đề án) — bump v11 nếu có điều chỉnh.
+4. **Tuỳ phản hồi HQ** → §7.7 (thí điểm Chi Cục Khu vực IV, mở Giai đoạn II, tích hợp VNACCS).
+
+**Lưu ý cho session sau:**
+- MVP work đã chuyển hoàn toàn sang repo `audit-hq-mvp`. Repo audit-hq này tiếp tục là source of truth cho catalog 49 kiểm tra + tài liệu đề án.
+- Khi HQ feedback yêu cầu thêm/sửa check → update đề án ở đây trước, audit-hq-mvp follow.
+- Khi MVP gặp false-positive đơn vị tính → vào `/admin/units` thêm alias, không cần code.
 
 ## Notes for Next AI Session
 
