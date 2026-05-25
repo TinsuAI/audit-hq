@@ -16,6 +16,12 @@ Lộ trình triển khai 10 tuần, đã chốt (§7).
 
 ## Recent Changes
 
+- **2026-05-25** — MVP demo polish (work ở repo `audit-hq-mvp`, không đụng đề án).
+  - Filter dataset live còn **4 DN** có giai đoạn liền nhau BCQT+BCCT (HONG_AN/GROWATT/KIM_LONG/DO_THANH). Loại HONG_PHUC + HIEP_QUANG.
+  - Đổi tên DN demo từ "Doanh nghiệp DN_xxx" → "Công ty TNHH \<Ngành\> \<Địa danh\> (Demo)" để cán bộ HQ có mental model thật, hậu tố (Demo) bắt buộc không nhầm lẫn.
+  - Banner vàng "🧪 Dữ liệu mẫu" trên top mọi page demo.
+  - UX bảng data: curate cột (7-10 thay vì 14-19), line-clamp 2 dòng + tooltip cho text dài, format số/ngày, ẩn `source_file` để không leak DN gốc.
+  - Build `cbc4c8f` live. Chi tiết: `audit-hq-mvp/.ai/sessions/2026-05-25-filter-4dn-ux-rename-deploy.md`.
 - **2026-05-21 (cuối)** — MVP build xong toàn bộ 10 tuần + UOM admin trong 1 session marathon. Demo public tại **https://audit-hq-demo.tinsu.ai** (admin/admin, basic-auth). Repo MVP `TinsuAI/audit-hq-mvp` (build `fd263f6`). Chi tiết session log: `audit-hq-mvp/.ai/sessions/2026-05-21-mvp-build-deploy.md` (15 commits, 113 tests pass, ranking demo DN_003=7896 → DN_005=3 đúng tinh thần §6.3).
 - **2026-05-21 (sáng)** — HQ duyệt nguyên tắc đề án. Trọng Tín gửi dữ liệu nền (`TONG HOP BCQT-20260520T161442Z-3-001.zip`, 622 file, 497MB, 6 DN). Đã sắp xếp vào `data/raw/<DN>/<năm>/<loại>/` (gitignored). Đã viết `data/README.md`, mapping dữ liệu ↔ catalog (`.ai/sessions/2026-05-21-data-mapping.md`), và phương án demo MVP (`.ai/sessions/2026-05-21-demo-plan.md`).
 - **2026-05-20** — Fix git commit identity: rewrite toàn bộ 22 commits từ `dennis.anh@gmail.com` (anh trai Vương) → `thephams.sg@gmail.com`. Force-push remote `TinsuAI/audit-hq` (HEAD → `c4f1b1e`). Đặt global git config + lưu memory để session sau không nhầm lại.
