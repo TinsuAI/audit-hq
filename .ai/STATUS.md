@@ -16,7 +16,13 @@ Lộ trình triển khai 10 tuần, đã chốt (§7).
 
 ## Recent Changes
 
-- **2026-05-25 → 26** — Cross-ref MVP marathon ở repo `audit-hq-mvp` (không đụng đề án). Hai mạch lớn:
+- **2026-05-26 (chiều)** — Cross-ref MVP session jobs + scoring + legal docs (không đụng đề án). 5 commits:
+  - **Async job runner**: bảng `jobs` + worker thread + UI `/jobs` + navbar badge + zombie recovery. `POST /companies/{code}/run-checks` đổi sang enqueue BATCH_RUN (mọi năm có data) mặc định.
+  - **Rate-based scoring + 5 hạng neutral**: thay linear sum bằng rate per rule × severity weight, capped tại 10/rule, rescale 0-1000. Loại volume bias (test verify DN 500 mã = DN 50 mã cùng tỷ lệ). 5 nhãn: "Dữ liệu nhất quán" → "Bất thường nghiêm trọng". CỐ TÌNH KHÔNG dùng nhãn "Mức N" để tránh nhầm với 5 Mức tuân thủ của TT 81/2019.
+  - **Thư viện tài liệu `/tai-lieu`**: ingest 4 doc (scoring-methodology + TT 38/2015, TT 39/2018, TT 81/2019). Markdown render qua `python-markdown`. Index + categorize "Phương pháp luận" / "Văn bản pháp lý". Disclaimer pháp lý có link.
+  - **Bug deploy**: GitHub Actions 500 → deploy manual; lần đầu quên `DB_DATA_PATH` → mất DN, fix sau khi down+up đúng env. Build cuối: `222bf76`. 314 tests pass.
+  - Chi tiết: `audit-hq-mvp/.ai/sessions/2026-05-26-jobs-scoring-docs.md`.
+- **2026-05-25 → 26 (sáng)** — Cross-ref MVP marathon ở repo `audit-hq-mvp` (không đụng đề án). Hai mạch lớn:
   - **Trang chi tiết mã NVL/TP**: drill-in từ bảng (M15/M15a/M16/BCCT) và findings. Hero band + sparkline tồn qua các năm, tab theo năm với waterfall cân đối kho + đối chiếu BCCT vs BCQT + timeline scatter BCCT + Sankey BOM (sort + cap "+N khác" + stack ribbon proportional) + findings filter theo subject_key + AI quick-prompt button. Tab "Tất cả năm" có heatmap year × metric + cross-year table. 45 test mới.
   - **AI provider chain**: switch từ OpenRouter (tốn tiền) sang Google AI Studio Gemini 2.5 (free), thêm hybrid fallback NIM DeepSeek V4 khi Gemini cạn quota/lỗi. Settings + admin UI section 2b. Tracking actual model used qua `return_model=True`. Verified live: forcing Gemini 404 → DeepSeek tiếp quản trong cùng request, user không gián đoạn.
   - Build cuối session: `11e5f54`. 257 tests pass. Live trên `audit-hq-demo.tinsu.ai`. Chi tiết: `audit-hq-mvp/.ai/sessions/2026-05-26-item-detail-and-ai-fallback.md`.
