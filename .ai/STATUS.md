@@ -16,6 +16,11 @@ Lộ trình triển khai 10 tuần, đã chốt (§7).
 
 ## Recent Changes
 
+- **2026-05-25 → 26** — Cross-ref MVP marathon ở repo `audit-hq-mvp` (không đụng đề án). Hai mạch lớn:
+  - **Trang chi tiết mã NVL/TP**: drill-in từ bảng (M15/M15a/M16/BCCT) và findings. Hero band + sparkline tồn qua các năm, tab theo năm với waterfall cân đối kho + đối chiếu BCCT vs BCQT + timeline scatter BCCT + Sankey BOM (sort + cap "+N khác" + stack ribbon proportional) + findings filter theo subject_key + AI quick-prompt button. Tab "Tất cả năm" có heatmap year × metric + cross-year table. 45 test mới.
+  - **AI provider chain**: switch từ OpenRouter (tốn tiền) sang Google AI Studio Gemini 2.5 (free), thêm hybrid fallback NIM DeepSeek V4 khi Gemini cạn quota/lỗi. Settings + admin UI section 2b. Tracking actual model used qua `return_model=True`. Verified live: forcing Gemini 404 → DeepSeek tiếp quản trong cùng request, user không gián đoạn.
+  - Build cuối session: `11e5f54`. 257 tests pass. Live trên `audit-hq-demo.tinsu.ai`. Chi tiết: `audit-hq-mvp/.ai/sessions/2026-05-26-item-detail-and-ai-fallback.md`.
+
 - **2026-05-25** — MVP demo polish (work ở repo `audit-hq-mvp`, không đụng đề án).
   - Filter dataset live còn **4 DN** có giai đoạn liền nhau BCQT+BCCT (HONG_AN/GROWATT/KIM_LONG/DO_THANH). Loại HONG_PHUC + HIEP_QUANG.
   - Đổi tên DN demo từ "Doanh nghiệp DN_xxx" → "Công ty TNHH \<Ngành\> \<Địa danh\> (Demo)" để cán bộ HQ có mental model thật, hậu tố (Demo) bắt buộc không nhầm lẫn.
