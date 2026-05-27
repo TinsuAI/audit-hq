@@ -16,6 +16,14 @@ Lộ trình triển khai 10 tuần, đã chốt (§7).
 
 ## Recent Changes
 
+- **2026-05-27** — Cross-ref MVP session catalog + tiers + i18n (không đụng đề án). 5 commits trên `audit-hq-mvp`:
+  - **Trang catalog 49 `/danh-muc-kiem-tra`**: hiển thị toàn bộ §4 đề án với badge MVP/WIP/conditional. Source: `app/catalog_full.py` (49 entry hardcoded khớp §4.3 đếm 16+14+19). Dùng để demo HQ thấy lộ trình tổng thể.
+  - **Navbar redesign**: gom 4 mục admin vào dropdown "⚙️ Quản trị", thêm dropdown user nhỏ. UX gọn cho cán bộ HQ không quen UI nhiều mục.
+  - **Ngưỡng hạng rủi ro configurable** `/admin/risk-tiers`: bảng mới `app_settings` (key/value). **Default đổi 100/300/600/850/1000 → 50/100/300/600/1000 theo yêu cầu user**. Đổi ngưỡng không re-run check (tier compute lúc view). 5 nhãn neutral giữ nguyên.
+  - **Rà soát ngôn ngữ thuần Việt**: 19 template + STATUS_LABEL. Bỏ Draft/Published/preview/spec/kind/tier/fallback/timeout/admin/upload trong UI. Giữ acronym ngành (BCQT/M15/M16/HS/MST/A42/E11-E62) + tech phổ biến (AI/JSON/API/HTTP).
+  - **CI fixes**: conftest autouse fixture cho default engine schema; 32 ruff errors pre-existing.
+  - Build cuối: `22aaa7b`. 406 tests pass. Live trên `audit-hq-demo.tinsu.ai`.
+  - Chi tiết: `audit-hq-mvp/.ai/sessions/2026-05-27-catalog-tiers-i18n.md`.
 - **2026-05-26 (chiều)** — Cross-ref MVP session jobs + scoring + legal docs (không đụng đề án). 5 commits:
   - **Async job runner**: bảng `jobs` + worker thread + UI `/jobs` + navbar badge + zombie recovery. `POST /companies/{code}/run-checks` đổi sang enqueue BATCH_RUN (mọi năm có data) mặc định.
   - **Rate-based scoring + 5 hạng neutral**: thay linear sum bằng rate per rule × severity weight, capped tại 10/rule, rescale 0-1000. Loại volume bias (test verify DN 500 mã = DN 50 mã cùng tỷ lệ). 5 nhãn: "Dữ liệu nhất quán" → "Bất thường nghiêm trọng". CỐ TÌNH KHÔNG dùng nhãn "Mức N" để tránh nhầm với 5 Mức tuân thủ của TT 81/2019.
