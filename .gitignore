@@ -12,6 +12,7 @@ env/
 *.local
 
 data/raw/
+data/raw-hq-2026/
 data/synthetic/*.xlsx
 data/synthetic/*.xls
 data/anonymized/
