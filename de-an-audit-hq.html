@@ -894,9 +894,16 @@ M15a.</td>
 <tr class="odd">
 <td><strong>C4.3</strong></td>
 <td>Tổng tiêu hao tính theo M16 vượt xuất sản xuất M15 —
-Σ(<code>định_mức</code> × <code>xuất_khẩu_M15a</code>) theo mã nguyên
-vật liệu &gt; <code>xuất_sản_xuất</code> trong M15. Ngưỡng: vượt &gt;5%
-Cảnh báo · &gt;20% Nghiêm trọng.</td>
+Σ(<code>định_mức</code> × <code>sản_lượng_sản_xuất_M15a</code>) theo mã
+nguyên vật liệu &gt; <code>xuất_sản_xuất</code> trong M15. <strong>Số
+nhân là lượng sản phẩm sản xuất nhập kho trong kỳ</strong> (Mẫu 15a),
+không phải lượng xuất khẩu: biểu tách riêng thì lấy cột (6) “Lượng SP
+sản xuất nhập kho / Input from Production” và loại lượng khách trả lại
+(7); biểu chuẩn chỉ có một cột “nhập trong kỳ” thì dùng cột đó (giả định
+hàng khách trả lại không đáng kể). Ngưỡng: vượt &gt;5% Cảnh báo ·
+&gt;20% Nghiêm trọng. Bổ sung: nếu tiêu hao lý thuyết vượt cả lượng NVL
+sẵn có (<code>tồn_đầu_kỳ</code> + <code>nhập_trong_kỳ</code>) thì là mâu
+thuẫn vật lý — nâng Nghiêm trọng.</td>
 <td>Đây là cách phổ biến nhất để lấy nguyên vật liệu miễn thuế ra bán
 nội địa — xây dựng định mức ảo bao gồm cả những thành phần không có thực
 trong sản phẩm, thổi phồng tiêu hao để hợp thức hoá nguyên vật liệu nhập

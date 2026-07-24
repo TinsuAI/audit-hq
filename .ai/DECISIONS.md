@@ -4,6 +4,20 @@ Log các quyết định quan trọng + lý do. Lock trong DRAFT v0.1 sau khi gr
 
 ---
 
+## 2026-07-24 — C4.3: số nhân định mức = sản lượng sản xuất, không phải xuất khẩu
+
+**Quyết định:** §4.1 đổi công thức C4.3 từ `Σ(định_mức × xuất_khẩu_M15a)` sang `Σ(định_mức × sản_lượng_sản_xuất_M15a)`. Số nhân là lượng SP sản xuất nhập kho trong kỳ. Bổ sung bậc "mâu thuẫn vật lý" (tiêu hao lý thuyết > tồn đầu + nhập → Nghiêm trọng).
+
+**Lý do:**
+- **Đề án tự mâu thuẫn:** §4.1 (công thức) ghi xuất khẩu, nhưng kịch bản demo §6.3 ("TP_X **sản xuất** 1.000 cái... 5.000 kg cần tiêu hao... M15 xuất SX 4.000 kg") dùng sản lượng. Sửa để hợp nhất — không phải đổi ngữ nghĩa.
+- **Cặp so sánh phải cùng biến cố:** C4.3 so với `xuất_sản_xuất` (NVL cấp cho sản xuất). Vế lý thuyết phải là NVL cần cho lượng **sản xuất** cùng kỳ. Dùng xuất khẩu tạo sai số đúng bằng biến động tồn thành phẩm (sản xuất ≠ bán), không phải tín hiệu tuân thủ.
+- **Đo trên dữ liệu thật (3 DN pilot):** cơ sở xuất khẩu 2.371 finding → cơ sở sản xuất 2.063 (−13%); hai chiều lỗi đều sửa được (kỳ dồn tồn export giấu tiêu hao thật, kỳ rút tồn export fire khống). Chi tiết `audit-hq-pilot/notes/13` (P-07) + phiên đo 2026-07-24.
+
+**Ràng buộc thực thi:**
+- Cột số nhân **không có trong biểu chuẩn** — biểu Mẫu 15a chuẩn (HONG_AN, 002, 006) chỉ có một cột "nhập trong kỳ" = sản xuất (6) + khách trả lại (7). Chỉ 004 tách riêng. Dùng cột gộp làm proxy với giả định trả lại ≈ 0 (004 xác nhận (7)=0); với biểu tách thì loại (7).
+- Ngưỡng bậc mâu thuẫn vật lý (đề xuất ≥2×) **chốt ở họp cán bộ** — chưa hard-code.
+- Trình tự: sửa đề án (xong) → sửa `audit-hq-mvp/app/checks/c4_norm.py` (đổi số nhân + tách (6)/(7) ở extended resolver + skip mã không-nguồn nhường C4.1) + ADR bên mvp, chạy lại 6 DN demo + 3 pilot, giải thích từng finding đổi.
+
 ## 2026-05-13 — Người dùng: Cán bộ Hải quan (Chi cục)
 
 **Quyết định:** Audit-HQ phục vụ cán bộ Hải quan tại đơn vị tiếp nhận **Chi Cục Hải Quan Khu vực IV**. Đề án không tách bạch phòng QLRR riêng — gọi chung "Hải quan" cho phù hợp ngôn ngữ Chi cục.
