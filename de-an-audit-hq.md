@@ -165,6 +165,10 @@ Cho toàn bộ danh sách doanh nghiệp:
 - 🚧 Bổ sung trong giai đoạn thí điểm (15 kiểm tra)
 - ⏳ Kích hoạt khi đã có đủ doanh nghiệp trong danh mục (3 kiểm tra Nhóm 7)
 
+> Dấu trạng thái nói kiểm tra vào ở GIAI ĐOẠN NÀO, không nói đã có mã nguồn hay chưa. Kiểm tra đánh
+> 🚧 vẫn có thể đã cài xong sớm trong giai đoạn thí điểm — **C4.9 là trường hợp đó** (cài 06/08/2026).
+> Số đã triển khai thực tế nằm ở danh mục trong hệ thống, không ở bảng này.
+
 **Mức độ:** 🔴 Nghiêm trọng · 🟡 Cảnh báo · 🔵 Thông tin
 
 ### Tiền đề kỹ thuật cho mọi kiểm tra
