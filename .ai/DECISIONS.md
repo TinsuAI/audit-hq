@@ -4,6 +4,26 @@ Log các quyết định quan trọng + lý do. Lock trong DRAFT v0.1 sau khi gr
 
 ---
 
+## 2026-08-05 — C4.9 mới + định mức hiệu lực kế thừa giữa các kỳ + cổng độ phủ định mức trên C4.3
+
+**Quyết định:** Thêm **C4.9** vào Nhóm 4 (danh mục 49 → 50, Giai đoạn I 33 → 34, 🚧 14 → 15): thành phẩm có sản xuất nhập kho trong kỳ mà không có định mức hiệu lực nào → liệt kê **từng mã**, không báo tổng. Đây là chiều M15a → M16, ngược với C4.2 (M16 → M15a); catalog cũ không có mã cho chiều này.
+
+Kèm ba sửa đổi ngữ nghĩa C4.3 trong §4.1:
+- **Định mức hiệu lực:** Mẫu 16 kế thừa giữa các kỳ, doanh nghiệp chỉ khai lại khi định mức thay đổi. Định mức áp cho kỳ N = bản khai có kỳ lớn nhất ≤ N của cùng cặp thành phẩm-NVL, gộp theo **sổ quyết toán** (ADR #19 bên mvp — mỗi sổ là ledger riêng, không cộng chéo). Trước đây lọc đúng `period_year == N` nên mã không khai lại thì mất định mức.
+- **Nhường C4.1:** mã NVL có tiêu hao lý thuyết mà không có dòng nào trong M15 thuộc C4.1, C4.3 bỏ qua — không coi `xuất_sản_xuất` = 0 rồi bắn Nghiêm trọng.
+- **Cổng độ phủ định mức:** có mã thành phẩm sản xuất trong kỳ mà chưa từng khai định mức ở bất kỳ kỳ nào → C4.3 trả *chưa đánh giá được* cho cả (doanh nghiệp, kỳ, sổ).
+
+**Lý do:**
+- Cả anh Dũng (2 bản ghi âm) lẫn chị Duyên (notes 05/08 và đề xuất 16/06, cách nhau 7 tuần) đều nêu luật kế thừa Mẫu 16. Anh Dũng gọi bảng liệt kê mã thiếu định mức là cốt lõi và dừng không đọc kết quả khi chưa có nó.
+- **Kết quả "0 phát hiện" trên dữ liệu thiếu là kết quả giả.** Không có cổng thì thiếu định mức làm doanh nghiệp trông sạch hơn — ngược hẳn hướng phải đi.
+- **Đo trên pilot (05/08/2026):** luật kế thừa xoá sạch 16/16 mã thiếu định mức cùng kỳ của DN 8/2025, và giải thích **0** cho DN 8/2024 lẫn toàn bộ DN 10 — luật tách đúng hai tình huống khác nhau, không phải luật làm mọi thứ biến mất. Trên DN 8/2025 nó đẩy 321/8.144 mã đổi bậc, 0 mã đi ngược. Áp cả hai cổng thì C4.3 còn 1.772/3.296 = 54% phát hiện, chỉ DN 8/2025 chạy được.
+- **Cổng nhị phân, không ngưỡng phần trăm:** đề xuất ngưỡng 5% và thước tỷ trọng sản lượng đã bị bác. Thành phẩm chưa khai định mức thì không biết nó tiêu hao NVL nào, nên không khoanh được vùng ảnh hưởng — phải chặn cả nhóm chứ không nhiễm theo từng mã.
+
+**Ràng buộc thực thi:**
+- Kỳ sớm nhất của mỗi doanh nghiệp mặc định *chưa đánh giá được*, trừ khi cán bộ xác nhận đó đúng là năm đầu nộp BCQT (trường mới `companies.first_bcqt_year` bên mvp). Không phân biệt được "chưa từng khai" với "đã khai trước cửa sổ dữ liệu mình có".
+- Trạng thái *chưa đánh giá được* phải bị loại khỏi điểm rủi ro ở **cả phần cộng điểm lẫn phần trần**. Chỉ bỏ phần cộng thì thiếu dữ liệu lại làm điểm đẹp lên.
+- Trình tự: sửa đề án (xong) → mvp issue #56 và bảy ticket con #57–#63.
+
 ## 2026-07-24 — C4.3: số nhân định mức = sản lượng sản xuất, không phải xuất khẩu
 
 **Quyết định:** §4.1 đổi công thức C4.3 từ `Σ(định_mức × xuất_khẩu_M15a)` sang `Σ(định_mức × sản_lượng_sản_xuất_M15a)`. Số nhân là lượng SP sản xuất nhập kho trong kỳ. Bổ sung bậc "mâu thuẫn vật lý" (tiêu hao lý thuyết > tồn đầu + nhập → Nghiêm trọng).

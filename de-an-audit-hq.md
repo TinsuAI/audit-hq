@@ -157,12 +157,12 @@ Cho toàn bộ danh sách doanh nghiệp:
 
 | Giai đoạn | Dữ liệu | Nhóm | Tổng |
 |---|---|---|---|
-| **Giai đoạn I** (§4.1) | TKXNK + BCQT đã nộp | 1, 2, 3, 4, 5, 6, 7 | 33 kiểm tra |
+| **Giai đoạn I** (§4.1) | TKXNK + BCQT đã nộp | 1, 2, 3, 4, 5, 6, 7 | 34 kiểm tra |
 | **Giai đoạn II** (§4.2) | Cần dữ liệu / điều kiện bổ sung | 8, 9, 10, 11, 12 | 16 kiểm tra |
 
 **Trạng thái** trong Giai đoạn I:
 - ✅ Xây dựng và demo trong 2 tháng (16 kiểm tra)
-- 🚧 Bổ sung trong giai đoạn thí điểm (14 kiểm tra)
+- 🚧 Bổ sung trong giai đoạn thí điểm (15 kiểm tra)
 - ⏳ Kích hoạt khi đã có đủ doanh nghiệp trong danh mục (3 kiểm tra Nhóm 7)
 
 **Mức độ:** 🔴 Nghiêm trọng · 🟡 Cảnh báo · 🔵 Thông tin
@@ -219,18 +219,19 @@ Trước khi áp dụng các kiểm tra dưới đây, hệ thống tự xử l�
 | **C3.2** | Mã HS không nhất quán trong kỳ (cùng mã vật tư) — ≥2 mã HS khác nhau trên các tờ khai. Ngưỡng: Khác phân nhóm (6 số) Thông tin · khác nhóm (4 số) Cảnh báo · khác chương (2 số) Nghiêm trọng. | Cố ý thay đổi mã HS để né các chính sách quản lý chuyên ngành (kiểm tra chất lượng, kiểm dịch) hoặc để hưởng thuế suất ưu đãi đặc biệt bất hợp pháp. | 🟡🔴 | ✅ |
 | **C3.3** | Đơn vị tính không nhất quán (cùng mã vật tư) — ≥2 đơn vị khác nhau giữa M15 và BCCT. | Sai đơn vị tính ×1000 khiến toàn bộ nhập/xuất/tồn sai hệ thống. | 🔴 | ✅ |
 
-### Nhóm 4 — Định mức M16 (8 kiểm tra)
+### Nhóm 4 — Định mức M16 (9 kiểm tra)
 
 | Mã | Vấn đề | Rủi ro | Mức | Trạng thái |
 |---|---|---|---|---|
 | **C4.1** | Nguyên vật liệu trong M16 không có nhập khẩu và không có tồn đầu kỳ — `mã_NVL` trong M16 nhưng (không có dòng trong M15) HOẶC (cả `nhập_trong_kỳ` = 0 VÀ `tồn_đầu_kỳ` = 0). Loại trừ trường hợp NVL còn tồn từ kỳ trước. | Nguyên vật liệu xuất hiện trong định mức nhưng không có nguồn nhập khẩu lẫn tồn đầu — không thể giải trình dòng vật tư từ tờ khai đến thành phẩm xuất khẩu. | 🔴 | ✅ |
 | **C4.2** | Thành phẩm trong M16 không có trong M15a — `mã_SP_xuất_khẩu` trong M16 nhưng không có dòng trong M15a. | Định mức cho thành phẩm không có trong báo cáo xuất khẩu. | 🟡 | 🚧 |
-| **C4.3** | Tổng tiêu hao tính theo M16 vượt xuất sản xuất M15 — Σ(`định_mức` × `sản_lượng_sản_xuất_M15a`) theo mã nguyên vật liệu > `xuất_sản_xuất` trong M15. **Số nhân là lượng sản phẩm sản xuất nhập kho trong kỳ** (Mẫu 15a), không phải lượng xuất khẩu: biểu tách riêng thì lấy cột (6) "Lượng SP sản xuất nhập kho / Input from Production" và loại lượng khách trả lại (7); biểu chuẩn chỉ có một cột "nhập trong kỳ" thì dùng cột đó (giả định hàng khách trả lại không đáng kể). Ngưỡng: vượt >5% Cảnh báo · >20% Nghiêm trọng. Bổ sung: nếu tiêu hao lý thuyết vượt cả lượng NVL sẵn có (`tồn_đầu_kỳ` + `nhập_trong_kỳ`) thì là mâu thuẫn vật lý — nâng Nghiêm trọng. | Đây là cách phổ biến nhất để lấy nguyên vật liệu miễn thuế ra bán nội địa — xây dựng định mức ảo bao gồm cả những thành phần không có thực trong sản phẩm, thổi phồng tiêu hao để hợp thức hoá nguyên vật liệu nhập khẩu dư. | 🟡🔴 | ✅ |
+| **C4.3** | Tổng tiêu hao tính theo M16 vượt xuất sản xuất M15 — Σ(`định_mức` × `sản_lượng_sản_xuất_M15a`) theo mã nguyên vật liệu > `xuất_sản_xuất` trong M15. **Số nhân là lượng sản phẩm sản xuất nhập kho trong kỳ** (Mẫu 15a), không phải lượng xuất khẩu: biểu tách riêng thì lấy cột (6) "Lượng SP sản xuất nhập kho / Input from Production" và loại lượng khách trả lại (7); biểu chuẩn chỉ có một cột "nhập trong kỳ" thì dùng cột đó (giả định hàng khách trả lại không đáng kể). Ngưỡng: vượt >5% Cảnh báo · >20% Nghiêm trọng. Bổ sung: nếu tiêu hao lý thuyết vượt cả lượng NVL sẵn có (`tồn_đầu_kỳ` + `nhập_trong_kỳ`) thì là mâu thuẫn vật lý — nâng Nghiêm trọng. **Định mức hiệu lực:** Mẫu 16 kế thừa giữa các kỳ, doanh nghiệp chỉ khai lại khi định mức thay đổi; định mức áp cho kỳ N là bản khai có kỳ lớn nhất ≤ N của cùng cặp thành phẩm-NVL trong cùng sổ quyết toán, không phải riêng bản khai đúng kỳ N. **Nhường C4.1:** mã NVL có tiêu hao lý thuyết mà không có dòng nào trong M15 thì thuộc C4.1 — C4.3 bỏ qua mã đó, không coi `xuất_sản_xuất` = 0. **Cổng độ phủ định mức:** nếu có mã thành phẩm sản xuất trong kỳ mà chưa từng khai định mức ở bất kỳ kỳ nào (xem C4.9) thì C4.3 trả trạng thái *chưa đánh giá được* cho cả (doanh nghiệp, kỳ, sổ), không trả 0 phát hiện. Cổng là nhị phân, không có ngưỡng phần trăm — thành phẩm chưa khai định mức thì không biết nó tiêu hao NVL nào, không khoanh được vùng ảnh hưởng. | Đây là cách phổ biến nhất để lấy nguyên vật liệu miễn thuế ra bán nội địa — xây dựng định mức ảo bao gồm cả những thành phần không có thực trong sản phẩm, thổi phồng tiêu hao để hợp thức hoá nguyên vật liệu nhập khẩu dư. | 🟡🔴 | ✅ |
 | **C4.4** | M16 phân mảnh: nhiều nguyên vật liệu cùng chức năng cho một thành phẩm. **Ví dụ thực tế**: 1 chiếc áo có 10 loại cúc khác nhau trong M16. Cách phát hiện: (A) ≥N mã có cùng HS 4 số trong 1 thành phẩm (mặc định) · (B) gom nhóm tên gần giống (xử lý ngôn ngữ tự nhiên) · (C) cơ quan Hải quan định nghĩa danh mục nhóm vật tư. Ngưỡng: ≥5 mã cùng HS / thành phẩm Cảnh báo · ≥10 Nghiêm trọng. | Phân mảnh nguyên vật liệu để che số lượng, hợp thức hoá nhập khẩu dư. | 🟡 | 🚧 |
 | **C4.5** | Định mức bằng 0 hoặc âm — `định_mức_thực_tế` ≤ 0 trên bất kỳ dòng M16 nào. | Lỗi dữ liệu hoặc cố tình khai 0 để che tiêu hao thực tế. | 🔴 | 🚧 |
 | **C4.6** | Định mức bất thường cao (giá trị ngoại lai thống kê) — `định_mức` cặp thành phẩm-nguyên vật liệu trong kỳ N vượt xa trung bình của chính cặp đó qua các kỳ trước của cùng doanh nghiệp. Ngưỡng: vượt trung bình ±3 độ lệch chuẩn Cảnh báo · ±5 độ lệch chuẩn Nghiêm trọng. Yêu cầu: doanh nghiệp có ≥3 kỳ BCQT để có cơ sở thống kê. | Thổi phồng định mức để hợp thức hoá nguyên vật liệu nhập khẩu vượt mức. | 🟡 | 🚧 |
 | **C4.7** | Phân bổ định mức bất thường (mở rộng từ C4.4) — phát hiện: (a) cùng cặp thành phẩm-NVL có nhiều định mức khác nhau trong cùng kỳ; (b) một nguyên vật liệu được dùng cho quá nhiều thành phẩm không liên quan; (c) một thành phẩm có số lượng dòng nguyên vật liệu vượt ngưỡng hợp lý của ngành. | phân mảnh định mức để hợp thức hoá nhiều mã NVL nhập khẩu, gây khó truy nguồn và che giấu lượng NVL dư / thất thoát · điều chỉnh định mức tuỳ ý để cân đối tồn kho · khai báo định mức quá rộng để hợp thức hoá NVL nhập khẩu miễn thuế cho thành phẩm không phù hợp thực tế sản xuất · có dấu hiệu tính toán / nguỵ tạo định mức nhân tạo để chế số liệu quyết toán thay vì phản ánh tiêu hao sản xuất thực tế. | 🟡🔴 | 🚧 |
 | **C4.8** | Tồn nguyên vật liệu âm tại một thời điểm trong kỳ — tính cộng dồn theo thời gian: `tồn_đầu_kỳ + Σ(nhập NVL đến thời điểm t) − Σ(định mức × thành phẩm xuất khẩu đến thời điểm t)` ở từng tháng (hoặc quý) trong kỳ. Nếu giá trị này âm tại bất kỳ thời điểm nào → cảnh báo. Yêu cầu: phân tích cộng dồn theo thời gian từ BCCT (dữ liệu đã có sẵn). | Định mức M16 khai cao bất thường (lý do chính), hoặc khai thừa thành phẩm xuất khẩu, hoặc khai thiếu nhập nguyên vật liệu. Doanh nghiệp "sản xuất nhiều hơn nguyên liệu thực có" trên giấy tờ — không thể giải trình nguồn cung. | 🔴 | 🚧 |
+| **C4.9** | Thành phẩm có sản xuất trong kỳ nhưng thiếu định mức — `mã_SP` có `sản_lượng_sản_xuất_nhập_kho` > 0 trong M15a mà không có định mức hiệu lực nào trong M16, kể cả bản khai của các kỳ trước (xem quy tắc định mức hiệu lực ở C4.3). Kết quả là **danh sách từng mã thành phẩm thiếu định mức**, không phải một con số tổng. Đây là chiều ngược của C4.2: C4.2 đi từ M16 sang M15a, C4.9 đi từ M15a sang M16. | Không có định mức thì không tính được tiêu hao lý thuyết cho phần sản lượng đó — mọi kiểm tra Nhóm 4 và Nhóm 5 dựng trên định mức đều thiếu cơ sở, và kết quả "không phát hiện" trở thành kết quả giả. Cũng là dấu hiệu doanh nghiệp nộp thiếu Mẫu 16. | 🟡 | 🚧 |
 
 ### Nhóm 5 — Truy nguồn nguyên vật liệu nhập khẩu (3 kiểm tra)
 
@@ -544,7 +545,7 @@ Các bước này không nằm trong cam kết 10 tuần vì phụ thuộc quy�
 
 ### 8.1 Về phạm vi nghiệp vụ
 
-1. Trong 49 kiểm tra đề xuất (33 Giai đoạn I + 16 Giai đoạn II), có kiểm tra nào cơ quan Hải quan đặc biệt quan tâm, hoặc có kiểm tra nào quan trọng mà đề án bỏ sót?
+1. Trong 50 kiểm tra đề xuất (34 Giai đoạn I + 16 Giai đoạn II), có kiểm tra nào cơ quan Hải quan đặc biệt quan tâm, hoặc có kiểm tra nào quan trọng mà đề án bỏ sót?
 2. Trong số 15 kiểm tra MVP cho demo 2 tháng, có kiểm tra nào cơ quan Hải quan muốn ưu tiên hơn?
 3. Báo cáo Excel kiến nghị kiểm tra có cần theo mẫu chính thức nào không?
 4. Hiện tại Chi cục đang dùng công cụ hoặc quy trình nào để chọn doanh nghiệp kiểm tra? Audit-HQ tích hợp hay thay thế?
