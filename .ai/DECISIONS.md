@@ -19,6 +19,8 @@ Kèm ba sửa đổi ngữ nghĩa C4.3 trong §4.1:
 - **Đo trên pilot (05/08/2026):** luật kế thừa xoá sạch 16/16 mã thiếu định mức cùng kỳ của DN 8/2025, và giải thích **0** cho DN 8/2024 lẫn toàn bộ DN 10 — luật tách đúng hai tình huống khác nhau, không phải luật làm mọi thứ biến mất. Trên DN 8/2025 nó đẩy 321/8.144 mã đổi bậc, 0 mã đi ngược. Áp cả hai cổng thì C4.3 còn 1.772/3.296 = 54% phát hiện, chỉ DN 8/2025 chạy được.
 - **Cổng nhị phân, không ngưỡng phần trăm:** đề xuất ngưỡng 5% và thước tỷ trọng sản lượng đã bị bác. Thành phẩm chưa khai định mức thì không biết nó tiêu hao NVL nào, nên không khoanh được vùng ảnh hưởng — phải chặn cả nhóm chứ không nhiễm theo từng mã.
 
+**Kèm theo — phạm vi C4.1 mở theo:** C4.3 nhường mã không có dòng M15 cho C4.1, nhưng C4.1 lọc đúng `period_year == year` nên không thấy mã có định mức kế thừa. Đo trên pilot 06/08/2026: **196 mã** rơi ra ngoài cả hai kiểm tra (188 ở DN 8/2025, 8 ở DN 10/2026). Phạm vi C4.1 thành hợp của (mã khai đúng kỳ) và (mã có tiêu hao lý thuyết > 0 theo định mức hiệu lực). Vẫn gắn với sản xuất trong kỳ, không mở thành "mọi mã từng khai". Sau khi sửa: khoảng hở = 0, C4.1 đi từ 36 lên 232 phát hiện trên 8 (DN, kỳ) pilot.
+
 **Ràng buộc thực thi:**
 - Kỳ sớm nhất của mỗi doanh nghiệp mặc định *chưa đánh giá được*, trừ khi cán bộ xác nhận đó đúng là năm đầu nộp BCQT (trường mới `companies.first_bcqt_year` bên mvp). Không phân biệt được "chưa từng khai" với "đã khai trước cửa sổ dữ liệu mình có".
 - Trạng thái *chưa đánh giá được* phải bị loại khỏi điểm rủi ro ở **cả phần cộng điểm lẫn phần trần**. Chỉ bỏ phần cộng thì thiếu dữ liệu lại làm điểm đẹp lên.
