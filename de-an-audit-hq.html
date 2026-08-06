@@ -850,9 +850,14 @@ hợp pháp.</td>
 <tr class="odd">
 <td><strong>C3.3</strong></td>
 <td>Đơn vị tính không nhất quán (cùng mã vật tư) — ≥2 đơn vị khác nhau
-giữa M15 và BCCT.</td>
-<td>Sai đơn vị tính ×1000 khiến toàn bộ nhập/xuất/tồn sai hệ thống.</td>
-<td>🔴</td>
+giữa M15, M16 và BCCT. Đơn vị của M16 lấy ở cột đơn vị tính của chính
+dòng định mức nguyên vật liệu. So sánh quy về đơn vị chuẩn: cùng đơn vị
+chuẩn dù viết khác thì bỏ qua · cùng họ quy đổi được (kg↔︎gam, m↔︎cm)
+Thông tin · khác họ hoặc không nhận dạng được Nghiêm trọng.</td>
+<td>Sai đơn vị tính ×1000 khiến toàn bộ nhập/xuất/tồn sai hệ thống. Đơn
+vị định mức lệch đơn vị tồn kho làm tiêu hao lý thuyết ở C4.3 sai đúng
+bằng hệ số quy đổi, mà không kiểm tra nào khác nhìn ra.</td>
+<td>🔵🔴</td>
 <td>✅</td>
 </tr>
 </tbody>
@@ -918,11 +923,15 @@ hàng khách trả lại không đáng kể). Ngưỡng: vượt &gt;5% Cảnh b
 sẵn có (<code>tồn_đầu_kỳ</code> + <code>nhập_trong_kỳ</code>) thì là mâu
 thuẫn vật lý — nâng Nghiêm trọng. <strong>Định mức hiệu lực:</strong>
 Mẫu 16 kế thừa giữa các kỳ, doanh nghiệp chỉ khai lại khi định mức thay
-đổi; định mức áp cho kỳ N là bản khai có kỳ lớn nhất ≤ N của cùng cặp
-thành phẩm-NVL trong cùng sổ quyết toán, không phải riêng bản khai đúng
-kỳ N. <strong>Nhường C4.1:</strong> mã NVL có tiêu hao lý thuyết mà
-không có dòng nào trong M15 thì thuộc C4.1 — C4.3 bỏ qua mã đó, không
-coi <code>xuất_sản_xuất</code> = 0. <strong>Cổng độ phủ định
+đổi; định mức áp cho kỳ N là <strong>bản khai có kỳ lớn nhất ≤ N của
+chính thành phẩm đó</strong> trong cùng sổ quyết toán, không phải riêng
+bản khai đúng kỳ N. Kế thừa theo <strong>thành phẩm</strong>, không ghép
+từng cặp thành phẩm-NVL: bản khai mới thay TRỌN định mức cũ của thành
+phẩm đó, nguyên vật liệu chỉ có ở bản khai cũ mà bản mới đã bỏ thì hết
+hiệu lực. Ghép từng cặp sẽ trộn hai bản khai thành một định mức chưa
+từng được khai. <strong>Nhường C4.1:</strong> mã NVL có tiêu hao lý
+thuyết mà không có dòng nào trong M15 thì thuộc C4.1 — C4.3 bỏ qua mã
+đó, không coi <code>xuất_sản_xuất</code> = 0. <strong>Cổng độ phủ định
 mức:</strong> nếu có mã thành phẩm sản xuất trong kỳ mà chưa từng khai
 định mức ở bất kỳ kỳ nào (xem C4.9) thì C4.3 trả trạng thái <em>chưa
 đánh giá được</em> cho cả (doanh nghiệp, kỳ, sổ), không trả 0 phát hiện.
