@@ -215,7 +215,7 @@ xuất (7 kiểm tra)</a></li>
 kho (4 kiểm tra)</a></li>
 <li><a href="#nhóm-3-phân-loại-hàng-hoá-3-kiểm-tra" id="toc-nhóm-3-phân-loại-hàng-hoá-3-kiểm-tra">Nhóm 3 — Phân loại hàng
 hoá (3 kiểm tra)</a></li>
-<li><a href="#nhóm-4-định-mức-m16-8-kiểm-tra" id="toc-nhóm-4-định-mức-m16-8-kiểm-tra">Nhóm 4 — Định mức M16 (8 kiểm
+<li><a href="#nhóm-4-định-mức-m16-9-kiểm-tra" id="toc-nhóm-4-định-mức-m16-9-kiểm-tra">Nhóm 4 — Định mức M16 (9 kiểm
 tra)</a></li>
 <li><a href="#nhóm-5-truy-nguồn-nguyên-vật-liệu-nhập-khẩu-3-kiểm-tra" id="toc-nhóm-5-truy-nguồn-nguyên-vật-liệu-nhập-khẩu-3-kiểm-tra">Nhóm 5 —
 Truy nguồn nguyên vật liệu nhập khẩu (3 kiểm tra)</a></li>
@@ -565,7 +565,7 @@ theo dữ liệu cần dùng:</p>
 <td><strong>Giai đoạn I</strong> (§4.1)</td>
 <td>TKXNK + BCQT đã nộp</td>
 <td>1, 2, 3, 4, 5, 6, 7</td>
-<td>33 kiểm tra</td>
+<td>34 kiểm tra</td>
 </tr>
 <tr class="even">
 <td><strong>Giai đoạn II</strong> (§4.2)</td>
@@ -576,9 +576,16 @@ theo dữ liệu cần dùng:</p>
 </tbody>
 </table>
 <p><strong>Trạng thái</strong> trong Giai đoạn I: - ✅ Xây dựng và demo
-trong 2 tháng (16 kiểm tra) - 🚧 Bổ sung trong giai đoạn thí điểm (14
+trong 2 tháng (16 kiểm tra) - 🚧 Bổ sung trong giai đoạn thí điểm (15
 kiểm tra) - ⏳ Kích hoạt khi đã có đủ doanh nghiệp trong danh mục (3
 kiểm tra Nhóm 7)</p>
+<blockquote>
+<p>Dấu trạng thái nói kiểm tra vào ở GIAI ĐOẠN NÀO, không nói đã có mã
+nguồn hay chưa. Kiểm tra đánh 🚧 vẫn có thể đã cài xong sớm trong giai
+đoạn thí điểm — <strong>C4.9 là trường hợp đó</strong> (cài 06/08/2026).
+Số đã triển khai thực tế nằm ở danh mục trong hệ thống, không ở bảng
+này.</p>
+</blockquote>
 <p><strong>Mức độ:</strong> 🔴 Nghiêm trọng · 🟡 Cảnh báo · 🔵 Thông
 tin</p>
 <h3 id="tiền-đề-kỹ-thuật-cho-mọi-kiểm-tra">Tiền đề kỹ thuật cho mọi kiểm
@@ -850,7 +857,7 @@ giữa M15 và BCCT.</td>
 </tr>
 </tbody>
 </table>
-<h3 id="nhóm-4-định-mức-m16-8-kiểm-tra">Nhóm 4 — Định mức M16 (8 kiểm
+<h3 id="nhóm-4-định-mức-m16-9-kiểm-tra">Nhóm 4 — Định mức M16 (9 kiểm
 tra)</h3>
 <table>
 <colgroup>
@@ -875,7 +882,13 @@ tra)</h3>
 <td>Nguyên vật liệu trong M16 không có nhập khẩu và không có tồn đầu kỳ
 — <code>mã_NVL</code> trong M16 nhưng (không có dòng trong M15) HOẶC (cả
 <code>nhập_trong_kỳ</code> = 0 VÀ <code>tồn_đầu_kỳ</code> = 0). Loại trừ
-trường hợp NVL còn tồn từ kỳ trước.</td>
+trường hợp NVL còn tồn từ kỳ trước. <strong>Phạm vi</strong> là hợp của
+hai tập: mã khai định mức đúng kỳ này, và mã có tiêu hao lý thuyết &gt;
+0 trong kỳ theo định mức hiệu lực kể cả bản khai kỳ trước (xem C4.3). Vế
+thứ hai là phần C4.3 nhường lại: mã không có dòng M15 thuộc về đây, và
+nếu C4.1 chỉ lọc đúng kỳ thì mã có định mức kế thừa sẽ không kiểm tra
+nào báo. Phạm vi gắn với sản xuất trong kỳ — thành phẩm không có sản
+lượng thì không kéo nguyên vật liệu của nó vào.</td>
 <td>Nguyên vật liệu xuất hiện trong định mức nhưng không có nguồn nhập
 khẩu lẫn tồn đầu — không thể giải trình dòng vật tư từ tờ khai đến thành
 phẩm xuất khẩu.</td>
@@ -903,7 +916,19 @@ sản xuất nhập kho / Input from Production” và loại lượng khách tr
 hàng khách trả lại không đáng kể). Ngưỡng: vượt &gt;5% Cảnh báo ·
 &gt;20% Nghiêm trọng. Bổ sung: nếu tiêu hao lý thuyết vượt cả lượng NVL
 sẵn có (<code>tồn_đầu_kỳ</code> + <code>nhập_trong_kỳ</code>) thì là mâu
-thuẫn vật lý — nâng Nghiêm trọng.</td>
+thuẫn vật lý — nâng Nghiêm trọng. <strong>Định mức hiệu lực:</strong>
+Mẫu 16 kế thừa giữa các kỳ, doanh nghiệp chỉ khai lại khi định mức thay
+đổi; định mức áp cho kỳ N là bản khai có kỳ lớn nhất ≤ N của cùng cặp
+thành phẩm-NVL trong cùng sổ quyết toán, không phải riêng bản khai đúng
+kỳ N. <strong>Nhường C4.1:</strong> mã NVL có tiêu hao lý thuyết mà
+không có dòng nào trong M15 thì thuộc C4.1 — C4.3 bỏ qua mã đó, không
+coi <code>xuất_sản_xuất</code> = 0. <strong>Cổng độ phủ định
+mức:</strong> nếu có mã thành phẩm sản xuất trong kỳ mà chưa từng khai
+định mức ở bất kỳ kỳ nào (xem C4.9) thì C4.3 trả trạng thái <em>chưa
+đánh giá được</em> cho cả (doanh nghiệp, kỳ, sổ), không trả 0 phát hiện.
+Cổng là nhị phân, không có ngưỡng phần trăm — thành phẩm chưa khai định
+mức thì không biết nó tiêu hao NVL nào, không khoanh được vùng ảnh
+hưởng.</td>
 <td>Đây là cách phổ biến nhất để lấy nguyên vật liệu miễn thuế ra bán
 nội địa — xây dựng định mức ảo bao gồm cả những thành phần không có thực
 trong sản phẩm, thổi phồng tiêu hao để hợp thức hoá nguyên vật liệu nhập
@@ -974,6 +999,22 @@ phẩm xuất khẩu, hoặc khai thiếu nhập nguyên vật liệu. Doanh ngh
 xuất nhiều hơn nguyên liệu thực có” trên giấy tờ — không thể giải trình
 nguồn cung.</td>
 <td>🔴</td>
+<td>🚧</td>
+</tr>
+<tr class="odd">
+<td><strong>C4.9</strong></td>
+<td>Thành phẩm có sản xuất trong kỳ nhưng thiếu định mức —
+<code>mã_SP</code> có <code>sản_lượng_sản_xuất_nhập_kho</code> &gt; 0
+trong M15a mà không có định mức hiệu lực nào trong M16, kể cả bản khai
+của các kỳ trước (xem quy tắc định mức hiệu lực ở C4.3). Kết quả là
+<strong>danh sách từng mã thành phẩm thiếu định mức</strong>, không phải
+một con số tổng. Đây là chiều ngược của C4.2: C4.2 đi từ M16 sang M15a,
+C4.9 đi từ M15a sang M16.</td>
+<td>Không có định mức thì không tính được tiêu hao lý thuyết cho phần
+sản lượng đó — mọi kiểm tra Nhóm 4 và Nhóm 5 dựng trên định mức đều
+thiếu cơ sở, và kết quả “không phát hiện” trở thành kết quả giả. Cũng là
+dấu hiệu doanh nghiệp nộp thiếu Mẫu 16.</td>
+<td>🟡</td>
 <td>🚧</td>
 </tr>
 </tbody>
@@ -2097,7 +2138,7 @@ quan</h2>
 thiện đề án và bắt đầu xây dựng.</p>
 <h3 id="về-phạm-vi-nghiệp-vụ">8.1 Về phạm vi nghiệp vụ</h3>
 <ol type="1">
-<li>Trong 49 kiểm tra đề xuất (33 Giai đoạn I + 16 Giai đoạn II), có
+<li>Trong 50 kiểm tra đề xuất (34 Giai đoạn I + 16 Giai đoạn II), có
 kiểm tra nào cơ quan Hải quan đặc biệt quan tâm, hoặc có kiểm tra nào
 quan trọng mà đề án bỏ sót?</li>
 <li>Trong số 15 kiểm tra MVP cho demo 2 tháng, có kiểm tra nào cơ quan
