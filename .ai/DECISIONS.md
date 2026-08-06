@@ -4,6 +4,25 @@ Log các quyết định quan trọng + lý do. Lock trong DRAFT v0.1 sau khi gr
 
 ---
 
+## 2026-08-06 — Định mức hiệu lực kế thừa theo THÀNH PHẨM, không ghép từng cặp
+
+**Quyết định:** Sửa luật định mức hiệu lực chốt 05/08: bản khai Mẫu 16 mới của một thành phẩm THAY TRỌN bản khai cũ của chính thành phẩm đó. Nguyên vật liệu chỉ có ở bản khai cũ mà bản mới đã bỏ thì hết hiệu lực. Trước đó luật ghép theo từng cặp (thành phẩm, NVL) — mỗi cặp lấy kỳ khai gần nhất của riêng nó.
+
+**Ví dụ owner nêu:** thành phẩm A khai định mức 2022, 2023 không khai lại, 2025 khai bản mới. Kỳ 2022 và 2023 dùng bản 2022; kỳ 2025 dùng ĐÚNG bản 2025.
+
+**Lý do:** ghép theo cặp tạo ra một định mức chưa từng được doanh nghiệp khai — trộn NVL của bản 2022 với NVL của bản 2025 thành một danh sách không tồn tại trên giấy tờ nào. Phát hiện dựng trên đó không giải trình được với doanh nghiệp.
+
+**Đo trên dữ liệu 06/08/2026:** ghép theo cặp giữ thêm **774 cặp trên 126 mã thành phẩm**, ở 4 kỳ (DN 8/2025: 451 cặp / 51 mã · DN 10/2026: 302 / 58 · DN 10/2025: 19 / 15 · DN 10/2024: 2 / 2). Mười kỳ còn lại của pilot không đổi.
+
+## 2026-08-06 — C3.3 so đơn vị tính của cả M16, không chỉ M15 với BCCT
+
+**Quyết định:** Phạm vi C3.3 mở từ (M15 ↔ BCCT) thành (M15 ↔ M16 ↔ BCCT), đơn vị M16 lấy ở cột đơn vị tính của dòng định mức nguyên vật liệu. Mức giữ nguyên thang cũ: cùng đơn vị chuẩn bỏ qua · cùng họ quy đổi được Thông tin · khác họ hoặc không nhận dạng được Nghiêm trọng. Không thêm mã mới — đây vẫn là một câu hỏi "cùng mã vật tư có mấy đơn vị".
+
+**Lý do:**
+- Chị Duyên nêu ở đề xuất 16/06 (mục J8): đơn vị của cùng một nguyên vật liệu phải khớp giữa M16 và M15. Sổ yêu cầu ghi ở dòng 2.6.
+- C4.3 nhân định mức với sản lượng rồi so với `xuất_sản_xuất` của M15. Hai vế lệch đơn vị thì kết quả sai đúng bằng hệ số quy đổi (kg vs gam là ×1000) mà không kiểm tra nào khác nhìn ra — C4.3 chỉ thấy một con số vượt ngưỡng.
+- **Đo trên dữ liệu thật 06/08/2026:** sau khi quy về đơn vị chuẩn, **9 mã** có đơn vị M16 khác đơn vị M15 (5 ở DN 9/2025, 3 ở DN 12/2025, 1 ở DN 11/2024). Ngoài ra 131 cặp có đơn vị không tra được trong bảng đơn vị chuẩn; cặp nào hai bên ghi giống hệt nhau thì thang cũ đã coi là khớp, không phát sinh phát hiện.
+
 ## 2026-08-05 — C4.9 mới + định mức hiệu lực kế thừa giữa các kỳ + cổng độ phủ định mức trên C4.3
 
 **Quyết định:** Thêm **C4.9** vào Nhóm 4 (danh mục 49 → 50, Giai đoạn I 33 → 34, 🚧 14 → 15): thành phẩm có sản xuất nhập kho trong kỳ mà không có định mức hiệu lực nào → liệt kê **từng mã**, không báo tổng. Đây là chiều M15a → M16, ngược với C4.2 (M16 → M15a); catalog cũ không có mã cho chiều này.
